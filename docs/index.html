@@ -1,6 +1,277 @@
-<html>
-<p>
-  hola mon
-</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso SAD - ASIR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom, #1f2937, #111827);
+      color: white;
+      padding: 2rem;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #60a5fa;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    p.description {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      text-align: center;
+      font-size: 1.125rem;
+      color: #d1d5db;
+    }
+    .button {
+      display: block;
+      margin: 1.5rem auto;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #2563eb;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background-color: #374151;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    .card p {
+      color: #d1d5db;
+      margin-top: 0.5rem;
+    }
+    a  {
+      text-decoration: none; /* Elimina l'efecte subratllat de dins de les targetes */
+      color: inherit; /* Manté el color del text original */
+
+    }
+    .icon {
+      font-size: 2rem;
+      color: #60a5fa;
+    }
+    .faq {
+      max-width: 800px;
+      margin: 4rem auto;
+    }
+    .faq h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .faq-item {
+      background-color: #374151;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .faq-item:hover {
+      background-color: #4b5563;
+    }
+    .faq-question {
+      font-weight: 600;
+      color: #60a5fa;
+    }
+    .faq-answer {
+      margin-top: 0.5rem;
+      display: none;
+      color: #d1d5db;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    footer {
+      background-color: #1f2937;
+      padding: 2rem;
+      margin-top: 4rem;
+      border-top: 1px solid #374151;
+      text-align: center;
+    }
+    footer h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #60a5fa;
+    }
+    footer p {
+      font-size: 0.875rem;
+      color: #9ca3af;
+    }
+    footer a {
+      color: #60a5fa;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @font-face {
+  font-family: 'CCSymbols';
+  src: url('fonts/CCSymbols.woff2') format('woff2'),
+       url('fonts/CCSymbols.woff') format('woff');
+  font-display: swap;
+  unicode-range: U+00A9, U+229C, U+1F10D-1F10F, U+1F16D-1F16F;
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#temario">Temario</a>
+    <a href="#faq">FAQ</a>
+  </nav>  -->
+
+  <section id="inicio">
+    <h1>Curso de Seguridad y Alta Disponibilidad (SAD)</h1>
+    <p class="description">
+      Forma parte del ciclo ASIR y prepárate para proteger sistemas informáticos con herramientas y técnicas modernas.
+    </p>
+  </section>
+
+  <section id="temario" class="grid">
+    <a href="ud_001.html">
+    <div class="card"><div class="icon">🛡️</div><h2>UD 1: Tratamiento Seguro de la Información</h2><p>Aprende a reconocer vulnerabilidades y aplicar pautas para proteger la información.</p></div>
+  </a>
+    <div class="card"><div class="icon">🔐</div><h2>UD 2: Mecanismos de Seguridad</h2><p>Descubre cómo funcionan los mecanismos que garantizan la integridad y confidencialidad de los sistemas.</p></div>
+    <div class="card"><div class="icon">🌐</div><h2>UD 3: Técnicas de Acceso Remoto</h2><p>Domina las herramientas y protocolos que permiten el acceso seguro a distancia.</p></div>
+    <div class="card"><div class="icon">🔥</div><h2>UD 4: Cortafuegos</h2><p>Implementa firewalls eficaces para proteger redes frente a accesos no autorizados.</p></div>
+    <div class="card"><div class="icon">🧭</div><h2>UD 5: Proxys</h2><p>Aprende a usar servidores proxy para mejorar la seguridad y anonimato en la red.</p></div>
+    <div class="card"><div class="icon">💾</div><h2>UD 6: Alta Disponibilidad</h2><p>Asegura la continuidad del servicio diseñando sistemas tolerantes a fallos.</p></div>
+    <div class="card"><div class="icon">⚖️</div><h2>UD 7: Legislación y Normativa</h2><p>Conoce el marco legal que rige la seguridad informática y la protección de datos.</p></div>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-item">
+      <div class="faq-question">¿Qué tipo de apuntes encontraré aquí?</div>
+      <div class="faq-answer">Podrás acceder a resúmenes, esquemas, presentaciones y ejercicios prácticos organizados por unidad didáctica.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">¿Puedo descargar los apuntes?</div>
+      <div class="faq-answer">Sí, todos los apuntes están disponibles para descarga gratuita en formato PDF u otros formatos accesibles.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">¿Quién ha elaborado estos apuntes?</div>
+      <div class="faq-answer">Los apuntes han sido elaborados por el profesor Enrique Iborra y revisados periódicamente para mantenerlos actualizados.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">¿Puedo colaborar con nuevos apuntes o correcciones?</div>
+      <div class="faq-answer">¡Claro! Puedes enviar tus materiales o sugerencias por correo al mail del profesor.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">¿Hay algún coste por utilizar este sitio?</div>
+      <div class="faq-answer">No. Todo el contenido está disponible bajo una licencia Creative Commons y es completamente gratuito.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">¿Con qué frecuencia se actualizan los contenidos?</div>
+      <div class="faq-answer">El repositorio se actualiza cada curso escolar con los últimos cambios y mejoras.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">¿Puedo usar estos apuntes para preparar exámenes oficiales?</div>
+      <div class="faq-answer">Sí, el contenido está alineado con el currículo del ciclo ASIR y es ideal para repasar antes de evaluaciones.</div>
+    </div>
   
+  </section>
+
+
+  <footer>
+    <h3>Módulo SAD - Ciclo ASIR</h3>
+    <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
+      Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F;
+    </p>
+    
+    <p>2025 - Autor: Enrique Iborra</p>
+    <p>
+      <a href="#inicio">Inicio</a> | 
+      <a href="#faq">FAQ</a> | 
+    </p>
+  </footer>
+
+  <script>
+    // Animación al hacer scroll
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+
+    // Preguntas frecuentes interactivas
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
 </html>
