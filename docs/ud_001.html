@@ -148,11 +148,70 @@
       transform: translateX(24px);
       background: #fff;
     }
+    .hgi-sun-01 {
+        transform: translateX(-24px);
+    }
+
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 1.8rem;
+      background: transparent;
+      color: white;
+      border: none;
+      z-index: 1002;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        transition: left 0.3s ease;
+        z-index: 1001;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      main {
+        margin-left: 0;
+        padding: 6rem 1rem 2rem 1rem;
+      }
+
+      footer {
+        margin-left: 0;
+      }
+
+      header h1 {
+        font-size: 1rem;
+      }
+
+      body {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()"></button>
-
+  <!--<button class="theme-toggle" onclick="toggleTheme()"></button> -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
+  </button>
+  <button class="hamburger" onclick="toggleMenu()">
+    ☰
+  </button>
+  
   <div class="sidebar">
     <a href="#privacidad">Privacidad, Coherencia y Disponibilidad</a>
     <a href="#seguridad">Seguridad Física y Lógica</a>
@@ -175,7 +234,7 @@
     <header>
       <h1>Unidad Didáctica 1: Tratamiento Seguro de la Información</h1>
     </header>
-
+    
     <main>
       <section id="privacidad">
         <h2>Privacidad, Coherencia y Disponibilidad</h2>
@@ -213,6 +272,35 @@
         <p>Estos tres principios (CID) forman la base de cualquier estrategia de seguridad informática. Su correcta
           implementación ayuda a proteger la confidencialidad, fiabilidad y accesibilidad de la información, creando 
           un entorno digital seguro y resiliente ante posibles amenazas.</p>
+                    
+        <h2> Seguridad Informática vs Seguridad de la Información</h2>
+      
+        <h3> Seguridad Informática</h3>
+        <p>Se enfoca en la <strong>protección de los sistemas informáticos</strong>: hardware, software, redes y dispositivos.</p>
+        <ul>
+          <li> Control de acceso a equipos y redes.</li>
+          <li> Uso de firewalls, antivirus, cifrado de dispositivos.</li>
+          <li> Evita ataques como malware, phishing, intrusiones, etc.</li>
+        </ul>
+      
+        <h3> Seguridad de la Información</h3>
+        <p>Es un concepto más amplio. Busca proteger <strong>toda la información</strong>, sin importar su forma o medio (digital o físico).</p>
+        <ul>
+          <li> Incluye documentos físicos, conversaciones, bases de datos, etc.</li>
+          <li> Aplica principios de confidencialidad, integridad y disponibilidad (CID).</li>
+          <li> Se apoya en políticas, normas, formación del personal, controles físicos, etc.</li>
+        </ul>
+      
+        <h3> Diferencias clave</h3>
+        <ul>
+          <li> <strong>Seguridad informática:</strong> Subconjunto técnico centrado en lo digital.</li>
+          <li> <strong>Seguridad de la información:</strong> Más amplia, abarca lo digital y lo físico.</li>
+        </ul>
+      
+        <h4> En resumen:</h4>
+        <p> La <strong>seguridad informática</strong> protege los sistemas que manejan la información.<br>
+            La <strong>seguridad de la información</strong> protege la información en sí, esté donde esté.</p>
+          
       </section>
 
 
@@ -849,39 +937,44 @@
     const navLinks = document.querySelectorAll('.sidebar a');
 
 
-    window.addEventListener('scroll', () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute('id');
-    }
-  });
+      window.addEventListener('scroll', () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').slice(1) === current) {
-      link.classList.add('active');
-    }
-  });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
 
-  // Añadir o quitar clase "scrolled" al header para cambios de fondo y altura
-  const header = document.querySelector('header');
-  if (window.scrollY > 20) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
+      // Añadir o quitar clase "scrolled" al header para cambios de fondo y altura
+      const header = document.querySelector('header');
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
 
-
-
-
+    /*function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } */
 
     function toggleTheme() {
       document.body.classList.toggle('dark-mode');
       const isDark = document.body.classList.contains('dark-mode');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+      const icon = document.getElementById('theme-icon');
+      icon.className = isDark ? 'hgi hgi-stroke hgi-moon-02' : 'hgi hgi-stroke hgi-sun-01';
     }
 
     // Cargar tema guardado
@@ -891,6 +984,12 @@
         document.body.classList.add('dark-mode');
       }
     });
+
+    function toggleMenu() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('open');
+    }
+
   </script>
 </body>
 </html>
