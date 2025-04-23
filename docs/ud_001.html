@@ -9,6 +9,15 @@
 
   <title>UD1 - Tratamiento seguro de la información</title>
   <style>
+    /*Carrega font de Creative commons*/
+    @font-face {
+      font-family: 'CCSymbols';
+      src: url('fonts/CCSymbols.woff2') format('woff2'),
+          url('fonts/CCSymbols.woff') format('woff');
+      font-display: swap;
+      unicode-range: U+00A9, U+229C, U+1F10D-1F10F, U+1F16D-1F16F;
+    }
+
     :root {
       --bg-color: #f4f6f8;
       --text-color: #333;
@@ -34,7 +43,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: clamp(12px, 2.5vw, 16px);
+      font-size: clamp(8px, 2.5vw, 18px);
       background: var(--bg-color);
       color: var(--text-color);
       display: flex;
@@ -94,7 +103,7 @@
     main {
       margin-left: 250px;
       padding: 6rem 2rem 2rem 2rem;
-      max-width: 900px;
+      /*max-width: 900px;*/
       flex: 1;
     }
     section {
@@ -156,6 +165,7 @@
         transform: translateX(-24px);
     }
 
+    /*menu hamburguesa*/
     .hamburger {
       display: none;
       position: fixed;
@@ -205,6 +215,8 @@
         flex-direction: column;
       }
     }
+    /*fin menu hamburguesa*/
+
   </style>
 </head>
 <body>
@@ -212,6 +224,8 @@
   <button class="theme-toggle" onclick="toggleTheme()">
     <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
   </button>
+
+  <!-- boto menu hamburguesa  +  javascript -->
   <button class="hamburger" onclick="toggleMenu()">
     ☰
   </button>
@@ -894,6 +908,13 @@
           <li> Requiere compartir la clave de forma segura.</li>
           <li> Ejemplo: Algoritmos como AES o DES.</li>
         </ul>
+
+        <p>Pero igual que tiene sus ventajas, tambien plantea algunas desventajas o inconvenientes.</p>
+        <ul>
+          <li> El intercambio de claves ( no seguro !! ).</li>
+          <li> El numero de claves que se necesitan ( para n peronas numclaves = n(n-1)/2).</li>
+          <li> Fortaleza de la clave. Principio de Kerckhoffs. La responsabilidad de la fortaleza de la clave recae sobre el usuario.</li>
+        </ul>
       
         <h3> Clave Asimétrica (Clave Pública y Privada)</h3>
         <p>En este sistema se utilizan <strong>dos claves distintas pero relacionadas</strong>:</p>
@@ -918,13 +939,20 @@
         </ul>
       
         <p>Ambos sistemas pueden combinarse en sistemas de seguridad modernos para aprovechar sus ventajas.</p>
-        
+
+        <a href="https://github.com/EnriqueIborra/SAD/blob/1d26f71947aac2ee50cb0e7c4c0cf11e129a55d9/UD3/UD3.1%20CRIPTOGRAFIA%20%20Csim-Hash.pdf">
+          <h3>Document Criptografia Simètrica + HASH</h3></a>
+        <a href="https://github.com/EnriqueIborra/SAD/blob/1d26f71947aac2ee50cb0e7c4c0cf11e129a55d9/UD3/UD3.2%20Esteganografia.pdf">
+          <h3>Esteganografia</h3></a> <p>Per treballar bé amb el fitxer d'estego, baixar-lo i obrir-lo en local</p>
+          
       </section>
 
     </main>
 
     <footer>
-      <p>&copy; 2025 UD1 - Seguridad de la Información</p>
+      <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
+        2025 - Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD1 - Seguridad de la Información 
+      </p>
     </footer>
   </div>
 
@@ -989,6 +1017,7 @@
       }
     });
 
+     // menu hamburguer
     function toggleMenu() {
         const sidebar = document.querySelector('.sidebar');
         sidebar.classList.toggle('open');

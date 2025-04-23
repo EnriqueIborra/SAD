@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5, user-scalable=yes">
+
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+
+  <title>UD2 - Seguridad Activa</title>
+  <style>
+    /*Carrega font de Creative commons*/
+    @font-face {
+      font-family: 'CCSymbols';
+      src: url('fonts/CCSymbols.woff2') format('woff2'),
+          url('fonts/CCSymbols.woff') format('woff');
+      font-display: swap;
+      unicode-range: U+00A9, U+229C, U+1F10D-1F10F, U+1F16D-1F16F;
+    }
+
+    :root {
+      --bg-color: #f4f6f8;
+      --text-color: #333;
+      --header-bg: #1e3a8a;
+      --sidebar-bg: #2563eb;
+      --link-bg: #3b82f6;
+      --link-hover: #60a5fa;
+      --section-bg: white;
+      --footer-bg: #1e3a8a;
+    }
+
+    body.dark-mode {
+      --bg-color: #1e1e2e;
+      --text-color: #e0e0e0;
+      --header-bg: #111827;
+      --sidebar-bg: #1e293b;
+      --link-bg: #334155;
+      --link-hover: #475569;
+      --section-bg: #2d2d44;
+      --footer-bg: #111827;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: clamp(8px, 2.5vw, 18px);
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 0.5rem 2rem;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: height 0.3s ease, background 0.3s ease; /* Transición suave */
+    }
+    header.scrolled {
+      background: rgba(30, 58, 138, 0.85);  /*menos opaco*/
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(4px);
+      height: 40px; /* altura reducida al hacer scroll */
+    }
+    header h1 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    .sidebar {
+      font-size: clamp(12px, 2.5vw, 16px);
+      width: 250px;
+      background: var(--sidebar-bg);
+      padding-top: 5rem;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      background: var(--link-bg);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: var(--link-hover);
+      transform: translateX(5px);
+    }
+    main {
+      margin-left: 250px;
+      padding: 6rem 2rem 2rem 2rem;
+      /*max-width: 900px;*/
+      flex: 1;
+    }
+    section {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--footer-bg);
+      color: white;
+      margin-left: 250px;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 50px;
+      height: 26px;
+      background: #ccc;
+      border-radius: 13px;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+    .theme-toggle::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: white;
+      margin: 2px;
+      transition: transform 0.3s ease;
+    }
+    body.dark-mode .theme-toggle {
+      background: #666;
+    }
+    body.dark-mode .theme-toggle::before {
+      transform: translateX(24px);
+      background: #fff;
+    }
+    .hgi-sun-01 {
+        transform: translateX(-24px);
+    }
+
+    /*menu hamburguesa*/
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 1.8rem;
+      background: transparent;
+      color: white;
+      border: none;
+      z-index: 1002;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        transition: left 0.3s ease;
+        z-index: 1001;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      main {
+        margin-left: 0;
+        padding: 6rem 1rem 2rem 1rem;
+      }
+
+      footer {
+        margin-left: 0;
+      }
+
+      header h1 {
+        font-size: 1rem;
+      }
+
+      body {
+        flex-direction: column;
+      }
+    }
+    /*fin menu hamburguesa*/
+
+    .ataque {
+      background: white;
+      border-left: 6px solid #007BFF;
+      margin: 10px auto;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .ataque h2 {
+      margin-top: 0;
+      color: #007BFF;
+    }
+
+    .alert {
+      background: #fff3cd;
+      border-left: 6px solid #f39c12;
+    }
+    .tips {
+      background: #e0f7e9;
+      border-left: 6px solid #27ae60;
+    }
+
+  </style>
+</head>
+<body>
+  <!--<button class="theme-toggle" onclick="toggleTheme()"></button> -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
+  </button>
+
+  <!-- boto menu hamburguesa  +  javascript -->
+  <button class="hamburger" onclick="toggleMenu()">
+    ☰
+  </button>
+  
+  <div class="sidebar">
+    <a href="#firma-digital">Hash y Firma Digital</a>
+    <a href="#cert-digital">Certificado Digital y PKI</a>
+    <a href="#amenazas">Tipos de Amenazas</a>
+    <a href="#correo">Ataques a correo electronico</a>
+    <a href="#origenapps">Origen y autenticidad de aplicaciones</a>
+    <a href="#actualizaciones">Actualizaciones del SO y Aplicaciones</a>
+    <a href="#swamenazas">Software de detección de Amenazas</a>
+    <a href="#wifi">Medidas de seguridad en redes inalambricas</a>
+    <a href="#inventariar">Inventariar servicios de red</a>
+    <a href="#ids">IDS. Sistemas de Deteccion de Intrusos</a>
+  </div>
+
+  <div style="width: 100%;">
+    <header>
+      <h1>Unidad Didáctica 2: Seguridad Activa</h1>
+    </header>
+    
+    <main>
+      <section id="firma-digital">
+              
+          <h2> HASH y Firma Digital</h2>
+        
+          <h3> ¿Qué es un HASH?</h3>
+          <p>Un <strong>hash</strong> es una función matemática que transforma cualquier dato (texto, archivo, etc.) en una cadena única de caracteres.</p>
+          <ul>
+            <li> Siempre genera una salida del mismo tamaño, sin importar el tamaño del archivo de entrada.</li>
+            <li> Un pequeño cambio en los datos produce un hash completamente distinto.</li>
+            <li> La función hash NO es reversible.</li>
+            <li> Ejemplo de hash (SHA-256):<br>
+            <code>e3b0c44298fc1c14... (64 caracteres)</code></li>
+          </ul>
+          <p> Se utiliza para <strong>verificar la integridad</strong> de los datos. Si el hash cambia, los datos han sido modificados.</p>
+        
+            
+        <h3> Usos comunes de las funciones HASH</h3>
+        
+        <ul>
+            <li> <strong>Verificación de integridad:</strong> Comprobar si un archivo ha sido modificado comparando su hash original con uno nuevo.</li>
+            <li> <strong>Almacenamiento seguro de contraseñas:</strong> Las contraseñas no se guardan como texto plano, sino como hashes. Así, aunque se acceda a la base de datos, no se conoce la contraseña real.</li>
+            <li> <strong>Identificación de archivos:</strong> Sistemas de gestión de archivos o descargas (como torrents) usan hashes para identificar archivos únicos y evitar duplicados.</li>
+            <li> <strong>Firmas digitales:</strong> El hash es la base sobre la que se aplica la clave privada para generar una firma digital.</li>
+            <li> <strong>Estructuras de datos:</strong> En programación, estructuras como las tablas hash permiten acceder rápidamente a datos usando claves.</li>
+            <li> <strong>Blockchain y criptomonedas:</strong> Cada bloque contiene el hash del anterior. Así se garantiza la integridad de toda la cadena de bloques.</li>
+            <li> <strong>Generación de identificadores únicos:</strong> Para identificar usuarios, sesiones, transacciones, etc., de forma segura y eficiente.</li>
+        </ul>
+        
+        <!DOCTYPE html>
+
+
+        <h3>🔢 Tipos de Funciones Hash</h3>
+
+        <p>Existen varias funciones hash, cada una con diferentes niveles de seguridad y velocidad.</p>
+
+        <ul>
+            <li> <strong>MD5 (Message Digest 5):</strong><br>
+            ➤ Genera hashes de 128 bits (32 caracteres hexadecimales).<br>
+            ⚠️ Ya no es considerado seguro para criptografía, pero aún se usa para integridad de archivos.</li>
+
+            <li> <strong>SHA-1 (Secure Hash Algorithm 1):</strong><br>
+            ➤ Produce hashes de 160 bits.<br>
+            ⚠️ También ha sido vulnerado, por lo que se desaconseja su uso en seguridad crítica.</li>
+
+            <li> <strong>SHA-256:</strong><br>
+            ➤ Parte de la familia SHA-2.<br>
+            ➤ Genera hashes de 256 bits (64 caracteres hexadecimales).<br>
+            ✅ Muy utilizado en blockchain y seguridad moderna.</li>
+
+            <li> <strong>SHA-512:</strong><br>
+            ➤ Similar a SHA-256 pero con una longitud de 512 bits.<br>
+            ➤ Más seguro pero también más pesado computacionalmente.</li>
+
+            <li> <strong>BLAKE2:</strong><br>
+            ➤ Más rápido que SHA-2 y con buena seguridad.<br>
+            ➤ Alternativa moderna recomendada en muchos entornos.</li>
+
+            <li> <strong>RIPEMD-160:</strong><br>
+            ➤ Usado en aplicaciones como Bitcoin junto con SHA-256.</li>
+        </ul>
+
+        <h3>📝 Nota:</h3>
+        <p>No todas las funciones hash son adecuadas para seguridad. Para contraseñas, se recomienda usar funciones diseñadas para ello, como:</p>
+
+        <ul>
+            <li> <strong>bcrypt</strong></li>
+            <li> <strong>scrypt</strong></li>
+            <li> <strong>Argon2</strong> (ganador del Password Hashing Competition)</li>
+        </ul>
+
+          <h3>✍️ ¿Qué es una Firma Digital?</h3>
+          <p>Una <strong>firma digital</strong> es un mecanismo criptográfico que garantiza que un documento:</p>
+          <ul>
+            <li> No ha sido modificado (integridad).</li>
+            <li> Proviene del remitente esperado (autenticidad).</li>
+            <li> No puede ser repudiado (no repudio).</li>
+          </ul>
+          <p> Para crearla se usan:</p>
+          <ol>
+            <li> El hash del documento.</li>
+            <li> Una clave privada del remitente que cifra ese hash.</li>
+          </ol>
+          <p> El receptor puede verificar la firma usando la clave pública del emisor.</p>
+        
+          <h4> En resumen:</h4>
+          <ul>
+            <li> <strong>Hash:</strong> Detecta si un archivo ha sido alterado.</li>
+            <li> <strong>Firma digital:</strong> Garantiza que el archivo es original y viene de quien dice enviarlo.</li>
+          </ul>
+
+      </section>
+
+      <section id="cert-digital">
+                
+          <h2>📄 Certificados Digitales</h2>
+        
+          <p>Un <strong>certificado digital</strong> es como un "DNI electrónico" que identifica de forma segura a una persona, empresa o servidor en Internet.</p>
+        
+          <h3> ¿Qué contiene un certificado digital?</h3>
+          <ul>
+            <li>👤 Nombre del titular</li>
+            <li>🔑 Clave pública del titular</li>
+            <li>🧾 Información de la entidad que lo emite (Autoridad de Certificación)</li>
+            <li>✍️ Firma digital de la Autoridad de Certificación (CA)</li>
+            <li>📅 Fecha de emisión y caducidad</li>
+            <li>Otros datos de interes...</li>
+          </ul>
+        
+          <h3>🏢 ¿Qué es una Autoridad de Certificación (CA)?</h3>
+          <p>Es una entidad confiable que se encarga de emitir y validar los certificados digitales. Ejemplos conocidos:</p>
+          <ul>
+            <li>🏛️ FNMT – Fábrica Nacional de Moneda y Timbre</li>
+            <li> ACCV – Autoritat de Certificació de la Comunitat Valenciana</li>
+            <li> Entrust Root Certification Authority (dni-e)</li>
+            <li> Izenpe - Autoridad vasca de certificación.</li>
+            <li> CATCert (fusionada en AOC)</li>
+            <li> Camerfirma (Cámaras de comercio)</li>
+            <li>🔏 ANCERT - Autoridad de Certificación del Consejo General del Notariado</li>
+            <li> Let's Encrypt</li>
+            <li> DigiCert</li>
+            <li> GlobalSign</li>
+            <li>Y mas....</li>
+          </ul>
+          <p>⚠️ Normalmente, todas estas CA se suministran ya instaladas en los Sistemas Operativos, pero se pueden añadir mas...</p>
+        
+          <h3> ¿Para qué se usan los certificados digitales?</h3>
+          <ul>
+            <li>🔐 <strong>Cifrado de comunicaciones:</strong> Protegen la información entre tu navegador y un sitio web (HTTPS).</li>
+            <li>✅ <strong>Autenticación:</strong> Verifican que estás hablando con el servidor legítimo, no con un impostor.</li>
+            <li>✍️ <strong>Firmas digitales:</strong> Aseguran que un documento electrónico no ha sido alterado.</li>
+            <li>💼 <strong>Gestión de identidad:</strong> En empresas o gobiernos, se usan para acceder a servicios seguros.</li>
+          </ul>
+        
+          <h3> ¿Cómo funciona?</h3>
+          <ol>
+            <li>1️⃣ El servidor envía su certificado digital al navegador.</li>
+            <li>2️⃣ El navegador comprueba si la CA es de confianza.</li>
+            <li>3️⃣ Si todo es válido, se establece una conexión cifrada.</li>
+          </ol>
+        
+          <h3> En resumen:</h3>
+          <p>Un certificado digital permite <strong>cifrar, autenticar y verificar</strong> en el mundo digital de forma segura.</p>
+          <strong>Y para que un certificado digital funcione necesitamos una PKI (Infraestructura de Clave Pública)</strong>
+        
+
+        <h2>🏛️ ¿Qué es una PKI (Public Key Infrastructure) ? +🔑+🗝️+📜</h3>
+
+        <p>La <strong>Infraestructura de Clave Pública</strong> o <strong>PKI</strong> es un sistema que permite <strong>crear, gestionar, distribuir y revocar certificados digitales</strong> y claves públicas.</p>
+
+        <p>En pocas palabras, es el conjunto de tecnologías, políticas y procedimientos que hacen posible la <strong>seguridad en Internet</strong>.</p>
+
+        <h3> Componentes principales de una PKI:</h3>
+        <ul>
+            <li> <strong>Autoridad de Certificación (CA):</strong> Emite y firma certificados digitales.</li>
+            <li> <strong>Autoridad de Registro (RA):</strong> Verifica la identidad antes de emitir certificados (actúa como filtro para la CA).</li>
+            <li>📜 <strong>Repositorio de certificados:</strong> Lugar donde se almacenan y consultan los certificados emitidos.</li>
+            <li>📋 <strong>Listas de revocación (CRL):</strong> Informan si un certificado ya no es válido.</li>
+            <li> <strong>Pareja de claves:</strong> Cada usuario tiene una clave pública y una clave privada.</li>
+        </ul>
+
+        <h3> ¿Cómo funciona una PKI?</h3>
+        <ul>
+            <li>1️⃣ Un usuario solicita un certificado a la CA (por medio de la RA).</li>
+            <li>2️⃣ La RA verifica la identidad del solicitante.</li>
+            <li>3️⃣ Si todo es correcto, la CA genera y firma un certificado digital con la clave pública del usuario.</li>
+            <li>4️⃣ El usuario puede usar su certificado para cifrar, firmar o autenticar.</li>
+            <li>5️⃣ Otros usuarios pueden verificar el certificado consultando la CA.</li>
+        </ul>
+
+        <h3> ¿Para qué sirve una PKI?</h3>
+        <ul>
+            <li> Autenticación de usuarios, servidores o dispositivos.</li>
+            <li> Cifrado de datos y comunicaciones (por ejemplo HTTPS).</li>
+            <li>🖊️ Firmas digitales de documentos o correos electrónicos.</li>
+            <li>🔄 Intercambio seguro de claves.</li>
+        </ul>
+
+        <h3> En resumen:</h3>
+        <p>Una PKI hace posible que <strong>confiemos en la identidad digital</strong> de personas y sitios web, utilizando certificados digitales respaldados por entidades confiables.</p>
+
+      </section>
+
+      <section id="amenazas">
+        <h2>Tipos de amenazas en Ciberseguridad</h2>
+        <p>Existen varios tipos de amenazas que pueden comprometer la seguridad de sistemas y datos. Se pueden dividir en dos grandes grupos</p>
+        <ul>
+            <li>Internas</li>
+            <li>Extenas</li>
+        </ul>
+
+        <div class="ataque">
+        <h3>Amenazas Internas</h3>
+        <p>Riesgos que provienen de empleados o personas con acceso legítimo a los sistemas, que pueden actuar maliciosamente o por descuido.</p>
+        <p>Tambien denominados <strong>Insiders</strong></p>  
+        <ul> <strong> Clasificación de Amenazas Internas </strong>
+            <li>Amenazas internas intencionadas
+                <ul>
+                    <li>Empleados maliciosos: Utilizan sus privilegios y conocimientos de la organización para causar daños intencionados, como filtrar información confidencial</li>
+                    <li>Externos con acceso interno: Cibercriminales que han logrado acceder a la red o edificio de una organización y la utilizan para causar daños</li>
+                </ul>
+            </li>
+            <li>Amenazas internas accidentales
+                <ul>
+                    <li>Empleados negligentes: Causan daños no intencionados debido a errores humanos o decisiones equivocadas, como compartir datos confidenciales por error</li>
+                    <li>Malas prácticas: Por ejemplo, insertar un USB infectado en un ordenador corporativo sin mala intención</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+        <h3>Cómo Evitar Amenazas Internas</h1>
+        <ul>
+        <li><strong>Modelo de amenazas</strong>: Utiliza el modelado de amenazas para comprender la postura de seguridad de tu organización.</li>
+        <li><strong>Principio de privilegios mínimos</strong>: Implementa y practica el principio de privilegios mínimos, asegurando que los empleados solo tengan acceso a la información y sistemas necesarios para su trabajo.</li>
+        <li><strong>Autenticación segura</strong>: Garantiza una autenticación segura para todas las cuentas y sistemas, utilizando métodos como la autenticación multifactor.</li>
+        <li><strong>Gestión de cuentas</strong>: Elimina o actualiza las cuentas cuando los empleados se vayan de la organización.</li>
+         <li><strong>Monitoreo de actividades</strong>: Investiga las actividades inusuales y mantén un monitoreo constante de los sistemas para detectar comportamientos sospechosos.</li>
+         <li><strong>Educación y concienciación</strong>: Capacita a los empleados sobre las mejores prácticas de seguridad y la importancia de seguir los protocolos establecidos.</li>
+         </ul>
+        
+         <div class="ataque">    
+        <h3>Amenazas externas</h3>
+        <ul>
+         <li><strong>Malware</strong>: Software malicioso diseñado para dañar o infiltrarse en sistemas. Incluye virus, gusanos, troyanos y spyware.</li>
+         <li><strong>Ransomware</strong>: Un tipo de malware que encripta los datos de la víctima y exige un rescate para liberarlos.</li>
+         <li><strong>Phishing</strong>: Ataques que buscan engañar a las personas para que revelen información confidencial, como contraseñas o datos bancarios, generalmente a través de correos electrónicos falsos.</li>
+         <li><strong>Ataques de denegación de servicio (DoS/DDoS)</strong>: Intentos de hacer que un servicio en línea no esté disponible sobrecargándolo con tráfico falso.</li>
+         <li><strong>Ataques Man-in-the-Middle (MitM)</strong>: Interceptación de comunicaciones entre dos partes para robar o alterar la información transmitida.</li>
+         <li><strong>Inyección SQL</strong>: Ataques que explotan vulnerabilidades en aplicaciones web para ejecutar comandos SQL maliciosos en la base de datos.</li>
+        </ul>
+         </div>
+
+
+         <h3>Cómo Evitar Amenazas Internas</h3>
+         <ul>
+         <li><strong>Modelo de amenazas</strong>: Utiliza el modelado de amenazas para identificar y comprender las posibles vulnerabilidades y riesgos dentro de tu organización. Esto te ayudará a anticipar y mitigar posibles ataques internos.</li>
+         <li><strong>Principio de privilegios mínimos</strong>: Asegúrate de que los empleados solo tengan acceso a la información y sistemas necesarios para realizar su trabajo. Limitar los privilegios reduce el riesgo de que datos sensibles sean comprometidos.</li>
+         <li><strong>Autenticación segura</strong>: Implementa métodos de autenticación robustos, como la autenticación multifactor (MFA), para proteger las cuentas y sistemas. Esto añade una capa adicional de seguridad, dificultando el acceso no autorizado.</li>
+         <li><strong>Gestión de cuentas</strong>: Mantén un control riguroso sobre las cuentas de usuario. Asegúrate de eliminar o actualizar las cuentas cuando los empleados dejen la organización o cambien de rol.</li>
+         <li><strong>Monitoreo de actividades</strong>: Realiza un monitoreo constante de las actividades en los sistemas para detectar comportamientos inusuales o sospechosos. Investiga cualquier actividad que parezca fuera de lo común.</li>
+         <li><strong>Educación y concienciación</strong>: Capacita a los empleados sobre las mejores prácticas de seguridad y la importancia de seguir los protocolos establecidos. La formación continua ayuda a crear una cultura de seguridad dentro de la organización.</li>
+         </ul>
+
+      </section>
+     
+
+      <section id="correo">
+        <h1>Ataques a Correo Electrónico</h1>
+        <p>Los ataques a correos electrónicos son una de las formas más comunes de ciberataques hoy en día. 
+            Se aprovechan del hecho de que el correo es una herramienta esencial y ampliamente usada, tanto
+             en entornos personales como laborales</p>
+        <div class="ataque">
+          <h3>1. SPAM</h3>
+          <p><strong>Objetivo:</strong> Llenar tu bandeja con mensajes irrelevantes o publicidad.</p>
+          <ul>
+            <li>Usa filtros anti-spam.</li>
+            <li>No respondas a correos desconocidos.</li>
+          </ul>
+        </div>
+      
+        <div class="ataque">
+          <h3>2. Phishing</h3>
+          <p><strong>Objetivo:</strong> Robar datos personales suplantando entidades legítimas.</p>
+          <ul>
+            <li>Verifica el remitente del correo.</li>
+            <li>No ingreses datos desde enlaces sospechosos.</li>
+          </ul>
+        </div>
+      
+        <div class="ataque">
+          <h3>3. Virus y Malware</h3>
+          <p><strong>Objetivo:</strong> Infectar tu dispositivo mediante archivos adjuntos.</p>
+          <ul>
+            <li>No abras archivos de remitentes desconocidos.</li>
+            <li>Mantén tu antivirus actualizado.</li>
+          </ul>
+        </div>
+      
+        <div class="ataque">
+          <h3>4. Ransomware</h3>
+          <p><strong>Objetivo:</strong> Cifrar tus archivos y pedir un rescate.</p>
+          <ul>
+            <li>Haz copias de seguridad con frecuencia.</li>
+            <li>Evita abrir enlaces o archivos sospechosos.</li>
+          </ul>
+        </div>
+      
+        <div class="ataque">
+          <h3>5. Spear Phishing</h3>
+          <p><strong>Objetivo:</strong> Ataque personalizado para engañar a personas específicas.</p>
+          <ul>
+            <li>Confirma instrucciones importantes por otro medio.</li>
+          </ul>
+        </div>
+      
+        <div class="ataque">
+          <h3>6. Business Email Compromise (BEC)</h3>
+          <p><strong>Objetivo:</strong> Suplantar ejecutivos para desviar fondos.</p>
+          <ul>
+            <li>Verifica cambios financieros con llamadas u otros canales.</li>
+          </ul>
+        </div>
+      
+        <div class="ataque tips">
+          <h3>🛡️ Consejos Generales</h3>
+          <ul>
+            <li>Activa la autenticación en dos pasos (2FA).</li>
+            <li>Usa contraseñas seguras y cámbialas regularmente.</li>
+            <li>Capacita a usuarios sobre ciberseguridad.</li>
+          </ul>
+        </div>            
+  
+      </section>
+
+      <section id="origenapps">
+        <h2>🔍 Origen y autenticidad de aplicaciones</h2>
+        <p>Cuando hablamos del origen y autenticidad de aplicaciones, nos referimos a verificar de dónde
+             proviene una app y si es confiable o legítima antes de instalarla. Esto es fundamental para proteger
+             la seguridad de tus datos y dispositivos</p>
+        <ul>
+        <li><strong>Fuentes oficiales:</strong> Google Play Store, Apple App Store, Microsoft Store, sitios oficiales.</li>
+        <li><strong>Fuentes no oficiales (⚠️ riesgo):</strong> Tiendas de terceros, archivos APK desconocidos, enlaces por mensajes o redes.</li>
+        </ul>
+
+        <h2>⚠️ Riesgos de Apps de Origen Dudoso</h2>
+        <ul>
+          <li>Instalación de malware o spyware.</li>
+          <li>Robo de información personal.</li>
+          <li>Acceso no autorizado a tus dispositivos.</li>
+        </ul>
+
+        <h2>✅ Autenticidad de una Aplicación</h2>
+        <p>Para saber si una app es legítima y no una copia modificada:</p>
+        <ul>
+          <li>Verifica el <strong>nombre del desarrollador</strong>.</li>
+          <li>Observa <strong>descargas y reseñas</strong>.</li>
+          <li>Revisa los <strong>permisos solicitados</strong>.</li>
+          <li>Comprueba <strong>certificados digitales</strong>.</li>
+          <li>Consulta el <strong>sitio web oficial</strong>.</li>
+          <li>Investiga opiniones en <strong>foros tecnológicos</strong>.</li>
+        </ul>
+
+        <h2>🛡️ Recomendaciones Generales</h2>
+        <ul>
+          <li>Descarga siempre desde <strong>fuentes oficiales</strong>.</li>
+          <li>Evita apps “mod” o piratas.</li>
+          <li>Activa <strong>Play Protect</strong> u otros escáneres de seguridad.</li>
+          <li>Supervisa los <strong>permisos de las apps</strong>.</li>
+        </ul>
+      </section>
+
+<section id="actualizaciones">
+    <h1>Actualizaciones del SO y Aplicaciones</h1>
+    <p>Las actualizaciones del sistema operativo (SO) y de las aplicaciones son clave para mantener la seguridad,
+         estabilidad y rendimiento de cualquier dispositivo</p>
+ 
+      <h2> ¿Qué son?</h2>
+      <p>Son mejoras o correcciones para solucionar errores, añadir funciones nuevas, mejorar la seguridad y el rendimiento.</p>
+    
+      <h2>🛡️ Importancia de Actualizar</h2>
+      <ul>
+        <li><strong>Seguridad:</strong> Corrigen vulnerabilidades críticas.</li>
+        <li><strong>Rendimiento:</strong> Mejoran la velocidad y eficiencia.</li>
+        <li><strong>Compatibilidad:</strong> Aseguran el buen funcionamiento con otras apps y servicios.</li>
+        <li><strong>Nuevas funciones:</strong> Acceso a mejoras y herramientas recientes.</li>
+      </ul>
+  
+    <div class=" alert">
+      <h3>⚠️ Riesgos de No Actualizar</h3>
+      <ul>
+        <li>Mayor exposición a virus y ataques.</li>
+        <li>Fallas o cierres inesperados en apps.</li>
+        <li>Problemas de compatibilidad y lentitud.</li>
+      </ul>
+    </div>
+  
+    <div class=" tips">
+      <h3> Recomendaciones</h3>
+      <ul>
+        <li>Activa las <strong>actualizaciones automáticas</strong>.</li>
+        <li>Verifica actualizaciones de forma regular.</li>
+        <li>Mantén suficiente espacio libre en tu dispositivo.</li>
+        <li>No ignores los mensajes del sistema.</li>
+      </ul>
+    </div>
+</section>
+
+    <section id="swamenazas">
+    <h1>🛡️ Software de Detección de Amenazas</h1>
+
+
+      <h2>🔍 ¿Qué es?</h2>
+      <p>Es un conjunto de herramientas diseñadas para detectar, bloquear y eliminar amenazas digitales 
+        como virus, malware, spyware, ransomware, rootkits, etc.</p>
+
+  
+
+      <h2>💻 Tipos de Software de deteccion de amenazas</h2>
+      <ul>
+        <li><strong>Antivirus:</strong> Detecta y elimina virus conocidos / Escanea archivos y programas en tiempo real.</li>
+        <li><strong>Antimalware:</strong> Defensa contra amenazas más complejas. Detecta malware sofisticado como troyanos, adware o ransomware.</li>
+        <li><strong>Firewall:</strong> Controla el tráfico de red. Bloquea accesos no autorizados.</li>
+        <li><strong>Antispyware:</strong> Previene el espionaje de datos. Detectan programas espias</li>
+        <li><strong>EDR:</strong> Soluciones avanzadas para empresas. Detecta comportamientos sospechosos en dispositivos</li>
+      </ul>
+
+  
+  
+      <h2>🔧 Funciones Comunes</h2>
+      <ul>
+        <li>Escaneo en tiempo real</li>
+        <li>Análisis bajo demanda</li>
+        <li>Cuarentena de archivos sospechosos</li>
+        <li>Actualizaciones automáticas</li>
+        <li>Notificaciones de seguridad</li>
+      </ul>
+  
+  
+    <div class=" alert">
+      <h2>🔥 Ejemplos Populares</h2>
+      <ul>
+        <li>Windows Defender</li>
+        <li>Avast, Bitdefender, Norton</li>
+        <li>Malwarebytes, Kaspersky</li>
+        <li>CrowdStrike (EDR empresarial)</li>
+      </ul>
+    </div>
+  
+    <div class=" tips">
+      <h2>✅ Recomendaciones</h2>
+      <ul>
+        <li>Activa la protección en tiempo real.</li>
+        <li>Actualiza regularmente el software.</li>
+        <li>No instales múltiples antivirus a la vez.</li>
+        <li>Haz escaneos periódicos.</li>
+      </ul>
+    </div>
+
+    </section>
+
+
+    <section id="wifi">
+        <h1>📶 Medidas de Seguridad en Redes Inalámbricas (WiFi)</h1>
+
+        <h2>🔐 ¿Por qué es importante proteger tu red Wi-Fi?</h2>
+        <p>Para evitar que extraños usen tu red, roben tus datos o comprometan tus dispositivos conectados.</p>
+
+
+        <h2>🛡️ Medidas Básicas</h2>
+        <ul>
+        <li>Cambiar el nombre del SSID (no usar el predeterminado).</li>
+        <li>Establecer una contraseña fuerte y compleja.</li>
+        <li>Usar cifrado WPA2 o WPA3.</li>
+        <li>Desactivar WPS para mayor seguridad.</li>
+        <li>Actualizar el firmware del router.</li>
+        </ul>
+
+        <h2>Medidas Opcionales pero útiles</h2>
+        <ul>
+        <li>Ocultar el SSID (red no visible en búsquedas).</li>
+        <li>Filtrado de direcciones MAC.</li>
+        <li>Desactivar funciones innecesarias (ej. acceso remoto).</li>
+        </ul>
+
+
+        <div class=" tips">
+            <h2>⚠️ Buenas prácticas adicionales</h2>
+            <ul>
+            <li>Cambia la contraseña de administrador del router.</li>
+            <li>Evita usar redes públicas sin protección o VPN.</li>
+            <li>Revisa qué dispositivos están conectados a tu red.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <section id="inventariar">
+        <h1>Inventariar Servicios de Red</h1>
+
+    
+          <h2>🧾 ¿Qué es?</h2>
+          <p>Es el proceso de identificar, registrar y monitorear todos los servicios 
+            activos en la red, como servidores, protocolos y aplicaciones. 
+            Esto incluye servidores web, DNS, FTP, DHCP, correo electrónico, impresoras en red, etc.</p>
+       
+ 
+          <h2>🎯 Por qué es importante?</h2>
+          <ul>
+            <li>Detecta servicios no autorizados o inseguros.</li>
+            <li>Facilita el mantenimiento y administración. </li>
+            <li>Ayuda en auditorías y cumplimiento normativo. </li>
+            <li>Permite una respuesta rápida ante incidentes.</li>
+            <li></li>
+          </ul>
+      
+   
+          <h2>🔍 ¿Qué se debe inventariar?</h2>
+          <ul>
+            <li>Tipo de servicio (DNS, HTTP, FTP...)</li>
+            <li>Dirección IP / nombre del host</li>
+            <li>Sistema operativo</li>
+            <li>Puerto y protocolo</li>
+            <li>Versión del software</li>
+            <li>Responsable / área</li>
+            <li>Estado actual (activo/inactivo)</li>
+          </ul>
+     
+    
+          <h2>🛠️ Herramientas útiles</h2>
+          <ul>
+            <li><strong>Nmap</strong> – para escaneo de puertos/servicios</li>
+            <li><strong>Angry IP Scanner</strong></li>
+            <li><strong>Netdiscover</strong></li>
+            <li><strong> Advanced IP Scanner</strong></li>
+            <li><strong>GLPI</strong>, <strong>Lansweeper</strong> (inventario completo)</li>
+            <li><strong>Scripts personalizados</strong> (PowerShell, Bash)</li>
+          </ul>
+     
+      
+        <div class=" tips">
+          <h2>✅ Buenas prácticas</h2>
+          <ul>
+            <li>Realizar inventarios periódicos.</li>
+            <li>Automatizar escaneos si es posible.</li>
+            <li>Validar que cada servicio tiene una función justificada.</li>
+            <li>Eliminar servicios innecesarios.</li>
+            <li>Documentar todo de forma clara.</li>
+          </ul>
+        </div>
+    </section>
+
+
+     <section id="ids">
+        <h1>🕵️‍♂️ IDS - Sistema de Detección de Intrusos</h1>
+ 
+          <h2>💡 ¿Qué es un IDS?</h2>
+          <p>Un IDS (Intrusion Detection System) es un sistema que monitoriza el tráfico de red o la actividad 
+            de los sistemas para detectar comportamientos sospechosos o maliciosos, como ataques, accesos no
+             autorizados o uso indebido de recursos</p>
+       
+          <h2>🔍 Tipos de IDS</h2>
+          <ul>
+            <li><strong>NIDS:</strong> Basado en red. Ej: Snort, Suricata.
+              <ul>
+                <li>Monitorea el tráfico de red completo</li>
+                <li>Se instala en un punto estratégido de la red</li>
+              </ul>
+            </li>
+            <li><strong>HIDS:</strong> Basado en host. Ej: OSSEC, Wazuh.
+              <ul>
+                <li>Se instala en dispositivos individuales (servidores, PCs).</li>
+                <li>Analiza logs, procesos, archivos del sistema.</li>
+            </ul>
+            </li>
+          </ul>
+      
+
+          <h2>🛠️ Funcionamiento</h2>
+          <ul>
+            <li>Captura tráfico/red o actividad del sistema.</li>
+            <li>Analiza con firmas o comportamiento.</li>
+            <li>Genera alertas ante amenazas.</li>
+            <li>No bloquea el tráfico (solo detecta).</li>
+          </ul>
+      
+          <h2>🚨 Comparativa IDS vs IPS</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>IDS</th>
+                <th>IPS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Acción</td>
+                <td>Alerta</td>
+                <td>Bloquea</td>
+              </tr>
+              <tr>
+                <td>Ubicación</td>
+                <td>Fuera de línea</td>
+                <td>En línea con tráfico</td>
+              </tr>
+              <tr>
+                <td>Ejemplo</td>
+                <td>Snort (modo IDS)</td>
+                <td>Snort (modo IPS)</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <h2>📦 Ejemplos Populares</h2>
+          <ul>
+            <li>Snort</li>
+            <li>Suricata</li>
+            <li>OSSEC</li>
+            <li>Wazuh</li>
+            <li>Security Onion</li>
+          </ul>
+      
+        <div class=" tips">
+          <h2>✅ Recomendaciones</h2>
+          <ul>
+            <li>Combínalo con otras soluciones de seguridad.</li>
+            <li>Configura alertas automáticas.</li>
+            <li>Mantén actualizado el sistema de firmas.</li>
+            <li>Úsalo dentro de una estrategia de defensa en profundidad.</li>
+          </ul>
+        </div>
+            
+     </section>
+
+    </main>
+
+    <footer>
+      <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
+        2025 - Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD2 - Seguridad Activa 
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.sidebar a');
+
+
+      window.addEventListener('scroll', () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+
+      // Añadir o quitar clase "scrolled" al header para cambios de fondo y altura
+      const header = document.querySelector('header');
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    /*function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } */
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+      const icon = document.getElementById('theme-icon');
+      icon.className = isDark ? 'hgi hgi-stroke hgi-moon-02' : 'hgi hgi-stroke hgi-sun-01';
+    }
+
+    // Cargar tema guardado
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    });
+
+     // menu hamburguer
+    function toggleMenu() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('open');
+    }
+
+  </script>
+</body>
+</html>
