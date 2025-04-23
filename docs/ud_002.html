@@ -275,13 +275,16 @@
           <h2> HASH y Firma Digital</h2>
         
           <h3> ¿Qué es un HASH?</h3>
-          <p>Un <strong>hash</strong> es una función matemática que transforma cualquier dato (texto, archivo, etc.) en una cadena única de caracteres.</p>
+          <p>Un <strong>hash</strong> es una función matemática que transforma cualquier dato (texto, archivo, etc.)
+             en una cadena única de caracteres. También se le suele llamar funcion RESUMEN o DIGEST</p>
           <ul>
             <li> Siempre genera una salida del mismo tamaño, sin importar el tamaño del archivo de entrada.</li>
             <li> Un pequeño cambio en los datos produce un hash completamente distinto.</li>
-            <li> La función hash NO es reversible.</li>
-            <li> Ejemplo de hash (SHA-256):<br>
-            <code>e3b0c44298fc1c14... (64 caracteres)</code></li>
+            <li> La función hash NO es reversible.(computacionalmente Intratable)</li>
+            <li> Ejemplo de hash (md5("SAD-ASIX2")): -> <code>786cf5f44e74ef51bd7ec7cdf8950e22</code><br>
+            Pero.. md5("SAD-ASIX1) -> <code> 834743d3c372fa45434f72665c309c0e </code>
+          
+          </li>
           </ul>
           <p> Se utiliza para <strong>verificar la integridad</strong> de los datos. Si el hash cambia, los datos han sido modificados.</p>
         
@@ -350,7 +353,7 @@
           <p> Para crearla se usan:</p>
           <ol>
             <li> El hash del documento.</li>
-            <li> Una clave privada del remitente que cifra ese hash.</li>
+            <li> Una clave privada del emisor del documento, que cifra ese hash.</li>
           </ol>
           <p> El receptor puede verificar la firma usando la clave pública del emisor.</p>
         
@@ -359,6 +362,9 @@
             <li> <strong>Hash:</strong> Detecta si un archivo ha sido alterado.</li>
             <li> <strong>Firma digital:</strong> Garantiza que el archivo es original y viene de quien dice enviarlo.</li>
           </ul>
+          <br>
+          <p>⚠️ Pero...., quien dice enviarlo, ¿ es realmente quien dice que es ?</p>
+          <p>Este problema se resuelve con los <code>Certificados Digitales</code></p>
 
       </section>
 
@@ -461,7 +467,7 @@
         </ul>
 
         <div class="ataque">
-        <h3>Amenazas Internas</h3>
+        <h3>💣 Amenazas Internas</h3>
         <p>Riesgos que provienen de empleados o personas con acceso legítimo a los sistemas, que pueden actuar maliciosamente o por descuido.</p>
         <p>Tambien denominados <strong>Insiders</strong></p>  
         <ul> <strong> Clasificación de Amenazas Internas </strong>
@@ -480,7 +486,7 @@
         </ul>
     </div>
 
-        <h3>Cómo Evitar Amenazas Internas</h1>
+        <h3>✔️ Cómo Evitar Amenazas Internas</h1>
         <ul>
         <li><strong>Modelo de amenazas</strong>: Utiliza el modelado de amenazas para comprender la postura de seguridad de tu organización.</li>
         <li><strong>Principio de privilegios mínimos</strong>: Implementa y practica el principio de privilegios mínimos, asegurando que los empleados solo tengan acceso a la información y sistemas necesarios para su trabajo.</li>
@@ -491,7 +497,7 @@
          </ul>
         
          <div class="ataque">    
-        <h3>Amenazas externas</h3>
+        <h3>🚨 Amenazas externas</h3>
         <ul>
          <li><strong>Malware</strong>: Software malicioso diseñado para dañar o infiltrarse en sistemas. Incluye virus, gusanos, troyanos y spyware.</li>
          <li><strong>Ransomware</strong>: Un tipo de malware que encripta los datos de la víctima y exige un rescate para liberarlos.</li>
@@ -503,7 +509,7 @@
          </div>
 
 
-         <h3>Cómo Evitar Amenazas Internas</h3>
+         <h3>✔️ Cómo Evitar Amenazas Internas</h3>
          <ul>
          <li><strong>Modelo de amenazas</strong>: Utiliza el modelado de amenazas para identificar y comprender las posibles vulnerabilidades y riesgos dentro de tu organización. Esto te ayudará a anticipar y mitigar posibles ataques internos.</li>
          <li><strong>Principio de privilegios mínimos</strong>: Asegúrate de que los empleados solo tengan acceso a la información y sistemas necesarios para realizar su trabajo. Limitar los privilegios reduce el riesgo de que datos sensibles sean comprometidos.</li>
@@ -517,7 +523,7 @@
      
 
       <section id="correo">
-        <h1>Ataques a Correo Electrónico</h1>
+        <h1>📧 Ataques a Correo Electrónico</h1>
         <p>Los ataques a correos electrónicos son una de las formas más comunes de ciberataques hoy en día. 
             Se aprovechan del hecho de que el correo es una herramienta esencial y ampliamente usada, tanto
              en entornos personales como laborales</p>
