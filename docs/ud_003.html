@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5, user-scalable=yes">
+
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+
+  <title>UD3 - Acceso Remoto</title>
+  <link rel="stylesheet" href="estilsunitats.css">
+
+</head>
+<body>
+   <!--<button class="theme-toggle" onclick="toggleTheme()"></button> -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
+  </button>
+  <!-- boto menu hamburguesa  +  javascript -->
+  <button class="hamburger" onclick="toggleMenu()">
+    ☰
+  </button>
+  
+  <div class="sidebar">
+    <a href="#fortificar">Escenarios para fortificar LAN</a>
+    <a href="#zriesgo">Zonas de Riesgo</a>
+    <a href="#protocolos">Protocolos seguros de comunicación</a>
+    <a href="#vpn">Virtual Private Network</a>
+    <a href="#remoto">Servidores de acceso remoto</a>
+
+  </div>
+
+  <div style="width: 100%;">
+    <header>
+      <a href="index.html"><img src="imgs/sad5.png" alt="SAD" ></a>
+      <h1>Unidad Didáctica 3: Acceso Remoto</h1>
+      <h1>.</h1>
+    </header>
+    
+    <main>
+      <section id="fortificar">
+        <h2>🖧🛡️ Escenarios en los que se precisa fortificar una red interna</h2>
+        <p>Fortificar una red interna en ciberseguridad es esencial cuando se quiere reducir el 
+            riesgo de que amenazas internas o externas comprometan los sistemas. Veamos algunos 
+             <strong>escenarios clave</strong> donde es necesario reforzar la seguridad de una red interna.</p>
+
+        <h3>Presencia de datos sensibles o confidenciales</h3>     
+        Por qué fortificar: Si un atacante accede a la red interna, podría robar información crítica como historiales médicos, datos bancarios, o secretos industriales.<br>
+        🔐 Medidas: Segmentación de red, cifrado de datos, control de acceso basado en roles (RBAC), DLP (Data Loss Prevention).
+
+        <h3>Amenazas internas (insider threats)</h3>
+        Por qué fortificar: No todos los ataques vienen de fuera; alguien con acceso legítimo puede exfiltrar datos o causar daño.<br>
+        🔐 Medidas: Monitoreo de comportamiento, registro de actividades (SIEM), principio de mínimo privilegio, controles de auditoría.
+        <h3>Acceso remoto o híbrido</h3>
+        Por qué fortificar: Los dispositivos remotos o conexiones VPN pueden ser puntos de entrada para atacantes si no están bien protegidos.<br>
+        🔐 Medidas: VPN segura, autenticación multifactor (MFA), acceso Zero Trust, análisis continuo del endpoint
+
+        <h3>Integración con terceros o proveedores</h3>
+        Por qué fortificar: Los accesos de terceros a la red pueden ser vectores de ataque si uno de ellos está comprometido.<br>
+        🔐 Medidas: Red segmentada para terceros, políticas de acceso temporal, revisión de contratos de ciberseguridad.
+        
+        <h3>Incidentes recientes de malware o ransomware</h3>
+        Por qué fortificar: Una red que ya ha sido atacada debe reforzarse para evitar reinfecciones o movimientos laterales de los atacantes.<br>
+        🔐 Medidas: EDR, segmentación, listas blancas, backups aislados, políticas de respuesta a incidentes.
+        
+        <h3>Expansión o reestructuración de la infraestructura</h3>
+        Por qué fortificar: Los cambios pueden introducir vulnerabilidades si no se gestionan bien desde el punto de vista de la seguridad.<br>
+        🔐 Medidas: Revisión de arquitectura, escaneo de vulnerabilidades, pruebas de penetración internas.
+
+        <h3>Alta rotación de personal o cambios frecuentes en usuarios</h3>
+        Por qué fortificar: Las cuentas inactivas o con permisos heredados mal gestionados son riesgos potenciales.<br>
+        🔐 Medidas: Gestión de identidades y accesos (IAM), procesos de onboarding y offboarding seguros, revisiones periódicas de cuentas.
+            <hr>
+        <h2>Intentos de penetración</h2>
+        <h3>Violación de contraseñas</h3>
+        <h4>🔓 ¿En qué consiste una violación de contraseñas?</h4>
+        Es cuando un atacante logra obtener acceso ilegítimo a una base de datos o sistema que almacena contraseñas, lo que le permite acceder a cuentas o sistemas protegidos. <br>
+        En muchos casos, estas contraseñas terminan siendo filtradas públicamente o vendidas en la dark web.
+        <h4>🛠️ ¿Cómo se produce?</h4>
+        <ul>
+            <li>Phishing</li>
+            <li>Filtraciones de BBDD</li>
+            <li>Ingenieria social</li>
+            <li>Credenciales reutilizadas</li>
+            <li>Fuerza Bruta o ataques de diccionario</li>
+            <li>Malware o keyloggers</li>
+        </ul>
+        <p>Para saber si tu contraseña ha sido filtrada, Puedes usar herramientas como:    <a href="https://haveibeenpwned.com">haveibeenpwned.com</a>     
+            <br>    Gestores de contraseñas que te alertan si tus datos aparecen en filtracione</p>
+            
+         <h4>🛡️ ¿Cómo protegerse?</h4>   
+         
+         <ul>
+             <li>Usa contraseñas únicas y fuertes para cada cuenta.</li>
+             <li> Activa la autenticación multifactor (MFA) siempre que puedas.</li>
+             <li>Cambia contraseñas tras un incidente de seguridad.</li>
+             <li>Evita contraseñas obvias como “123456” o “admin”.</li>
+             <li>Usa un gestor de contraseñas (como Bitwarden, 1Password, LastPass…).  </li>
+             <li>Revisa filtraciones de datos periódicamente.</li>
+         </ul>
+         <hr>
+        <h3>Forzado de recursos</h3>
+         <p>El forzado de recursos en una LAN (Local Area Network) es un tipo de ataque en ciberseguridad 
+            en el que un atacante abusivamente consume o limita los recursos de una red interna (como el ancho
+             de banda, la capacidad de los servidores, o la disponibilidad de servicios). Esto puede causar
+              una disminución en el rendimiento o incluso la caída total de la red. Este tipo de ataque 
+              también se conoce como "denegación de servicio" o DoS (Denial of Service) en su variante 
+              local, ya que tiene el objetivo de interrumpir la disponibilidad de servicios o sistemas 
+              en una red interna</p>
+              <ul>
+                <li>DoS (Denial of Service)</li>
+                <p>Un ataque DoS es llevado a cabo desde una sola fuente (una única máquina o servidor).
+                  El atacante utiliza un único dispositivo para enviar solicitudes o tráfico malicioso con el objetivo de interrumpir la disponibilidad de un servicio o hacer que un sistema se colapse</p>
+                <li>DDoS (Distributed Denial of Service)</li>
+                <p>Un ataque DDoS es un ataque distribuido, lo que significa que proviene de múltiples dispositivos o máquinas al mismo tiempo, usualmente controlados por el atacante de manera remota (a través de una botnet, una red de dispositivos comprometidos).
+                   Debido a la distribución del ataque, el tráfico proviene de muchas fuentes diferentes, lo que hace que sea mucho más difícil de mitigar</p>
+              </ul>
+              <hr>
+        <h3>Backdoors y Exploits</h3>
+              <p>Un <strong>backdoor</strong> es una vulnerabilidad oculta o un método secreto que permite a un atacante acceder a un sistema sin ser detectado, eludiendo los mecanismos de seguridad como contraseñas o autenticación. Es como una puerta trasera que permite la entrada sin pasar por los filtros normales de seguridad.</p>
+              <p>Un <strong>exploit</strong> es una técnica o código que aprovecha una vulnerabilidad o debilidad en un software, sistema operativo o aplicación para realizar acciones no autorizadas. En otras palabras, un exploit aprovecha una falla de seguridad para obtener acceso no autorizado o ejecutar comandos maliciosos</p>
+      </section>
+
+      <section id="zriesgo">
+        <h2>🚨 Zonas de riesgo en una LAN</h2>
+        <p>En una LAN (Red de Área Local), la clasificación de las zonas de riesgo es crucial para comprender las áreas más vulnerables a los ataques cibernéticos. Las zonas de riesgo son áreas dentro de la infraestructura de la red donde existen mayores probabilidades de que ocurran incidentes de seguridad o donde el impacto de un ataque podría ser más grave. Clasificar estas zonas ayuda a aplicar las medidas de seguridad adecuadas y a gestionar mejor los riesgos</p>
+        <ul>
+            <li>Zona de Acceso (Perímetro de la Red)</li>
+            <li>Zona DMZ (Zona Desmilitarizada)</li>
+            <li>Zona Interna (Red Corporativa o Privada)</li>
+            <li>Zona de Proveedores y Socios (Red Externa Controlada)</li>
+            <li>Zona de Comunicaciones Inalámbricas (Wi-Fi)</li>
+            <li>Zona de Backup y Almacenamiento de Datos Sensibles</li>
+        </ul>
+        <table border="1">
+            <thead>
+              <tr>
+                <th><strong>Zona de Riesgo</strong></th>
+                <th><strong>Descripción</strong></th>
+                <th><strong>Riesgos Principales</strong></th>
+                <th><strong>Medidas de Seguridad</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Zona de Acceso (Perímetro)</strong></td>
+                <td>Puertos de entrada y dispositivos de acceso a la red</td>
+                <td>Ataques de intrusión, DDoS, mala configuración de dispositivos</td>
+                <td>Filtros de tráfico, IDS/IPS, segmentación de red</td>
+              </tr>
+              <tr>
+                <td><strong>Zona DMZ</strong></td>
+                <td>Servidores accesibles desde el exterior (web, correo, etc.)</td>
+                <td>Ataques a servidores, movimiento lateral</td>
+                <td>Segmentación, actualización de software, firewalls</td>
+              </tr>
+              <tr>
+                <td><strong>Zona Interna (Red Privada)</strong></td>
+                <td>Equipos y servidores dentro de la red corporativa</td>
+                <td>Acceso no autorizado, malware, escalada de privilegios</td>
+                <td>Control de acceso, segmentación, monitoreo continuo</td>
+              </tr>
+              <tr>
+                <td><strong>Zona de Proveedores/Partners</strong></td>
+                <td>Dispositivos externos conectados con la red interna</td>
+                <td>Malware, acceso no autorizado desde proveedores</td>
+                <td>VPN, restricciones de acceso, monitoreo de tráfico</td>
+              </tr>
+              <tr>
+                <td><strong>Zona Wi-Fi</strong></td>
+                <td>Red inalámbrica accesible por dispositivos móviles o portátiles</td>
+                <td>Intercepción de tráfico, ataques man-in-the-middle</td>
+                <td>Cifrado WPA3, autenticación 802.1X, monitoreo de tráfico</td>
+              </tr>
+              <tr>
+                <td><strong>Zona Backup/Almacenamiento</strong></td>
+                <td>Sistemas de respaldo y almacenamiento de datos críticos</td>
+                <td>Robo o destrucción de datos, acceso no autorizado</td>
+                <td>Cifrado de backups, acceso restringido, monitoreo de integridad</td>
+              </tr>
+            </tbody>
+          </table>
+
+      </section>
+
+      <section id="protocolos">
+        <h2>📶 Protocolos seguros de comunicación</h2>
+        <p>Los protocolos seguros de comunicación son esenciales para garantizar la confidencialidad, 
+            integridad y autenticidad de los datos que se transmiten a través de redes, ya sea en una LAN
+             (Red de Área Local) o en una WLAN (Red de Área Local Inalámbrica). A continuación,
+              veamos algunos de los protocolos más utilizados y seguros en estos contextos.</p>
+
+              <h3> Protocolos para LAN (Red de Área Local)</h3>
+              <ul>
+                  <li>1. HTTPS (Hypertext Transfer Protocol Secure)</li>
+                  <li>2. SMB (Server Message Block) con SMBv3</li>
+                  <li>3. IPSec (Internet Protocol Security)</li>
+                  <li>4. VLAN (Virtual LAN) con 802.1X</li>
+                  <li>5. SSH (Secure Shell)</li>
+              </ul>
+
+              <h3> Protocolos para WLAN (Red de Área Local Inalámbrica)</h3>
+              <ul>
+                  <li>1. WPA3 (Wi-Fi Protected Access 3)</li>
+                  <li>2. WPA2 (Wi-Fi Protected Access 2)
+                    <ul>
+                        <li>PKI</li>
+                        <li>Enterprise</li>
+                    </ul>
+                  </li>
+                  <li>3. WEP: Antiguo y muy inseguro hoy en dia. No se recomenda su uso</li>
+              </ul>
+
+
+      </section>
+
+      <section id="vpn">
+        <h2>🛡️ VPN</h2>
+
+      </section>
+
+
+      <section id="remoto">
+        <h2>⚡ Servidores de acceso remoto</h2>
+
+      </section>
+
+
+    </main>
+
+    <footer>
+      <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
+        2025 - Enrique Iborra - Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD3 - Acceso Remoto
+      </p>
+    </footer>
+  </div>
+
+ 
+
+  <script src="scriptsunitats.js"></script>
+</body>
+</html>
