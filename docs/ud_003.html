@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5, user-scalable=yes">
+  <meta name="description" content="Unidad Didáctica 3 sobre ciberseguridad y acceso remoto en redes LAN/WLAN.">
 
   <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+  
+  <!--   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="imgs/favicon.png" type="image/png">  uso de favicon-->
 
   <title>UD3 - Acceso Remoto</title>
   <link rel="stylesheet" href="estilsunitats.css">
@@ -17,7 +21,7 @@
     <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
   </button>
   <!-- boto menu hamburguesa  +  javascript -->
-  <button class="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
     ☰
   </button>
   
@@ -27,6 +31,7 @@
     <a href="#protocolos">Protocolos seguros de comunicación</a>
     <a href="#vpn">Virtual Private Network</a>
     <a href="#remoto">Servidores de acceso remoto</a>
+    <a href="#autentica">Protocolos de autenticacion por pasarela</a>
 
   </div>
 
@@ -211,19 +216,347 @@
                   <li>3. WEP: Antiguo y muy inseguro hoy en dia. No se recomenda su uso</li>
               </ul>
 
-
       </section>
 
       <section id="vpn">
         <h2>🛡️ VPN</h2>
+        <h3>Que es una VPN</h3>
+        <p>Una VPN (siglas de Virtual Private Network o Red Privada Virtual) es una tecnología que crea una conexión segura y cifrada entre tu dispositivo (computadora, teléfono, tablet, etc.) y una red, generalmente Internet.
+           Es como un túnel privado por el que viajan tus datos, protegidos de miradas externas</p>
+        <h3>Para que sirve una VPN</h3>
+         <p>Una VPN tiene varios usos importantes:</p>
+          <ul>
+            <li>🔐 Privacidad y seguridad: Protege tu conexión en redes públicas (como Wi-Fi en cafeterías o aeropuertos) para que nadie pueda espiar lo que haces.</li>
+            <li>🌍 Ocultar tu IP y ubicación: Cambia tu dirección IP, lo que puede ayudarte a navegar de forma anónima.</li>
+            <li>🧭 Acceder a contenido restringido: Puedes “simular” que estás en otro país para ver contenido bloqueado en tu región (como Netflix de otro país).</li>
+            <li>🏢 Acceso remoto: Empresas usan VPN para que sus empleados accedan de forma segura a la red corporativa desde casa o viajes.</li>
+            <li>🚫 Evitar censura: En algunos países con restricciones de Internet, las VPN permiten el acceso a sitios bloqueados.</li>
+          </ul>
 
+        <h3>Tipos de VPN</h3>
+        <ul>
+          <li>VPN de acceso remoto o Road Warrior o Dial-Up</li>
+          <p>Permite a los usuarios conectarse a una red privada desde cualquier lugar. Ideal para trabajadores remotos</p>
+          <li>VPN de sitio a sitio (Site-to-Site)</li>
+          <p>Conecta redes completas entre oficinas, por ejemplo, la sede principal y una sucursal. Se usa mucho en empresas</p>
+          <li>VPN personal</li>
+          <p>Son las que usamos los usuarios normales para proteger nuestra conexión o cambiar de ubicación</p>
+        </ul>
+
+        <h3>⚙️ ¿Cómo se configura un cliente VPN?</h3>
+        
+        <h4> Paso 1: Obtener los datos de la VPN</h4>
+        Se Necesita:
+        
+        <ul>
+          <li>Dirección del servidor VPN (ej: vpn.empresa.com)</li>
+          <li>Tipo de VPN (PPTP, L2TP/IPSec, OpenVPN, etc.)</li>
+          <li>Nombre de usuario y contraseña</li>
+          <li>A veces una clave secreta o certificado</li>
+        </ul>
+        
+        <h4> Paso 2: Configurarla en el sistema</h4>
+        En Windows 10/11:
+        
+        <ul>
+          <li>Ve a Configuración > Red e Internet > VPN.</li>
+          <li>Haz clic en "Agregar una conexión VPN".</li>
+          <li>Llena los datos:</li>
+          <li>Proveedor VPN: "Windows (integrado)"</li>
+          <li>Nombre de la conexión: (un nombre que recuerdes)</li>
+          <li>Nombre o dirección del servidor: el que te hayan dado</li>
+          <li>Tipo de VPN: (elige según el que uses: L2TP, PPTP, etc.)</li>
+          <li>Método de inicio de sesión: usuario/contraseña o certificado</li>
+          <li>Guardas y luego haces clic en "Conectar".</li>
+        </ul>
+        
+        <h4> Si es una VPN con archivo de configuración (como OpenVPN):</h4>
+        <ul>
+          <li>Descarga el cliente OpenVPN.</li>
+          <li>Importa el archivo .ovpn que te dé tu proveedor o empresa.</li>
+          <li>Inicia la conexión desde ahí.</li>
+        </ul>
+
+        <hr>
+          <h2>Configuración de VPN a Distintos Niveles</h2>
+        
+          <h3>🔸 Nivel de Enlace de Datos (Capa 2)</h3>
+          <p><strong>¿Qué hace?</strong> Establece una VPN entre interfaces de red como si
+             estuvieran en la misma red física local (LAN), usando técnicas como túneles Ethernet.</p>
+          <p><strong>Protocolos comunes:</strong> L2TP, PPTP, GRE</p>
+          <p><strong>Configuración típica:</strong> Se configura en routers o firewalls, también en Linux con herramientas como <code>ip link</code> o Open vSwitch.</p>
+          <p><strong>Ejemplo:</strong> Una sede remota conectada como si estuviera en la LAN principal.</p>
+        
+          <h3>🔸 Nivel de Red (Capa 3)</h3>
+          <p><strong>¿Qué hace?</strong> Encapsula paquetes IP y los redirige por un túnel cifrado.</p>
+          <p><strong>Protocolos comunes:</strong> IPSec, WireGuard, OpenVPN, SSTP</p>
+          <p><strong>Configuración típica:</strong> 
+            <ul>
+              <li>Instalar un cliente VPN como OpenVPN, WireGuard, Cliente nativo en Windows .</li>
+              <li>Configurar con IP del servidor, Tipo de protocolo, claves o certificados.</li>
+            </ul>
+          </p>
+          <p><strong>Ejemplo:</strong> Acceder a la red de una empresa desde casa.</p>
+        
+          <h3>🔸 Nivel de Aplicación (Capa 7)</h3>
+          <p><strong>¿Qué hace?</strong> Solo protege el tráfico de aplicaciones específicas, no de todo el sistema.</p>
+          <p><strong>Protocolos comunes:</strong> SSH Tunneling, HTTPS Proxy</p>
+          <p><strong>Configuración típica:</strong></p>
+          <pre><code>ssh -L 8080:localhost:80 usuario@servidor</code></pre>
+          <p>Esto redirige el puerto 8080 local al 80 del servidor remoto.</p>
+          <p><strong>Ejemplo:</strong> Redirigir solo el navegador mediante un túnel SSH.</p>
+        
+          <h3>🧭 Comparación Rápida</h3>
+          <table>
+            <tr>
+              <th>Nivel</th>
+              <th>Alcance</th>
+              <th>Protocolo</th>
+              <th>Uso común</th>
+            </tr>
+            <tr>
+              <td>Enlace (Capa 2)</td>
+              <td>Red local extendida</td>
+              <td>L2TP, GRE</td>
+              <td>Oficinas remotas</td>
+            </tr>
+            <tr>
+              <td>Red (Capa 3)</td>
+              <td>Todo el tráfico IP</td>
+              <td>IPSec, WireGuard</td>
+              <td>VPN personal/corporativa</td>
+            </tr>
+            <tr>
+              <td>Aplicación (Capa 7)</td>
+              <td>App específica</td>
+              <td>SSH, Proxy, Tor</td>
+              <td>Acceso puntual y ligero</td>
+            </tr>
+          </table>
+  
       </section>
+
 
 
       <section id="remoto">
-        <h2>⚡ Servidores de acceso remoto</h2>
+        <h2>⚡ Servidores de acceso remoto (pasarela)</h2>
+        <h3>🖥️ ¿Qué es un servidor de acceso remoto?</h3>
+        <p>Un <strong>servidor de acceso remoto</strong> es un equipo o servicio que permite a los usuarios conectarse y usar recursos 
+          de una red o sistema desde otro lugar, es decir, a distancia, como si estuvieran físicamente presentes.</p>
+
+        <h3>🧭 ¿Para qué sirven?</h3>
+        <ul>
+          <li>Acceder a archivos y aplicaciones de una oficina desde casa.</li>
+          <li>Controlar computadoras o servidores de forma remota.</li>
+          <li>Conectarse de forma segura a redes privadas (por ejemplo, la red de tu empresa).</li>
+          <li>Dar soporte técnico sin estar físicamente en el lugar.</li>
+        </ul>
+
+        <h3>🔐 ¿Cómo funciona?</h3>
+        <ul>
+          <li>El servidor está configurado para aceptar conexiones remotas mediante un protocolo.</li>
+          <li>El cliente (usuario) usa un programa o aplicación para iniciar sesión.</li>
+          <li>El servidor autentica al usuario (usando contraseña, certificado, etc.).</li>
+          <li>Se establece una conexión cifrada (normalmente).</li>
+          <li>El usuario puede entonces:
+            <ul>
+              <li>Controlar el escritorio del servidor.</li>
+              <li>Ejecutar aplicaciones.</li>
+              <li>Acceder a archivos, impresoras, bases de datos, etc.</li>
+            </ul>
+          </li>
+        </ul>
+
+
+        <h3>⚙️ Tipos de servidores de acceso remoto (según protocolo o función)</h3>
+        
+        <table border="1">
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th>Tipo</th>
+              <th>Protocolo / Tecnología</th>
+              <th>¿Qué hace?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>RDP (Remote Desktop Protocol)</strong></td>
+              <td>Microsoft RDP</td>
+              <td>Te da acceso al escritorio remoto de una máquina Windows.</td>
+            </tr>
+            <tr>
+              <td><strong>SSH (Secure Shell)</strong></td>
+              <td>Protocolo SSH</td>
+              <td>Permite acceder a servidores Linux o Unix a través de terminal (modo texto).</td>
+            </tr>
+            <tr>
+              <td><strong>VPN</strong></td>
+              <td>OpenVPN, IPSec, WireGuard</td>
+              <td>Conecta a una red privada como si estuvieras dentro de ella.</td>
+            </tr>
+            <tr>
+              <td><strong>VNC (Virtual Network Computing)</strong></td>
+              <td>VNC</td>
+              <td>Permite control remoto gráfico entre distintos sistemas operativos (más básico que RDP).</td>
+            </tr>
+            <tr>
+              <td><strong>Citrix / VMware Horizon</strong></td>
+              <td>Escritorio virtual</td>
+              <td>Proporciona un escritorio completo alojado en servidores, ideal para entornos corporativos.</td>
+            </tr>
+            <tr>
+              <td><strong>FTP/SFTP/SMB</strong></td>
+              <td>Protocolos de archivo</td>
+              <td>Acceso remoto a archivos compartidos y directorios de red.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>📌 Ejemplo práctico: Acceder al escritorio de una PC desde casa</h3>
+        <ul>
+          <li>En la oficina, configuras una computadora como servidor RDP (Windows).</li>
+          <li>En casa, abres el cliente de Escritorio Remoto y escribes la IP o el nombre del equipo.</li>
+          <li>Inicias sesión con tu usuario y contraseña.</li>
+          <li>Aparece el escritorio remoto como si estuvieras frente al PC de la oficina.</li>
+        </ul>
+
+        <h3>🛡️ Seguridad en el acceso remoto</h3>
+        <p>Es muy importante que los servidores de acceso remoto estén protegidos adecuadamente, porque exponen puntos de entrada a la red:</p>
+        <ul>
+          <li>Usar conexiones cifradas (RDP sobre VPN, SSH, etc.)</li>
+          <li>No dejar puertos abiertos innecesariamente (como el 3389 para RDP)</li>
+          <li>Autenticación multifactor (MFA)</li>
+          <li>Permitir acceso solo desde IPs confiables</li>
+        </ul>
 
       </section>
+
+      <section id="autentica">
+      <h2>Protocolos de autenticacion por pasarela</h2>
+        <h3>🔐 ¿Qué es la autenticación por pasarela?</h3>
+        <p>
+          Una pasarela de autenticación (authentication gateway) es un punto de control entre el usuario y un recurso protegido (como una red, app o servidor). Su función es verificar la identidad del usuario antes de permitir el acceso.
+        </p>
+        <p>
+          👉 Imagina que es como un guardia de seguridad en la entrada de un edificio: te pide tus credenciales y, si todo está en orden, te deja pasar.          
+        </p>
+        <p>
+          Estas pasarelas suelen usar protocolos de autenticación estandarizados para integrar usuarios de diferentes sistemas o redes (por ejemplo, para permitir acceso a usuarios de Google, Microsoft o LDAP).          
+        </p>
+        <h3>¿Dónde se usa?</h3>
+        <ul>
+          <li>En VPNs corporativas</li>
+          <li>Portales cautivos (como los de WiFi públicos)</li>
+          <li>Acceso a aplicaciones web empresariales</li>
+          <li>Single Sign-On (SSO)</li>
+          <li>Firewalls con control de identidad</li>
+        </ul>
+        <h3>🔐 ¿Qué es AAA?</h3>
+        <p>AAA son las siglas de:</p>
+
+        <ul>
+          <li>Autenticación (Authentication)</li>
+          <li>Autorización (Authorization)</li>
+          <li>Contabilidad (Accounting)</li>
+        </ul>
+
+        <h4>Tecnologías relacionadas</h4>
+        <table border="1">
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th>Componente</th>
+              <th>Ejemplos de tecnologías</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Autenticación</strong></td>
+              <td>LDAP, Kerberos, OAuth, SAML, RADIUS</td>
+            </tr>
+            <tr>
+              <td><strong>Autorización</strong></td>
+              <td>ACLs, Roles RBAC, Políticas de acceso</td>
+            </tr>
+            <tr>
+              <td><strong>Contabilidad</strong></td>
+              <td>RADIUS Accounting, logs de sistema, SIEM</td>
+            </tr>
+          </tbody>
+        </table>
+        
+
+        
+        <p>Es un modelo de seguridad que se utiliza para controlar quién entra, 
+          qué puede hacer, y qué ha hecho dentro de un sistema, red o servicio.  </p>
+
+        <h3>Protocolos de autenticación comunes (por pasarela)</h3>
+        <table border="1" >
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th>Protocolo</th>
+              <th>¿Qué hace?</th>
+              <th>Usos comunes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PAP (Password Authentication Protocol)</strong></td>
+              <td>Envía el usuario y la contraseña en texto plano.</td>
+              <td>Muy básico, ya casi no se usa por razones de seguridad.</td>
+            </tr>
+            <tr>
+              <td><strong>CHAP (Challenge-Handshake Authentication Protocol)</strong></td>
+              <td>Usa un reto y respuesta hash para evitar enviar la contraseña directamente.</td>
+              <td>VPN antiguas, autenticación básica sin cifrado fuerte.</td>
+            </tr>
+            <tr>
+              <td><strong>EAP (Extensible Authentication Protocol)</strong></td>
+              <td>Protocolo flexible que permite múltiples métodos (certificados, contraseñas, tarjetas, etc.).</td>
+              <td>WPA/WPA2 Enterprise, VPNs modernas, redes WiFi seguras.</td>
+            </tr>
+            <tr>
+              <td><strong>RADIUS</strong></td>
+              <td>Autenticación centralizada, usada por pasarelas, VPNs, switches, WiFi, etc.</td>
+              <td>Empresas, universidades, redes corporativas.</td>
+            </tr>
+            <tr>
+              <td><strong>TACACS+</strong></td>
+              <td>Similar a RADIUS pero más detallado y enfocado a dispositivos de red.</td>
+              <td>Redes Cisco, switches, firewalls.</td>
+            </tr>
+            <tr>
+              <td><strong>SAML (Security Assertion Markup Language)</strong></td>
+              <td>Permite SSO entre servicios web. Usa tokens XML firmados.</td>
+              <td>Aplicaciones web corporativas, acceso federado.</td>
+            </tr>
+            <tr>
+              <td><strong>OAuth2 / OpenID Connect</strong></td>
+              <td>Delegan la autenticación en un proveedor externo (Google, Facebook, Azure, etc.).</td>
+              <td>SSO moderno para apps web, móviles y APIs.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>¿Cómo funciona en la práctica?</h3>
+        <ul>
+          <li>El usuario intenta acceder a un recurso (una red, web, etc.).</li>
+          <li>La pasarela redirige al usuario a una interfaz de login (local o de un proveedor externo).</li>
+          <li>Se verifica la identidad (mediante uno de los protocolos anteriores).</li>
+          <li>Si es válido, se genera un token o sesión y se permite el acceso.</li>
+        </ul>
+        <h3>🛡️ Ejemplo real: autenticación en una red WiFi empresarial (802.1X)</h3>
+        <ul>
+          <li>El usuario se conecta al WiFi.</li>
+          <li>El switch o AP envía una solicitud EAP al servidor RADIUS.</li>
+          <li>El servidor valida las credenciales (usuario y contraseña o certificado).</li>
+          <li>Si es correcto, se permite el acceso a la red.</li>
+        </ul>
+        <h3>🛡️ Ejemplo real: autenticación delegada (ejemplo:google)</h3>
+        <h4>🧰 Tecnologías que usa</h4>
+        <p>OAuth 2.0: ,      OpenID Connect (OIDC): </p>
+
+        <hr><h2>Configurar pasarela con un serv remoto autenticacion</h2>
+      </section>
+
 
 
     </main>
