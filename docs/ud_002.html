@@ -92,8 +92,6 @@
       top: 0;
       left: 0;
       overflow-y: auto;
-      max-height: 100%;
-      z-index: 1001;
     }
     .sidebar a {
       display: block;
@@ -233,19 +231,30 @@
       padding: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+    body.dark-mode .ataque {
+      background: rgb(57, 80, 114);
+    }
     .ataque h2 {
       margin-top: 0;
       color: #007BFF;
     }
 
     .alert {
-      background: #fff3cd;
+      background: #f9dcce;
       border-left: 6px solid #f39c12;
     }
+    body.dark-mode .alert {
+      background: #c29473;
+    }
     .tips {
-      background: #e0f7e9;
+      background: #d2f8e1;
       border-left: 6px solid #27ae60;
     }
+    body.dark-mode .tips {
+      background: #84b196;
+      border-left: 6px solid #27ae60;
+    }
+
 
   </style>
 </head>
