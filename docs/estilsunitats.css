@@ -182,6 +182,7 @@
   }
   #menu-icon {
     display: inline-block;
+    will-change: transform;
     transition: transform 0.5s ease, opacity 0.5s ease; /* Transición suave para la rotación */
   }
   .hamburger.open #menu-icon {
