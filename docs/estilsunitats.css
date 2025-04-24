@@ -186,6 +186,7 @@
   }
   .hamburger.open #menu-icon {
     transform: rotate(90deg); /* Gira el icono a 45 grados para hacer la X */
+    -webkit-transform: rotate(90deg);
   }
 
   /* Responsive */
