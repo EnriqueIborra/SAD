@@ -81,5 +81,8 @@ document.querySelectorAll('.sidebar a').forEach(link => {
     const icon = document.getElementById('menu-icon');
     const isOpen = sidebar.classList.toggle('open');
     const hamburger = document.querySelector('.hamburger');
+    hamburger.classList.toggle('open'); // Añadir clase 'open' al botón para que gire
     icon.textContent = isOpen ? '✖' : '☰';
+    if ('vibrate' in navigator) navigator.vibrate(50);
+
     }
