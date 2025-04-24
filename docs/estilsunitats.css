@@ -180,6 +180,13 @@
     z-index: 1002;
     cursor: pointer;
   }
+  #menu-icon {
+    display: inline-block;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Transición suave para la rotación */
+  }
+  .hamburger.open #menu-icon {
+    transform: rotate(90deg); /* Gira el icono a 45 grados para hacer la X */
+  }
 
   /* Responsive */
   @media (max-width: 768px) {
