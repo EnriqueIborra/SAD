@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5, user-scalable=yes">
+  <meta name="description" content="Unidad Didáctica 4 sobre firewalls cortafuegos.">
+
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+  
+  <!--   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="imgs/favicon.png" type="image/png">  uso de favicon-->
+
+  <title>UD4 - Firewall</title>
+  <link rel="stylesheet" href="estilsunitats.css">
+
+</head>
+<body>
+   <!--<button class="theme-toggle" onclick="toggleTheme()"></button> -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
+  </button>
+  <!-- boto menu hamburguesa  +  javascript -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
+    <span id="menu-icon">☰</span>
+  </button>
+  
+  <div class="sidebar">
+    <a href="#caracteristicas">Características</a>
+    <a href="#niveles">Niveles de filtrado</a>
+    <a href="#instala">Instalación y configuración</a>
+    <a href="#reglas">Reglas de filtrado</a>
+    <a href="#registro">Registro de sucesos. logs</a>
+    <a href="#opciones">Opciones</a>
+    <a href="#pruebas">Pruebas</a>
+    <a href="#documentacion">Documentación</a>
+  </div>
+
+  <div style="width: 100%;">
+    <header>
+      <a href="index.html"><img src="imgs/sad5.png" alt="SAD" ></a>
+      <h1>Unidad Didáctica 4: Firewall</h1>
+      <h1>.</h1>
+    </header>
+    
+    <main>
+      
+    <section id="caracteristicas">
+      <h2>🔥 ¿Qué es un cortafuegos (firewall)?</h2>
+      <p>Un <strong> cortafuegos</strong> es un sistema de seguridad que controla y filtra el tráfico de red (entrante y saliente) 
+        según reglas definidas. Su objetivo es <strong>proteger una red o equipo</strong> frente a accesos no autorizados o ataques</p>
+      <h3> Características principales de un firewall</h3>
+      
+      <ul>
+        <li>Filtrado de paquetes:	Analiza cada paquete de red y lo bloquea o permite según reglas.</li>
+        <li>Inspección de estado: (stateful)	Entiende el contexto de las conexiones (por ejemplo, solicitudes ya establecidas).</li>
+        <li>Filtrado por aplicación:	Detecta y controla tráfico de aplicaciones específicas (ej. WhatsApp, YouTube).</li>
+        <li>Listas de control de acceso (ACLs):	Define qué tráfico está permitido o denegado.</li>
+        <li>Registro y alertas:	Guarda eventos de tráfico y puede enviar alertas de seguridad.</li>
+        <li>Traducción de direcciones (NAT):	Oculta direcciones internas detrás de una IP pública.</li>
+        <li>VPN: Algunos cortafuegos permiten establecer túneles VPN seguros.</li>
+      </ul>
+
+        <h3>Tipos de cortafuegos</h3>
+        <table border="1">
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th>Tipo de Firewall</th>
+              <th>¿Cómo funciona?</th>
+              <th>Ejemplo de uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Filtrado de paquetes</strong></td>
+              <td>Evalúa IP, puerto y protocolo sin contexto.</td>
+              <td>Routers simples, firewalls básicos.</td>
+            </tr>
+            <tr>
+              <td><strong>Stateful</strong></td>
+              <td>Recuerda el estado de las conexiones (seguimiento de sesiones).</td>
+              <td>Firewalls de red empresariales.</td>
+            </tr>
+            <tr>
+              <td><strong>De capa de aplicación</strong></td>
+              <td>Analiza el contenido y protocolo (como HTTP, FTP, etc.).</td>
+              <td>Proxy con inspección profunda.</td>
+            </tr>
+            <tr>
+              <td><strong>Next-Generation Firewall (NGFW)</strong></td>
+              <td>Combina inspección profunda, IPS, control de aplicaciones y usuarios.</td>
+              <td>Seguridad moderna en redes empresariales.</td>
+            </tr>
+            <tr>
+              <td><strong>Basado en host</strong></td>
+              <td>Instalado en el dispositivo que protege (como software).</td>
+              <td>Windows Firewall, iptables.</td>
+            </tr>
+            <tr>
+              <td><strong>Basado en red</strong></td>
+              <td>Instalado entre redes, protege múltiples dispositivos.</td>
+              <td>Cisco ASA, Fortinet, pfSense.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+
+        <h3> Funciones clave de un cortafuegos</h3>
+        <ul>
+          <li> Permitir o bloquear tráfico según reglas.</li>
+          <li> Proteger contra ataques externos (escaneos, malware, accesos indebidos).</li>
+          <li> Crear zonas seguras (DMZ, subredes, VLANs).</li>
+          <li> Registrar intentos de acceso y generar alertas.</li>
+          <li> Traducir direcciones (NAT) para permitir conexión a internet.</li>
+          <li> Controlar acceso a páginas web o servicios en la red.</li>
+        </ul>
+
+    </section>
+
+
+
+    <section id="niveles">
+        <h2>Niveles de Filtrado de un Cortafuegos (Firewall)</h1>
+          <h3>¿Qué es el filtrado en un firewall?</h3>
+          <p>Un firewall puede analizar y decidir si permite o bloquea el tráfico en diferentes niveles del modelo OSI. Cuanto más alto es el nivel, más detallado es el análisis.</p>
+    
+          <h3>Niveles de filtrado</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Nivel de filtrado</th>
+                <th>Capa OSI</th>
+                <th>¿Qué analiza?</th>
+                <th>Ejemplo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Red</strong></td>
+                <td>Capa 3</td>
+                <td>Dirección IP de origen y destino</td>
+                <td>Permitir solo IPs de confianza</td>
+              </tr>
+              <tr>
+                <td><strong>Transporte</strong></td>
+                <td>Capa 4</td>
+                <td>Puerto y protocolo (TCP/UDP)</td>
+                <td>Bloquear puerto 21 (FTP), permitir 443 (HTTPS)</td>
+              </tr>
+              <tr>
+                <td><strong>Aplicación</strong></td>
+                <td>Capas 5-7</td>
+                <td>Contenido del tráfico, comandos o URLs</td>
+                <td>Bloquear redes sociales, analizar payload HTTP</td>
+              </tr>
+              <tr>
+                <td><strong>Conexión/estado</strong></td>
+                <td>Capa 4+</td>
+                <td>Contexto de la conexión</td>
+                <td>Permitir solo respuestas a conexiones válidas</td>
+              </tr>
+              <tr>
+                <td><strong>Identidad</strong></td>
+                <td>Más allá de OSI</td>
+                <td>Usuario, grupo, perfil</td>
+                <td>Permitir acceso según rol en la empresa</td>
+              </tr>
+            </tbody>
+          </table>
+    
+          <h3>Resumen</h3>
+          <ul>
+            <li><strong>Filtrado IP y puertos (L3 y L4):</strong> básico, rápido.</li>
+            <li><strong>Filtrado con estado:</strong> seguimiento de sesiones válidas.</li>
+            <li><strong>Filtrado de aplicación (L7):</strong> detecta contenido y protocolos específicos.</li>
+            <li><strong>Filtrado por identidad (NGFW) :</strong> personalizado por usuario o grupo.</li>
+          </ul>
+
+    </section>
+
+
+    <section id="instala">
+      
+        <h2>Instalación y Configuración de un Cortafuegos (Firewall)</h2>
+      
+        <h3>Tipos de instalación</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de firewall</th>
+              <th>Forma de instalación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Software</strong></td>
+              <td>Se instala en un sistema operativo (Windows Firewall, UFW, iptables).</td>
+            </tr>
+            <tr>
+              <td><strong>Hardware</strong></td>
+              <td>Dispositivo físico dedicado (ej: Cisco ASA, FortiGate).</td>
+            </tr>
+            <tr>
+              <td><strong>Virtual/appliance</strong></td>
+              <td>Máquina virtual en servidores o en la nube (pfSense, OPNsense, Sophos XG).</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <h3>Pasos para configurar un firewall</h3>
+        <ol>
+          <li>Elegir el tipo de firewall según el entorno.</li>
+          <li>Instalar el software o dispositivo.
+            <ul>
+              <li>En Linux: instalar iptables, ufw o firewalld.</li>
+              <li>En Windows: activar y configurar el Firewall de Windows.</li>
+              <li>En red: conectar el firewall entre el router y la red interna.</li>
+            </ul>
+          </li>
+          <li>Acceder a la interfaz de configuración (web o consola).
+            <ul>
+              <li>Vía interfaz web, consola, o app.</li>
+              <li>Ejemplo: https://192.168.1.1 o consola SSH.</li>
+            </ul>
+          </li>
+          <li>Crear reglas de acceso (permitir/bloquear por IP, puerto, etc.).
+            <ul>
+              <li>Definir qué tráfico se permite o bloquea.</li>
+              <li>Basado en IP, puerto, protocolo o aplicación.</li>
+              <li>Establecer zonas (WAN, LAN, DMZ).</li>
+            </ul>
+          </li>
+          <li>Activar NAT, VPN o IDS si es necesario.</li>
+          <li>Probar el funcionamiento con herramientas como <code>ping</code> o <code>nmap</code>.</li>
+          <li>Guardar copias de seguridad de la configuración.</li>
+        </ol>
+      
+        <h3>Ejemplo básico de configuración en Linux con UFW</h3>
+        <pre><code>sudo apt install ufw
+sudo ufw default deny
+sudo ufw allow 22/tcp
+sudo ufw allow 80,443/tcp
+sudo ufw enable</code></pre>
+
+    </section>
+
+
+    <section id="reglas">
+      <h2>🔐 ¿Qué son las reglas de filtrado en un firewall?</h2>
+      <p>Las <strong>reglas de filtrado</strong> son instrucciones que un firewall utiliza 
+        para <strong>permitir o denegar</strong> el tráfico de red según criterios como IP, puerto, protocolo o dirección.</p>
+      <p>Estas reglas <strong>se evalúan en orden</strong> y forman una lista que el firewall analiza cada vez 
+        que pasa un paquete de datos./p>
+        <h3>⚙️ Componentes de una regla de filtrado</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Componente</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Acción</strong></td><td>Permitir (allow) o denegar (deny)</td></tr>
+            <tr><td><strong>Dirección</strong></td><td>Entrada o salida</td></tr>
+            <tr><td><strong>Protocolo</strong></td><td>TCP, UDP, ICMP, etc.</td></tr>
+            <tr><td><strong>IP origen</strong></td><td>Desde dónde viene el tráfico (dirección o red)</td></tr>
+            <tr><td><strong>IP destino</strong></td><td>Hacia dónde va el tráfico (dirección o red)</td></tr>
+            <tr><td><strong>Puerto</strong></td><td>Puerto de red (ej: 80, 443)</td></tr>
+            <tr><td><strong>Estado</strong></td><td>Nuevo, establecido, relacionado</td></tr>
+          </tbody>
+        </table>
+        <h3>Ejemplos de reglas</h3>
+          <ul>
+            <li>Permitir TCP del puerto 80 desde cualquier: IP	Permite tráfico web entrante</li>
+            <li>Denegar todo el tráfico de la IP 192.168.0.100:	Bloquea un equipo específico</li>
+            <li>Permitir SSH solo desde red interna 192.168.1.0/24:	Permite administración segura local</li>
+            <li>Permitir salidas al puerto 443 (HTTPS):	Permite navegación segura hacia fuera</li>
+            <li>Denegar ICMP (ping):	Bloquea respuestas de ping para ocultar la red</li>
+          </ul>
+
+    </section>
+
+
+
+    <section id="registro">
+      <h2>📋 ¿Qué es el registro de sucesos en un firewall?</h2>
+      <p>El <strong>registro de sucesos</strong> en un firewall es un conjunto de anotaciones automáticas que reflejan la actividad del 
+        tráfico de red y las decisiones que toma el firewall (permitir, bloquear, alertar, etc.).</p>
+        <h3>El <strong> " log "</strong> del firewall</h3>
+        Estos registros ayudan a los administradores a:
+        <ul>
+          <li>Auditar accesos.</li>
+          <li>Detectar ataques o comportamientos sospechosos.</li>
+          <li>Diagnosticar problemas de red.</li>
+          <li>Cumplir normativas de seguridad.</li>
+        </ul>
+
+      <h3>🧱 ¿Qué se registra?</h3>
+      
+        <ul>
+          <li>Fecha y hora.	Momento exacto del evento.</li>
+          <li>Dirección IP de origen.	Desde dónde proviene el tráfico.</li>
+          <li>Dirección IP destino.	A dónde se dirigía.</li>
+          <li>Puerto origen/destino.	Identificadores del servicio usado.</li>
+          <li>Protocolo.	TCP, UDP, ICMP, etc.</li>
+          <li>Acción tomada.	Permitido, denegado, alertado.</li>
+          <li>Regla aplicada.	Qué regla del firewall se activó.</li>
+          <li>Estado de la conexión.	Nueva, establecida, finalizada.</li>
+          <li>Usuario (si aplica).	En cortafuegos con autenticación.</li>
+        </ul>
+
+    </section>
+
+
+    <section id="opciones">
+      <h2>🔥 Opciones de Cortafuegos (Firewalls)</h2>
+      <h3>🔓 Cortafuegos Libres (Open Source)</h3>
+      <table>
+        <tr>
+          <th>Nombre </th><th> Descripción breve </th><th> Plataforma</th>
+        </tr>
+        <tr>
+          <td>pfSense </td><td> Basado en FreeBSD, muy potente y flexible. </td><td> Software / VM / Hardware</td>
+        </tr>
+        <tr>
+          <td>OPNsense </td><td> Fork moderno de pfSense con interfaz mejorada. </td><td> Software / VM</td>
+        </tr>
+        <tr>
+          <td>IPFire </td><td> Enfocado en simplicidad y seguridad. </td><td> Software / Hardware</td>
+        </tr>
+        <tr>
+          <td>iptables </td><td> Herramienta de filtrado en Linux. </td><td> Software (CLI)</td>
+        </tr>
+        <tr>
+          <td>UFW </td><td> Interfaz fácil para iptables en Ubuntu. </td><td> Software (CLI)</td>
+        </tr>
+      </table>
+
+
+      <h3>🔒 Cortafuegos Propietarios (Comerciales)</h3>
+
+      <table>
+        <tr><td>Fortinet (FortiGate) </td><td> Muy popular en empresas, incluye UTM, VPN, IPS. </td><td> Hardware / VM</td></tr>
+        <tr><td>Cisco ASA </td><td> Solución empresarial con soporte de red avanzado. </td><td> Hardware / VM</td></tr>
+        <tr><td>Sophos XG </td><td> Firewall moderno con buena interfaz y funciones UTM. </td><td> Hardware / VM</td></tr>
+        <tr><td>Palo Alto </td><td> Cortafuegos de nueva generación con análisis profundo. </td><td> Hardware / VM</td></tr>
+      </table>
+      
+      <h3>🧱 Cortafuegos por Hardware</h3>
+        <ul>
+          <li>FortiGate</li>
+          <li>Cisco ASA</li>
+          <li>Sophos XG Appliance</li>
+          <li>pfSense Box</li>
+          <li>WatchGuard | Seguridad todo en uno para PYMEs.</li>
+        </ul>
+
+      <h3>Firewalls UTM (Gestión Unificada de Amenazas)</h3>
+      <p>Los <strong>UTM (Unified Threat Management)</strong> integran múltiples funciones de seguridad además del cortafuegos:</p>
+      <ul>
+        <li>FortiGate</li>
+        <li>Sophos XG</li>
+        <li>OPNsense (con plugins)</li>
+        <li>WatchGuard</li>
+      </ul>
+
+
+    </section>
+
+
+
+    <section id="pruebas">
+    
+        <h2>🛠️ Solución de Problemas con Clientes (Firewall)</h2>
+      <p>Cuando un cliente (usuario, dispositivo o sistema) no puede conectarse correctamente, puede deberse a políticas o reglas mal 
+        configuradas en el firewall. Aquí están los pasos más comunes para identificar y resolver estos problemas</p>
+        <h3>1. Verificar conectividad básica</h3>
+        <p>Antes de entrar en el firewall, revisar....</p>
+        <ul>
+          <li>...que el cliente tenga una IP válida.</li>
+          <li>Verificar puerta de enlace y DNS.</li>
+          <li>Comprobar si puede hacer ping al gateway.</li>
+        </ul>
+      
+        <h3>2. Revisar reglas del firewall</h3>
+        <ul>
+          <li>Confirmar que existe una regla que permita el tráfico.</li>
+          <li>Verificar que no haya una regla genérica que bloquee.</li>
+          <li>Analizar el orden de las reglas.</li>
+        </ul>
+      
+        <h3>3. Consultar los registros (logs)</h3>
+        <ul>
+          <li>Buscar eventos relacionados con la IP del cliente.</li>
+          <li>Identificar puertos y protocolos que se estan bloqueando.</li>
+        </ul>
+      
+        <h3>4. Probar puertos y servicios</h3>
+        <ul>
+          <li>Usar <code>telnet</code>, <code>nc</code> o <code>nmap</code>.</li>
+          <li>Verificar si los puertos necesarios están abiertos (80, 443, ...).</li>
+        </ul>
+      
+        <h3>5. Verificar autenticación o perfiles</h3>
+        <ul>
+          <li>Comprobar si se requiere autenticación de usuario.</li>
+          <li>Ver si el cliente ha sido autenticado correctamente.</li>
+        </ul>
+      
+        <h3>6. Revisar NAT o reenvío de puertos</h3>
+        <ul>
+          <li>Verificar reglas NAT correctamente configuradas.</li>
+          <li>Confirmar si hay reenvío de puertos activo.</li>
+        </ul>
+      
+        <h3>7. Comprobar filtrado por contenido o aplicación</h3>
+        <ul>
+          <li>Desactivar temporalmente el filtrado por categoría o aplicación.</li>
+        </ul>
+      
+        <h3>8. Herramientas de diagnóstico en el propio firewall</h3>
+        <ul>
+          <li>Simular tráfico desde la interfaz del firewall.</li>
+          <li>Revisar conexiones activas del cliente.</li>
+          <li>Reiniciar sesiones si es necesario.</li>
+        </ul>
+
+    </section>
+
+
+
+    <section id="documentacion">
+     <p>El tema de la documentación del firewall es muy importante, aunque a veces no se le da tanta atención como a la configuración misma. 
+      En redes bien gestionadas, una buena documentación puede ahorrar horas de problemas</p>
+        <h2 >🗂️ Documentación del Firewall</h2>
+      
+        <p>La <strong>documentación del firewall</strong> es el proceso de registrar de forma clara, organizada y actualizada toda la información relacionada con la instalación, configuración, políticas y mantenimiento del firewall. Esta documentación es vital tanto para tareas de soporte como para auditorías, gestión de cambios y continuidad del servicio.</p>
+      
+        <h3> 📋 ¿Por qué es importante documentar?</h3>
+        <ul>
+          <li> <strong>Facilita el mantenimiento</strong>: Otros técnicos (o tú mismo en el futuro) podrán entender cómo está configurado el firewall.</li>
+          <li> <strong>Evita errores</strong>: Tener claro qué reglas existen y por qué, reduce la posibilidad de aplicar configuraciones que interfieran entre sí.</li>
+          <li> <strong>Cumplimiento normativo</strong>: Algunas normativas (ISO 27001, PCI-DSS, etc.) requieren documentación de la configuración de seguridad.</li>
+          <li> <strong>Auditorías y revisiones</strong>: Permite demostrar cómo está protegida la red y qué políticas están en vigor.</li>
+          <li> <strong>Gestión de incidencias</strong>: Ayuda a rastrear qué cambios pudieron causar problemas de conectividad o seguridad.</li>
+        </ul>
+      
+        <h3 >🧾 ¿Qué debe incluir la documentación?</h3>
+        <ol>
+          <li><strong>Datos generales del sistema</strong>
+            <ul>
+              <li>Modelo y fabricante del firewall.</li>
+              <li>Versión de firmware o sistema operativo.</li>
+              <li>Diagrama de red donde se visualice el firewall.</li>
+            </ul>
+          </li>
+          <li><strong>Configuración de red</strong>
+            <ul>
+              <li>Interfaces de red y direcciones IP asignadas.</li>
+              <li>Gateways, rutas estáticas, VLANs.</li>
+            </ul>
+          </li>
+          <li><strong>Políticas de seguridad</strong>
+            <ul>
+              <li>Reglas de acceso entrante y saliente.</li>
+              <li>Clasificación de reglas: por zona, por usuario, por aplicación.</li>
+              <li>Justificación de cada regla: qué permite/bloquea y por qué.</li>
+            </ul>
+          </li>
+          <li><strong>Registros de cambios (change log)</strong>
+            <ul>
+              <li>Quién hizo un cambio, cuándo, y qué se modificó.</li>
+              <li>Motivo del cambio.</li>
+            </ul>
+          </li>
+          <li><strong>Configuraciones especiales</strong>
+            <ul>
+              <li>NAT y port forwarding.</li>
+              <li>VPNs configuradas.</li>
+              <li>Filtros de contenido o de aplicaciones.</li>
+              <li>Reglas de detección de intrusiones (IDS/IPS).</li>
+            </ul>
+          </li>
+          <li><strong>Usuarios y autenticación</strong>
+            <ul>
+              <li>Métodos de autenticación configurados (LDAP, Radius, local...).</li>
+              <li>Roles y permisos asignados.</li>
+            </ul>
+          </li>
+          <li><strong>Alertas y registros</strong>
+            <ul>
+              <li>Configuración de logs.</li>
+              <li>Alertas o notificaciones configuradas.</li>
+              <li>Revisión periódica de eventos.</li>
+            </ul>
+          </li>
+          <li><strong>Respaldo y restauración</strong>
+            <ul>
+              <li>Procedimiento para hacer backups de configuración.</li>
+              <li>Procedimiento de restauración en caso de fallo.</li>
+            </ul>
+          </li>
+        </ol>
+      
+        <h3 > Buenas prácticas para documentar</h3>
+        <ul>
+          <li> <strong>Mantener actualizado</strong>: La documentación debe reflejar los cambios en tiempo real o mediante procesos regulares.</li>
+          <li> <strong>Centralizar la información</strong>: Usa una wiki, gestor documental o herramienta para almacenarla.</li>
+          <li> <strong>Accesible y segura</strong>: Solo el personal autorizado debe tener acceso, pero no debe estar tan escondida que no se encuentre.</li>
+          <li> <strong>Versionar los documentos</strong>: Registra cada edición y guarda copias anteriores por seguridad.</li>
+        </ul>
+      
+
+    </section>
+        
+
+
+    </main>
+
+    <footer>
+      <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
+        2025 - Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD4 - Firewall
+      </p>
+    </footer>
+  </div>
+
+ 
+
+  <script src="scriptsunitats.js"></script>
+</body>
+</html>

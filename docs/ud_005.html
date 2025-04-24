@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5, user-scalable=yes">
+  <meta name="description" content="Unidad Didáctica 5 sobre proxy.">
+
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+  
+  <!--   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="imgs/favicon.png" type="image/png">  uso de favicon-->
+
+  <title>UD5 - Proxy</title>
+  <link rel="stylesheet" href="estilsunitats.css">
+
+</head>
+<body>
+   <!--<button class="theme-toggle" onclick="toggleTheme()"></button> -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
+  </button>
+  <!-- boto menu hamburguesa  +  javascript -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
+    <span id="menu-icon">☰</span>
+  </button>
+  
+  <div class="sidebar">
+    <a href="#tipos">Tipos de Proxys</a>
+    <a href="#instala">Instalación de proxy caché</a>
+    <a href="#autentica">Métodos de autenticación</a>
+    <a href="#transparente">Proxy transparente</a>
+    <a href="#web">Proxy web</a>    
+    <a href="#inverso">Proxy inverso</a>    
+    <a href="#problemas">Solucion de problemas</a>
+    <a href="#herramientas">Herramientas graficas</a>
+    <a href="#documentacion">Documentación</a>
+  </div>
+
+
+  <div style="width: 100%;">
+    <header>
+      <a href="index.html"><img src="imgs/sad5.png" alt="SAD" ></a>
+      <h1>Unidad Didáctica 5: Proxy</h1>
+      <h1>.</h1>
+    </header>
+    
+    <main>
+      
+    <section id="tipos">
+      
+        <h2 >🌐 Tipos de Proxy, Características y Funciones</h2>
+      
+        <p>Un <strong>proxy</strong> es un intermediario entre un cliente (como un navegador web) y el servidor al que quiere acceder. Sirve para enrutar, filtrar, ocultar, registrar o modificar el tráfico de red según el tipo de proxy y su configuración.</p>
+      
+        <h3 > Funciones principales de un proxy</h3>
+        <ul>
+          <li><strong>Ocultación de identidad</strong>: El servidor remoto no ve la IP real del cliente, sino la del proxy.</li>
+          <li><strong>Control de acceso</strong>: Permite aplicar políticas de uso de internet (por usuarios, IPs, horarios…).</li>
+          <li><strong>Filtrado de contenido</strong>: Puede bloquear webs, tipos de archivos o categorías de contenido.</li>
+          <li><strong>Caché</strong>: Guarda copias locales de páginas visitadas frecuentemente para acelerar el acceso.</li>
+          <li><strong>Registro y monitoreo</strong>: Registra todo el tráfico que pasa por él (quién accede, cuándo y a qué).</li>
+          <li><strong>Anonimato</strong>: Algunos proxies están diseñados para ocultar por completo la identidad del usuario.</li>
+        </ul>
+      
+        <h3 > Tipos de Proxy</h3>
+      
+        <h3>1. Proxy directo o normal (forward proxy)</h3>
+        <p>El cliente se conecta directamente al proxy, que a su vez hace las peticiones al servidor final.
+        Se usa para controlar el acceso a internet desde una red interna.</p>
+        <p><strong>Ejemplo:</strong> Una empresa usa un proxy para filtrar contenido web y registrar navegación de empleados.</p>
+      
+        <h3>2. Proxy inverso (reverse proxy)</h3>
+        <p>El cliente no sabe que hay un proxy. El proxy está delante de uno o varios servidores web.
+        Sirve para equilibrar carga, acelerar respuestas, añadir seguridad y ocultar estructura interna.</p>
+        <p><strong>Ejemplo:</strong> Nginx o HAProxy funcionando como reverse proxy para varios servidores web.</p>
+      
+        <h3>3. Proxy transparente</h3>
+        <p>No requiere configuración del cliente. El tráfico se redirige automáticamente al proxy.
+        Se usa para aplicar políticas sin que el usuario lo note.</p>
+        <p><strong>Ejemplo:</strong> Un proxy en una escuela que filtra contenido sin necesidad de configurar los navegadores.</p>
+      
+        <h3>4. Proxy anónimo</h3>
+        <p>Oculta la IP del cliente, pero puede identificarse como proxy al servidor remoto.</p>
+      
+        <h3>5. Proxy de alto anonimato (elite)</h3>
+        <p>No revela que es un proxy, ni la IP del cliente. Ideal para navegación anónima.</p>
+      
+        <h3>6. Proxy SOCKS</h3>
+        <p>No interpreta el tráfico, solo lo enruta (nivel más bajo que HTTP).
+        Útil para torrents, juegos online, apps que no usan HTTP.</p>
+      
+        <h3>7. Proxy HTTP/HTTPS</h3>
+        <p>Diseñado específicamente para manejar tráfico web.
+        Puede hacer inspección de contenido, filtrado por URL, caché, etc.</p>
+      
+        <h3 >📌 Características generales</h3>
+        <ul>
+          <li> Puede aumentar la <strong>seguridad</strong>, pero también introducir riesgos si está mal configurado.</li>
+          <li> Necesita mantenimiento: actualizaciones, revisión de logs, ajustes de rendimiento.</li>
+          <li> Ayuda a <strong>mejorar rendimiento</strong> cuando se usa caché y balanceo de carga.</li>
+          <li> Proporciona <strong>visibilidad</strong> del tráfico: ideal para auditoría y monitoreo.</li>
+        </ul>
+      
+    </section>
+
+
+
+    <section id="instala">
+     
+        <h2 >🛠️ Cómo instalar un Proxy-Cache con Squid (en Linux)</h2>
+      
+        <p>Un <strong>proxy-cache</strong> permite almacenar en caché (temporalmente) contenido web para acelerar el acceso a sitios web frecuentemente visitados y reducir el uso de ancho de banda. <strong>Squid</strong> es uno de los software más usados para esto.</p>
+      
+        <h3 >🔧 Requisitos previos</h3>
+        <ul>
+          <li>Un servidor con Linux (Debian, Ubuntu, CentOS, etc.).</li>
+          <li>Acceso como superusuario (root o sudo).</li>
+          <li>Conexión a Internet.</li>
+        </ul>
+      
+        <h3 >📦 1. Instalar Squid</h3>
+        <h3>En Debian/Ubuntu:</h3>
+        <pre><code>sudo apt update
+sudo apt install squid -y</code></pre>
+      
+        <h3>En CentOS/RHEL:</h3>
+        <pre><code>sudo yum install squid -y</code></pre>
+      
+        <h3 >⚙️ 2. Configurar Squid</h3>
+        <p>El archivo principal de configuración está en:</p>
+        <pre><code>/etc/squid/squid.conf</code></pre>
+      
+        <h3>Cambios básicos recomendados:</h3>
+        <ul>
+          <li><strong>Cambiar el puerto del proxy (opcional):</strong>
+            <pre><code>http_port 3128</code></pre>
+          </li>
+          <li><strong>Definir red de acceso permitida (ejemplo para 192.168.1.0/24):</strong>
+            <pre><code>
+acl red_local src 192.168.1.0/24
+http_access allow red_local</code></pre>
+          </li>
+          <li><strong>Activar la caché:</strong>
+            <pre><code>cache_dir ufs /var/spool/squid 100 16 256</code></pre>
+          </li>
+        </ul>
+      
+        <h3 >📁 3. Inicializar directorios de caché</h3>
+        <pre><code>sudo squid -z</code></pre>
+      
+        <h3 >▶️ 4. Iniciar y habilitar el servicio</h3>
+        <pre><code>sudo systemctl start squid
+sudo systemctl enable squid</code></pre>
+      
+        <h3 >🔍 5. Verificar funcionamiento</h3>
+        <ul>
+          <li>Probar desde un navegador configurando el proxy a la IP del servidor y puerto 3128.</li>
+          <li>Comprobar logs:
+            <pre><code>tail -f /var/log/squid/access.log</code></pre>
+          </li>
+        </ul>
+      
+        <h3 >🧠 Opciones útiles</h3>
+        <ul>
+          <li><strong>cache_mem</strong>: Memoria RAM reservada para caché.
+            <pre><code>cache_mem 256 MB</code></pre>
+          </li>
+          <li><strong>maximum_object_size</strong>: Tamaño máximo de archivo en caché.
+            <pre><code>maximum_object_size 4096 KB</code></pre>
+          </li>
+          <li><strong>cache_log / access_log</strong>: Archivos donde se registran errores y accesos.</li>
+        </ul>
+      
+        <h3 >🧼 Para borrar la caché manualmente</h3>
+        <pre><code>sudo systemctl stop squid
+sudo rm -rf /var/spool/squid/*
+sudo squid -z
+sudo systemctl start squid</code></pre>
+
+    </section>
+
+
+
+    <section id="autentica">
+        <h2 >🔐 Autenticación en Proxys</h2>
+      
+        <p>La <strong>autenticación en un proxy</strong> consiste en requerir que el usuario proporcione credenciales (usuario y contraseña) antes de permitir el acceso a Internet o ciertos recursos.</p>
+      
+        <h3 > ¿Por qué usar autenticación en un proxy?</h3>
+        <ul>
+          <li> Restringir el acceso solo a usuarios autorizados.</li>
+          <li> Aplicar políticas personalizadas por usuario o grupo.</li>
+          <li> Obtener registros de navegación por persona.</li>
+          <li> Aumentar la seguridad y evitar el uso no controlado.</li>
+        </ul>
+      
+        <h3 > Métodos de autenticación comunes</h3>
+      
+        <h3>1. Básica (Basic Authentication)</h3>
+        <p>El navegador pide usuario y contraseña. Se transmite en base64, por lo que se recomienda usar HTTPS.</p>
+      
+        <h3>2. Digest Authentication</h3>
+        <p>Usa hash, más segura que la básica. Menos compatibilidad.</p>
+      
+        <h3>3. NTLM / Kerberos (SSO)</h3>
+        <p>Autenticación integrada con Windows/Active Directory. No requiere credenciales visibles.</p>
+      
+        <h3>4. LDAP</h3>
+        <p>Basada en directorios como OpenLDAP o Active Directory.</p>
+      
+        <h3>5. Autenticación externa personalizada</h3>
+        <p>Validación con scripts, bases de datos o APIs propias.</p>
+      
+        <h3 >🧪 Ejemplo: Autenticación básica con Squid</h3>
+        <ol>
+          <li><strong>Crear archivo de usuarios:</strong>
+            <pre><code>sudo apt install apache2-utils
+      sudo htpasswd -c /etc/squid/usuarios_proxy usuario1</code></pre>
+          </li>
+          <li><strong>Editar squid.conf:</strong>
+            <pre><code>auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/usuarios_proxy
+      auth_param basic realm Proxy Privado
+      acl usuarios_autenticados proxy_auth REQUIRED
+      http_access allow usuarios_autenticados</code></pre>
+          </li>
+          <li><strong>Reiniciar Squid:</strong>
+            <pre><code>sudo systemctl restart squid</code></pre>
+          </li>
+        </ol>
+      
+        <h3 >⚠️ Recomendaciones</h3>
+        <ul>
+          <li>Usar HTTPS entre cliente y proxy si se usa autenticación básica.</li>
+          <li>Limitar intentos fallidos si es posible.</li>
+          <li>Registrar accesos en logs para auditoría.</li>
+          <li>Integrar con LDAP o AD en ambientes corporativos.</li>
+        </ul>
+
+    </section>
+
+
+
+    <section id="transparente">
+        <h2 >🧼 ¿Qué es un Proxy Transparente?</h2>
+      
+        <p>Un <strong>proxy transparente</strong> es un servidor proxy que <strong>intercepta el tráfico de red sin necesidad de configuración en el cliente</strong>.</p>
+      
+        <h3 > ¿Cómo funciona?</h3>
+        <ol>
+          <li>El cliente solicita una página como siempre.</li>
+          <li>El router/firewall redirige la petición al proxy.</li>
+          <li>El proxy analiza, filtra o cachea el contenido.</li>
+          <li>El proxy responde al cliente sin que este lo note.</li>
+        </ol>
+      
+        <h3 > ¿Por qué se llama “transparente”?</h3>
+        <p>Porque <strong>el cliente no necesita configurar nada</strong>. Todo se hace de forma automática.</p>
+      
+        <h3 >✅ Ventajas</h3>
+        <ul>
+          <li> Sin configuración en el cliente.</li>
+          <li> Ideal para redes públicas o educativas.</li>
+          <li> Control de acceso, registro y caché sin intervención.</li>
+          <li> Compatible con cualquier dispositivo.</li>
+        </ul>
+      
+        <h3 >❌ Desventajas</h3>
+        <ul>
+          <li> No permite autenticación individual fácilmente.</li>
+          <li> Dificultades con conexiones HTTPS.</li>
+          <li> Más difícil de monitorear por usuario.</li>
+          <li> Requiere reglas avanzadas en el firewall/router.</li>
+        </ul>
+      
+        <h3 >🛠️ Configuración básica con Squid</h3>
+        <h3>1. Activar el modo transparente en squid.conf:</h3>
+        <pre><code>http_port 3128 transparent</code></pre>
+      
+        <h3>2. Redirigir tráfico HTTP con iptables:</h3>
+        <pre><code>iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128</code></pre>
+      
+        <h3>3. Reiniciar Squid:</h3>
+        <pre><code>sudo systemctl restart squid</code></pre>
+      
+        <h3 >👀 ¿Y el tráfico HTTPS?</h3>
+        <p>Requiere <strong>SSL Bump</strong>, certificados instalados en los clientes y una configuración más avanzada.</p>
+      
+
+    </section>
+
+
+
+    <section id="web">
+
+
+    </section>
+
+
+
+    <section id="inverso">
+
+
+    </section>
+
+
+
+    <section id="problemas">
+
+
+    </section>
+
+    <section id="herramientas">
+
+
+    </section>
+
+    <section id="documentacion">
+
+
+    </section>
+        
+
+
+    </main>
+
+    <footer>
+      <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
+        2025 - Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD5 - Proxy
+      </p>
+    </footer>
+  </div>
+
+ 
+
+  <script src="scriptsunitats.js"></script>
+</body>
+</html>

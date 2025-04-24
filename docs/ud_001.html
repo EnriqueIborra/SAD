@@ -234,8 +234,8 @@
   </button>
 
   <!-- boto menu hamburguesa  +  javascript -->
-  <button class="hamburger" onclick="toggleMenu()">
-    ☰
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
+    <span id="menu-icon">☰</span>
   </button>
   
   <div class="sidebar">
@@ -922,7 +922,7 @@
         <p>Pero igual que tiene sus ventajas, tambien plantea algunas desventajas o inconvenientes.</p>
         <ul>
           <li> El intercambio de claves ( no seguro !! ).</li>
-          <li> El numero de claves que se necesitan ( para n peronas numclaves = n(n-1)/2).</li>
+          <li> El numero de claves que se necesitan ( para n personas numclaves = n(n-1)/2).</li>
           <li> Fortaleza de la clave. Principio de Kerckhoffs. La responsabilidad de la fortaleza de la clave recae sobre el usuario.</li>
         </ul>
       
@@ -935,6 +935,16 @@
             <strong>Clave privada:</strong> Solo la tiene el destinatario legítimo.</li>
         </ul>
         <p>Lo que una clave cifra, solo la otra puede descifrar.</p>
+        <ul> Ventajas
+          <li> El intercambio de claves ( ES seguro !! ).</li>
+          <li> El numero de claves que se necesitan ( para n personas numclaves = 2n).</li>
+          <li> Fortaleza de la clave. La responsabilidad de la fortaleza de la clave
+            NO recae sobre el usuario, se calculan mediante un algoritmo.</li>
+        </ul>
+        <ul> Desventajas
+          <li> Mas lento e ineficiente.</li>
+          <li> El mensaje cifrado ocupa más espacio que el mensaje original.</li>
+        </ul>
       
         <h4> Ejemplo de uso:</h4>
         <ul>
@@ -953,7 +963,8 @@
         <a href="https://github.com/EnriqueIborra/SAD/blob/1d26f71947aac2ee50cb0e7c4c0cf11e129a55d9/UD3/UD3.1%20CRIPTOGRAFIA%20%20Csim-Hash.pdf">
           <h3>Document Criptografia Simètrica + HASH</h3></a>
         <a href="https://github.com/EnriqueIborra/SAD/blob/1d26f71947aac2ee50cb0e7c4c0cf11e129a55d9/UD3/UD3.2%20Esteganografia.pdf">
-          <h3>Esteganografia</h3></a> <p>Per treballar bé amb el fitxer d'estego, baixar-lo i obrir-lo en local</p>
+          <h3>Esteganografia</h3>
+        </a> <p>Para trabajar bien con el fichero de estego, bajarlo i abrirlo en local</p>
           
       </section>
 

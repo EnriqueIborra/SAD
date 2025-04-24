@@ -3,6 +3,15 @@ document.querySelectorAll('.sidebar a').forEach(link => {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+
+      const sidebar = document.querySelector('.sidebar');
+      const hamburger = document.querySelector('.hamburger');
+      // Solo cerramos el menú en dispositivos móviles
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('open');  // Cerrar la barra lateral
+        hamburger.classList.remove('open'); // Cambiar el ícono de hamburguesa
+        document.getElementById('menu-icon').textContent = '☰'; // Restablecer el ícono
+      }      
     });
   });
 
@@ -62,7 +71,15 @@ document.querySelectorAll('.sidebar a').forEach(link => {
   });
 
    // menu hamburguer
-  function toggleMenu() {
+/*   function toggleMenu() {
       const sidebar = document.querySelector('.sidebar');
       sidebar.classList.toggle('open');
-  }
+  }  */
+
+  function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    const icon = document.getElementById('menu-icon');
+    const isOpen = sidebar.classList.toggle('open');
+    const hamburger = document.querySelector('.hamburger');
+    icon.textContent = isOpen ? '✖' : '☰';
+    }
