@@ -5,7 +5,7 @@ En FP - CFGS - ASIR Módulo: 0378 - **Seguridad y Alta Disponibilidad**.
 
 ![CID](docs/imgs/cid.png)
 
-RAs
+Resultados de Aprendizaje
 1. Adopta pautas y prácticas de tratamiento seguro de la información, reconociendo las vulnerabilidades de un sistema informático y la necesidad de asegurarlo
 2. Implanta mecanismos de seguridad activa, seleccionando y ejecutando contramedidas ante amenazas o ataques al sistema
 3. Implanta técnicas seguras de acceso remoto a un sistema informático, interpretando y aplicando el plan de seguridad
