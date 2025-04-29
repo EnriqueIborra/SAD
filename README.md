@@ -3,6 +3,8 @@ Visita:   https://enriqueiborra.github.io/SAD/
 
 En FP - CFGS - ASIR Módulo: 0378 - **Seguridad y Alta Disponibilidad**.
 
+![CID](docs/imgs/cid.png)
+
 RAs
 1. Adopta pautas y prácticas de tratamiento seguro de la información, reconociendo las vulnerabilidades de un sistema informático y la necesidad de asegurarlo
 2. Implanta mecanismos de seguridad activa, seleccionando y ejecutando contramedidas ante amenazas o ataques al sistema
