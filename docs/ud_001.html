@@ -49,6 +49,20 @@
     
     <main>
       <section id="privacidad">
+        <h2>Objetivos de un sistema ¿seguro?</h2>
+<p>"El único sistema seguro es aquel que está apagado y desconectado, enterrado en un refugio de
+   hormigón, rodeado por gas venenoso y custodiado por guardianes bien pagados y muy bien armados.
+    Aún así, yo no apostaría mi vida por él" (Eugene Spafford).</p>
+    <p>Hablar de seguridad informática en términos absolutos es imposible y por ese motivo se 
+      habla más bien de <strong> Fiabilidad</strong> del sistema.</p>
+<h2>Objetivos de un sistema <s> seguro</s> fiable</h2>
+<ul>
+  <li>Detectar los posibles problemas y amenazas. </li>
+  <li>Garantizar la adecuada utilización de los recursos y aplicaciones de los sistemas.</li>
+  <li>Limitar las pérdidas y conseguir una adecuada recuperación en caso de incidente.    </li>
+  <li>Cumplir con el marco legal y los requisitos impuestos a nivel organizativo.</li>
+</ul>
+<p>Y para poder llegar a estos objetivos, la SI se basa en los siguientes pilares o principios fundamentales:</p>
         <h2>Privacidad, Coherencia y Disponibilidad</h2>
 
         <p>Los principios fundamentales de la seguridad de la información se basan en tres pilares cruciales: 
@@ -60,7 +74,7 @@
         <p>Se trata de tres principios clave que deben implementarse en cualquier estrategia
               de seguridad para proteger la información contra accesos no autorizados, alteraciones y asegurar que los datos estén
                disponibles cuando se necesiten</p>
-        
+            
         <ul>
           <li><strong>Privacidad o Confidencialidad:</strong> Este principio asegura que solo las personas autorizadas tengan acceso 
             a la información. La privacidad protege los datos personales y sensibles, como los registros médicos o 
@@ -79,12 +93,36 @@
                siendo accesibles para quienes tienen derecho a usarlos. La alta disponibilidad es fundamental para operaciones
                 empresariales, servicios gubernamentales y sistemas críticos que requieren acceso constante.</li>
         </ul>
-
+        <img src="imgs/cid.png" alt="cid" class="imatge-dreta">
         <h2>CID de Ciberseguridad</h2>
+
         <p>Estos tres principios (CID) forman la base de cualquier estrategia de seguridad informática. Su correcta
           implementación ayuda a proteger la confidencialidad, fiabilidad y accesibilidad de la información, creando 
           un entorno digital seguro y resiliente ante posibles amenazas.</p>
-                    
+          <h2>Triada extendida CIDAN</h2>
+          <p>A estos tres principios se les pueden unir dos mas relacionados con la transmisión de la informacion. Estos son 
+          la <strong>autenticidad</strong> y el <strong>no repudio</strong>, convirtiendo así la triada CID en la triada extendida CIDAN</p> 
+        
+          <h2>Mecanismos para lograr estos objetivos</h2>
+
+          <ul>
+            <li>Autenticación</li>
+            <li>Autorización</li>
+            <li>Política de contraseñas</li>
+            <li>Verificador de integridat</li>
+            <li>Cifrado</li>
+            <li>Copias de seguridad</li>
+            <li>SAI / UPS</li>
+            <li>Control de acceso (físico)</li>
+            <li>Software anti-malware</li>
+            <li>Firewall</li>
+            <li>IDS / IPS</li>
+            <li>Certificados</li>
+            <li>Auditoria</li>
+            <li>Parches (de seguridad)</li>
+            <li>Snapshots</li>
+          </ul>
+          
         <h2> Seguridad Informática vs Seguridad de la Información</h2>
       
         <h3> Seguridad Informática</h3>
@@ -113,6 +151,8 @@
         <p> La <strong>seguridad informática</strong> protege los sistemas que manejan la información.<br>
             La <strong>seguridad de la información</strong> protege la información en sí, esté donde esté.</p>
           
+         <h3>Salidas profesionales</h3>
+         <img src="imgs/carreras.png" alt="Carreras en ciberseguridad"  width="80%">   
       </section>
 
 
@@ -157,7 +197,28 @@
       <section id="vulnerabilidades">
         <h2>Vulnerabilidades</h2>
 
-        <p>En el contexto de la seguridad informática, una <strong>vulnerabilidad</strong> es una debilidad o fallo en un sistema que puede ser explotado por un atacante para comprometer la confidencialidad, la integridad o la disponibilidad de los datos y servicios. Las vulnerabilidades pueden existir tanto en software como en hardware, y pueden ser resultado de errores de programación, configuraciones incorrectas, o incluso factores humanos. Existen diferentes tipos de vulnerabilidades que se deben identificar y mitigar para asegurar la protección de los sistemas.</p>
+        <p>En el contexto de la seguridad informática, una <strong>vulnerabilidad</strong> es una debilidad 
+          o fallo en un sistema que puede ser explotado por un atacante para comprometer la confidencialidad,
+           la integridad o la disponibilidad de los datos y servicios. Las vulnerabilidades pueden existir
+            tanto en software como en hardware, y pueden ser resultado de errores de programación, 
+            configuraciones incorrectas, o incluso factores humanos. Existen diferentes tipos de 
+            vulnerabilidades que se deben identificar y mitigar para asegurar la protección de los sistemas.</p>
+        <p>Elementos a proteger</p>
+          <ul>
+            <li>Hardware</li>
+            <li>Software</li>
+            <li>Datos ← Lo más importante y difícil de recuperar</li>
+            <li>Comunicaciones</li>
+            <li>Factor Humano ← Lo más difícil de controlar</li>
+          </ul>
+
+        <h3>Niveles de profundidad</h3>
+        <ul>
+          <li>Legales: LOPDGDD RGPD</li>
+          <li>Comunicaciones: protocolos seguros</li>
+          <li>Organizativos: niveles de acceso, contraseñas</li>
+          <li>Físicas: ubicación de equipos, suministro eléctrico</li>
+        </ul>
         
         <h3>Tipos de Vulnerabilidades</h3>
         
@@ -225,9 +286,83 @@
           <li><strong>Autenticación multifactor:</strong> Implementar autenticación multifactor para minimizar el impacto de un posible ataque, incluso si el atacante ha explotado una vulnerabilidad zero-day.</li>
         </ul>
         
-        <h3>Conclusión</h3>
-        <p>Un <strong>zero-day</strong> es una amenaza grave y difícil de mitigar en tiempo real, ya que explota fallos desconocidos y no tiene una solución inmediata hasta que los desarrolladores puedan abordarlo con un parche. La protección contra vulnerabilidades de este tipo requiere una combinación de buenas prácticas de seguridad y una respuesta rápida para minimizar los riesgos.</p>
+        <h3>Amenazas</h3>
+        <hr>
+        <ul>
+          <li>Internas
+            <ul>
+              <li>Insider</li>
+              <li>Desconocimiento/Falta de formación</li>
+            </ul>
+          </li>
+          <li>Externas
+            <ul>
+              <li>Campañas de hackeo</li>
+              <li>Ataque dirigido</li>
+            </ul>
+          </li>
+        </ul>
+        <hr>
+        <ul>
+          <li>Físicas
+              <ul>
+                <li>Robos, sabotajes, destrucción de sistemas</li>
+                <li>Cortes de suministro eléctrico</li>
+                <li>Condiciones atmosfericas : humedad, altas o bajas temperaturas</li>
+                <li>Interferencias electromagnéticas</li>
+              </ul>
+          </li>
+          <li>Lógicas
+            <ul>
+              <li>Rogueware o falsos programas de seguridad</li>
+              <li>Puertas traseras o backdoors</li>
+              <li>Virus</li>
+              <li>Gusanos o worm</li>
+              <li>Troyanos</li>
+              <li>Keylogger</li>
+              <li>Rootkit</li>
+            </ul>
+          </li>
+        </ul>
+
         
+        <h3>Ataques</h3>
+        <p>Un ataque informático hace referencia a la realización de una tentativa de poner en riesgo la
+           seguridad informática de un equipo o conjunto de equipos, con el fin de causar daños deliberados
+            que afecten a su funcionamiento</p>
+          <h3>Técnicas de ataque</h3>
+          <img src="imgs/top-attaccks.png" alt="tipos de ataques">
+
+        <h3>Vectores de ataque</h3>
+        <p>Los vectores de ataque son la ruta elegida para explotar las debilidades o vulnerabilidades 
+          que pueden estar presentes en ordenadores, aplicaciones, servidores de correo electrónico, 
+          software, páginas web, navegadores, redes, etc., y llevar a cabo ataques informáticos</p>
+
+        <h3> Cuando se descubre una vulnerabilidad, se detalla en un "paper"</h3>
+        <h3>NVE - FIRST</h3>
+        <p>Cuando se informa de una vulnerabilidad, se valora y clasifica</p>
+        <p>Existen bases de datos de vulnerabilidades y calculadoras de riesgo para cada vulnerabilidad</p>
+
+        <p>Calculadora de perillositat d'una vulnerabilitat </p>
+        <a href="https://www.first.org/cvss/">Calculadora cvss</a>
+        <p>BBDD vulnerabilitats</p>
+        <a href="https://nvd.nist.gov/"></a>
+
+        <h3>CSIRT</h3>
+        <p>La evolución del malware y otras amenazas, así como la aparición de normativa dirigida a 
+          proteger la información, han hecho que los equipos de respuesta ante incidentes de seguridad,
+           CSIRT por sus siglas en inglés Computer Security Incident Response Team, sean de vital importancia
+            para las compañías</p>
+            <img src="imgs/nvd.png" alt="nvd" class="imatge-dreta" width="30%">
+            
+            <p>INCIBE</p><a href="https://www.incibe-cert.es/">https://www.incibe-cert.es/</a>
+            <p>Cert CV</p><a href="http://www.csirtcv.gva.es/">http://www.csirtcv.gva.es/</a>
+            
+            <img src="imgs/first.png" alt="nvd" class="imatge-dreta" width="30%%">
+            <p>CCN-CERT</p><a href="https://www.ccn-cert.cni.es/">https://www.ccn-cert.cni.es/</a>
+            <p>ENISA otros paises europeos</p><a href="https://www.enisa.europa.eu ">https://www.enisa.europa.eu</a>
+
+        <h3>Auditorias</h3>
 
 
 
@@ -242,7 +377,7 @@
         
         <p>Existen varias formas en las que los atacantes emplean la ingeniería social para alcanzar sus objetivos. Los métodos más comunes incluyen:</p>
         
-        <ul>
+        <ul>   <img src="imgs/phishing.png" alt="phishing" width="35%" class="imatge-dreta">
           <li><strong>Phishing:</strong> El phishing es un tipo de ataque en el que los atacantes se hacen pasar por una entidad confiable, como una institución financiera, una empresa o una red social, con el fin de engañar a la víctima y que esta revele información sensible, como contraseñas o detalles de cuentas bancarias. Usualmente, el atacante envía un correo electrónico o mensaje que parece legítimo, pero contiene enlaces a sitios web fraudulentos diseñados para capturar la información del usuario.</li>
           
           <li><strong>Vishing (phishing telefónico):</strong> Similar al phishing, pero en lugar de correos electrónicos, los atacantes utilizan llamadas telefónicas. El atacante puede hacerse pasar por un representante de una empresa, una autoridad o una persona de confianza para obtener información personal o financiera del objetivo.</li>
@@ -324,6 +459,8 @@
         
         <h3>Conclusión</h3>
         <p>Una <strong>política de contraseñas</strong> adecuada es crucial para proteger los sistemas y datos de una organización. Implementar reglas claras y fomentar buenas prácticas en los usuarios puede reducir significativamente el riesgo de accesos no autorizados y ciberataques. Mantener las contraseñas seguras es una parte fundamental de la ciberseguridad.</p>
+        <p>Con las políticas de contraseñas, conseguimos reforzar la autenticación y la autorización de acceso a los recursos</p>
+        <img src="imgs/auth-autor.png" alt="autenticación" width="60%">
       
       </section>
 
@@ -363,6 +500,14 @@
           <li><strong>Privacidad:</strong> Algunos usuarios pueden sentirse incómodos con la recolección y almacenamiento de datos biométricos personales.</li>
           <li><strong>Posibilidad de errores:</strong> Aunque son muy precisos, los sistemas biométricos no son infalibles y pueden dar lugar a falsos positivos o negativos.</li>
         </ul>
+        <hr>
+        <p>Los sistemas biometricos son un sistema para complementar los sistemas de autenticación MFA</p>
+        <img src="imgs/mfa.png" alt="mfa">
+        <ul>
+          <li>Algo que se</li>
+          <li>Algo que tengo</li>
+          <li>Algo que soy  (sistemas biometricos)</li>
+        </ul>
       </section>
 
 
@@ -372,7 +517,14 @@
         <h2>¿Qué es la Criptografía? 🔐</h2>
         <p>La criptografía es el arte y la ciencia de proteger la información mediante técnicas matemáticas que convierten los datos legibles en un formato ilegible para aquellos que no tienen la clave adecuada. Su objetivo es asegurar la confidencialidad, integridad, autenticidad y no repudio de los datos.</p>
     
-        <h2>¿Por qué es importante para el Almacenaje? 🗃️</h2>
+        <h2>Cifrado en Reposo y en tránsito</h2>
+        <p>El cifrado de datos, tanto en reposo como en tránsito, es una de las necesidades más apremiantes de las empresas modernas.
+           Los datos se han convertido en la actualidad en el tesoro más importante.
+            Hoy, para cualquier negocio, los datos son el activo de mayor valor. 
+            Pero, a su vez, son el activo más frágil y más susceptible a miles de amenazas que pueden poner en riesgo su integridad. 
+            El cifrado correcto garantiza una protección máxima y una gestión optimizada de la información.</p>
+
+        <h2>¿Por qué es importante para el Almacenaje (Cifrado en reposo)? 🗃️</h2>
         <p>La criptografía para el almacenaje de información es esencial para proteger datos sensibles, como contraseñas, información financiera, documentos confidenciales y más. Al cifrar los datos, incluso si son robados o accedidos de forma no autorizada, estos no podrán ser comprendidos sin la clave adecuada.</p>
     
         <h2>Tipos de Criptografía para Almacenaje 🔑</h2>
@@ -412,7 +564,10 @@
         <h1>Plan Integral de Protección</h1>
   
         <h2>¿Qué es un Plan Integral de Protección? </h2>
-        <p>Un Plan Integral de Protección es un conjunto de medidas, procedimientos y tecnologías que tienen como objetivo proteger los activos de una organización, en especial los datos e información sensible, frente a amenazas internas y externas. Este plan debe incluir estrategias para mitigar riesgos y responder de manera efectiva ante incidentes de seguridad.</p>
+        <p>Un Plan Integral de Protección es un conjunto de medidas, procedimientos y tecnologías que
+           tienen como objetivo proteger los activos de una organización, en especial los datos e 
+           información sensible, frente a amenazas internas y externas. Este plan debe incluir estrategias
+            para mitigar riesgos y responder de manera efectiva ante incidentes de seguridad.</p>
     
         <h2>Componentes Clave de un Plan Integral de Protección </h2>
         <p>Un Plan Integral de Protección debe abarcar varios componentes fundamentales para asegurar una protección completa de la información:</p>
@@ -572,7 +727,22 @@
       
         <h2>🔌 Sistemas de Alimentación Ininterrumpida (SAI)</h2>
       
-        <p>Un <strong>SAI (UPS en inglés)</strong> es un dispositivo que proporciona energía eléctrica de respaldo en caso de cortes o caídas de tensión. Es esencial para mantener el funcionamiento de sistemas críticos durante apagones breves o hasta que entren en acción otras fuentes de energía.</p>
+        <p>Un <strong>SAI (UPS en inglés)</strong> es un dispositivo que proporciona energía eléctrica de respaldo en caso de cortes
+           o caídas de tensión. Es esencial para mantener el funcionamiento de sistemas críticos durante apagones breves o hasta 
+           que entren en acción otras fuentes de energía.</p>
+
+           
+           <ul> <u>Posibles problemas con el suministro eléctrico</u>
+             <li>Corte</li>
+             <li>Bajada de tensión momentánea</li>
+             <li>Picos de tensión</li>
+             <li>Bajada de tensión sostenida</li>
+             <li>Subida de tensión sostenida</li>
+             <li>Ruido eléctrico</li>
+             <li>Variación de frecuencia</li>
+           </ul> 
+      
+           
       
         <h3> Funciones principales</h3>
         <ul>
@@ -583,11 +753,16 @@
       
         <h3>🏷️ Tipos de SAI</h3>
         <ul>
-          <li> <strong>Offline o standby:</strong> Solo entra en funcionamiento cuando detecta un fallo en el suministro eléctrico.</li>
+          <li> <strong>Offline o standby:</strong> Solo entra en funcionamiento cuando detecta un fallo en el suministro eléctrico.
+            <img src="imgs/sai-offline.png" alt="sai offline" width="55%">
+            <img src="imgs/sai-online.png" alt="sai online" class="imatge-dreta" width="40%"></li>
           <li> <strong>Interactivo:</strong> Regula pequeñas variaciones de voltaje sin usar la batería.</li>
-          <li> <strong>Online:</strong> Ofrece la mayor protección, transformando constantemente la corriente para asegurar energía limpia y estable.</li>
+          <li> <strong>Online:</strong> Ofrece la mayor protección, transformando constantemente la corriente para asegurar energía limpia y estable.
+            </li>
         </ul>
       
+
+
         <h3> Usos comunes</h3>
         <ul>
           <li> <strong>Servidores y ordenadores:</strong> Evitan apagados inesperados que puedan corromper datos.</li>
@@ -596,14 +771,23 @@
         </ul>
       
         <p> El uso de un SAI proporciona una <strong>capa extra de seguridad eléctrica</strong> en infraestructuras tecnológicas, ayudando a garantizar disponibilidad y continuidad del servicio.</p>
-    
+
+        <h3>Cálculo potencia </h3>
+        
+        <p>Los fabricantes suelen utilizar el concepto de potencia aparente, que se mide en VA (voltampere), Volts x Amperes</p>
+        <img src="imgs/formula-va.png" alt="formula VA=" class="imatge-dreta">
+        <p>KVA (lee kábeas) 1 KVA = ​​1000 VA</p>  
+        <p>Potencia eficaz, Watt = W</p>
+        
       </section>  
 
       <section id="electrogenos">
              
         <h2> Grupos Electrógenos</h2>
-      
-        <p>Un <strong>grupo electrógeno</strong> es un equipo capaz de generar energía eléctrica de forma autónoma mediante un motor de combustión. Se utiliza como <strong>fuente de respaldo</strong> en caso de fallo del suministro eléctrico principal.</p>
+        <p>Ante un corte prolongado de energía, el SAI puede resultar insuficiente, siendo un grupo electrógeno el elemento
+           autónomo que nos suministre energía hasta que se restablezca el suministro normal.</p>
+        <p>Un <strong>grupo electrógeno</strong> es un equipo capaz de generar energía eléctrica de forma autónoma mediante un
+           motor de combustión. Se utiliza como <strong>fuente de respaldo</strong> en caso de fallo del suministro eléctrico principal.</p>
       
         <h3> Componentes principales</h3>
         <ul>
@@ -611,8 +795,13 @@
           <li> <strong>Alternador:</strong> Transforma la energía mecánica del motor en electricidad.</li>
           <li> <strong>Sistema de control:</strong> Gestiona el encendido, apagado y monitoreo del grupo.</li>
         </ul>
+        <hr>
+        <ul>
+          <li>Arranque manual  (Hasta 5 KVA)   </li>
+          <li> Arranque automático</li>
+        </ul>
       
-        <h3> Funcionamiento</h3>
+        <h3> Funcionamiento</h3>       <img src="imgs/grupo-elec.png" alt="sai offline" width="35%" class="imatge-dreta">
         <ul>
           <li> Cuando se detecta una interrupción del suministro eléctrico, el grupo electrógeno se activa automáticamente (si dispone de sistema ATS).</li>
           <li> Genera electricidad para abastecer el sistema mientras dura el corte.</li>
@@ -686,6 +875,35 @@
         </ul>
       
         <p> Con esta política, se garantiza la <strong>resiliencia y recuperación</strong> de los datos ante fallos técnicos, errores humanos o ciberataques.</p>
+
+        <h3>El plan de Backup</h3>
+        <p>Incluye simulacros programados de recuperacion de datos</p>
+        <ul>
+          <li>De que información hacer copia ??</li>
+          <li>Cuando ??  Completa/Diferencial/incremental</li>
+          <li>Donde ??</li>
+          <li>Es necesario encriptar ??</li>
+          <li>Cuando revisar/comprobar copias ??</li>
+          <li>Cuanto tiempo conservar las copias ??</li>
+          <li>Como identificar las copias ??</li>
+          <li>Como informar del éxito o fracaso de las tareas de copia ??</li>
+          <li>Como gestionar el borrado seguro ??</li>
+          <li>Como proteger las copias o almacenes frente a ransomware ??</li>
+        </ul>
+        <hr>
+        <img src="imgs/plan1.png" alt="plan de copia" width="15%" class="imatge-dreta">
+        <p><strong> El plan de backup</strong> es la definición y descripción de todos los puntos anteriormente expuestos y su oficialización por parte de los responsables del área de seguridad.</p>
+        <p>  Es un documento oficial dentro de la organización</p>
+        <p>Además, hay que tener en cuenta deltro del plan, las siguientes consideraciones</p>
+        <ul>
+          <li>Automatizar procesos de CS al máximo</li>
+          <li>Designar a responsable de supervisión</li>
+          <li>Designar a operador de copia (cambios de soportes, etc...)</li>
+          <li>Asignar permisos de copia a la información definida</li>
+          <li>Revisar copia de información “bloqueada” (BBDD, etc.. )</li>
+          <li>Documentar los procesos de copia y restauración</li>
+        </ul>
+       
 
       </section>
 
