@@ -86,6 +86,11 @@
     top: 0;
     left: 0;
     overflow-y: auto;
+
+    top: 60px; /* para dejar espacio al header */
+    height: calc(100vh - 60px); /* ajusta la altura disponible */
+    overflow-y: auto;
+    padding-top: 0;
   }
   .sidebar a {
     display: block;
@@ -199,6 +204,11 @@
       height: 100%;
       transition: left 0.3s ease;
       z-index: 1001;
+
+      top: 60px; /* para dejar espacio al header */
+      height: calc(100vh - 60px); /* ajusta la altura disponible */
+      overflow-y: auto;
+      padding-top: 0;      
     }
     .sidebar.open {
       left: 0;
@@ -270,3 +280,14 @@
     background-color: #e0e0ff;
   }
 
+  .imatge-dreta {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .imatge-esquerra {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
