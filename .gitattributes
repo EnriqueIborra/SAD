@@ -1,0 +1,3 @@
+*.roff linguist-documentation
+*.man linguist-documentation
+docs/* linguist-documentation
