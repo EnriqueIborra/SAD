@@ -6,3 +6,4 @@
 *.md linguist-documentation
 *.txt linguist-documentation
 *.man linguist-documentation
+*.me linguist-documentation
