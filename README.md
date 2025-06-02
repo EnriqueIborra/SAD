@@ -5,7 +5,10 @@ En FP - CFGS - ASIR Módulo: 0378 - **Seguridad y Alta Disponibilidad**.
 
 ![CID](docs/imgs/cid.png)
 
-Resultados de Aprendizaje
+De acuerdo con el Real Decreto 1629/2009, de 30 de octubre, y actualizado en Real Decreto 500/2024, de 21 de mayo, 
+por el que se establece el título de técnico superior en administración de sistemas informáticos en red y 
+se fijan las enseñanzas mínimas, los resultados de aprendizaje son:
+## Resultados de aprendizaje
 1. Adopta pautas y prácticas de tratamiento seguro de la información, reconociendo las vulnerabilidades de un sistema informático y la necesidad de asegurarlo
 2. Implanta mecanismos de seguridad activa, seleccionando y ejecutando contramedidas ante amenazas o ataques al sistema
 3. Implanta técnicas seguras de acceso remoto a un sistema informático, interpretando y aplicando el plan de seguridad
