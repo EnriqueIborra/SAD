@@ -51,8 +51,8 @@
     <main>
       
     <section id="tipos">
-      
-        <h2 >🌐 Tipos de Proxy, Características y Funciones</h2>
+    <div class="ras">&lt;RA 5> Implanta servidores «proxy», aplicando criterios de configuración que garanticen el funcionamiento seguro del servicio. </div>
+        <h2 > Tipos de Proxy, Características y Funciones</h2>
       
         <p>Un <strong>proxy</strong> es un intermediario entre un cliente (como un navegador web) y el servidor al que quiere acceder. Sirve para enrutar, filtrar, ocultar, registrar o modificar el tráfico de red según el tipo de proxy y su configuración.</p>
       
@@ -97,7 +97,7 @@
         <p>Diseñado específicamente para manejar tráfico web.
         Puede hacer inspección de contenido, filtrado por URL, caché, etc.</p>
       
-        <h3 >📌 Características generales</h3>
+        <h3 > Características generales</h3>
         <ul>
           <li> Puede aumentar la <strong>seguridad</strong>, pero también introducir riesgos si está mal configurado.</li>
           <li> Necesita mantenimiento: actualizaciones, revisión de logs, ajustes de rendimiento.</li>
@@ -111,18 +111,18 @@
 
     <section id="instala">
      
-        <h2 >🛠️ Cómo instalar un Proxy-Cache con Squid (en Linux)</h2>
+        <h2 > Cómo instalar un Proxy-Cache con Squid (en Linux)</h2>
       
         <p>Un <strong>proxy-cache</strong> permite almacenar en caché (temporalmente) contenido web para acelerar el acceso a sitios web frecuentemente visitados y reducir el uso de ancho de banda. <strong>Squid</strong> es uno de los software más usados para esto.</p>
       
-        <h3 >🔧 Requisitos previos</h3>
+        <h3 > Requisitos previos</h3>
         <ul>
           <li>Un servidor con Linux (Debian, Ubuntu, CentOS, etc.).</li>
           <li>Acceso como superusuario (root o sudo).</li>
           <li>Conexión a Internet.</li>
         </ul>
       
-        <h3 >📦 1. Instalar Squid</h3>
+        <h3 > 1. Instalar Squid</h3>
         <h3>En Debian/Ubuntu:</h3>
         <pre><code>sudo apt update
 sudo apt install squid -y</code></pre>
@@ -130,7 +130,7 @@ sudo apt install squid -y</code></pre>
         <h3>En CentOS/RHEL:</h3>
         <pre><code>sudo yum install squid -y</code></pre>
       
-        <h3 >⚙️ 2. Configurar Squid</h3>
+        <h3 > 2. Configurar Squid</h3>
         <p>El archivo principal de configuración está en:</p>
         <pre><code>/etc/squid/squid.conf</code></pre>
       
@@ -149,7 +149,7 @@ http_access allow red_local</code></pre>
           </li>
         </ul>
       
-        <h3 >📁 3. Inicializar directorios de caché</h3>
+        <h3 > 3. Inicializar directorios de caché</h3>
         <pre><code>sudo squid -z</code></pre>
       
         <h3 >▶️ 4. Iniciar y habilitar el servicio</h3>
@@ -164,7 +164,7 @@ sudo systemctl enable squid</code></pre>
           </li>
         </ul>
       
-        <h3 >🧠 Opciones útiles</h3>
+        <h3 > Opciones útiles</h3>
         <ul>
           <li><strong>cache_mem</strong>: Memoria RAM reservada para caché.
             <pre><code>cache_mem 256 MB</code></pre>
@@ -175,7 +175,7 @@ sudo systemctl enable squid</code></pre>
           <li><strong>cache_log / access_log</strong>: Archivos donde se registran errores y accesos.</li>
         </ul>
       
-        <h3 >🧼 Para borrar la caché manualmente</h3>
+        <h3 > Para borrar la caché manualmente</h3>
         <pre><code>sudo systemctl stop squid
 sudo rm -rf /var/spool/squid/*
 sudo squid -z
@@ -186,7 +186,7 @@ sudo systemctl start squid</code></pre>
 
 
     <section id="autentica">
-        <h2 >🔐 Autenticación en Proxys</h2>
+        <h2 > Autenticación en Proxys</h2>
       
         <p>La <strong>autenticación en un proxy</strong> consiste en requerir que el usuario proporcione credenciales (usuario y contraseña) antes de permitir el acceso a Internet o ciertos recursos.</p>
       
@@ -232,7 +232,7 @@ sudo systemctl start squid</code></pre>
           </li>
         </ol>
       
-        <h3 >⚠️ Recomendaciones</h3>
+        <h3 > Recomendaciones</h3>
         <ul>
           <li>Usar HTTPS entre cliente y proxy si se usa autenticación básica.</li>
           <li>Limitar intentos fallidos si es posible.</li>
@@ -245,7 +245,7 @@ sudo systemctl start squid</code></pre>
 
 
     <section id="transparente">
-        <h2 >🧼 ¿Qué es un Proxy Transparente?</h2>
+        <h2 > ¿Qué es un Proxy Transparente?</h2>
       
         <p>Un <strong>proxy transparente</strong> es un servidor proxy que <strong>intercepta el tráfico de red sin necesidad de configuración en el cliente</strong>.</p>
       
@@ -276,7 +276,7 @@ sudo systemctl start squid</code></pre>
           <li> Requiere reglas avanzadas en el firewall/router.</li>
         </ul>
       
-        <h3 >🛠️ Configuración básica con Squid</h3>
+        <h3 > Configuración básica con Squid</h3>
         <h3>1. Activar el modo transparente en squid.conf:</h3>
         <pre><code>http_port 3128 transparent</code></pre>
       
@@ -295,10 +295,10 @@ sudo systemctl start squid</code></pre>
 
 
     <section id="web">
-        <h2 >🧭 ¿Qué es un Proxy Web?</h2>
+        <h2 > ¿Qué es un Proxy Web?</h2>
         <p>Un <strong>proxy web</strong> es un <strong>servidor intermedio</strong> entre tu dispositivo (navegador, app, etc.) y el sitio web o servicio que quieres visitar.</p>
       
-        <h3 >⚙️ ¿Cómo Funciona?</h3>
+        <h3 > ¿Cómo Funciona?</h3>
         <ol>
           <li><strong>Tú haces una solicitud</strong> (por ejemplo, quieres visitar <code>example.com</code>).</li>
           <li> <strong>Tu solicitud va al servidor proxy</strong> en lugar de ir directamente a la web.</li>
@@ -332,7 +332,7 @@ sudo systemctl start squid</code></pre>
         <h2>¿Qué es un Proxy Inverso?</h2>
         <p>Un <strong>proxy inverso</strong> es un servidor que se ubica frente a uno o más servidores web, y actúa como intermediario para las solicitudes que llegan desde los clientes (usuarios).</p>
       
-        <h3>⚙️ ¿Cómo Funciona?</h3>
+        <h3> ¿Cómo Funciona?</h3>
         <ol>
           <li> Un usuario hace una solicitud para acceder a un sitio web (por ejemplo, <code>example.com</code>).</li>
           <li> La solicitud llega al <strong>proxy inverso</strong> en lugar de ir directamente al servidor web.</li>
@@ -364,7 +364,7 @@ sudo systemctl start squid</code></pre>
 
 
     <section id="problemas">
-        <h2>🛠️ Soluciones a Problemas Comunes de Clientes con Proxys</h2>
+        <h2> Soluciones a Problemas Comunes de Clientes con Proxys</h2>
         <p>Los clientes que navegan a través de un proxy web pueden experimentar una serie de inconvenientes. A continuación, se describen los problemas más comunes y sus soluciones:</p>
         <ul>
           <li>❌ <strong>Acceso denegado o errores 403/407:</strong> Esto ocurre cuando el proxy requiere autenticación o hay restricciones.</li>
@@ -379,11 +379,11 @@ sudo systemctl start squid</code></pre>
           <ul>
             <li> <strong>Solución:</strong> Fuerza la recarga del contenido desde el servidor (Ctrl+F5) o solicita limpieza de caché al administrador del proxy.</li>
           </ul>
-          <li>🔒 <strong>Problemas con HTTPS o certificados:</strong> Algunos proxys no gestionan bien conexiones cifradas.</li>
+          <li> <strong>Problemas con HTTPS o certificados:</strong> Algunos proxys no gestionan bien conexiones cifradas.</li>
           <ul>
             <li> <strong>Solución:</strong> Usa un proxy que soporte conexiones HTTPS con certificados válidos o instala el certificado del proxy en el cliente.</li>
           </ul>
-            <li>🌐 <strong>No se puede navegar:</strong> Puede deberse a mala configuración del proxy en el navegador o sistema.</li>
+            <li> <strong>No se puede navegar:</strong> Puede deberse a mala configuración del proxy en el navegador o sistema.</li>
           <ul>
             <li> <strong>Solución:</strong> Verifica la configuración del proxy (IP, puerto, autenticación) y asegúrate de que esté habilitado correctamente.</li>
           </ul>
@@ -392,12 +392,12 @@ sudo systemctl start squid</code></pre>
             <li> <strong>Solución:</strong> Corrige la lógica de redirección en la configuración del proxy o actualiza el software.</li>
           </ul>
         </ul>
-        <p>🧩 Identificar correctamente el tipo de problema y su causa ayuda a aplicar la solución adecuada.  </p>
+        <p> Identificar correctamente el tipo de problema y su causa ayuda a aplicar la solución adecuada.  </p>
 
     </section>
 
     <section id="herramientas">
-        <h2>🔍 Herramientas Gráficas de Monitorización de Proxys</h2>
+        <h2> Herramientas Gráficas de Monitorización de Proxys</h2>
       
         <h3>🖥️ Squid Web Proxy + Webmin / Sarg / Lightsquid</h3>
         <p><strong>Descripción:</strong> Squid es un proxy muy popular, y aunque funciona en modo consola, existen herramientas gráficas como:</p>
@@ -409,22 +409,22 @@ sudo systemctl start squid</code></pre>
         <p><strong>Ventajas:</strong> Gratuito, ampliamente usado, extensible.</p>
         <p><strong>Ideal para:</strong> Redes educativas o empresariales.</p>
       
-        <h3>📊 Grafana + Prometheus (o Telegraf)</h3>
+        <h3> Grafana + Prometheus (o Telegraf)</h3>
         <p><strong>Descripción:</strong> Grafana es un panel visual moderno que, con plugins adecuados y un recolector como Prometheus, puede mostrar estadísticas de proxies y tráfico en tiempo real.</p>
         <p><strong>Ventajas:</strong> Muy visual, configurable, soporta alertas.</p>
         <p><strong>Ideal para:</strong> Usuarios avanzados o redes grandes.</p>
       
-        <h3>📉 Zabbix</h3>
+        <h3> Zabbix</h3>
         <p><strong>Descripción:</strong> Plataforma de monitorización general que también puede observar servicios de red como proxies. Permite ver el estado, alertas, tiempo de respuesta, etc.</p>
         <p><strong>Ventajas:</strong> Escalable, interfaz gráfica completa, soporte de red.</p>
         <p><strong>Ideal para:</strong> Empresas y centros con múltiples servidores.</p>
       
-        <h3>🧩 ntopng</h3>
+        <h3> ntopng</h3>
         <p><strong>Descripción:</strong> Monitoriza el tráfico de red en tiempo real, ideal si quieres ver el comportamiento del proxy en cuanto a consumo de ancho de banda, sesiones activas, etc.</p>
         <p><strong>Ventajas:</strong> Gráficos en tiempo real, muy visual.</p>
         <p><strong>Ideal para:</strong> Análisis profundo del tráfico que pasa por un proxy.</p>
       
-        <h3>🌐 Web Proxy Sniffer Tools (como Fiddler o Charles Proxy)</h3>
+        <h3> Web Proxy Sniffer Tools (como Fiddler o Charles Proxy)</h3>
         <p><strong>Descripción:</strong> Aunque se usan más para depuración, pueden monitorizar el tráfico HTTP/HTTPS que pasa a través de un proxy configurado.</p>
         <p><strong>Ventajas:</strong> Muy detallado, visualización de cabeceras, cuerpos de solicitud/respuesta.</p>
         <p><strong>Ideal para:</strong> Desarrolladores o análisis puntual.</p>
@@ -432,32 +432,32 @@ sudo systemctl start squid</code></pre>
     </section>
 
     <section id="documentacion">
-        <h2>📚 Documentación en los Proxies</h2>
+        <h2> Documentación en los Proxies</h2>
       
         <p>La documentación en los proxies se refiere al registro, análisis y control de toda la actividad que pasa a través del servidor proxy. Esta documentación es fundamental para propósitos de seguridad, auditoría, control de acceso y diagnóstico.</p>
       
-        <h3>📝 ¿Qué se documenta?</h3>
+        <h3> ¿Qué se documenta?</h3>
         <ul>
           <li> <strong>Solicitudes y respuestas HTTP/HTTPS:</strong> qué páginas se visitan, cuándo y por quién.</li>
           <li> <strong>Direcciones IP de origen y destino:</strong> quién hace la solicitud y hacia dónde va.</li>
-          <li>⏱️ <strong>Tiempos de respuesta:</strong> medición del tiempo y estado de las conexiones.</li>
-          <li>🔐 <strong>Usuarios autenticados:</strong> si hay login, quién accedió a qué.</li>
+          <li> <strong>Tiempos de respuesta:</strong> medición del tiempo y estado de las conexiones.</li>
+          <li> <strong>Usuarios autenticados:</strong> si hay login, quién accedió a qué.</li>
           <li> <strong>Tamaño del contenido:</strong> datos transferidos por solicitud.</li>
         </ul>
       
         <h3>📂 ¿Dónde se guarda esta documentación?</h3>
         <ul>
-          <li>🗃️ <strong>Archivos de logs</strong>: guardados en texto plano por el sistema proxy.</li>
-          <li>💾 <strong>Bases de datos</strong>: para búsquedas y análisis más avanzados.</li>
-          <li>📊 <strong>Herramientas de análisis</strong>: como SARG o Lightsquid para generar informes.</li>
+          <li> <strong>Archivos de logs</strong>: guardados en texto plano por el sistema proxy.</li>
+          <li> <strong>Bases de datos</strong>: para búsquedas y análisis más avanzados.</li>
+          <li> <strong>Herramientas de análisis</strong>: como SARG o Lightsquid para generar informes.</li>
         </ul>
       
         <h3> ¿Por qué es importante documentar?</h3>
         <ul>
-          <li>🕵️ <strong>Seguridad:</strong> detectar accesos no autorizados.</li>
-          <li>📋 <strong>Auditoría:</strong> cumplir normativas legales.</li>
-          <li>⚙️ <strong>Optimización:</strong> mejorar rendimiento.</li>
-          <li>🔧 <strong>Solución de problemas:</strong> detectar y resolver fallos.</li>
+          <li> <strong>Seguridad:</strong> detectar accesos no autorizados.</li>
+          <li> <strong>Auditoría:</strong> cumplir normativas legales.</li>
+          <li> <strong>Optimización:</strong> mejorar rendimiento.</li>
+          <li> <strong>Solución de problemas:</strong> detectar y resolver fallos.</li>
         </ul>
 
     </section>
@@ -467,19 +467,19 @@ sudo systemctl start squid</code></pre>
       
         <p>Squid permite registrar información detallada sobre las peticiones y el comportamiento del proxy. La configuración de los logs se realiza principalmente en el archivo <code>squid.conf</code>.</p>
       
-        <h3>📁 Ubicación del archivo de configuración</h3>
+        <h3> Ubicación del archivo de configuración</h3>
         <p>El archivo de configuración suele encontrarse en:</p>
         <ul>
-          <li>📄 <code>/etc/squid/squid.conf</code> (Debian/Ubuntu)</li>
-          <li>📄 <code>/etc/squid3/squid.conf</code> (versiones antiguas)</li>
-          <li>📄 <code>/usr/local/squid/etc/squid.conf</code> (instalación manual)</li>
+          <li> <code>/etc/squid/squid.conf</code> (Debian/Ubuntu)</li>
+          <li> <code>/etc/squid3/squid.conf</code> (versiones antiguas)</li>
+          <li> <code>/usr/local/squid/etc/squid.conf</code> (instalación manual)</li>
         </ul>
       
         <h3>🧾 Tipos de logs en Squid</h3>
         <ul>
-          <li>📜 <strong>access.log</strong>: registro de cada solicitud HTTP.</li>
-          <li>⚠️ <strong>cache.log</strong>: eventos del sistema y errores.</li>
-          <li>📦 <strong>store.log</strong>: almacenamiento de objetos en caché.</li>
+          <li> <strong>access.log</strong>: registro de cada solicitud HTTP.</li>
+          <li> <strong>cache.log</strong>: eventos del sistema y errores.</li>
+          <li> <strong>store.log</strong>: almacenamiento de objetos en caché.</li>
         </ul>
       
         <h3>⚙️ Configuración básica en squid.conf</h3>
@@ -502,38 +502,38 @@ sudo systemctl start squid</code></pre>
           <li>▶️ <code>sudo service squid restart</code> (init.d)</li>
         </ul>
       
-        <h3>📊 Herramientas para visualizar logs</h3>
+        <h3> Herramientas para visualizar logs</h3>
         <ul>
-          <li>📈 <strong>SARG</strong>: genera informes en HTML desde access.log</li>
-          <li>📊 <strong>Lightsquid</strong>: alternativa visual para navegación web</li>
-          <li>🔍 <strong>grep, awk, less</strong>: para análisis manual en consola</li>
+          <li> <strong>SARG</strong>: genera informes en HTML desde access.log</li>
+          <li> <strong>Lightsquid</strong>: alternativa visual para navegación web</li>
+          <li> <strong>grep, awk, less</strong>: para análisis manual en consola</li>
         </ul>
    
     </section>
      
     <section id="analisislog">
-        <h2>🔍 Análisis de Logs de Squid</h2>
+        <h2> Análisis de Logs de Squid</h2>
       
         <p>Analizar los logs de Squid es fundamental para monitorear el tráfico de la red, identificar posibles problemas o detectar accesos no autorizados. Aquí te explicamos cómo hacerlo usando herramientas como <code>grep</code> y <strong>SARG</strong>.</p>
       
-        <h3>⚡ Análisis con `grep`</h3>
+        <h3> Análisis con `grep`</h3>
         <p>El comando <code>grep</code> es una herramienta potente para buscar patrones específicos dentro de los logs. Aquí algunos ejemplos de cómo usarlo para analizar los logs de Squid.</p>
       
-        <h4>📝 Ejemplos prácticos con `grep`:</h4>
+        <h4> Ejemplos prácticos con `grep`:</h4>
         <ul>
-          <li>🔍 <code>grep "TCP_MISS" /var/log/squid/access.log</code> - Muestra todas las solicitudes que no estaban en caché.</li>
-          <li>🔍 <code>grep "200 OK" /var/log/squid/access.log</code> - Muestra todas las solicitudes que fueron completadas con éxito.</li>
-          <li>🔍 <code>grep -i "error" /var/log/squid/cache.log</code> - Busca todas las entradas que contienen la palabra "error".</li>
-          <li>🔍 <code>grep -E "TCP_DENIED|ERR" /var/log/squid/access.log</code> - Encuentra accesos denegados o errores en las solicitudes.</li>
-          <li>🔍 <code>grep "GET" /var/log/squid/access.log | wc -l</code> - Cuenta el número de solicitudes GET realizadas.</li>
+          <li> <code>grep "TCP_MISS" /var/log/squid/access.log</code> - Muestra todas las solicitudes que no estaban en caché.</li>
+          <li> <code>grep "200 OK" /var/log/squid/access.log</code> - Muestra todas las solicitudes que fueron completadas con éxito.</li>
+          <li> <code>grep -i "error" /var/log/squid/cache.log</code> - Busca todas las entradas que contienen la palabra "error".</li>
+          <li> <code>grep -E "TCP_DENIED|ERR" /var/log/squid/access.log</code> - Encuentra accesos denegados o errores en las solicitudes.</li>
+          <li> <code>grep "GET" /var/log/squid/access.log | wc -l</code> - Cuenta el número de solicitudes GET realizadas.</li>
         </ul>
       
         <p>El comando <code>grep</code> permite realizar búsquedas detalladas en los logs, lo que facilita la identificación de problemas específicos y patrones en el tráfico.</p>
       
-        <h3>🔨 Instalación y uso de SARG</h3>
+        <h3> Instalación y uso de SARG</h3>
         <p>SARG (Squid Analysis Report Generator) es una herramienta que permite generar informes visuales a partir de los logs de Squid, facilitando la interpretación de los mismos.</p>
       
-        <h4>🛠️ Instalación de SARG</h4>
+        <h4> Instalación de SARG</h4>
         <p>Para instalar SARG en un sistema basado en Debian/Ubuntu:</p>
         <pre>
       # Actualizar los repositorios
@@ -543,7 +543,7 @@ sudo systemctl start squid</code></pre>
       sudo apt install sarg
         </pre>
       
-        <h4>📊 Configuración básica de SARG</h4>
+        <h4> Configuración básica de SARG</h4>
         <p>Después de la instalación, puedes configurar SARG editando su archivo de configuración, que generalmente se encuentra en <code>/etc/sarg/sarg.conf</code>.</p>
         <pre>
       # Editar el archivo de configuración
@@ -563,8 +563,7 @@ sudo systemctl start squid</code></pre>
         <h4>📈 Ver los informes de SARG</h4>
         <p>Los informes generados por SARG se suelen almacenar en el directorio <code>/var/www/sarg</code> o en la ruta que hayas configurado en el archivo de configuración.</p>
       
-        <h3>📑 Conclusión</h3>
-        <p>El uso de <code>grep</code> y herramientas como <strong>SARG</strong> hace que el análisis de los logs de Squid sea más accesible y eficaz, proporcionando una forma sencilla de interpretar el tráfico y detectar posibles problemas.</p>
+       <p>El uso de <code>grep</code> y herramientas como <strong>SARG</strong> hace que el análisis de los logs de Squid sea más accesible y eficaz, proporcionando una forma sencilla de interpretar el tráfico y detectar posibles problemas.</p>
 
     </section>
 
@@ -573,7 +572,7 @@ sudo systemctl start squid</code></pre>
 
     <footer>
       <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
-        2025 - Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD5 - Proxy
+        Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD5 - Proxy
       </p>
     </footer>
   </div>

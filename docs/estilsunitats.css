@@ -90,6 +90,7 @@
     top: 60px; /* para dejar espacio al header */
     height: calc(100vh - 60px); /* ajusta la altura disponible */
     overflow-y: auto;
+    overflow-x: hidden;
     padding-top: 0;
   }
   .sidebar a {
@@ -291,3 +292,12 @@
     margin-right: 15px;
     margin-bottom: 10px;
   }
+
+  .ras { 
+     font-size: 1rem;
+       color: #007BFF;
+     float: right;
+     text-align: right;
+    margin-right: 15px;
+    margin-left: 30%;
+    margin-bottom: 10px;}
