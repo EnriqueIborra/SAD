@@ -59,7 +59,21 @@
           </li>
           </ul>
           <p> Se utiliza para <strong>verificar la integridad</strong> de los datos. Si el hash cambia, los datos han sido modificados.</p>
-        
+
+         <h4>Ejemplo comparativo: La letra del DNI</h4> 
+        <p>La letra del DNI puede presentarse como una forma sencilla de control de integridad. 
+            (“resumen” calculado a partir de unos datos)</p>
+         
+  <p>La idea fundamental coincide con la de un hash: A partir de unos datos se calcula un valor de comprobación que permite detectar modificaciones.</p>
+
+    <pre>
+    En el DNI:
+    datos originales → número;
+    valor de control → letra.
+    Si alguien cambia el número y no recalcula la letra, la inconsistencia se detecta.  </pre>
+
+<p>Otros mecanismos de ejemplo son: checksums; CRC; dígitos de control bancarios;
+ISBN; códigos EAN.</p>
             
         <h3> Usos comunes de las funciones HASH</h3>
         
@@ -103,15 +117,17 @@
             ➤ Usado en aplicaciones como Bitcoin junto con SHA-256.</li>
         </ul>
 
-        <p>No todas las funciones hash son adecuadas para seguridad. Para contraseñas, se recomienda usar funciones diseñadas para ello, como:</p>
+        <p>No todas las funciones hash son adecuadas para seguridad. Para almacenar contraseñas deben usarse 
+    funciones de hash lentas y resistentes a ataques por fuerza bruta  y hardware especializado, como  </p>
 
         <ul>
             <li> <strong>bcrypt</strong></li>
             <li> <strong>scrypt</strong></li>
             <li> <strong>Argon2</strong> (ganador del Password Hashing Competition)</li>
+            <li> <strong>yescrypt</strong></li>
         </ul>
 
-          <h3>✍️ ¿Qué es una Firma Digital?</h3>
+        <hr>  <h3>✍️ ¿Qué es una Firma Digital?</h3>
           <p>Una <strong>firma digital</strong> es un mecanismo criptográfico que garantiza que un documento:</p>
           <ul>
             <li> No ha sido modificado (integridad).</li>
