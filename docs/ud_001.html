@@ -469,25 +469,71 @@ En ciencia (y también en ciberseguridad), un “paper” es un artículo cient�
 
         <p>Cuando, mediante un 'paper', se informa de una vulnerabilidad, esta se valora y clasifica.</p>
         <p>Existen bases de datos de vulnerabilidades y calculadoras de riesgo para cada vulnerabilidad</p>
-        <h3>NVE - FIRST</h3>
-        <p>Calculadora de peligrosidad de una vulnerabilidad </p>
-        <a href="https://www.first.org/cvss/">https://www.first.org/cvss/</a>
-        <p>BBDD vulnerabilidades</p>
-        <a href="https://nvd.nist.gov/">https://nvd.nist.gov/</a>
 
+        <hr> <img src="imgs/nvd.png" alt="nvd" class="imatge-dreta" width="30%">
+        <p>BBDD vulnerabilidades  <a href="https://nvd.nist.gov/">https://nvd.nist.gov/</a> </p>
+        <p>La pieza central: NVD  <br>
+           La National Institute of Standards and Technology (NIST) mantiene la National Vulnerability Database (NVD), 
+           una base de datos pública de vulnerabilidades de software y hardware. 
+           Su función principal es enriquecer los identificadores CVE con información adicional: gravedad, productos afectados, métricas y referencias.</p>
+
+        <ul>  La NVD gira alrededor de varios estándares:
+          <li>CVE (Common Vulnerabilities and Exposures): identificador único de cada vulnerabilidad.</li>
+          <li>CVSS (Common Vulnerability Scoring System): puntuación de severidad de 0 a 10.</li>
+          <li>CPE (Common Platform Enumeration): nomenclatura estandarizada de productos afectados.</li>
+          <li>CWE (Common Weakness Enumeration): categoría del fallo (inyección SQL, buffer overflow, XSS, etc.).</li>
+        </ul>
+        
+        <p>Ademas de NVD, otras BBDD importantes de vulnerabilidades son:</p>
+
+        <ul>
+          <li>MITRE corporation</li>
+          <li>Cybersecurity and Infrastructure Security Agency + KEV (Known Exploited Vulnerabilities Catalog)</li>
+          <li>VulnCheck KEV</li>
+          <li>Exploit Database (Exploit-DB)</li>
+          <li>Fuentes comerciales:Tenable Research, Rapid7 Research, Qualys, Mandiant, CrowdStrike </li>
+        </ul>
+
+          <h4>La NVD dispone de API REST para consultar CVEs programáticamente</h4>
+        
+        <hr> <img src="imgs/logo-first.png" alt="first" class="imatge-dreta" width="20%"> 
+        <h3>FIRST</h3>
+        <p>FIRST (Forum of Incident Response and Security Teams) es la organización que mantiene y desarrolla estándares como CVSS (Common Vulnerability Scoring System)</p>
+        <p>Calculadora de peligrosidad de una vulnerabilidad <a href="https://www.first.org/cvss/">https://www.first.org/cvss/</a></p>
+        
+        <hr> <hr> <img src="imgs/Logotipo_CSIRT.png" alt="csirt" class="imatge-dreta" width="20%"> 
         <h3>CSIRT</h3>
         <p>La evolución del malware y otras amenazas, así como la aparición de normativa dirigida a 
           proteger la información, han hecho que los equipos de respuesta ante incidentes de seguridad,
            CSIRT por sus siglas en inglés Computer Security Incident Response Team, sean de vital importancia
             para las compañías</p>
-            <img src="imgs/nvd.png" alt="nvd" class="imatge-dreta" width="30%">
+            <h4>CERT-CSIRT</h4>
+            <p>La diferencia entre CERT y CSIRT es principalmente de terminología, origen y uso, aunque en la práctica se solapan mucho.</p>
+            <ul>
+              <li>CSIRT (Computer Security Incident Response Team). Es el término más general y moderno. (y concepto genérico)</li>
+              <li>CERT (Computer Emergency Response Team). Es un término histórico y originalmente una marca.</li>
+            </ul>
             
+              <hr> <img src="imgs/logo-incibe.png" alt="incibe" class="imatge-dreta" width="20%"> 
             <p>INCIBE</p><a href="https://www.incibe-cert.es/">https://www.incibe-cert.es/</a>
-            <p>Cert CV</p><a href="http://www.csirtcv.gva.es/">http://www.csirtcv.gva.es/</a>
+            <p>INCIBE - Instituto Nacional de Ciberseguridad: es el organismo público de referencia en ciberseguridad en España.
+            Su objetivo es mejorar la ciberseguridad de ciudadanos, empresas y administraciones públicas, además de fomentar la confianza digital</p>
+
+            <hr> <img src="imgs/logo-csirtcv.png" alt="csirtcv" class="imatge-dreta" width="20%"> 
+            <p>Csirt CV</p><a href="http://www.csirtcv.gva.es/">http://www.csirtcv.gva.es/</a>
+            <p>Csirt-CV es el equipo de respuesta a incidentes de ciberseguridad de la Generalitat Valenciana.
+            Su función es actuar como punto de apoyo y coordinación en materia de ciberseguridad dentro del ámbito de la Comunitat Valenciana, 
+            especialmente para la administración pública autonómica y entidades relacionadas</p>
             
-            <img src="imgs/first.png" alt="nvd" class="imatge-dreta" width="30%%">
+            <hr> <img src="imgs/logo-ccncert.png" alt="ccncert" class="imatge-dreta" width="20%"> 
             <p>CCN-CERT</p><a href="https://www.ccn-cert.cni.es/">https://www.ccn-cert.cni.es/</a>
+            <p>CCN-CERT es el equipo de respuesta a incidentes de ciberseguridad del Centro Criptológico Nacional (CCN), que a su vez depende del Centro Nacional de Inteligencia (CNI) en España.
+            Su misión es proteger los sistemas de información de la Administración Pública española frente a ciberamenazas.</p>
+
+            <hr> <img src="imgs/logo-ENISA.png" alt="enisa" class="imatge-dreta" width="20%"> 
             <p>ENISA otros paises europeos</p><a href="https://www.enisa.europa.eu ">https://www.enisa.europa.eu</a>
+            <p>European Union Agency for Cybersecurity fue creada para ayudar a los Estados miembros de la Unión Europea, 
+              las instituciones europeas y las organizaciones a mejorar su nivel de ciberseguridad</p>
 
       <hr>  <h3>Auditorias</h3>
       <p>Una auditoría es una revisión práctica que se realiza sobre los recursos informáticos que dispone una entidad 
@@ -577,6 +623,7 @@ En ciencia (y también en ciberseguridad), un “paper” es un artículo cient�
       <section id="plan">
      
         <h1>Plan Integral de Protección</h1>
+      
   
         <h2>¿Qué es un Plan Integral de Protección? </h2>
         <p>Un Plan Integral de Protección es un conjunto de medidas, procedimientos y tecnologías que
@@ -589,18 +636,21 @@ En ciencia (y también en ciberseguridad), un “paper” es un artículo cient�
         <ul>
           <li> <strong>Políticas de Seguridad:</strong> Definir normas y procedimientos que guíen a la organización en el manejo de la seguridad de la información, como el acceso a datos y el uso de contraseñas.</li>
           <li> <strong>Controles Técnicos:</strong> Implementar herramientas tecnológicas para proteger la infraestructura, como firewalls, antivirus, sistemas de detección de intrusiones (IDS) y cifrado de datos.</li>
-          <li> <strong>Formación y Concientización:</strong> Capacitar a los empleados en buenas prácticas de seguridad para prevenir ataques como el phishing o la ingeniería social.</li>
+          <li> <strong>Formación y Concienciación:</strong> Capacitar a los empleados en buenas prácticas de seguridad para prevenir ataques como el phishing o la ingeniería social.</li>
           <li> <strong>Gestión de Incidentes:</strong> Establecer procedimientos claros para la detección, respuesta y recuperación ante incidentes de seguridad.</li>
           <li> <strong>Evaluación y Auditoría:</strong> Realizar auditorías periódicas para evaluar la efectividad de las medidas de seguridad y actualizar el plan en función de las nuevas amenazas.</li>
         </ul>
     
+        
         <h2>Fases del Plan Integral de Protección ⚙️</h2>
         <p>El Plan Integral de Protección se desarrolla a través de varias fases que aseguran una respuesta coordinada ante cualquier riesgo:</p>
+        <img src="imgs/PIP.png" alt="pip" class="imatge-dreta" width="40%"> 
         <ul>
           <li> <strong>Identificación de Amenazas:</strong> Analizar y determinar las posibles amenazas que puedan afectar la infraestructura y los datos de la organización.</li>
           <li> <strong>Evaluación de Riesgos:</strong> Evaluar el impacto potencial de las amenazas identificadas y su probabilidad de ocurrir para priorizar las medidas de seguridad.</li>
-          <li> <strong>Implementación de Medidas de Protección:</strong> Desarrollar e implementar las medidas tecnológicas y organizacionales necesarias para reducir los riesgos.</li>
-          <li> <strong>Monitoreo y Respuesta:</strong> Supervisar constantemente los sistemas para detectar incidentes en tiempo real y activar el plan de respuesta ante incidentes.</li>
+          <li> <strong>Prevención. Implementación de Medidas de Protección:</strong> Desarrollar e implementar las medidas tecnológicas y organizacionales necesarias para reducir los riesgos.</li>
+          <li> <strong>Monitoreo y Detección:</strong> Supervisar constantemente los sistemas para detectar incidentes en tiempo real.</li>
+          <li> <strong>Respuesta:</strong> Activar el plan de respuesta del plan ante los incidentes detectados.</li>
           <li> <strong>Recuperación y Mejora Continua:</strong> Tras un incidente, restaurar los sistemas y la información, y analizar el evento para mejorar el plan y prevenir futuros incidentes.</li>
         </ul>
     
