@@ -43,8 +43,44 @@
     <main>
       <section id="firma-digital">
         <div class="ras">&lt;RA 2> Implanta mecanismos de seguridad activa, seleccionando y ejecutando contramedidas ante amenazas o ataques al sistema </div>
-              
-          <h2> HASH y Firma Digital</h2>
+          <h2>Firma electrónica vs Firma digital</h2>     
+          <p>Aunque suenan similares, firma digital y firma electrónica no son exactamente lo mismo. 
+            La diferencia principal está en el nivel de seguridad y en la tecnología que usan</p>
+          <h3>🖊️ Firma electrónica</h3>
+        <p>Es un concepto amplio dentro del derecho digital.
+           Incluye cualquier método electrónico que sirva para aceptar o firmar un documento.</p>
+           <img src="imgs/firma-electronica.jpg" alt="firmaelectronica" width="20%" class="imatge-dreta">
+        <ul>Puede ser algo tan simple como
+          <li>Escribir tu nombre en un formulario online</li>
+          <li>Marcar una casilla de “acepto”</li>
+          <li>Dibujar tu firma con el mouse o en una pantalla táctil</li>
+        </ul>
+        <p>Es válida legalmente en muchos países, pero tiene menor nivel de seguridad, porque no siempre garantiza quién firmó realmente.            </p>
+        <h3>🔐 Firma digital</h3>
+        <p>Es un tipo específico de firma electrónica, pero mucho más segura. Se basa en tecnologías de criptografía.</p>
+        <p>La firma digital real es invisible. No tiene forma visual, No es un trazo ni una imagen. <br>
+           Son solo datos matemáticos (hash cifrado + certificado), por eso no hay “dibujos reales” que la representen fielmente.</p>
+     <hr>   <pre>Ejemplo parcial de codigo anexado al documento que se firma
+-----BEGIN PKCS7-----
+MIIG... (muchos caracteres)
+...Qm9uZCBkaWdpdGFs...
+-----END PKCS7-----          </pre>  <hr>
+
+<ul>Características clave: Usa certificados digitales emitidos por entidades certificadoras  <br> Garantiza:
+  <li>Identidad del firmante</li>
+  <li>Integridad del documento (no ha sido alterado)</li>
+  <li>No repudio (el firmante no puede negar que firmó)</li>
+</ul>
+<p>Es la que se usa en trámites oficiales, contratos importantes y documentos legales de alto valor.</p>
+
+<ul>En resumen
+  <li>Toda firma digital es electrónica,</li>
+  <li>pero no toda firma electrónica es digital.</li>
+</ul>
+
+         <hr> <h2> HASH y Firma Digital</h2>
+          <p>La relación entre hash y firma digital es fundamental: 
+            la firma digital no se aplica directamente sobre el documento completo, sino sobre su huella criptográfica (hash).</p>
         
           <h3> ¿Qué es un HASH?</h3>
           <p>Un <strong>hash</strong> es una función matemática que transforma cualquier dato (texto, archivo, etc.)
@@ -53,11 +89,12 @@
             <li> Siempre genera una salida del mismo tamaño, sin importar el tamaño del archivo de entrada.</li>
             <li> Un pequeño cambio en los datos produce un hash completamente distinto.</li>
             <li> La función hash NO es reversible.(computacionalmente Intratable)</li>
-            <li> Ejemplo de hash (md5("SAD-ASIX2")): -> <code>786cf5f44e74ef51bd7ec7cdf8950e22</code><br>
-            Pero.. md5("SAD-ASIX1) -> <code> 834743d3c372fa45434f72665c309c0e </code>
-          
-          </li>
+            <li> Ejemplo de hash  </li>
           </ul>
+          <pre>
+       md5("SAD-ASIX2") -> <code>786cf5f44e74ef51bd7ec7cdf8950e22</code>
+Pero.. md5("SAD-ASIX1") -> <code>834743d3c372fa45434f72665c309c0e</code>              
+          </pre>
           <p> Se utiliza para <strong>verificar la integridad</strong> de los datos. Si el hash cambia, los datos han sido modificados.</p>
 
          <h4>Ejemplo comparativo: La letra del DNI</h4> 
@@ -134,12 +171,22 @@ ISBN; códigos EAN.</p>
             <li> Proviene del remitente esperado (autenticidad).</li>
             <li> No puede ser repudiado (no repudio).</li>
           </ul>
+
+          <h3>¿Como se usa?</h3>
           <p> Para crearla se usan:</p>
           <ol>
             <li> El hash del documento.</li>
             <li> Una clave privada del emisor del documento, que cifra ese hash.</li>
+            <li> Este hash cifrado es la firma</li>
           </ol>
           <p> El receptor puede verificar la firma usando la clave pública del emisor.</p>
+
+        <ul>El receptor
+          <li>Calcula el hash del documento recibido</li>
+          <li>Descifra la firma con la clave pública</li>
+          <li>Compara ambos hashes</li>
+        </ul>  
+        <p>Si coinciden → el documento es auténtico y no ha sido modificado.</p>
         
           <h4> En resumen:</h4>
           <ul>
@@ -154,9 +201,10 @@ ISBN; códigos EAN.</p>
 
       <section id="cert-digital">
                 
+          <img src="imgs/certifcado-digital.png" alt="cert-dig" width="35%" class="imatge-dreta">
           <h2> Certificados Digitales</h2>
         
-          <p>Un <strong>certificado digital</strong> es como un "DNI electrónico" que identifica de forma segura a una persona, empresa o servidor en Internet.</p>
+          <p>Un <strong>certificado digital</strong> es como una "credencial digital" que identifica de forma segura a una persona, empresa o servidor en Internet.</p>
         
           <h3> ¿Qué contiene un certificado digital?</h3>
           <ul>
@@ -166,6 +214,16 @@ ISBN; códigos EAN.</p>
             <li>✍️ Firma digital de la Autoridad de Certificación (CA)</li>
             <li>📅 Fecha de emisión y caducidad</li>
             <li>Otros datos de interes...</li>
+          </ul>
+
+          <h3>Un certificado digital puede encontrarse almacenado en distintos formatos y soportes</h3>
+
+          <ul>
+            <li>Archivos de certificado: .p12, .pfx, .cer, .crt, .pem.</li>
+            <li>Tarjetas criptográficas o tarjetas inteligentes (smart cards).</li>
+            <li>Tokens USB criptográficos (dispositivos similares a una memoria USB, pero diseñados para proteger las claves privadas).</li>
+            <li>Módulos de seguridad hardware (HSM) utilizados en entornos empresariales.</li>
+            <li>Almacenes de certificados del sistema operativo o del navegador.</li>
           </ul>
         
           <h3>🏢 ¿Qué es una Autoridad de Certificación (CA)?</h3>
@@ -233,7 +291,7 @@ ISBN; códigos EAN.</p>
         <ul>
             <li> Autenticación de usuarios, servidores o dispositivos.</li>
             <li> Cifrado de datos y comunicaciones (por ejemplo HTTPS).</li>
-            <li>🖊️ Firmas digitales de documentos o correos electrónicos.</li>
+            <li> Firmas digitales de documentos o correos electrónicos.</li>
             <li> Intercambio seguro de claves.</li>
         </ul>
 

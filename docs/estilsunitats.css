@@ -267,6 +267,13 @@
     border-left: 6px solid #27ae60;
   }
 
+  body.dark-mode section a {
+      color: #b388ff;     }
+ body.dark-mode section a:visited {
+    color: #b388ff;  }
+ body.dark-mode section a:hover {
+    color: #fdfdfd;  }
+
   table {
     border-collapse: collapse;
     width: 100%;
@@ -278,7 +285,7 @@
     text-align: left;
   }
   th {
-    background-color: #e0e0ff;
+    background-color: #7272d2;
   }
 
   .imatge-dreta {
@@ -297,7 +304,7 @@
      font-size: 1rem;
        color: #007BFF;
      float: right;
-     text-align: right;
+     text-align: right  ;
     margin-right: 15px;
     margin-left: 30%;
     margin-bottom: 10px;}
