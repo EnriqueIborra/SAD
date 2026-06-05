@@ -1,0 +1,380 @@
+[
+  {
+    "CE": "a",
+    "titol": "Quin d'estos mecanismes protegeix directament la Disponibilitat?",
+    "pista": "Pensa quin element evita una apagada de corrent elèctric.",
+    "opcions": [
+      {
+        "text": "Cifrat",
+        "correcte": false,
+        "feedback": "El cifrat serveix per a amagar la informació (Confidencialitat)."
+      },
+      {
+        "text": "SAI / UPS",
+        "correcte": true,
+        "feedback": ""
+      },
+      {
+        "text": "Firewall",
+        "correcte": false,
+        "feedback": "El firewall filtra els accesos de xarxa."
+      },
+      {
+        "text": "Política de contrasenyes",
+        "correcte": false,
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "CE": "b",
+    "titol": "Com es defineixen les mesures de seguretat destinades a protegir els actius intangibles, com les dades i els sistemes, mitjançant eines tècniques i de programari?",
+    "pista": "S'encarrega d'aplicar barreres virtuals i lògiques dins dels propis sistemes informàtics.",
+    "opcions": [
+      {
+        "text": "Seguretat Passiva",
+        "correcte": false,
+        "feedback": "La seguretat passiva busca minimitzar els danys una vegada que el trencament de seguretat ja ha ocorregut."
+      },
+      {
+        "text": "Seguretat Física",
+        "correcte": false,
+        "feedback": "La seguretat física s'encarrega de les barreres materials i protecció de l'entorn de maquinari."
+      },
+      {
+        "text": "Seguretat Activa",
+        "correcte": false,
+        "feedback": "La seguretat activa inclou accions per a previndre atacs, però pot ser tant física com lògica."
+      },
+      {
+        "text": "Seguretat Lògica",
+        "correcte": true,
+        "feedback": "Correcte. La seguretat lògica empra programari, protocols i configuracions virtuals per a blindar la informació intangible."
+      }
+    ]
+  },
+  {
+    "CE": "c",
+    "titol": "Com es classifiquen aquelles debilitats que es troben directament en el codi d'una aplicació i que són causades per errors de programació, com un desbordament de memòria bústia (buffer overflow)?",
+    "pista": "Està lligat directament a les línies de codi escrites pels desenvolupadors de l'aplicació.",
+    "opcions": [
+      {
+        "text": "Vulnerabilitats de xarxa",
+        "correcte": false,
+        "feedback": "Les vulnerabilitats de xarxa afecten els canals de transmissió o protocols de comunicació."
+      },
+      {
+        "text": "Vulnerabilitats humanes",
+        "correcte": false,
+        "feedback": "Encara que la programadora haja comés l'error, la falla resideix directament en l'actiu tecnològic executable."
+      },
+      {
+        "text": "Vulnerabilitats de programari",
+        "correcte": true,
+        "feedback": "Correcte. Els errors de programació que deixen forats de seguretat en els executables són defectes de programari (software)."
+      },
+      {
+        "text": "Vulnerabilitats de configuració",
+        "correcte": false,
+        "feedback": "Aquestes falles existeixen en l'aplicació independentment de com decidisca l'administrador instal·lar-la."
+      }
+    ]
+  },
+  {
+    "CE": "d",
+    "titol": "Un empleat rep una trucada telefònica urgent en la qual un suposat directiu de l'empresa li exigeix que li dicte un codi de verificació que li acaba d'arribar al mòbil. Davant de quina tècnica exacta ens trobem?",
+    "pista": "És una variant de l'engany que s'executa exclusivament per veu o via telefònica (Voice + Phishing).",
+    "opcions": [
+      {
+        "text": "Phishing",
+        "correcte": false,
+        "feedback": "El phishing és el terme general, però la via utilitzada (la trucada de veu) té un nom més específic."
+      },
+      {
+        "text": "Pretexting",
+        "correcte": false,
+        "feedback": "Hi ha un pretext (el directiu), però l'enunciat demana la tècnica exacta lligada al canal telefònic de veu."
+      },
+      {
+        "text": "Smishing",
+        "correcte": false,
+        "feedback": "L'smishing utilitza missatges de text curts (SMS), no trucades de veu directes."
+      },
+      {
+        "text": "Vishing",
+        "correcte": true,
+        "feedback": "Correcte. El 'vishing' és la suplantació d'identitat realitzada a través d'una trucada telefònica per a obtenir dades sensibles d'immediat."
+      }
+    ]
+  },
+  {
+    "CE": "e",
+    "titol": "En una política d'autenticació robusta, quin és el propòsit d'aplicar una funció de derivació de claus deliberadament lenta i costosa computacionalment (com bcrypt o Argon2) en lloc d'un hash ràpid com MD5 o SHA-256?",
+    "pista": "Dificulta i retarda la faena dels superordinadors o targetes gràfiques de l'atacant si aconsegueixen robar els hashes.",
+    "opcions": [
+      {
+        "text": "Accelerar el temps de resposta del servidor durant l'inici de sessió dels usuaris legítims.",
+        "correcte": false,
+        "feedback": "Al contrari, fa que el servidor tarde un polsim de segon més, tot i que per a un sol usuari és imperceptible."
+      },
+      {
+        "text": "Mitigar l'impacte d'un atac d'injecció SQL en la base de dades de producció.",
+        "correcte": false,
+        "feedback": "No evita la injecció SQL, sinó que protegeix el contingut de la base de dades un cop aquesta ha sigut extreta o robada."
+      },
+      {
+        "text": "Incrementar el temps i el cost econòmic que li pren a un atacant realitzar un desxifratge offline si aconsegueix robar la base de dades.",
+        "correcte": true,
+        "feedback": "Correcte. Al alentir el procés de càlcul de cada hash, provar milions de claus per segon per la força bruta es torna inviable econòmicament i temporalment."
+      },
+      {
+        "text": "Permetre que el sistema detecte de forma automàtica si la contrasenya conté patrons d'enginyeria social.",
+        "correcte": false,
+        "feedback": "L'algorisme de hash no analitza el significat semàntic ni el context de la clau, només fa operacions matemàtiques."
+      }
+    ]
+  },
+  {
+    "CE": "f",
+    "titol": "En quina fase específica del funcionament del sistema es realitza el contrast entre els trets de l'usuari que intenta entrar i les plantilles ja guardades?",
+    "pista": "És el moment en què l'algorisme busca coincidències matemàtiques entre la mostra actual i la de registre.",
+    "opcions": [
+      {
+        "text": "Captura",
+        "correcte": false,
+        "feedback": "La captura és la fase inicial on el sensor llegeix o enregistra el tret físic (per exemple, escanejar l'empremta)."
+      },
+      {
+        "text": "Emmagatzematge",
+        "correcte": false,
+        "feedback": "L'emmagatzematge és la persistència en la base de dades de la plantilla biomètrica generada en el registre."
+      },
+      {
+        "text": "Comparació",
+        "correcte": true,
+        "feedback": "Correcte. En la fase de comparació, el sistema encreua els vectors de la mostra actual amb els de la plantilla guardada per a calcular el grau de similitud."
+      },
+      {
+        "text": "Encriptació",
+        "correcte": false,
+        "feedback": "L'encriptació és una mesura de protecció transversal per a xifrar les plantilles, no el procés de validació d'identitat."
+      }
+    ]
+  },
+  {
+    "CE": "g",
+    "titol": "En quina categoria es classifica l'estàndard AES (Advanced Encryption Standard)?",
+    "pista": "Utilitza la mateixa clau secreta tant per a xifrar com per a desxifrar el missatge.",
+    "opcions": [
+      {
+        "text": "Xifratge Asimètric.",
+        "correcte": false,
+        "feedback": "Els algorismes asimètrics utilitzen dues claus diferents (pública i privada); AES només en fa servir una."
+      },
+      {
+        "text": "Algorisme de Hashing.",
+        "correcte": false,
+        "feedback": "AES és completament reversible (es pot desxifrar), per tant no és una funció hash."
+      },
+      {
+        "text": "Xifratge Simètric.",
+        "correcte": true,
+        "feedback": "Correcte. AES és l'estàndard internacional de xifratge simètric més utilitzat per la seua alta seguretat i velocitat."
+      },
+      {
+        "text": "Criptografia Quàntica.",
+        "correcte": false,
+        "feedback": "AES és un algorisme matemàtic tradicional, encara que és molt resistent als futurs ordinadors quàntics si s'usen claus de 256 bits."
+      }
+    ]
+  },
+  {
+    "CE": "h",
+    "titol": "En dissenyar el pla integral de protecció perimetral, en quina fase específica s'analitza l'impacte potencial de les amenaces i la seua probabilitat d'ocurrència per a poder prioritzar les mesures?",
+    "pista": "Consisteix a calcular matemàticament o qualitativament el perill real combinant probabilitat i dany.",
+    "opcions": [
+      {
+        "text": "Identificació d'Amenaces.",
+        "correcte": false,
+        "feedback": "En la identificació només es fa una llista de quins perills existeixen, sense mesurar encara el seu impacte real."
+      },
+      {
+        "text": "Avaluació de Riscos.",
+        "correcte": true,
+        "feedback": "Correcte. L'avaluació de riscos creua la probabilitat que passe un incident amb el dany que causaria, permetent saber on invertir primer."
+      },
+      {
+        "text": "Monitoratge i Resposta.",
+        "correcte": false,
+        "feedback": "Aquesta fase s'activa quan el sistema ja està funcionant per a vigilar el trànsit en temps real."
+      },
+      {
+        "text": "Recuperació i Millora Contínua.",
+        "correcte": false,
+        "feedback": "És l'etapa final posterior a un incident, centrada a restablir els serveis i aprendre dels errors cometedors."
+      }
+    ]
+  },
+  {
+    "CE": "i",
+    "titol": "Quina de les següents eines de programari destaca per ser una plataforma de codi obert (open source) orientada a l'anàlisi de discos durs i sistemes de fitxers?",
+    "pista": "Té una interfície gràfica de color blau, s'executa com a interfície del motor 'The Sleuth Kit' i és molt utilitzada en entorns acadèmics i professionals gratuïts.",
+    "opcions": [
+      {
+        "text": "Autopsy.",
+        "correcte": true,
+        "feedback": "Correcte. Autopsy és una eina forense digital de codi obert i gratuïta molt potent per a investigar què ha passat dins de discos i targetes de memòria."
+      },
+      {
+        "text": "EnCase.",
+        "correcte": false,
+        "feedback": "EnCase és una solució de programari comercial propietària i de pagament, molt coneguda en l'àmbit judicial però no de codi obert."
+      },
+      {
+        "text": "FTK.",
+        "correcte": false,
+        "feedback": "Forensic Toolkit (FTK) és una suite d'investigació totalment privada i de llicència comercial, desenvolupada per AccessData."
+      },
+      {
+        "text": "Wireshark.",
+        "correcte": false,
+        "feedback": "Encara que Wireshark és de codi obert, la seua orientació exclusiva és l'anàlisi de xarxa, no l'anàlisi de discos durs o sistemes de fitxers."
+      }
+    ]
+  },
+  {
+    "CE": "j",
+    "titol": "Segons l'estàndard TIA-942, quin factor geogràfic concret determina la idoneïtat del terreny per a evitar catàstrofes naturals en la ubicació d'un CPD?",
+    "pista": "Es refereix a triar un emplaçament lliure de terratrèmols, moviments de terra o desbordaments d'aigua.",
+    "opcions": [
+      {
+        "text": "Estar ubicat en una regió sísmicament estable i allunyada d'inundacions.",
+        "correcte": true,
+        "feedback": "Correcte. La seguretat perimetral i física del CPD comença per triar una localització geogràfica segura, fora de zones de risc sísmic o inundables."
+      },
+      {
+        "text": "Estar prop d'accessos generals i passadissos concorreguts.",
+        "correcte": false,
+        "feedback": "Això seria un risc de seguretat, ja que els CPD han d'estar en zones restringides i poc visibles per al públic general."
+      },
+      {
+        "text": "Comptar con armaris o racks metàl·lics tancats amb clau.",
+        "correcte": false,
+        "feedback": "Això és una mesura de seguretat lògica/física interna sobre el mobiliari, no un factor geogràfic de l'entorn."
+      },
+      {
+        "text": "Disposar d'un equip humà de suport amb monitoratge 24/7.",
+        "correcte": false,
+        "feedback": "El monitoratge humà és un control operatiu i organitzatiu, no té relació amb la geografia o el terreny."
+      }
+    ]
+  },
+  {
+    "CE": "k",
+    "titol": "Quan la font d'alimentació principal d'un servidor pateix una avaria, quina acció realitza el sistema de forma immediata per a garantir que el temps d'inactivitat siga zero?",
+    "pista": "La font secundària rep l'avís de caiguda i assumeix tota la càrrega elèctrica de manera instantània.",
+    "opcions": [
+      {
+        "text": "Realitza un apagat controlat de seguretat.",
+        "correcte": false,
+        "feedback": "L'objectiu de tindre dues fonts és precisament evitar l'apagat del servidor i mantindre el servei amunt."
+      },
+      {
+        "text": "Activa una conmutació automàtica perquè l'altra font prenga el control.",
+        "correcte": true,
+        "feedback": "Correcte. En caure la font activa, la línia elèctrica de la font redundant assumeix el subministrament immediatament sense que el sistema es reinicie."
+      },
+      {
+        "text": "Envia de forma obligatòria les dades emmagatzemades cap a un proveïdor d'internet redundant.",
+        "correcte": false,
+        "feedback": "La redundància d'internet protegeix les comunicacions, però no té relació amb la fallada elèctrica interna del xassís."
+      },
+      {
+        "text": "Bloqueja l'accés físic als armaris o racks metàl·lics.",
+        "correcte": false,
+        "feedback": "El bloqueig de racks és una mesura de seguretat contra intrusions, no un mecanisme de resposta elèctrica."
+      }
+    ]
+  },
+  {
+    "CE": "l",
+    "titol": "Quin tipus específic de SAI ofereix el nivell més alt de protecció en transformar constantment el corrent per a assegurar una energia totalment neta i estable?",
+    "pista": "Aquest sistema fa una doble conversió contínua (de corrent altern a continu i de nou a altern), per la qual cosa mai hi ha temps de transferència en caure la línia.",
+    "opcions": [
+      {
+        "text": "Offline o standby.",
+        "correcte": false,
+        "feedback": "Els SAI offline només s'activen quan es talla la llum, per tant tenen un xicotet retard de mil·lisegons i no filtren contínuament el corrent."
+      },
+      {
+        "text": "Interactiu.",
+        "correcte": false,
+        "feedback": "Els SAI interactius corregeixen fluctuacions de voltatge mitjançant un autotransformador, però no aïllen completament la càrrega de la xarxa elèctrica com els online."
+      },
+      {
+        "text": "Online.",
+        "correcte": true,
+        "feedback": "Correcte. Un SAI de tecnologia online realitza una doble conversió permanent, oferint la màxima protecció contra sorolls, pics de tensió i talls de subministrament."
+      },
+      {
+        "text": "KVA eficaç.",
+        "correcte": false,
+        "feedback": "Aquest terme no fa referència a cap tipus o categoria de SAI, és una barreja d'unitats de mesura de potència."
+      }
+    ]
+  },
+  {
+    "CE": "m",
+    "titol": "Quin element del Pla de Còpies de Seguretat s'ha d'incloure obligatòriament per a verificar de forma pràctica que les dades es poden restablir correctament abans que ocórrega un desastre real?",
+    "pista": "És un assaig o entrenament periòdic que serveix per a mesurar els temps de resposta i comprovar la integritat de les dades restaurades.",
+    "opcions": [
+      {
+        "text": "Un algoritme de xifratge asimètric RSA.",
+        "correcte": false,
+        "feedback": "El xifratge RSA protegeix la confidencialitat de les dades davant d'accessos no autoritzats, però no garanteix que sàpies com restaurar-les a temps."
+      },
+      {
+        "text": "Simulacres programats de recuperació de dades.",
+        "correcte": true,
+        "feedback": "Correcte. L'única manera de garantir de forma 100% real que una còpia de seguretat funciona és fent simulacres periòdics de restauració en entorns de prova."
+      },
+      {
+        "text": "Un sistema de borrat segur per a programari de rescat (ransomware).",
+        "correcte": false,
+        "feedback": "El borrat segur s'utilitza per a destruir la informació que ja no es desitja conservar per a evitar fuites, just el contrari d'intentar recuperar-la."
+      },
+      {
+        "text": "L'etiquetatge i identificació manual de les cintes magnètiques.",
+        "correcte": false,
+        "feedback": "L'etiquetatge ajuda a l'organització i a l'inventari físic de l'operador, però no valida la integritat lògica de la informació continguda."
+      }
+    ]
+  },
+  {
+    "CE": "n",
+    "titol": "Si una organització avalua l'impacte del xifratge asimètric en els seus sistemes d'emmagatzematge i bases de dades, quins dos desavantatges tècnics específics patirà?",
+    "pista": "La criptografia asimètrica requereix operacions matemàtiques molt més pesades i afig metadades o estructures que augmenten la mida de l'arxiu resultant.",
+    "opcions": [
+      {
+        "text": "L'intercanvi de claus no serà segur i es requeriran massa claus.",
+        "correcte": false,
+        "feedback": "Al contrari, el principal avantatge de l'asimètrica és que l'intercanvi de claus és totalment segur i redueix dràsticament el nombre de claus necessàries."
+      },
+      {
+        "text": "El procés serà més lent i el missatge xifrat ocuparà més espai que l'original.",
+        "correcte": true,
+        "feedback": "Correcte. El xifratge asimètric és computacionalment molt costós (més lent) i té una penalització de sobrecost de dades (overhead), fent que el resultat ocupe més espai en disc."
+      },
+      {
+        "text": "La clau dependrà del principi de Kerckhoffs i l'usuari l'haurà de calcular a mà.",
+        "correcte": false,
+        "feedback": "Cap sistema modern exigeix que l'usuari calcule les claus a mà, i el principi de Kerckhoffs s'aplica a tota la criptografia moderna (l'algoritme ha de ser públic)."
+      },
+      {
+        "text": "No es podrà utilitzar per a enviar missatges i les llaves es trencaran en tancar el cadenat.",
+        "correcte": false,
+        "feedback": "Això és una interpretació literal i incorrecta de les metàfores físiques que s'utilitzen per a explicar el funcionament dels cadenats digitals."
+      }
+    ]
+  }
+]
