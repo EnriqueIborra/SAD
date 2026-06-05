@@ -55,18 +55,42 @@
           <li>Marcar una casilla de “acepto”</li>
           <li>Dibujar tu firma con el mouse o en una pantalla táctil</li>
         </ul>
-        <p>Es válida legalmente en muchos países, pero tiene menor nivel de seguridad, porque no siempre garantiza quién firmó realmente.            </p>
-        <h3>🔐 Firma digital</h3>
+        <p>Es válida legalmente en muchos países, pero tiene menor nivel de seguridad, porque no siempre garantiza quién firmó realmente. </p>
+        <p><code> -- la legislación europea establece que <strong>no se pueden negar efectos jurídicos a una firma únicamente por ser electrónica</strong> -- . </code>
+        Sin embargo, si surge un conflicto (por ejemplo, alguien niega haber aceptado un contrato), una firma electrónica simple puede resultar más difícil de probar. 
+        Cuantas menos evidencias existan sobre quién firmó y cómo lo hizo, más complicada será su defensa.  </p>
+
+        <ul> Se distinguen tres niveles
+          <li>Firma electrónica simple → válida, pero con menor fuerza probatoria. <br>
+          ==> Haces clic en «Acepto el contrato».</li>
+          <li>Firma electrónica avanzada → permite identificar mejor al firmante y detectar modificaciones. <br>
+          ==> Recibes un SMS con un código único y firmas a través de una plataforma que registra tu identidad, fecha, hora e IP.</li>
+          <li>Firma electrónica cualificada → tiene el nivel más alto y, jurídicamente, es equivalente a la firma manuscrita en toda la UE. <br>
+          ==> Utilizas tu certificado digital cualificado o el DNIe para firmar electrónicamente el contrato.</li>
+        </ul>
+
+
+
+       <hr> <h3>🔐 Firma digital</h3>
         <p>Es un tipo específico de firma electrónica, pero mucho más segura. Se basa en tecnologías de criptografía.</p>
         <p>La firma digital real es invisible. No tiene forma visual, No es un trazo ni una imagen. <br>
            Son solo datos matemáticos (hash cifrado + certificado), por eso no hay “dibujos reales” que la representen fielmente.</p>
+
      <hr>   <pre>Ejemplo parcial de codigo anexado al documento que se firma
 -----BEGIN PKCS7-----
 MIIG... (muchos caracteres)
 ...Qm9uZCBkaWdpdGFs...
 -----END PKCS7-----          </pre>  <hr>
 
-<ul>Características clave: Usa certificados digitales emitidos por entidades certificadoras  <br> Garantiza:
+  <img src="imgs/ejemplofirmadig.png" alt="firmdig" width="20%" class="imatge-dreta">
+           <p>Sin embargo, muchos programas permiten añadir una apariencia visual para indicar que el documento está firmado con firma digital.</p>
+           <p>Esta imagen no es la firma digital. Es solo una representación visual para indicar que existe.</p>
+      <ul> De hecho
+        <li>Un documento puede estar firmado digitalmente sin mostrar ningún sello o imagen visible.</li>
+        <li>También puede mostrar una imagen de una firma manuscrita y no estar firmado digitalmente en absoluto.</li>
+      </ul>
+<hr>
+<ul>El uso de certificados digitales emitidos por entidades certificadoras garantiza:
   <li>Identidad del firmante</li>
   <li>Integridad del documento (no ha sido alterado)</li>
   <li>No repudio (el firmante no puede negar que firmó)</li>
@@ -652,8 +676,9 @@ ISBN; códigos EAN.</p>
 
 
      <section id="ids">
+              <img src="imgs/ids.png" alt="ids" width="25%" class="imatge-dreta">
         <h1>🕵️‍♂️ IDS - Sistema de Detección de Intrusos</h1>
- 
+
           <h2> ¿Qué es un IDS?</h2>
           <p>Un IDS (Intrusion Detection System) es un sistema que monitoriza el tráfico de red o la actividad 
             de los sistemas para detectar comportamientos sospechosos o maliciosos, como ataques, accesos no
@@ -683,6 +708,10 @@ ISBN; códigos EAN.</p>
             <li>Genera alertas ante amenazas.</li>
             <li>No bloquea el tráfico (solo detecta).</li>
           </ul>
+
+          <h2>¿Que es un IPS?</h2>
+          <p>Un IPS es una herramienta de ciberseguridad que monitoriza 
+            el tráfico de red en tiempo real, detecta ataques y <strong>actúa automáticamente </strong> para bloquearlos o mitigarlos.</p>
       
           <h2> Comparativa IDS vs IPS</h2>
           <table>
@@ -696,22 +725,31 @@ ISBN; códigos EAN.</p>
             <tbody>
               <tr>
                 <td>Acción</td>
-                <td>Alerta</td>
-                <td>Bloquea</td>
+                <td>Detecta y Alerta</td>
+                <td>Detecta, Alerta y Bloquea</td>
               </tr>
               <tr>
                 <td>Ubicación</td>
-                <td>Fuera de línea</td>
-                <td>En línea con tráfico</td>
+                <td>Junto a equipos de la red</td>
+                <td>Entre equipos y la red</td>
               </tr>
               <tr>
                 <td>Ejemplo</td>
                 <td>Snort (modo IDS)</td>
-                <td>Snort (modo IPS)</td>
+                <td>Palo Alto Networks</td>
               </tr>
             </tbody>
           </table>
       
+        <ul> Ejemplos de ataques que puede detener
+          <li>Escaneos de puertos.</li>
+          <li>Intentos de explotación de vulnerabilidades conocidas.</li>
+          <li>Ataques de denegación de servicio (algunos tipos).</li>
+          <li>Tráfico asociado a malware.</li>
+          <li>Intentos de inyección SQL.</li>
+          <li>Ataques contra aplicaciones web (según la configuración).</li>
+        </ul>
+
           <h2> Ejemplos Populares</h2>
           <ul>
             <li>Snort</li>
@@ -719,6 +757,9 @@ ISBN; códigos EAN.</p>
             <li>OSSEC</li>
             <li>Wazuh</li>
             <li>Security Onion</li>
+            <li>Palo Alto Networks</li>
+            <li>Cisco Secure</li>
+            <li>Fortinet Fortigate</li>
           </ul>
       
         <div class=" tips">
