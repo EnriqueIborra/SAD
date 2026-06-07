@@ -165,10 +165,16 @@ function mostrarPregunta() {
     });
 
     document.getElementById('feedback').textContent = "";
+    document.getElementById('pista').textContent = "";
     document.getElementById('btn-seguent').disabled = true;
     actualitzarProgres();
 
 }
+
+function mostrarPista(){
+      document.getElementById('pista').textContent = preguntesBarrejades[indexPreguntaActual].pista;
+    }
+
 
 
 function comprovaResposta(esCorrecte, element,feedback1) {
