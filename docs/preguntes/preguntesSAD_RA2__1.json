@@ -1,0 +1,302 @@
+[
+  {
+    "CE": "a",
+    "titol": "¿Qué característica distingue a una firma electrónica avanzada frente a una firma electrónica simple?",
+    "pista": "Permite relacionar mejor la firma con la identidad del firmante y detectar cambios posteriores.",
+    "opcions": [
+      {
+        "text": "Tiene el mismo nivel de garantías que una firma electrónica simple.",
+        "correcte": false,
+        "feedback": "La firma avanzada ofrece más garantías de identificación y control que la firma simple."
+      },
+      {
+        "text": "Es equivalente jurídicamente a la firma manuscrita en toda la Unión Europea.",
+        "correcte": false,
+        "feedback": "Esa característica corresponde a la firma electrónica cualificada."
+      },
+      {
+        "text": "Permite identificar mejor al firmante y detectar modificaciones en el documento.",
+        "correcte": true,
+        "feedback": "Correcto. La firma electrónica avanzada mejora la identificación del firmante y permite detectar alteraciones."
+      },
+      {
+        "text": "No requiere ningún tipo de registro o evidencia del proceso de firma.",
+        "correcte": false,
+        "feedback": "Precisamente suele incorporar evidencias como identidad, fecha, hora o IP."
+      }
+    ]
+  },
+  {
+    "_comment": "CE sobre Hash y firma digital",
+    "CE": "a2",
+    "titol": "¿Cuál es la función principal de un hash en el ámbito de la seguridad informática?",
+    "pista": "Permite detectar si los datos originales han sufrido modificaciones.",
+    "opcions": [
+      {
+        "text": "Cifrar completamente un documento para que nadie pueda leerlo.",
+        "correcte": false,
+        "feedback": "El hash no cifra la información; genera un resumen matemático de los datos."
+      },
+      {
+        "text": "Verificar la integridad de los datos comprobando si han sido alterados.",
+        "correcte": true,
+        "feedback": "Correcto. Si el hash calculado cambia, significa que los datos originales han sido modificados."
+      },
+      {
+        "text": "Garantizar la identidad del remitente mediante una clave pública.",
+        "correcte": false,
+        "feedback": "La identificación del remitente está relacionada con la firma digital y los certificados digitales, no con la función hash por sí sola."
+      },
+      {
+        "text": "Convertir un archivo grande en uno más pequeño para ahorrar espacio.",
+        "correcte": false,
+        "feedback": "Aunque el hash produce una salida de tamaño fijo, no sustituye ni comprime el archivo original."
+      }
+    ]
+  },
+  {
+    "CE": "b",
+    "titol": "¿Qué entidad se encarga de emitir y validar certificados digitales dentro de una PKI?",
+    "pista": "Es una entidad de confianza cuya firma aparece en los certificados.",
+    "opcions": [
+      {
+        "text": "La Autoridad de Registro (RA).",
+        "correcte": false,
+        "feedback": "La RA verifica identidades, pero quien emite y firma los certificados es otra entidad."
+      },
+      {
+        "text": "La Lista de Revocación de Certificados (CRL).",
+        "correcte": false,
+        "feedback": "Las CRL informan sobre certificados revocados, no los emiten."
+      },
+      {
+        "text": "La Autoridad de Certificación (CA).",
+        "correcte": true,
+        "feedback": "Correcto. La CA es la entidad responsable de emitir y firmar certificados digitales."
+      },
+      {
+        "text": "El navegador web del usuario.",
+        "correcte": false,
+        "feedback": "El navegador verifica certificados, pero no los emite."
+      }
+    ]
+  },
+  {
+    "_comment": "CE sobre Tipos de amenazas",
+    "CE": "c",
+    "titol": "¿Qué caracteriza a una amenaza interna en ciberseguridad?",
+    "pista": "Su origen está relacionado con personas que ya disponen de acceso legítimo a los sistemas.",
+    "opcions": [
+      {
+        "text": "Proviene exclusivamente de Internet y de atacantes desconocidos.",
+        "correcte": false,
+        "feedback": "Las amenazas internas no se originan necesariamente desde Internet, sino desde personas con acceso autorizado."
+      },
+      {
+        "text": "Es un riesgo originado por empleados o personas con acceso legítimo a los sistemas.",
+        "correcte": true,
+        "feedback": "Correcto. Las amenazas internas proceden de usuarios con acceso autorizado que actúan de forma maliciosa o por descuido."
+      },
+      {
+        "text": "Consiste únicamente en ataques realizados mediante malware.",
+        "correcte": false,
+        "feedback": "Las amenazas internas pueden implicar errores humanos, negligencia o acciones maliciosas, no solo malware."
+      },
+      {
+        "text": "Se limita a fallos de hardware dentro de la organización.",
+        "correcte": false,
+        "feedback": "Los fallos de hardware no definen una amenaza interna según el texto."
+      }
+    ]
+  },
+  {
+    "CE": "d",
+    "titol": "¿Cuál es una medida recomendada para evitar ataques de malware en correos electrónicos?",
+    "pista": "Se relaciona con la gestión de archivos adjuntos y el mantenimiento del sistema.",
+    "opcions": [
+      {
+        "text": "Abrir todos los archivos adjuntos para comprobar su contenido.",
+        "correcte": false,
+        "feedback": "Abrir archivos desconocidos aumenta el riesgo de infección."
+      },
+      {
+        "text": "No abrir archivos de remitentes desconocidos y mantener el antivirus actualizado.",
+        "correcte": true,
+        "feedback": "Correcto. Estas son medidas básicas de protección contra malware."
+      },
+      {
+        "text": "Desactivar todas las protecciones del correo electrónico.",
+        "correcte": false,
+        "feedback": "Desactivar protecciones aumenta la vulnerabilidad."
+      },
+      {
+        "text": "Responder a todos los correos para verificar su autenticidad.",
+        "correcte": false,
+        "feedback": "Responder a correos desconocidos puede aumentar el riesgo de ataques."
+      }
+    ]
+  },
+  {
+    "CE": "e",
+    "titol": "¿Qué riesgo principal pueden presentar las aplicaciones de origen dudoso?",
+    "pista": "Se relaciona con software malicioso y acceso no autorizado.",
+    "opcions": [
+      {
+        "text": "Mejorar el rendimiento del dispositivo automáticamente.",
+        "correcte": false,
+        "feedback": "Las apps de origen dudoso no garantizan mejoras de rendimiento."
+      },
+      {
+        "text": "Instalación de malware o robo de información personal.",
+        "correcte": true,
+        "feedback": "Correcto. Las apps no fiables pueden contener malware o robar datos personales."
+      },
+      {
+        "text": "Aumentar la capacidad de almacenamiento del dispositivo.",
+        "correcte": false,
+        "feedback": "Las aplicaciones no pueden aumentar el almacenamiento físico del dispositivo."
+      },
+      {
+        "text": "Eliminar automáticamente virus sin intervención del usuario.",
+        "correcte": false,
+        "feedback": "Esto no es un comportamiento típico de apps de origen dudoso."
+      }
+    ]
+  },
+  {
+    "CE": "f",
+    "titol": "¿Qué puede ocurrir si no se actualizan el sistema operativo y las aplicaciones?",
+    "pista": "Se relaciona con riesgos de seguridad y funcionamiento del sistema.",
+    "opcions": [
+      {
+        "text": "Mejora automática del rendimiento del dispositivo.",
+        "correcte": false,
+        "feedback": "No actualizar no mejora el rendimiento, puede incluso empeorarlo."
+      },
+      {
+        "text": "Mayor exposición a virus, fallos y problemas de compatibilidad.",
+        "correcte": true,
+        "feedback": "Correcto. No actualizar aumenta riesgos de seguridad y errores en el sistema."
+      },
+      {
+        "text": "Aumento automático del espacio de almacenamiento disponible.",
+        "correcte": false,
+        "feedback": "Las actualizaciones no aumentan el almacenamiento disponible."
+      },
+      {
+        "text": "Desaparición de todas las aplicaciones instaladas.",
+        "correcte": false,
+        "feedback": "Las aplicaciones no desaparecen por no actualizar el sistema."
+      }
+    ]
+  },
+  {
+    "CE": "g",
+    "titol": "¿Qué tipo de software controla el tráfico de red y bloquea accesos no autorizados?",
+    "pista": "Se utiliza como barrera de protección entre redes o dispositivos.",
+    "opcions": [
+      {
+        "text": "Antivirus",
+        "correcte": false,
+        "feedback": "El antivirus se centra en detectar y eliminar virus, no en controlar el tráfico de red."
+      },
+      {
+        "text": "Firewall",
+        "correcte": true,
+        "feedback": "Correcto. El firewall controla el tráfico de red y bloquea accesos no autorizados."
+      },
+      {
+        "text": "Antispyware",
+        "correcte": false,
+        "feedback": "El antispyware se centra en detectar programas espía, no en el control de red."
+      },
+      {
+        "text": "Sandbox",
+        "correcte": false,
+        "feedback": "La sandbox se usa para analizar comportamientos en entornos aislados."
+      }
+    ]
+  },
+  {
+    "CE": "h",
+    "titol": "¿Qué práctica permite controlar qué dispositivos pueden conectarse a una red Wi-Fi?",
+    "pista": "Se basa en identificar dispositivos mediante sus direcciones de red.",
+    "opcions": [
+      {
+        "text": "Filtrado de direcciones MAC.",
+        "correcte": true,
+        "feedback": "Correcto. El filtrado MAC permite controlar qué dispositivos pueden acceder a la red."
+      },
+      {
+        "text": "Cambiar el nombre del SSID.",
+        "correcte": false,
+        "feedback": "Cambiar el SSID mejora la configuración básica, pero no controla dispositivos."
+      },
+      {
+        "text": "Usar contraseñas cortas para facilitar el acceso.",
+        "correcte": false,
+        "feedback": "Las contraseñas cortas reducen la seguridad."
+      },
+      {
+        "text": "Desactivar el cifrado WPA3.",
+        "correcte": false,
+        "feedback": "Desactivar el cifrado debilita la seguridad de la red."
+      }
+    ]
+  },
+  {
+    "CE": "i",
+    "titol": "¿Qué información forma parte del inventario de servicios de red?",
+    "pista": "Se incluyen datos técnicos como IP, puerto y versión del servicio.",
+    "opcions": [
+      {
+        "text": "Tipo de servicio, dirección IP, puerto y versión del software.",
+        "correcte": true,
+        "feedback": "Correcto. Estos son elementos esenciales del inventario de servicios de red."
+      },
+      {
+        "text": "Color del dispositivo y tamaño físico del servidor.",
+        "correcte": false,
+        "feedback": "Estos datos no forman parte del inventario de servicios de red."
+      },
+      {
+        "text": "Nombre del usuario que usa el ordenador cada día.",
+        "correcte": false,
+        "feedback": "Eso pertenece a la gestión de usuarios, no a servicios de red."
+      },
+      {
+        "text": "Tipo de monitor y resolución de pantalla.",
+        "correcte": false,
+        "feedback": "Son características del hardware de usuario, no de servicios de red."
+      }
+    ]
+  },
+  {
+    "_comment": "CE sobre IDS",
+    "CE": "j",
+    "titol": "¿Qué es un sistema IDS en ciberseguridad?",
+    "pista": "Se relaciona con la monitorización de actividad en redes o sistemas para detectar amenazas.",
+    "opcions": [
+      {
+        "text": "Un sistema que bloquea automáticamente todos los ataques detectados.",
+        "correcte": false,
+        "feedback": "El IDS no bloquea ataques; solo los detecta y genera alertas."
+      },
+      {
+        "text": "Un sistema que monitoriza el tráfico o actividad para detectar comportamientos sospechosos.",
+        "correcte": true,
+        "feedback": "Correcto. Un IDS detecta actividades sospechosas y genera alertas sin bloquear el tráfico."
+      },
+      {
+        "text": "Un sistema que cifra automáticamente todas las comunicaciones de red.",
+        "correcte": false,
+        "feedback": "El IDS no se encarga del cifrado de comunicaciones."
+      },
+      {
+        "text": "Un antivirus que elimina archivos infectados del sistema operativo.",
+        "correcte": false,
+        "feedback": "El IDS no es un antivirus ni elimina archivos."
+      }
+    ]
+  }
+]
