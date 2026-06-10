@@ -31,6 +31,8 @@
     <a href="#wifi">Medidas de seguridad en redes inalambricas</a>
     <a href="#inventariar">Inventariar servicios de red</a>
     <a href="#ids">IDS. Sistemas de Deteccion de Intrusos</a>
+    <a href="#practica">Practica</a>
+    <a href="#altres-recursos">Comprueba tu progreso</a>
   </div>
 
   <div style="width: 100%;">
@@ -488,8 +490,10 @@ ISBN; códigos EAN.</p>
 
         <h2> Recomendaciones Generales</h2>
         <ul>
-          <li>Descarga siempre desde <strong>fuentes oficiales</strong>.</li>
+          <li>Descarga siempre desde <strong>fuentes oficiales</strong> / fiables.</li>
+          <li>Verifica, si es posible, la firma de verificación, checksum o hash</li>
           <li>Evita apps “mod” o piratas.</li>
+          <li>Evitar el sideloading o root/jailbreak</li>
           <li>Activa <strong>Play Protect</strong> u otros escáneres de seguridad.</li>
           <li>Supervisa los <strong>permisos de las apps</strong>.</li>
         </ul>
@@ -527,6 +531,9 @@ ISBN; códigos EAN.</p>
         <li>Verifica actualizaciones de forma regular.</li>
         <li>Mantén suficiente espacio libre en tu dispositivo.</li>
         <li>No ignores los mensajes del sistema.</li>
+        <li>Vigila el EOL (End Of Live) del sistema. Migra a versiones con soporte</li>
+        <li>En entornos empresariales, activa la supervisión centralizada.</li>
+        Herramientas como WSUS, Intune o Ansible
       </ul>
     </div>
 </section>
@@ -544,14 +551,23 @@ ISBN; códigos EAN.</p>
       <h2> Tipos de Software de deteccion de amenazas</h2>
       <ul>
         <li><strong>Antivirus:</strong> Detecta y elimina virus conocidos / Escanea archivos y programas en tiempo real.</li>
+        <ul>
+          <li>Antivirus de Escritorio</li>
+          <li>Antivirus "en linea"</li>
+          <li>Analisis de ficheros en linea</li>
+          <li>Antivirus portable</li>
+          <li>Antivirus Live:  Arranca un sistema "limpio", o de rescate</li>
+        </ul>
         <li><strong>Antimalware:</strong> Defensa contra amenazas más complejas. Detecta malware sofisticado como troyanos, adware o ransomware.</li>
         <li><strong>Firewall:</strong> Controla el tráfico de red. Bloquea accesos no autorizados.</li>
         <li><strong>Antispyware:</strong> Previene el espionaje de datos. Detectan programas espias</li>
-        <li><strong>EDR:</strong> Soluciones avanzadas para empresas. Detecta comportamientos sospechosos en dispositivos</li>
+        <li>Herramientas anti-ransomware / detectores - descifradores</li>
+        <li><strong>EDR / ED&R (Endpoint Detection & Response)</strong> Soluciones avanzadas para empresas. Detecta comportamientos sospechosos en dispositivos</li>
+         <li><strong>ATP</strong> (Advanced Threat Protection): Efectivo contra amenazas persistentes avanzadas  (APT)</li>
+        <li><strong>Sandbox:</strong> Uso de entornos aislados que simulan un sistema informático con la finalidad de observar 
+          el comportamiento de ciertos archivos o programas para detectar acciones maliciosas</li>
       </ul>
 
-  
-  
       <h2>🔧 Funciones Comunes</h2>
       <ul>
         <li>Escaneo en tiempo real</li>
@@ -560,7 +576,7 @@ ISBN; códigos EAN.</p>
         <li>Actualizaciones automáticas</li>
         <li>Notificaciones de seguridad</li>
       </ul>
-  
+
   
     <div class=" alert">
       <h2> Ejemplos Populares</h2>
@@ -582,6 +598,31 @@ ISBN; códigos EAN.</p>
       </ul>
     </div>
 
+    <h2>Métodos de infección</h2>
+    <ul>
+      <li>Explotando una vulnerabilidad</li>
+      <li>Ingenieria Social</li>
+      <li>Archivo malicioso</li>
+      <li>Dispositivo extraible</li>
+      <li>Cookies maliciosas</li>
+      <li>Keylogger</li>
+    </ul>
+
+    <h2>Sospecha de infección</h2>
+      <ul>
+        <li>✔ Equipo lento, con errores o se bloquea, sobrecalentamiento, agotamiento de la batería</li>
+        <li>✔ Pantalla azul de la muerte</li>
+        <li>✔ Programas que se abren y se cierran automáticamente</li>
+        <li>✔ Falta de espacio de almacenamiento</li>
+        <li>✔ Ventanas emergentes, barras de herramientas y programas no deseados</li>
+        <li>✔ Correos electrónicos y mensajes que se envían sin tu consentimiento</li>
+        <li>✔ Eliminación de documentos sin tu consentimiento</li>
+        <li>✔ Redirección del navegador a páginas desconocidas</li>
+        <li>✔ Cambio de nombre de documentos (cifrado: ransomware en proceso)</li>
+        <li>✔ Procesos del sistema que acaparan demasiados recursos (administrador de tareas)</li>
+      </ul>
+
+
     </section>
 
 
@@ -599,6 +640,7 @@ ISBN; códigos EAN.</p>
         <li>Usar cifrado WPA2 o WPA3.</li>
         <li>Desactivar WPS para mayor seguridad.</li>
         <li>Actualizar el firmware del router.</li>
+        <li>Cambia la contraseña de administrador del router.</li>
         </ul>
 
         <h2>Medidas Opcionales pero útiles</h2>
@@ -606,17 +648,12 @@ ISBN; códigos EAN.</p>
         <li>Ocultar el SSID (red no visible en búsquedas).</li>
         <li>Filtrado de direcciones MAC.</li>
         <li>Desactivar funciones innecesarias (ej. acceso remoto).</li>
+        <li>Reducción del rango de cobertura</li>
+        <li>Desactivar la red wi-fi cuando no se utilice</li>
+        <li>Monitorizar la red mientras se utilice</li>
+        <li>Revisa qué dispositivos están conectados a tu red.</li>
+        <li>Evita usar redes públicas sin protección o VPN.</li>
         </ul>
-
-
-        <div class=" tips">
-            <h2>⚠️ Buenas prácticas adicionales</h2>
-            <ul>
-            <li>Cambia la contraseña de administrador del router.</li>
-            <li>Evita usar redes públicas sin protección o VPN.</li>
-            <li>Revisa qué dispositivos están conectados a tu red.</li>
-            </ul>
-        </div>
 
     </section>
 
@@ -637,7 +674,7 @@ ISBN; códigos EAN.</p>
             <li>Facilita el mantenimiento y administración. </li>
             <li>Ayuda en auditorías y cumplimiento normativo. </li>
             <li>Permite una respuesta rápida ante incidentes.</li>
-            <li></li>
+            
           </ul>
       
    
@@ -691,7 +728,7 @@ ISBN; códigos EAN.</p>
             <li><strong>NIDS:</strong> Basado en red. Ej: Snort, Suricata.
               <ul>
                 <li>Monitorea el tráfico de red completo</li>
-                <li>Se instala en un punto estratégido de la red</li>
+                <li>Se instala en un punto estratégico de la red</li>
               </ul>
             </li>
             <li><strong>HIDS:</strong> Basado en host. Ej: OSSEC, Wazuh.
@@ -700,18 +737,28 @@ ISBN; códigos EAN.</p>
                 <li>Analiza logs, procesos, archivos del sistema.</li>
             </ul>
             </li>
+            <li><strong>DIDS:</strong> IDS Distribuido
+              <ul>
+                <li>Se instala en distintos puntos estratégicos de la red.</li>
+                <li>Monitorea el tráfico de red completo</li>
+                <li>Recoge todos los datos de los IDS, analiza y correlaciona todos los eventos producidos en la red, 
+                  evaluando de manera global lo que ocurre en la red en cada momento.</li>
+            </ul>
+            </li>
           </ul>
       
 
           <h2> Funcionamiento</h2>
           <ul>
             <li>Captura tráfico/red o actividad del sistema.</li>
+            Fuentes de datos: Logs de sistemas, dispositivos de red, sistema IDS propio...
             <li>Analiza con firmas o comportamiento.</li>
-            <li>Genera alertas ante amenazas.</li>
-            <li>No bloquea el tráfico (solo detecta).</li>
+            <li>Se utilizan reglas y filtros para detectar anomalias</li>
+            <li>Genera Informes y Alertas ante amenazas. Es capaz de enviar alertas por mail o SMS</li>
+            <li>No bloquea el tráfico (solo detecta e informa).</li>
           </ul>
 
-          <h2>¿Que es un IPS?</h2>
+          <hr><h2>¿Que es un IPS?</h2>
           <p>Un IPS es una herramienta de ciberseguridad que monitoriza 
             el tráfico de red en tiempo real, detecta ataques y <strong>actúa automáticamente </strong> para bloquearlos o mitigarlos.</p>
       
@@ -776,6 +823,35 @@ ISBN; códigos EAN.</p>
             
      </section>
 
+
+
+    <section id="practica">
+      <h1>Practica</h1>
+       <h2>Practica</h2>
+
+    </section>
+
+
+    <section id="altres-recursos">
+          <hr><h2>Comprueba tu progreso...</h2>
+        <div id="progress-container">
+        <div id="progress-bar"></div>  </div>
+        <!-- <div id="percentatge-text">0%</div>  -->
+
+        <div class="quiz-container">
+            <h4 id="pregunta-text"></h4>
+            <div id="options-container" class="options">
+            </div>
+
+            <p id="feedback"></p>
+            <button onclick="mostrarPista()">🕵️‍♂️ Quieres una pista??</button>
+            <button id="btn-seguent" onclick="seguentPregunta()">      ➕ Següent pregunta </button>
+            <button onclick="carregarPreguntes('RA2__1')">🔁 Reiniciar</button>
+            <p id="pista"></p>
+         
+   </section>
+
+
     </main>
 
     <footer>
@@ -785,6 +861,12 @@ ISBN; códigos EAN.</p>
     </footer>
   </div>
 
-  <script src="scriptsunitats.js"></script>
+
+    <script src="scriptsunitats.js"></script>
+    <script>
+          // Executar en carregar la pàgina
+          window.onload = carregarPreguntes('RA2__1');
+    </script>
+
 </body>
 </html>

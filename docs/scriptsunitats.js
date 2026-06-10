@@ -114,8 +114,8 @@ function actualitzarPercentatge() {
 }
 
 
-function carregarPreguntes() {
-    fetch('preguntes/preguntesSAD_RA1__1.json')
+function carregarPreguntes(RA) {
+    fetch('preguntes/preguntesSAD_' + RA + '.json')
         .then(res => res.json())
         .then(data => {
             bancDePreguntes = data;
@@ -203,7 +203,8 @@ function seguentPregunta() {
 
 
 // Executar en carregar la pàgina
-window.onload = carregarPreguntes;
+//window.onload = carregarPreguntes;
+// Es crida des de cada html de cada RA / UD
 
 
 
