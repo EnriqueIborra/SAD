@@ -32,7 +32,8 @@
     <a href="#vpn">Virtual Private Network</a>
     <a href="#remoto">Servidores de acceso remoto</a>
     <a href="#autentica">Protocolos de autenticacion por pasarela</a>
-
+    <a href="#practica">Practica</a>
+    <a href="#altres-recursos">Comprueba tu progreso</a>
   </div>
 
   <div style="width: 100%;">
@@ -125,7 +126,24 @@
         <h3>Backdoors y Exploits</h3>
               <p>Un <strong>backdoor</strong> es una vulnerabilidad oculta o un método secreto que permite a un atacante acceder a un sistema sin ser detectado, eludiendo los mecanismos de seguridad como contraseñas o autenticación. Es como una puerta trasera que permite la entrada sin pasar por los filtros normales de seguridad.</p>
               <p>Un <strong>exploit</strong> es una técnica o código que aprovecha una vulnerabilidad o debilidad en un software, sistema operativo o aplicación para realizar acciones no autorizadas. En otras palabras, un exploit aprovecha una falla de seguridad para obtener acceso no autorizado o ejecutar comandos maliciosos</p>
+
+        <hr><h3>Tipos de ataques a LAN</h3>
+        <img src="imgs/tipos-ataques-red.png" alt="tiposataques" width="50%" class="imatge-dreta">
+        <h4>Interrupción</h4>
+        <p>Producen una falta de disponibilidad. Ejemplos: Destrucción de HW, Borrado de programas
+          y datos, fallos del sistema, DoS, DDoS      </p>
+        <h4>Interceptación</h4>
+        <p>Se consigue acceder a recursos para los cuales no se tiene acceso/permiso. Ejemplo: Sniffing</p>
+        <h4>Fabricación (o suplantación)</h4>
+        <p>Un atacante consigue introducir objetos o datos falsificados en el sistema, 
+          atentando contra la autenticidad de la información. Ejemplo: Spoofing</p>
+        <h4>Modificación</h4>
+        <p>Manipula información autentica convirtiendola en falsa, (pareciendo ser autentica). 
+          Ejemplo: Pharming, redirigir a otra web o dominio falso y fraudulento</p>
+        
       </section>
+
+
 
       <section id="zriesgo">
         <h2> Zonas de riesgo en una LAN</h2>
@@ -187,6 +205,20 @@
             </tbody>
           </table>
 
+      <hr><h3>Elementos básicos en la seguridad perimetral</h3>
+
+      <ul>
+        <li><strong>Perímetro de red:</strong> es el límite entre la red interna segura de una organización e Internet, o cualquier otra red externa no controlada. <br> 
+        El perímetro de la red es el límite de lo que una organización controla.</li>
+        <img src="imgs/perimetro.png" alt="perimetro" width="15%">
+        <li><strong>Enrutador/Router de frontera:</strong> dispositivos situados entre la red interna y las redes de otros proveedores que intercambian tráfico con nosotros.</li>
+        <img src="imgs/router-frontera.png" alt="routerfrontera" width="40%">
+        <li><strong>Bastión:</strong> sistema que actúa como intermediario entre los usuarios de la red interna de una organización y otro tipo de redes. Esta máquina debe estar especialmente asegurada, pero en principio es vulnerable a ataques por estar expuesta a Internet; generalmente proporciona un solo servicio (como por ejemplo un servidor proxy).</li>
+        <img src="imgs/bastion.png" alt="bastion" width="40%">
+        <li><strong>DMZ:</strong> es una subred de área local (LAN) situada entre la red privada de una organización y la red externa, normalmente Internet.</li>
+        <img src="imgs/dmz.png" alt="dmz" width="40%">
+      </ul>
+
       </section>
 
       <section id="protocolos">
@@ -220,9 +252,11 @@
 
       <section id="vpn">
         <h2> VPN</h2>
+        <img src="imgs/vpn.png" alt="vpn" width="50%" class="imatge-dreta"> 
         <h3>Que es una VPN</h3>
         <p>Una VPN (siglas de Virtual Private Network o Red Privada Virtual) es una tecnología que crea una conexión segura y cifrada entre tu dispositivo (computadora, teléfono, tablet, etc.) y una red, generalmente Internet.
            Es como un túnel privado por el que viajan tus datos, protegidos de miradas externas</p>
+          
         <h3>Para que sirve una VPN</h3>
          <p>Una VPN tiene varios usos importantes:</p>
           <ul>
@@ -232,15 +266,18 @@
             <li> Acceso remoto: Empresas usan VPN para que sus empleados accedan de forma segura a la red corporativa desde casa o viajes.</li>
             <li> Evitar censura: En algunos países con restricciones de Internet, las VPN permiten el acceso a sitios bloqueados.</li>
           </ul>
+        <img src="imgs/tunel-vpn.png" alt="tunelvpn" width="50%"> 
 
         <h3>Tipos de VPN</h3>
         <ul>
           <li>VPN de acceso remoto o Road Warrior o Dial-Up</li>
-          <p>Permite a los usuarios conectarse a una red privada desde cualquier lugar. Ideal para trabajadores remotos</p>
+           ⤷ Permite a los usuarios conectarse a una red privada desde cualquier lugar. Ideal para trabajadores remotos
           <li>VPN de sitio a sitio (Site-to-Site)</li>
-          <p>Conecta redes completas entre oficinas, por ejemplo, la sede principal y una sucursal. Se usa mucho en empresas</p>
-          <li>VPN personal</li>
-          <p>Son las que usamos los usuarios normales para proteger nuestra conexión o cambiar de ubicación</p>
+           ⤷ Conecta redes completas entre oficinas, por ejemplo, la sede principal y una sucursal. Se usa mucho en empresas
+          <li>VPN personal (o de acceso anónimo)</li>
+           ⤷ Son las que usamos los usuarios normales para proteger nuestra conexión o cambiar de ubicación
+          <li>VPN over LAN</li>
+           ⤷ El tunel se establece entre equipos dentro de la red local. Sirve para aislar zonas y servicios de la red interna
         </ul>
 
         <h3> ¿Cómo se configura un cliente VPN?</h3>
@@ -557,7 +594,15 @@
         <hr><h2>Configurar pasarela con un serv remoto autenticacion</h2>
       </section>
 
+<section id="practica">
+   <h1>Practica</h1>
+    <h2>Practica</h2>
+</section>
 
+<section id="altres-recursos">
+  <h1>Altres Recursos</h1>
+
+</section>
 
     </main>
 
