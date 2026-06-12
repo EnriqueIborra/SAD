@@ -62,7 +62,7 @@
         <li>VPN: Algunos cortafuegos permiten establecer túneles VPN seguros.</li>
       </ul>
 
-        <h3>Tipos de cortafuegos</h3>
+        <h3>Tipos de cortafuegos (según función)</h3>
         <table border="1">
           <thead>
             <tr style="background-color: #f2f2f2;">
@@ -73,7 +73,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><strong>Filtrado de paquetes</strong></td>
+              <td><strong>Filtrado de paquetes básico : Stateless</strong></td>
               <td>Evalúa IP, puerto y protocolo sin contexto.</td>
               <td>Routers simples, firewalls básicos.</td>
             </tr>
@@ -92,6 +92,35 @@
               <td>Combina inspección profunda, IPS, control de aplicaciones y usuarios.</td>
               <td>Seguridad moderna en redes empresariales.</td>
             </tr>
+          </tbody>
+        </table>
+        <p>La diferencia entre un firewall stateful y uno stateless (también llamado packet-filtering
+           básico) está en si el firewall recuerda o no el estado de las conexiones.</p>
+        <p>Un firewall stateless analiza cada paquete de forma independiente, sin tener en cuenta lo que ocurrió antes.</p>
+        <p>Un firewall stateful mantiene una tabla de estados de conexión (state table).</p>
+        <h4>Todo en uno: Dispositivos UTM  (<a href="https://www.incibe.es/empresas/blog/utm-firewall-ha-ido-al-gimnasio">En INCIBE</a>  )</h4>
+        <p>Un UTM <strong>(Unified Threat Management)</strong> es una plataforma de seguridad “todo en uno”
+           pensada para simplificar la gestión en redes pequeñas o medianas.</p>
+
+          <ul>  Suele integrar en un solo dispositivo
+            <li>Firewall tradicional</li>
+            <li>Antivirus / antimalware</li>
+            <li>Filtrado web</li>
+            <li>IDS/IPS (detección y prevención de intrusiones)</li>
+            <li>VPN</li>
+            <li>Antispam (a veces)</li>
+          </ul>
+
+        <hr><h3>Tipos de cortafuegos (según alcance)</h3>
+        <table border="1">
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th>Tipo de Firewall</th>
+              <th>¿Cómo funciona?</th>
+              <th>Ejemplo de uso</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td><strong>Basado en host</strong></td>
               <td>Instalado en el dispositivo que protege (como software).</td>
@@ -104,9 +133,62 @@
             </tr>
           </tbody>
         </table>
-        
+        <h4>Firewall personal - Basado en host - (Suelen ser por Software)</h4>
+        <img src="imgs/fw-personal.png" alt="fwpers" width="40%">
+        <p>Un firewall personal protege un único dispositivo (ordenador, portátil, móvil).</p>
 
-        <h3> Funciones clave de un cortafuegos</h3>
+      <ul>  <strong>Sus funciones típicas son</strong>
+        <li>Permitir o bloquear conexiones entrantes y salientes.</li>
+        ⤷ Suele actuar sobre una interfaz de red
+        <li>Controlar qué aplicaciones pueden acceder a Internet.</li>
+        <li>Proteger el equipo cuando se conecta a redes públicas.</li>
+        <li>Aplicar reglas sencillas definidas por el usuario o por defecto.</li>
+      </ul>
+      <p>Ejemplos: Windows Defender, tinywall, ZoneAlarm, ufw, gufw, etc...</p>
+     
+        <hr> <h4>Router SOHO - (Suelen ser por Hardware)</h4>
+        <p>Un firewall/router SOHO es un dispositivo de red diseñado para entornos SOHO (Small Office / Home Office), 
+          es decir, pequeñas oficinas o viviendas con necesidades de red básicas o medias.</p>
+
+        <ul> Funciones típicas en un SOHO
+          <li>Conecta la red local (LAN) con Internet (WAN)</li>
+          <li>Gestiona direcciones IP (DHCP)</li>
+          <li>NAT (compartir una IP pública entre varios dispositivos)</li>
+          <li>Wi-Fi integrado (en muchos modelos)</li>
+          <li>Control parental o filtrado web</li>
+          <li>VPN básica (en algunos modelos)</li>
+          <li>QoS (priorización de tráfico, por ejemplo videollamadas)</li>
+          <li>Filtra el tráfico de red entrante y saliente. Bloquea accesos no autorizados</li>
+          <li>Permite definir reglas de seguridad (por puertos, IPs, protocolos, etc.)</li>
+        </ul>
+        <p>Ejemplos: Router TP-Link, Asus, Netgear, ...</p>
+
+
+        <hr><h4>Firewall corporativo - Basado en red</h4>
+        <ul> Suelen ser por
+        <li>Hardware+firmware : CISCO, Sophos, WatchGuard, PaloAlto Networks, Fortinet Fortigate ...</li>
+        <li>Hardware+Software : IpCop, IpFire, PfSense, OPNsense...</li></ul>
+
+        <img src="imgs/fw-corporatiu.png" alt="fwcorp" width="40%">
+        <p>Un firewall corporativo protege una red completa: 
+          oficinas, centros de datos, sucursales o entornos en la nube.</p>
+          <p>Para proteger una red, se necesita una màquina con "al menos" <strong>dos</strong> interfaces de red. 
+            Una conectada a la red externa y otra a la red interna</p>
+
+        <ul> <strong>Además de filtrar tráfico, suele incorporar funciones avanzadas</strong>
+          <li>Control centralizado de dispositivos.</li>
+          <li>Segmentación de redes internas.</li>
+          <li>Inspección profunda de paquetes (DPI).</li>
+          <li>VPN para empleados remotos.</li>
+          <li>Prevención de intrusiones (IPS).</li>
+          <li>Filtrado web y de aplicaciones.</li>
+          <li>Detección de malware.</li>
+          <li>Registro y auditoría de eventos.</li>
+          <li>Alta disponibilidad y redundancia.</li>
+        </ul>
+
+
+        <hr><h3> Funciones clave de un cortafuegos</h3>
         <ul>
           <li> Permitir o bloquear tráfico según reglas.</li>
           <li> Proteger contra ataques externos (escaneos, malware, accesos indebidos).</li>
@@ -114,6 +196,56 @@
           <li> Registrar intentos de acceso y generar alertas.</li>
           <li> Traducir direcciones (NAT) para permitir conexión a internet.</li>
           <li> Controlar acceso a páginas web o servicios en la red.</li>
+        </ul>
+
+        <hr><h3>Arquitecturas</h3>
+        <p>Podemos encontrar distintas configuraciones</p>
+        <h4>dual-homed</h4>
+        <p>La arquitectura dual-homed host es un diseño de seguridad de red en el que un equipo 
+          (host o firewall) tiene dos interfaces de red físicas, actuando como puente controlado entre dos redes</p>
+        <img src="imgs/dualhomed.png" alt="dualhomed" width="50%">
+
+        <hr><h4>dmz host controlado</h4>
+        <p>La DMZ de host controlado (Screened Host Architecture) es una arquitectura de seguridad en la que 
+          un host bastión (un servidor especialmente protegido) es accesible desde Internet, mientras que 
+          la red interna permanece protegida por un dispositivo de filtrado.</p>
+        <img src="imgs/dmz-host.png" alt="dmzhost" width="50%">
+
+        <hr><h4>dmz subred -  Screened Host         </h4>
+        <p>En una arquitectura Screened Host, normalmente hay un único firewall o router filtrante que protege 
+          la red interna. Los servidores públicos pueden estar conectados a una red separada (DMZ), 
+          pero la protección principal depende de ese único dispositivo.</p>
+        <img src="imgs/dmz-screened-host.png" alt="dmzsubred" width="50%">
+
+        <ul> <strong>Características</strong>
+          <li>Un solo punto de filtrado.</li>
+          <li>Menor coste y menor complejidad.</li>
+          <li>Más fácil de administrar.</li>
+          <li>Si el firewall es comprometido, tanto la DMZ como la LAN pueden quedar expuestas.</li>
+          <li>Adecuado para organizaciones pequeñas.</li>
+        </ul>
+
+        <ul> <strong>Un firewall de tipo Screened Host dispone de al menos tres interfaces de red</strong>
+          <li>Interfaz roja: conexión a Internet (WAN).</li>
+          <li>Interfaz verde: conexión a la red local interna (LAN).</li>
+          <li>Interfaz naranja: conexión a la DMZ, donde se ubican los servidores expuestos al exterior.</li>
+        </ul>
+        <p>Pueden haber otras interfaces (opcionales), como la azul</p>
+        <ul><li>Azul → Red inalámbrica (Wi-Fi) o red semiconfiable.</li></ul> 
+        <p>Estos colores son una convención que usan distribuciones de firewalls para indicar el tipo de red que 
+          esta conectada a una interfaz concereta (como por ejemplo, algunas configuraciones de IPFire)      </p>
+
+        <hr><h4>dmz subred -  Screened Subnet    </h4>
+        <p>La diferencia fundamental está en dónde se sitúa la DMZ y cuántos dispositivos de filtrado la protegen.</p>
+        <p>En una arquitectura Screened Subnet, la DMZ queda aislada entre dos barreras de seguridad.</p>
+        <img src="imgs/dmz-2-subred.png" alt="dmz2subred" width="50%">
+
+        <ul> <strong>Características</strong>
+          <li>Dos niveles de protección.</li>
+          <li>Mayor aislamiento entre Internet y la LAN.</li>
+          <li>Si un servidor de la DMZ es comprometido, el atacante todavía debe superar otra barrera para llegar a la red interna.</li>
+          <li>Mayor coste y complejidad de gestión.</li>
+          <li>Más utilizada en entornos corporativos.</li>
         </ul>
 
     </section>
@@ -172,9 +304,10 @@
           <h3>Resumen</h3>
           <ul>
             <li><strong>Filtrado IP y puertos (L3 y L4):</strong> básico, rápido.</li>
-            <li><strong>Filtrado con estado:</strong> seguimiento de sesiones válidas.</li>
+            <li><strong>Filtrado con estado (L3 y L4):</strong> seguimiento de sesiones válidas.</li>
             <li><strong>Filtrado de aplicación (L7):</strong> detecta contenido y protocolos específicos.</li>
-            <li><strong>Filtrado por identidad (NGFW) :</strong> personalizado por usuario o grupo.</li>
+            <li><strong>Firewall con Deep Packet Inspection (DPI)</strong>   Niveles OSI L4-L7</li>
+            <li><strong>Filtrado por identidad (NGFW) L3-L7 :</strong> personalizado por usuario o grupo. +IDS/IPS</li>
           </ul>
 
     </section>
@@ -308,6 +441,40 @@ sudo ufw enable</code></pre>
           <li>Regla aplicada.	Qué regla del firewall se activó.</li>
           <li>Estado de la conexión.	Nueva, establecida, finalizada.</li>
           <li>Usuario (si aplica).	En cortafuegos con autenticación.</li>
+        </ul>
+
+        <p>La revisión de logs de un firewall es una tarea esencial para detectar actividades
+           sospechosas, asegurar el cumplimiento de políticas y mejorar la seguridad de la red.</p>
+
+          <h3>Acceso a los logs</h3>
+ 
+        <ul> Accede a través de
+          <li>Interfaz web del firewall</li>
+          <li>Syslog centralizado (si tienes un servidor de logs)</li>
+          <li>Herramientas SIEM (como Splunk, Graylog, ELK)</li>
+        </ul>
+        <p>Exporta los logs si es necesario, en formato .log, .txt o .csv.       </p>
+ 
+
+        <ul> <strong>Herramientas útiles para analizar logs</strong>
+          <li>CLI o scripts (grep, awk, etc.) - para filtros rápidos.</li>
+          <li>SIEM (Splunk, ELK, Graylog) - para visualización y alertas.</li>
+          <li>Herramientas del fabricante - Fortinet, Cisco ASA, pfSense, etc., suelen tener herramientas propias.</li>
+        </ul>
+
+        <ul> <strong>¿Qué buscar?</strong>
+          <li> Intento de intrusión o escaneo</li>
+          Muchos intentos de conexión desde una sola IP a múltiples puertos (port scanning). <br>
+          Conexiones denegadas en puertos no habituales (ej: puerto 23 - Telnet).
+          <li> Conexiones no autorizadas</li>
+          IPs internas intentando conectarse a sitios no permitidos. <br>
+          Accesos en horas fuera del horario normal.
+          <li> Anomalías o patrones inusuales</li>
+          Aumento repentino de tráfico o intentos fallidos.  <br>
+          Mensajes del tipo “SYN flood”, “Ping of Death”, etc.
+          <li> Bloqueos recurrentes</li>
+          Repeticiones del mismo error o bloqueo.  <br>
+          Pueden indicar mala configuración o intentos de ataque automatizados.
         </ul>
 
     </section>
