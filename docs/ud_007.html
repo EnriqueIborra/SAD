@@ -53,6 +53,7 @@
        y se incrementa el uso de sistemas informáticos, la ciberseguridad se ha convertido en una prioridad para
         gobiernos, empresas y ciudadanos.</p>
         <div>
+          <img src="imgs/logo-lopdgdd-bg.png" alt="lopd" width="40%" class="imatge-dreta">
           <h2>LOPDGDD - Ley Orgánica de Protección de Datos Personales y Garantía de los Derechos Digitales</h2>
           <p><strong>La LOPDGDD (Ley Orgánica de Protección de Datos Personales y Garantía de los Derechos Digitales)</strong> es una legislación española que regula el tratamiento de datos personales y la protección de la privacidad de los individuos en el contexto de la era digital. Esta ley busca adaptar la normativa española a los requerimientos establecidos por el Reglamento General de Protección de Datos (GDPR) de la Unión Europea, garantizando los derechos de los ciudadanos y fortaleciendo las políticas de seguridad.</p>
       
@@ -357,7 +358,8 @@
         <p>Cada uno tiene competencias diferenciadas según el tipo de organización afectada.</p>
 
       <h3>NIS2 refuerza el papel de los CSIRT</h3>
-      <p>La nueva Directiva NIS2 amplía considerablemente las obligaciones anteriores. NIS2 exige a los Estados miembros:</p>
+      <p>La nueva Directiva NIS2 (Directiva <a href="https://digital-strategy.ec.europa.eu/en/policies/nis2-directive">UE 2022/2555</a> )
+         amplía considerablemente las obligaciones anteriores. NIS2 exige a los Estados miembros:</p>
 
         <ul>
           <li>Mantener CSIRT con capacidades técnicas suficientes.</li>
@@ -392,15 +394,7 @@ Recepción, análisis, coordinación y respuesta ante incidentes de cibersegurid
               <li>CERT (Computer Emergency Response Team). Es un término histórico y originalmente una marca.</li>
             </ul>
             <p>Las siglas CERT suelen ser de uso más común en Estados Unidos, mientras que CSIRT es más utilizado en Europa</p>
-
-            <p>Otro termino muy relacionado con los CSIRT es un SOC</p>
-
-            <p>Un SOC (Security Operations Center o Centro de Operaciones de Seguridad) es un equipo centralizado de expertos que supervisa, analiza y defiende la infraestructura tecnológica de una organización las 24 horas del día, los 7 días de la semana.
-              
-             <br> A diferencia de un CSIRT, que actúa cuando hay una crisis, el SOC funciona como una torre de control de un aeropuerto: monitorea constantemente el tráfico digital para detectar cualquier anomalía antes de que se convierta en un problema grave.</p>
-
-
-            
+             
               <hr> <img src="imgs/logo-incibe.png" alt="incibe" class="imatge-dreta" width="20%"> 
             <p>INCIBE</p><a href="https://www.incibe-cert.es/">👆👆https://www.incibe-cert.es/</a>
             <p>INCIBE - Instituto Nacional de Ciberseguridad: es el organismo público de referencia en ciberseguridad en España.
@@ -441,7 +435,65 @@ Recepción, análisis, coordinación y respuesta ante incidentes de cibersegurid
           <li>Organizacional (Corporativo): Creados dentro de una empresa o institución para gestionar sus propios riesgos e incidentes</li>
         </ul>       
 
-    </section>
+
+      <hr> <img src="imgs/soc-4-bg.png" alt="soc" class="imatge-dreta" width="40%"> 
+      <h3>SOC</h3>
+      <p>Otro termino muy relacionado con los CSIRT son los SOC</p>
+
+      <p>Un SOC (Security Operations Center o Centro de Operaciones de Seguridad) es un equipo centralizado de expertos que supervisa, analiza y defiende la infraestructura tecnológica de una organización las 24 horas del día, los 7 días de la semana.
+        
+        <br> A diferencia de un CSIRT, que actúa cuando hay una crisis, el SOC funciona como una torre de control de un aeropuerto: monitorea constantemente el tráfico digital para detectar cualquier anomalía antes de que se convierta en un problema grave.</p>
+      <h4>Funciones del SOC</h4>
+
+    <ol>
+      <li>Monitorización continua (24/7)  :  👉 Objetivo: detectar ataques lo antes posible.</li>
+      <li>Detección de amenazas : 👉 Filtrar “ruido” vs incidentes reales.</li>
+      <li>Análisis e investigación de incidentes: 👉 Entender qué ha pasado y cómo.</li>
+      <li>Respuesta a incidentes (Incident Response) :👉 Minimizar impacto del ataque.</li>
+      <li>Threat hunting (caza de amenazas) :👉 Ir “un paso por delante”.</li>
+      <li>Gestión de vulnerabilidades</li>
+      <li>Inteligencia de amenazas (Threat Intelligence)</li>
+      <li>Gestión de herramientas de seguridad</li>
+      <li>Cumplimiento y reporting</li>
+      <li>Coordinación y comunicación</li>
+    </ol>        
+
+    <hr> <img src="imgs/siem.png" alt="soc" class="imatge-dreta" width="40%"> 
+    <h3>SIEM</h3>
+    <p>SIEM (Security Information and Event Management)</p>
+
+    <ul> <strong>Un SIEM es una plataforma tecnológica que</strong>
+      <li>recoge logs de múltiples sistemas</li>
+      <li>los centraliza</li>
+      <li>correlaciona eventos</li>
+      <li>genera alertas de seguridad</li>
+    </ul>
+    <p>SIEM 👉 Es el “sistema nervioso” técnico que da visibilidad.   </p>
+    <p>El SIEM es una herramienta clave del SOC</p>
+
+    <ul> <strong>El SOC utiliza el SIEM para</strong>
+      <li>ver lo que está pasando en la infraestructura</li>
+      <li>detectar patrones de ataque</li>
+      <li>investigar incidentes</li>
+    </ul>
+    <pre>Fuentes de datos (firewalls, servidores, endpoints)
+                ↓
+              SIEM
+ (recoge, correlaciona, alerta)
+                ↓
+               SOC
+ (analiza, investiga, responde)</pre>
+
+    <h4>Ejemplos de SIEM reales</h4>
+
+      <ul>
+        <li>Elastic Security (ELK SIEM): Basado en stack ELK (Elasticsearch, Logstash, Kibana)</li>
+        <li>Splunk Enterprise Security</li>
+        <li>Microsoft Sentinel</li>
+        <li>IBM QRadar</li>
+      </ul>
+
+  </section>
 
 
     
@@ -451,7 +503,7 @@ Recepción, análisis, coordinación y respuesta ante incidentes de cibersegurid
         <p>ENS (Esquema Nacional de Seguridad) ->  Marco normativo de seguridad para el sector público</p>
         <p>El Esquema Nacional de Seguridad (ENS) es el marco normativo que establece cómo deben proteger la información 
           y los servicios digitales las administraciones públicas españolas y las empresas que trabajan para ellas. 
-          Está regulado actualmente por el Real Decreto 311/2022.</p>
+          Está regulado actualmente por el <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-7191">Real Decreto 311/2022</a> .</p>
         
           <h3>¿Cuál es su objetivo?</h3>
           
@@ -516,6 +568,8 @@ Recepción, análisis, coordinación y respuesta ante incidentes de cibersegurid
         <li>CCN-STIC 889D: Configuración segura para Oracle OCI Database (bases de datos Oracle en OCI sobre máquinas virtuales). <br>
            Incluye un checklist de cumplimiento ENS.</li>
       </ul>
+      <a href="https://www.ccn-cert.cni.es/gl/800-guia-esquema-nacional-de-seguridad.html?limit=20&limitstart=160">
+        📂 800 Guías Esquema Nacional de Seguridad</a>
 
 
     </section>
