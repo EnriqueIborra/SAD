@@ -222,31 +222,45 @@
       </section>
 
       <section id="protocolos">
+        <img src="imgs/ssh-bg.png" alt="ssh" width="30%" class="imatge-dreta"> 
         <h2> Protocolos seguros de comunicación</h2>
+
         <p>Los protocolos seguros de comunicación son esenciales para garantizar la confidencialidad, 
             integridad y autenticidad de los datos que se transmiten a través de redes, ya sea en una LAN
              (Red de Área Local) o en una WLAN (Red de Área Local Inalámbrica). Veamos algunos de los protocolos más utilizados y seguros en estos contextos.</p>
 
               <h3> Protocolos para LAN (Red de Área Local)</h3>
-              <ul>
-                  <li>1. HTTPS (Hypertext Transfer Protocol Secure)</li>
-                  <li>2. SMB (Server Message Block) con SMBv3</li>
-                  <li>3. IPSec (Internet Protocol Security)</li>
-                  <li>4. VLAN (Virtual LAN) con 802.1X</li>
-                  <li>5. SSH (Secure Shell)</li>
-              </ul>
+              <img src="imgs/https-bg.png" alt="https" width="25%" class="imatge-dreta"> 
+              <ol>
+                  <li> HTTPS (Hypertext Transfer Protocol Secure). Puerto 443</li>
+                  <li> SSH (Secure Shell) . Puerto 22</li>
+                  <li> SMB (Server Message Block) con SMBv3. Puerto 445</li>
+                  <li> IPSec (Internet Protocol Security). Puertos 500, 50 y 51. +detras de un NAT , puerto 4500</li>
+                  <li> VLAN (Virtual LAN) con 802.1X. Puertos del switch en modo : acceso, troncal, hibrido</li>
+                  <li> SFTP (SSH File Transfer Protocol). Puerto 22. Funciona sobre SSH</li>
+                  <li>FTPS (FTP Secure). Puertos 21 y puertos dinámicos para datos. FTP protegido mediante TLS.</li>
+                  <li>SNMPv3. Puerto UDP 161/162</li>
+                  <li>LDAPS (LDAP sobre TLS). Puerto 636. Se usa para acceso seguro a directorios como Microsoft Active Directory.</li>
+                  <li>RDP con TLS y NLA (Network Level Authentication). Puerto 3389. Acceso remoto seguro a equipos Windows.</li>
+                  <li>Syslog sobre TLS. Puerto 6514. Permite enviar registros de forma cifrada.</li>
+                  <li>DNS over TLS (DoT). Puerto 853. Cifra las consultas DNS.</li>
+                  <li>DNSSEC. No cifra el tráfico, pero protege la integridad y autenticidad de las respuestas DNS.</li>
+                  <li>Otros ...</li>
+              </ol>
 
               <h3> Protocolos para WLAN (Red de Área Local Inalámbrica)</h3>
-              <ul>
-                  <li>1. WPA3 (Wi-Fi Protected Access 3)</li>
-                  <li>2. WPA2 (Wi-Fi Protected Access 2)
+              <ol>
+                  <li> WPA3 (Wi-Fi Protected Access 3)</li>
+                  <li> WPA2 (Wi-Fi Protected Access 2)
                     <ul>
                         <li>PKI</li>
                         <li>Enterprise</li>
                     </ul>
                   </li>
-                  <li>3. WEP: Antiguo y muy inseguro hoy en dia. No se recomenda su uso</li>
-              </ul>
+                  <li>RADIUS. Puertos UDP 1812 y 1813. Autenticación centralizada para 802.1X, VPN, Wi-Fi, etc.</li>
+                  <li>Kerberos. Puerto TCP/UDP 88. Protocolo de autenticación muy usado en dominios Windows.</li>
+                  <li> WEP: Antiguo y muy inseguro hoy en dia. No se recomenda su uso</li>
+              </ol>
 
       </section>
 
@@ -370,6 +384,13 @@
               <td>Acceso puntual y ligero</td>
             </tr>
           </table>
+          <hr><h3>Protocolos</h3>
+
+        <ul>
+          <li>OpenVPN. Habitualmente UDP 1194. VPN basada en TLS.</li>
+          <li>WireGuard. Habitualmente UDP 51820. VPN moderna con criptografía integrada.</li>
+          <li>Otros ....</li>
+        </ul>
   
       </section>
 
