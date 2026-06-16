@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5, user-scalable=yes">
+
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <title>UD1 - Tratamiento seguro de la información - Criptografia</title>
+  <link rel="stylesheet" href="estilsunitats.css">
+  <style>
+
+   h1.main-title {
+      font-size: 2.2rem;
+      color: #1a237e;
+      border-bottom: 4px solid #e91e8c;
+      padding-bottom: 12px;
+      margin-bottom: 10px;
+    }
+
+    body.dark-mode h1.main-title {
+      color: #5e6180;
+      border-bottom: 4px solid #d592b7;
+    }
+    h2 {
+      font-size: 1.35rem;
+      color: #1a237e;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 6px;
+    }
+
+    body.dark-mode     h2 {
+      color: #414572;
+      border-bottom: 2px solid #323e75;
+      
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: #c2185b;
+      margin: 18px 0 8px 0;
+    }
+
+    body.dark-mode h3 {
+      color: #9e8dc4;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    ul, ol {
+      padding-left: 1.5em;
+      margin-bottom: 12px;
+    }
+    li {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .key {
+      font-weight: bold;
+      color: #1a237e;
+    }
+
+    body.dark-mode .key {
+       color: #96aac0;
+    }
+
+    .note {
+      background: #e8eaf6;
+      border-left: 4px solid #3949ab;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 14px 0;
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+
+    body.dark-mode     .note {
+      background: #2b3779;
+      border-left: 4px solid #3949ab;
+      
+    }
+
+    .warning {
+      background: #fff3e0;
+      border-left: 4px solid #e91e8c;
+      padding: 12px 18px;
+      margin: 18px 0;
+      border-radius: 4px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    body.dark-mode     .warning {
+      background: #2d2f08;
+      border-left: 4px solid #e91e8c;
+    }
+   
+    code {
+      background: #1e1e2e;
+      color: #a8ff78;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.93rem;
+    }
+    .codeblock {
+      background: #1e1e2e;
+      color: #a8ff78;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 12px 0;
+      white-space: pre;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 14px 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin: 14px 0;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.95rem;
+    }
+    table td, table th {
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      text-align: center;
+    }
+    table th {
+      background: #1a237e;
+      color: #fff;
+    }
+    hr {
+      border: none;
+      border-top: 2px dashed #c5cae9;
+      margin: 48px 0 32px;
+    }
+
+     /* Diagrama portador */
+    .diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .box {
+      background: #5c9bd6;
+      color: #fff;
+      font-weight: bold;
+      padding: 18px 28px;
+      border-radius: 6px;
+      font-size: 1rem;
+      text-align: center;
+      min-width: 100px;
+    }
+    .box.message {
+      background: #f4a261;
+    }
+    .box.result-outer {
+      background: #5c9bd6;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .box.result-inner {
+      background: #f4a261;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px 18px;
+      border-radius: 4px;
+      margin-top: 6px;
+      text-align: center;
+    }
+    .operator {
+      font-size: 2rem;
+      color: #1a237e;
+      font-weight: bold;
+    }
+
+    /* Triángulo equilibrio */
+    .triangle-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .triangle-svg {
+      flex-shrink: 0;
+    }
+    .triangle-text {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    /* Actividades */
+    .actividad {
+      background: #cba4a4;
+      border-left: 5px solid #1a237e;
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+
+    body.dark-mode     .actividad {
+      background: #1b4ea7;
+      border-left: 5px solid #1a237e;
+    }
+
+    .actividad h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.05rem;
+      color: #1a237e;
+    }
+    .actividad p, .actividad li {
+      font-size: 0.99rem;
+      margin-bottom: 6px;
+    }
+
+
+  </style>
+
+
+</head>
+<body>
+  <!--<button class="theme-toggle" onclick="toggleTheme()"></button> -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
+  </button>
+
+  <!-- boto menu hamburguesa  +  javascript -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
+    <span id="menu-icon">☰</span>
+  </button>
+  
+  <div class="sidebar">
+    <a href="#teccripto">Técnicas Criptograficas</a>
+    <a href="#criptomod">Criptografia moderna</a>
+    <a href="#criptohash">Técnicas Hash</a>
+    <a href="#stegano">Esteganografia</a>
+    <a href="#practica">Practica</a>
+    <a href="#altres-recursos">Comprueba tu progreso</a>
+  </div>
+
+  <div style="width: 100%;">
+    <header>
+      <a href="index.html"><img src="imgs/sad5.png" alt="SAD"></a>
+      <h1>Unidad Didáctica 1: Tratamiento Seguro de la Información: CRIPTOGRAFIA</h1>
+      <h1>.</h1>
+    </header>
+    
+    <main>
+           
+    <section id="teccripto">
+    <h1 class="main-title">TÉCNICAS CRIPTOGRAFICAS</h1>
+    <img src="imgs/storm-cadenat.png" alt="cadenat" width="50%" >
+  
+   <div class="actividad">
+    <h3>Practica - Conceptos sobre criptografia</h3>
+      Examina la lluvia de ideas del interior de la figura del candado <br>
+      Anota en un folio con dos columnas: <br>
+      En una colunma: Conceptos que sabes <br>
+      En la otra columna : Conceptos que no sabes
+
+   </div>
+
+    <h1 class="main-title">PRINCIPIOS DE CRIPTOGRAFÍA</h1>
+    <ul> <strong>CRIPTOGRAFIA</strong>
+      <li>Arte o ciencia de cifrar i descifrar información</li>
+      <li>Del griego "kiptos"(ocultar) y "graphos"(escribir), literalmente "escritura oculta"</li>
+      <li>Se utiliza para el intercanbio de mensajes de manera segura, de forma que solo puedan ser leidos 
+        por las personas a las que van dirigidos y que tengan los medios para descifrarlos <strong>CONFIDENCIALIDAD</strong>
+      </li>
+    </ul>
+
+    <ul> <strong>CRIPTOLOGIA</strong><br>
+      Como ciencia, engloba
+      <li>Técnicas de cifrado: <strong>criptografia</strong></li>
+      <li>Técnicas complementarias: <strong>criptoanálisis, hashing y esteganografia</strong></li>
+    </ul>
+     <hr><p>Alguna aclaración respecto de "cifrar"</p>
+    <h3>Cifrar NO es comprimir</h3>
+    <h3>Cifrar NO es codificar</h3>
+    <h3>Cifrar NO es resumir</h3>
+    <h3>Cifrar NO es esconder</h3> <hr>
+
+    <h1 class="main-title">TERMINOLOGÍA DE CRIPTOGRAFÍA</h1>
+    <ol>
+      <li>La información original que debe protegerse se denomina <span class="key">texto en claro</span> o <span class="key">texto plano</span>.</li>
+      <li>El <span class="key">cifrado</span> es el proceso de convertir el texto plano en un texto ilegible denominado <span class="key">texto cifrado</span> o <span class="key">criptograma</span>.</li>
+      <li>El <span class="key">descifrado</span> es el proceso inverso que recupera el texto plano a partir del criptograma y la clave.</li>
+      <li>
+        <span class="key">Técnicas de cifrado:</span>
+        <ul>
+          <li><span class="key">Transposición:</span> supone una reordenación de los elementos.</li>
+          <li><span class="key">Sustitución:</span> cambio de significado de los elementos básicos del mensaje: las letras, los dígitos, los símbolos.</li>
+        </ul>
+      </li>
+      <li>
+        <span class="key">Algoritmos de cifrado</span>, se clasifican en:
+        <ul>
+          <li><span class="key">De cifrado de bloque:</span> dividen el texto original en bloques de bits de tamaño fijo y los cifra de manera independiente.</li>
+          <li><span class="key">De cifrado de flujo:</span> el cifrado se realiza bit a bit, byte a byte o carácter a carácter.</li>
+        </ul>
+      </li>
+    </ol>
+  
+
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>La Escítala de Esparta (siglo V a.C.)</h3>
+    <p>Método de <span class="key">transposición</span> que consistía en el uso de una vara de madera (scytale) en la que se enrollaba una tira de cuero o papiro sobre la que se escribía el mensaje. Cuando se desenrollaba el mensaje, parecía una lista sin sentido. Para descifrar el mensaje, el destinatario simplemente necesitaba una vara del mismo diámetro.</p>
+
+    <h3>Transposición de Riel (Rail Fence)</h3>
+    <p>El mensaje se escribe alternando las letras en dos líneas separadas. A continuación se concatena la secuencia de letras de la línea superior, creando el mensaje cifrado. El mensaje se recupera simplemente invirtiendo el proceso.</p>
+    <div class="codeblock">TU SECRETO ES TU PRISIONERO; SI LO SUELTAS, TÚ ERES SU PRISIONERO
+
+T S C E O S U R S O E O I O U L A T E E S P I I N R
+U E R I E T P I I N R S L S E T S U R S U R S O E O
+
+TSCEOSURSOEOIOULATEESPIINRUERTETPIINRSLSETSURSURSOEO</div>
+ 
+
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>Escritura inversa</h3>
+    <p>Método de <span class="key">transposición</span> que consiste en escribir las palabras (o frases) al revés.</p>
+     <hr>
+    <img src="imgs/tras-columnar-simple.png" alt="transpcolum" width="20%" class="imatge-dreta">
+    <h3>Transposición Columnar Simple</h3>
+    <p>El texto se escribe en filas dentro de una cuadrícula y se lee por columnas. Puede usarse sin clave o con clave (que determina el orden de lectura de las columnas):</p>
+    <ul>
+      <li>Sin clave: <code>TSILHKSUEYBE</code></li>
+      <li>Con clave: <code>HKSUTSILEYBE</code></li>
+    </ul>
+
+    <hr><h3>Transposición por Ruta</h3>
+    <p>La transposición por ruta es una técnica de cifrado que consiste en repartir el mensaje a cifrar en una figura geométrica, normalmente un paralelepípedo, y establecer una ruta que debe seguirse para leer el mensaje.</p>
+    <p>Rutas posibles:</p>
+    <ul>
+      <li>Espiral hacia adentro</li>
+      <li>Espiral desde el centro</li>
+      <li>Diagonal</li>
+      <li>Por columnas</li>
+    </ul>
+ 
+
+
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>Cifrado César</h3>
+    <p>Sistema de <span class="key">sustitución</span> que consiste en reemplazar cada letra del texto por otra que se encuentra un número de posiciones más adelante en el alfabeto. Julio César solía utilizar un desplazamiento de 3 posiciones en casi todos sus mensajes.</p>
+    <div class="codeblock">Texto original:   ABCDEFGHIJKLMNÑOPQRSTUVWXYZ
+Texto codificado: DEFGHIJKLMNÑOPQRSTUVWXYZABC</div>
+
+    <h3>ROT13 (rotar 13 posiciones)</h3>
+    <p>Variante del cifrado César que desplaza cada letra 13 posiciones en el alfabeto. Al ser el alfabeto de 26 letras, aplicar ROT13 dos veces devuelve el texto original.</p>
+    <div class="codeblock">Original: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Cifrado:  MNOPQRSTUVWXYZABCDEFGHIJKL</div>
+
+    <h3>Cifrado César – Práctica</h3>
+    <p>Utiliza la página <a href="https://es.planetcalc.com/1434/" target="_blank">https://es.planetcalc.com/1434/</a> para descifrar el siguiente mensaje:</p>
+    <p>(antes de ponerse a descifrar, observa el mensaje cifrado...¿Falta algún dato? ¿Qué se puede observar en el mensaje cifrado?)</p>
+    <div class="note">
+      <strong>Mensaje cifrado:</strong><br>
+      <code>Ix zofnqmdoxcfx bp jmiq afsboqfax. cixd: CkxdFsnoxdPobbob</code>
+    </div>
+    <div class="note">
+      <strong>Mensaje descifrado:</strong><br>
+      <code> </code>
+    </div>
+
+
+
+    <h2>SCRIPT DE CIFRADO</h2>
+
+    <h3>Ejemplo de algoritmo de sustitución: comando <code>tr</code></h3>
+    <p>Para cifrar mediante codificación César un archivo de texto plano en Linux:</p>
+    <div class="codeblock">cat archivo | tr [a-z] [d-zabc] | tr [A-Z] [D-ZABC] > doc.cesar</div>
+    <p>El comando <code>tr</code> permite realizar una sustitución carácter a carácter. Mediante tuberías (pipes) se han incorporado mayúsculas y los casos límite de los caracteres 'x', 'y', 'z'.</p>
+
+    <div class="actividad">
+      <h3>Práctica - Cifrado Cesar con "tr"</h3>
+      <ol>
+        <li>Crea un fichero en texto plano.</li>
+        <li>Cifra el fichero con el comando anterior.</li>
+        <li>Verifica el contenido del fichero cifrado.</li>
+        <li>Descifra el fichero y comprueba que el resultado es el mismo que el original.</li>
+      </ol>
+    </div>
+ 
+
+
+    <h2>ALGORITMO DE CIFRADO Y DESCIFRADO</h2>
+
+    <h3>Ejemplo de algoritmo de sustitución: algoritmo en Python</h3>
+    <p>Para cifrar mediante codificación César un mensaje usando Python, debes proponer tu propio algoritmo.</p>
+
+    <div class="actividad">
+      <h3>Práctica</h3>
+      <ol>
+        <li>Crea dos ficheros con los algoritmos <code>cifra.py</code> y <code>descifra.py</code>.</li>
+        <li>Cifra una cadena de texto.</li>
+        <li>Descifra la cadena y verifica el resultado.</li>
+      </ol>
+    </div>
+
+
+
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <img src="imgs/taula-vigenere.png" alt="vigenere" width="40%" class="imatge-dreta">
+    <h3>Cifrado Vigenère</h3>
+    <p>Es un cifrado basado en diferentes series de caracteres o letras del cifrado César formando una tabla, denominada <span class="key">tabla de Vigenère</span>. El cifrado de Vigenère es un cifrado por <span class="key">sustitución simple polialfabético</span>.</p>
+    <p>Se puede utilizar una clave para ir tomando cíclicamente las series del alfabeto. Herramienta online: <a href="https://es.planetcalc.com/2468/" target="_blank">https://es.planetcalc.com/2468/</a></p>
+    <div class="codeblock">Mensaje: ATACARALANOCHECER
+Clave:   LIMONLIMONLIMONLI
+Cifrado: lbmqncixoazktssppz</div>
+
+
+    <h3>Cifrado Vigenère – Práctica</h3>
+    <p>Utiliza <a href="https://es.planetcalc.com/2468/" target="_blank">https://es.planetcalc.com/2468/</a> para descifrar el siguiente mensaje:</p>
+    <div class="note">
+      <strong>Mensaje cifrado:</strong><br>
+      <code>pdkjvw a yjksnxmfj, otl zx ujrwiçfj</code><br><br>
+      <strong>Clave:</strong> iniciales de un instituto maravilloso en Algemesí.
+    </div>
+    <div class="note">
+      <strong>Mensaje descifrado:</strong><br>
+      <code> </code><br><br>
+    </div>
+    <p>¿Qué se puede observar en el mensaje cifrado?</p>
+  
+
+
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>Cifrado Ottendorf (Cifrado por Libro)</h3>
+    <p>También denominado <span class="key">Cifrado por Libro</span>, consiste en una serie de grupos de tres números que hacen referencia a letras específicas en un libro. Este libro debe ser conocido por el descodificador, y ser además de la misma edición que el libro de la persona que escribe el mensaje codificado.</p>
+    <p>De los grupos de números:</p>
+    <ul>
+      <li>El <strong>primero</strong> (empezando por la izquierda) corresponde a la <strong>página</strong> del libro.</li>
+      <li>El <strong>segundo</strong> corresponde a la <strong>línea</strong>.</li>
+      <li>El <strong>tercero</strong> corresponde a la <strong>letra</strong>.</li>
+    </ul>
+    <p>Ejemplo: usando el libro <em>"La vuelta al mundo en 80 días"</em>, para escribir <strong>JULES VERNE</strong>:</p>
+    <div class="codeblock">39-6-30
+53-1-2
+65-3-7
+18-12-4
+162-19-1
+223-2-14
+88-22-10
+183-4-5
+9-8-3
+144-5-9</div>
+  
+
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>Cifrado A1Z26</h3>
+    <p>Es un cifrado por sustitución directa muy simple, donde cada letra del alfabeto se reemplaza por su número en el alfabeto.</p>
+    <p>Todas las letras se ponen en minúsculas, se usa el alfabeto inglés y no se transforman los símbolos que no pertenecen al alfabeto. En la decodificación, todos los números (del 1 al 26) deben estar separados por cualquier símbolo que no sea un dígito (guion, espacio, etc.)</p>
+    <p>Variantes: <code>A1Z27</code> (puede incluir la ñ) o <code>A0Z26</code>.</p>
+
+    <table>
+      <tr>
+        <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th>
+        <th>N</th><th>O</th><th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th><th>U</th><th>V</th><th>W</th><th>X</th><th>Y</th><th>Z</th>
+      </tr>
+      <tr>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+      </tr>
+    </table>
+ 
+
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>Cifrado Atbash</h3>
+    <p>Es un método de codificación del alfabeto hebreo que consiste en utilizar la letra simétrica a la dada. También se le conoce como <span class="key">método espejo</span>.</p>
+    <table>
+      <tr>
+        <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th>
+        <th>N</th><th>O</th><th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th><th>U</th><th>V</th><th>W</th><th>X</th><th>Y</th><th>Z</th>
+      </tr>
+      <tr>
+        <td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td><td>U</td><td>T</td><td>S</td><td>R</td><td>Q</td><td>P</td><td>O</td><td>N</td>
+        <td>M</td><td>L</td><td>K</td><td>J</td><td>I</td><td>H</td><td>G</td><td>F</td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td>
+      </tr>
+    </table>
+    <p>Equivalencias: A=Z | B=Y | C=X | D=W | E=V | F=U | G=T | H=S | I=R | J=Q | K=P | L=O | M=N | N=M | O=L | P=K | Q=J | R=I | S=H | T=G | U=F | V=E | W=D | X=C | Y=B | Z=A</p>
+ 
+
+  
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>Cifrado de Polibio</h3>
+    <p>Es un método de codificación del alfabeto griego. Puede codificar 25 símbolos mediante una matriz de 5×5. Puede ampliarse a 36 símbolos con una matriz de 6×6.</p>
+    <p>Referencias: <a href="https://es.wikipedia.org/wiki/Cuadrado_de_Polibio" target="_blank">Wikipedia – Cuadrado de Polibio</a></p>
+
+    <table>
+      <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      <tr><th>1</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>
+      <tr><th>2</th><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td></tr>
+      <tr><th>3</th><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td></tr>
+      <tr><th>4</th><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td></tr>
+      <tr><th>5</th><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td></tr>
+    </table>
+
+    <p>Ejemplo:</p>
+    <div class="codeblock">Mensaje original: MUIXERANGA
+Criptograma:      3 3 5 1 2 4 5 4 1 5 4 3 1 1 3 4 2 2 1 1</div>
+  
+
+    <h2>ALGORITMO DE CIFRADO Y DESCIFRADO</h2>
+
+    <h3>Ejemplo de algoritmo de sustitución: algoritmo en Python</h3>
+    <p>Para cifrar mediante codificación de Polibio un mensaje usando Python, debes proponer tu propio algoritmo.</p>
+
+    <div class="actividad">
+      <h3>Práctica</h3>
+      <ol>
+        <li>Crea dos ficheros con los algoritmos <code>cifrapol.py</code> y <code>descifrapol.py</code>.</li>
+        <li>Cifra una cadena de texto.</li>
+        <li>Descifra la cadena y verifica el resultado.</li>
+      </ol>
+    </div>
+  
+
+
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>Cifrado Vernam</h3>
+    <p>Es un <span class="key">cifrado de flujo</span> en el que el texto en claro se combina, mediante la operación <span class="key">XOR</span>, con un flujo de datos aleatorio o pseudoaleatorio de la misma longitud (clave), para generar un texto cifrado.</p>
+    <p>El uso de datos pseudoaleatorios generados por un generador de números pseudoaleatorios criptográficamente seguro es una manera común y efectiva de construir un cifrado de flujo.</p>
+    <p>El <span class="key">RC4</span> es un ejemplo de cifrado de Vernam que se utiliza con frecuencia en Internet.</p>
+
+    <table>
+      <tr><th>T</th><th>E</th><th>X</th><th>T</th><th>O</th><th>→ decimal</th><th>→ binario</th></tr>
+      <tr><td>84</td><td>69</td><td>88</td><td>84</td><td>79</td><td></td><td>1010100 | 1000101 | 1011000 | 1010100 | 1001111</td></tr>
+      <tr><th>C</th><th>L</th><th>A</th><th>V</th><th>E</th><th>→ decimal</th><th>→ binario</th></tr>
+      <tr><td>67</td><td>76</td><td>65</td><td>86</td><td>69</td><td></td><td>1000011 | 1001100 | 1000001 | 1010110 | 1000101</td></tr>
+      <tr><th colspan="5">XOR</th><td>23 | 9 | 25 | 2 | 10</td><td>10111</td></tr>
+      <tr><th colspan="5">hex</th><td>17 | 9 | 19 | 2 | A</td><td></td></tr>
+    </table>
+
+
+    <h3>Cifrado Vernam – Práctica con CyberChef</h3>
+    <p>Utiliza <a href="https://gchq.github.io/CyberChef/" target="_blank">https://gchq.github.io/CyberChef/</a> para descifrar:</p>
+    <div class="note">
+      <strong>Mensaje:</strong><br>
+      <code>23 0d 0d 44 05 0b 02 4a 41 27 10 10 04 42 1b 0d 07 10 02 10 41 07 10 44 0c 07 10 44 02 0d 0e 14 0d 0b 00 05 15 4c</code><br><br>
+      <strong>Clave:</strong> <code>abcd</code>
+    </div>
+
+    <h3>Cifrado Vernam – Pasos en CyberChef</h3>
+    <p>Dado que XOR actúa a nivel de bit, primero hay que convertir los datos a bits. La clave <code>abcd</code> en hexadecimal es <code>61 62 63 64</code>.</p>
+    <p>Pasos en CyberChef:</p>
+    <ol>
+      <li>Añadir operación <strong>From Hex</strong> (delimitador: Auto).</li>
+      <li>Añadir operación <strong>XOR</strong> con clave <code>61 62 63 64</code> en formato HEX, esquema Standard.</li>
+    </ol>
+ 
+
+ 
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+
+    <h3>Cifrado Enigma</h3>
+    <p>Era el nombre de una máquina de rotores que permitía usarla tanto para cifrar como para descifrar mensajes. Su facilidad de manejo y supuesta inviolabilidad fueron las principales razones para su amplio uso.</p>
+    <p>La máquina Enigma fue un dispositivo electromecánico que usaba una combinación de partes mecánicas y eléctricas. El mecanismo estaba constituido fundamentalmente por un teclado similar al de las máquinas de escribir (cuyas teclas eran interruptores eléctricos), un engranaje mecánico y un panel de luces con las letras del alfabeto.</p>
+    <p>Referencia: <a href="https://summersidemakerspace.ca/projects/enigma-machine/" target="_blank">https://summersidemakerspace.ca/projects/enigma-machine/</a></p>
+    <p>Las claves que se suministran: <span class="key">Modelo, Reflector, Rotores, Anillos, Clavijero</span>.</p>
+  
+    <h3>Cifrado Enigma – Funcionamiento</h3>
+    <p>La máquina Enigma funciona mediante tres o más rotores que sustituyen cada letra pulsada por otra diferente, y cada vez que se pulsa una tecla el rotor avanza una posición, cambiando el cifrado. La señal eléctrica pasa por los rotores de izquierda a derecha, rebota en el reflector y vuelve de derecha a izquierda, encendiendo una luz que indica la letra cifrada.</p>
+    <p>El proceso es <strong>simétrico</strong>: si se cifra una letra con una configuración determinada, al introducir la letra cifrada con la misma configuración inicial se obtiene la original.</p>
+
+    <h3>Cifrado Enigma – Práctica con CyberChef</h3>
+    <p>Utiliza <a href="https://gchq.github.io/CyberChef/" target="_blank">https://gchq.github.io/CyberChef/</a> para descifrar:</p>
+    <div class="note">
+      <strong>Mensaje:</strong> <code>VBCUH QMCDY HSCJX YJFON QILXB WOWYR E</code><br><br>
+      <strong>Clave / Configuración de rotores:</strong>
+      <ul>
+        <li>Rotor izquierdo: <strong>S</strong></li>
+        <li>Rotor central: <strong>V</strong></li>
+        <li>Rotor derecho: <strong>F</strong></li>
+        <li>Modelo: 3-rotor</li>
+      </ul>
+    </div>
+
+    <h2>Cifrado por codificación</h2>
+    <div class="note">
+      ⚠️ <strong>¡Los algoritmos de codificación (p. ej. Base64) NO son algoritmos de cifrado!</strong> Se decodifican fácilmente y, por tanto, no deben utilizarse como método de cifrado seguro. No uses esta técnica para proteger datos confidenciales; utiliza métodos de cifrado seguros.
+    </div>
+    <p>No obstante, es importante conocer el formato de una información cifrada para analizar por dónde empezar a decodificar/descifrar.</p>
+    <p><strong>Formatos habituales:</strong></p>
+    <ul>
+      <li>ASCII</li>
+      <li>HEXADECIMAL</li>
+      <li>BASE64</li>
+      <li>BINARIO</li>
+    </ul>
+
+
+    <h2>HERRAMIENTAS DE CIFRADO ONLINE</h2>
+    <ul>
+      <li><a href="https://es.planetcalc.com/1434/" target="_blank">https://es.planetcalc.com/1434/</a> – Cifrado César</li>
+      <li><a href="https://www.convertstring.com/ca/EncodeDecode/Base64Encode" target="_blank">https://www.convertstring.com/</a> – Base64</li>
+      <li><a href="https://www.rapidtables.com/convert/number/hex-to-ascii.html" target="_blank">https://www.rapidtables.com/</a> – Hex a ASCII</li>
+      <li><a href="https://gchq.github.io/CyberChef/" target="_blank">https://gchq.github.io/CyberChef/</a> – CyberChef</li>
+      <li><a href="https://cryptii.com/" target="_blank">https://cryptii.com/</a> – Cryptii</li>
+      <li><a href="https://www.dcode.fr/" target="_blank">https://www.dcode.fr/</a> – dCode</li>
+    </ul>
+  
+
+
+    <h2>TIPOS DE ALGORITMOS DE CIFRADO</h2>
+
+    <h3>Principio de Kerckhoffs (1883 – <em>La Cryptographie Militaire</em>)</h3>
+    <p>En seguridad y criptografía, principio según el cual <span class="key">la seguridad de un sistema cifrado debe depender exclusivamente de la clave y no de la seguridad de cualquier otra parte del sistema</span>.</p>
+    <p>Debe suponerse, así, que el sistema puede caer en manos del "enemigo" y que puede analizarlo tanto como quiera, pero que la falta de la clave le impedirá entender el código cifrado.</p>
+    <p>Por lo tanto, <strong>los algoritmos son públicos</strong> y pueden estudiarse y valorarse para elegir el que mejor se adapte a nuestras necesidades.</p>
+
+
+   </section>
+
+
+
+
+   <section id="criptomod">
+    <h1 class="main-title">CRIPTOGRAFÍA MODERNA</h1>
+    <p>A partir de este punto, el contenido del módulo SAD se centra en las técnicas de <span class="key">criptografía moderna</span>, que incluyen:</p>
+    <ul>
+      <li>Criptografía simétrica moderna (AES, DES, 3DES…)</li>
+      <li>Criptografía asimétrica (RSA, ECC, Diffie-Hellman…)</li>
+      <li>Funciones hash (MD5, SHA…)</li>
+      <li>Firma digital y certificados digitales</li>
+    </ul>
+
+<h2>TIPOS DE ALGORITMOS DE CIFRADO </h2>
+
+<p>Existen dos grandes tipos de algoritmos de cifrado:</p>
+<ul>
+  <li><span class="simetrico">Simétricos o de clave simétrica:</span> usan una única clave tanto en el proceso de cifrado como en el descifrado.</li>
+  <li><span class="asimetrico">Asimétricos o de clave asimétrica o pública:</span> usan una clave para cifrar mensajes y una clave diferente para descifrarlos. Forman el núcleo de las técnicas de cifrado modernas (certificados digitales, firma digital, DNIe).</li>
+</ul>
+
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA </h2>
+
+<ul>
+  <li>Se usa una <span class="label">misma clave para cifrar y descifrar</span> mensajes.</li>
+  <li>Las dos partes que se comunican deben acordar previamente la clave a usar.</li>
+  <li>Un buen sistema de cifrado pone toda la seguridad en la clave y ninguna en el algoritmo:
+    <ul>
+      <li>La clave debe ser muy difícil de adivinar.</li>
+      <li><span class="label">Importante: longitud de la clave y conjunto de caracteres que emplee.</span></li>
+    </ul>
+  </li>
+</ul>
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — Ejemplos de algoritmos </h2>
+
+<ul>
+  <li><span class="label">DES</span> (Data Encryption Standard, IBM 1975), elegido estándar FIPS: usa una clave de 56 bits → 2<sup>56</sup> claves posibles (72.057.594.037.927.936). Utiliza cifrado de Feistel. Sucesor del algoritmo Lucifer.</li>
+  <li><span class="label">3DES</span> (IBM 1998): usa claves de 128 bits, lo que significa 2<sup>128</sup> claves posibles (340.282.366.920.938.463.463.374.607.431.768.211.456). Usado en tarjetas de crédito.</li>
+</ul>
+
+<p>En 1997, el Instituto Nacional de Normas y Tecnología (NIST) convocó un concurso para elegir un nuevo algoritmo de cifrado capaz de proteger información sensible durante el siglo XXI. Este concurso se denominó <span class="label">Advanced Encryption Standard (AES)</span>. Los resultados fueron:</p>
+
+<ul>
+  <li>RIJNDAEL: 86 votos</li>
+  <li>SERPENT: 59 votos</li>
+  <li>TWOFISH: 31 votos</li>
+  <li>RC6: 23 votos</li>
+  <li>MARS: 13 votos</li>
+</ul>
+
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — Algoritmos detallados </h2>
+
+<ul>
+  <li><span class="label">DES</span> (1976): bloques de 64 bits, clave de 64 bits (56 efectivos). Usa la función F de Feistel.</li>
+  <li><span class="label">IDEA</span> (International Data Encryption Algorithm, 1991): bloques de 64 bits, clave de 128 bits.</li>
+  <li><span class="label">Blowfish</span> (1993): bloques de 64 bits, claves de 32 a 448 bits (16 rondas de Feistel).</li>
+  <li><span class="label">3DES</span> (IBM 1998): triple-DES, bloques de 64 bits, clave de 168 bits (112 efectivos). Usa Feistel.</li>
+  <li><span class="label">AES / Rijndael</span> (2001): estándar de cifrado del gobierno de EE.UU. Bloque fijo de 128 bits, clave de 128, 192 o 256 bits.</li>
+  <li><span class="label">RC6</span> (Rivest Cipher 6): bloque de 128 bits, claves de 128, 192 y 256 bits.</li>
+  <li><span class="label">Serpent</span>: bloque de 128 bits, claves de 128, 192 y 256 bits.</li>
+  <li><span class="label">MARS</span> (IBM): bloques de 128 bits, claves de longitud variable de 128 a 448 bits.</li>
+  <li><span class="label">Kuznyechik</span>: cifrado por bloques simétrico con bloque de 128 bits y clave de 256 bits. Definido en el Estándar Nacional de la Federación Rusa.</li>
+  <li><span class="label">Camellia</span> (Japón): bloque de 128 bits, claves de 128, 192 y 256 bits.</li>
+</ul>
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — AES en la práctica </h2>
+
+<p><span class="label">AES (Advanced Encryption Standard) o Rijndael</span>: estándar de cifrado del gobierno de EE.UU. Usa un tamaño de bloque fijo de 128 bits y clave de 128, 192 o 256 bits.</p>
+
+<div class="note">
+  <strong>Ejercicio con CyberChef:</strong><br>
+  Mensaje: <code>2259206c3308406be9d0ae30d610bf32bc0c2a417a346bf3c3c3be620575db96</code><br>
+  Clave: <code>1234567890abcdef</code><br>
+  IV: <code>abcdef0987654321</code><br><br>
+  Contesta:
+  <ul>
+    <li>¿De qué tamaño es la clave?</li>
+    <li>Fíjate en el mensaje y en la clave. ¿En qué codificación está cada uno?</li>
+  </ul>
+</div>
+
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — Problemas principales </h2>
+
+<p>Los principales problemas de los sistemas de cifrado simétrico son:</p>
+
+<h3>El intercambio de claves</h3>
+<ul>
+  <li>¿Qué canal de comunicación seguro han usado para transmitirse las claves?</li>
+  <li>Es más fácil para el atacante intentar interceptar una clave que probar todas las combinaciones posibles.</li>
+</ul>
+
+<h3>El número de claves necesarias</h3>
+<ul>
+  <li>Para <em>n</em> personas que necesitan comunicarse entre sí, se necesitan <strong>n(n-1)/2</strong> claves diferentes.</li>
+  <li>90 personas → 4.005 claves &nbsp;|&nbsp; 300 personas → 44.850 claves &nbsp;|&nbsp; 6.000 personas → 17.997.000 claves.</li>
+  <li>Solo funciona bien con un grupo reducido de personas.</li>
+</ul>
+
+<h3>Fortaleza de la clave</h3>
+<ul>
+  <li>Principio de Kerckhoffs.</li>
+  <li>La responsabilidad de la fortaleza de la clave recae sobre el usuario.</li>
+</ul>
+
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — ccrypt en Linux </h2>
+
+<h3>Cifrado de datos con ccrypt</h3>
+<ul>
+  <li>Herramienta para cifrar y ocultar en el ordenador datos que el usuario considere reservados o confidenciales.</li>
+  <li>Utiliza: <span class="label">Rijndael/256</span> (el mismo que AES).</li>
+  <li>Sobreescribe los sectores originales (lo intenta).</li>
+</ul>
+
+<pre>
+sudo apt-get install ccrypt
+
+ccrypt archivo       # Cifra el archivo
+ccrypt -d archivo    # Descifra el archivo
+
+ccrypt -R carpeta    # Cifra la carpeta
+ccrypt -dR carpeta   # Descifra la carpeta
+</pre>
+
+<div class="actividad">
+  <h3>Práctica</h3>
+  <p>Cifrar un archivo y una carpeta con ccrypt usando una clave simétrica. Observar los resultados.</p>
+</div>
+
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — Sistema EFS de Windows </h2>
+
+<h3>Cifrado de datos con EFS</h3>
+<ul>
+  <li>Herramienta para proteger la salida de datos del sistema.</li>
+  <li>Utiliza: <span class="label">AES + SHA + ECC</span>.</li>
+</ul>
+
+<div class="actividad">
+  <h3>Práctica</h3>
+  <p>Cifrar una carpeta con Windows EFS. Copiarla al ordenador de un compañero y observar si se puede acceder.</p>
+  <p><strong>¿Dónde está la clave?</strong></p>
+</div>
+
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — VeraCrypt </h2>
+
+<h3>Cifrado de datos y particiones con VeraCrypt</h3>
+<ul>
+  <li>Herramienta para cifrar y ocultar en el ordenador datos que el usuario considere reservados o confidenciales.</li>
+  <li>Ofrece la posibilidad de crear discos virtuales o aprovechar una partición ya existente para guardar archivos cifrados.</li>
+  <li>Permite elegir entre varios algoritmos de cifrado: <span class="label">AES, Camellia, Kuznyechik, Serpent, Twofish</span>.</li>
+  <li>Descarga: <a href="https://www.veracrypt.fr/en/Downloads.html" target="_blank">https://www.veracrypt.fr/en/Downloads.html</a></li>
+</ul>
+
+<div class="actividad">
+  <h3>Prácticas</h3>
+  <ol>
+    <li>Crear un disco cifrado en Windows.</li>
+    <li>Proteger un pendrive con contraseña.</li>
+  </ol>
+</div>
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — VeraCrypt en Linux </h2>
+
+<div class="actividad">
+  <h3>Práctica — Montar un volumen cifrado desde la consola de Linux</h3>
+  <ol>
+    <li>
+      Instalar VeraCrypt.<br>
+      Desde la página de descargas, baja la versión adecuada:<br>
+      <a href="https://www.veracrypt.fr/en/Downloads.html" target="_blank" style="color:#ae5282;">https://www.veracrypt.fr/en/Downloads.html</a><br>
+      Ábrela con el instalador de Ubuntu.
+    </li>
+    <li>Cifrar un archivo como un volumen virtual.</li>
+  </ol>
+</div>
+
+<h2>CRIPTOGRAFÍA SIMÉTRICA — CryFS en Linux </h2>
+
+<div class="actividad">
+  <h3>Práctica — Montar una carpeta para cifrar datos en uso</h3>
+  <p>En Linux / Kali:</p>
+  <ol>
+    <li>
+      Instalar la utilidad <span class="label">CryFS</span> (visita la página oficial: <a href="https://www.cryfs.org" target="_blank" style="color:#ffd0e8;">www.cryfs.org</a>).<br>
+      Preparar dos carpetas: <code>basedir</code> y <code>mountdir</code>.<br>
+      Montar el cifrado:
+      <pre style="margin:8px 0;">cryfs basedir mountdir</pre>
+      Guardar y modificar datos dentro de <code>mountdir</code> (¡nunca en <code>basedir</code>!).<br>
+      Observar (solo observar) <code>basedir</code>.
+    </li>
+    <li>
+      Desmontar el cifrado:
+      <pre style="margin:8px 0;">cryfs-unmount mountdir</pre>
+      (o reiniciar, o cerrar la sesión de usuario).
+    </li>
+  </ol>
+</div>
+
+<h2>CIFRADO DE INFORMACIÓN </h2>
+
+<h3>Cifrado de información en equipo local</h3>
+<ul>
+  <li>Cifrado de un archivo</li>
+  <li>Cifrado de una carpeta</li>
+  <li>Cifrado de un disco (interno o externo)</li>
+  <li>Cifrado del Sistema Operativo completo</li>
+  <li>Cifrado de Bases de datos</li>
+</ul>
+
+<h3>Cifrado de información en la nube</h3>
+<ul>
+  <li>Cifrado de información en reposo</li>
+  <li>Cifrado de información en tránsito</li>
+  <li>Cifrado de información en uso</li>
+</ul>
+
+<div class="note">
+  Más información: <a href="https://www.sealpath.com/es/blog/tres_estados_info/" target="_blank">Protegiendo la información en sus tres estados</a>
+</div>
+
+<h2>CIFRADO DE PARTICIÓN DEL SISTEMA OPERATIVO </h2>
+
+<h3>Windows</h3>
+<ul>
+  <li><span class="label">BitLocker</span> (disponible en Windows 10 Professional y Enterprise).<br>
+    <a href="https://rootear.com/windows/activa-bitlocker-w10" target="_blank">https://rootear.com/windows/activa-bitlocker-w10</a>
+  </li>
+</ul>
+
+<h3>GNU/Linux</h3>
+<ul>
+  <li>Cifrar al instalar el SO:<br>
+    <a href="https://www.softzone.es/linux/tutoriales/cifrar-disco-duro-linux/" target="_blank">https://www.softzone.es/linux/tutoriales/cifrar-disco-duro-linux/</a>
+  </li>
+  <li>Cifrar la carpeta de usuario:<br>
+    <a href="http://somebooks.es/cifrar-la-carpeta-de-usuario-en-ubuntu-22-04-lts/" target="_blank">http://somebooks.es/cifrar-la-carpeta-de-usuario-en-ubuntu-22-04-lts/</a>
+  </li>
+</ul>
+
+
+  <h2>INFORMACIÓN SENSIBLE</h2>
+  <div class="warning">¡Lo que borras, NO se borra!</div>
+  <p>Antes de desechar un disco duro, bórralo o destrúyelo.</p>
+  <p>Para un entorno con información sensible, utiliza herramientas especializadas.</p>
+  <p>Herramientas de borrado seguro en Linux:</p>
+  <pre>$ shred -zvu -n 5 passwords.list
+$ wipe -rfi private/*
+$ srm -vz private/*
+$ sudo sdmem -f -v</pre>
+
+
+
+  <h2>INFORMACIÓN SENSIBLE</h2>
+  <div class="warning">¡Lo que borras, NO se borra!</div>
+  <p>Antes de desechar un disco duro, bórralo o destrúyelo.</p>
+  <p>Para un entorno con información sensible, utiliza herramientas especializadas.</p>
+
+  <h2>Herramientas de recuperación (Windows)</h2>
+  <ul>
+    <li><span class="label">EaseUS Data Recovery Wizard</span></li>
+    <li><span class="label">Recoverit</span></li>
+    <li><span class="label">Recuva</span></li>
+  </ul>
+
+  <h3>Herramientas de recuperación (Linux)</h3>
+  <ul>
+    <li><span class="label">Scalpel:</span> herramienta para recuperar archivos borrados en Linux.</li>
+    <li>Herramienta genérica para recuperar archivos borrados en Linux.</li>
+  </ul>
+
+
+    </section>
+
+
+   <section id="criptohash">
+ <h1 class="main-title">FUNCIONES HASH</h1>
+  <h2>Funciones resumen o funciones hash (también funciones digest)</h2>
+  <ul>
+    <li>Los sistemas asimétricos se apoyan en <span class="highlight">funciones resumen</span> o <span class="highlight">funciones hash</span> de un solo sentido. Su cálculo directo es viable, pero la función inversa resulta casi imposible (<span class="label">computacionalmente intratable</span>).</li>
+    <li>El resumen siempre tiene una <span class="label">longitud fija</span> y pequeña (típicamente 128 o 256 bits).</li>
+    <li>Pequeños cambios en el documento producen grandes cambios en el hash.</li>
+    <li>Algoritmos empleados como funciones resumen o funciones hash: ejemplos: <span class="label">MD5 y SHA</span>.</li>
+  </ul>
+
+  <h2>Usos</h2>
+  <ul>
+    <li>Analizar la integridad de un archivo (iso, programa...) y verificar su autenticidad.</li>
+    <li>Almacenamiento de contraseñas de usuario, archivo <code>/etc/shadow</code> de GNU/Linux.</li>
+    <li>Firma digital de archivos, correo electrónico, etc.</li>
+    <li>Detectar malware.</li>
+    <li>Protección de contenido protegido (copyright).</li>
+    <li>Tecnologías Blockchain y SmartContracts.</li>
+  </ul>
+
+  <h2>Ejemplo de uso de funciones resumen</h2>
+  <p>Analizar la integridad de un archivo descargado mediante la comprobación de su valor resumen calculado.</p>
+  <p>En muchas ocasiones, las webs de los fabricantes originales muestran junto a su archivo de instalación el valor resumen calculado, con el que podremos verificar, tras descargar el archivo de instalación, su integridad o que no ha sido modificado o es una falsificación.</p>
+
+  <h3>Ejemplo práctico Windows</h3>
+  <ul>
+    <li>Descarga una ISO de la página <code>http://ophcrack.sourceforge.net/download.php</code></li>
+    <li>Descarga la utilidad md5 de la página <code>http://www.fourmilab.ch/md5/</code></li>
+    <li>Comprueba si se ha descargado correctamente (la ISO).</li>
+  </ul>
+
+  <h3>Ejemplo GNU/Linux / KALI</h3>
+  <pre>$ md5sum archivo.txt > archivo.md5
+$ md5sum -c archivo.md5</pre>
+
+
+  <h2>FUNCIONES CONCRETAS</h2>
+
+  <h3>MD5</h3>
+  <p>La función hash MD5 produce un valor hash de <span class="label">128 bits</span> (16 bytes o 32 nibbles). Fue diseñado para su uso en criptografía, pero se descubrieron vulnerabilidades con el paso del tiempo, por lo que ya no se recomienda para ese propósito. Sin embargo, todavía se utiliza para particionar bases de datos y calcular sumas de comprobación para validar transferencias de archivos.</p>
+
+  <h3>SHA1</h3>
+  <p>SHA1 genera un hash de <span class="label">160 bits</span> (20 bytes o 40 nibbles). En formato hexadecimal, es un número entero de 40 dígitos. Al igual que MD5, fue diseñado para aplicaciones de criptología, pero pronto se descubrió que también tenía vulnerabilidades. Hoy en día, ya no se considera menos resistente al ataque que MD5.</p>
+
+  <h3>SHA2</h3>
+  <p>La segunda versión de SHA, llamada SHA-2, tiene muchas variantes. Probablemente la más utilizada es <span class="label">SHA-256</span>, que el NIST recomienda usar en lugar de MD5 o SHA-1. El algoritmo SHA-256 devuelve un valor hash de <span class="label">256 bits</span> o 64 dígitos hexadecimales.</p>
+
+  <h3>SHA3</h3>
+  <p>Este método hash se desarrolló a finales de 2015 y todavía no ha tenido un uso generalizado.</p>
+
+  <div class="actividad">
+    <h3>Práctica - Calcula hash</h3>
+    <p>Utiliza las siguientes funciones de Linux para calcular resúmenes de archivos y observa los resultados. Utiliza la opción <code>-c</code> para comprobar la integridad del archivo original:</p>
+    <pre >md5sum
+sha1sum
+sha224sum
+sha256sum
+sha384sum
+sha512sum</pre>
+  </div>
+
+  <h3>SHA3 con OpenSSL</h3>
+  <p>SHA3 no tiene soporte en Linux como orden directa, pero podemos utilizar la suite OpenSSL:</p>
+  <pre>$ openssl help
+
+Message Digest commands (see the 'dgst' command for more details)
+blake2b512   blake2s256   gost         md4
+md5          mdc2         rmd160       sha1
+sha224       sha256       sha3-224     sha3-256
+sha3-384     sha3-512     sha384       sha512
+sha512-224   sha512-256   shake128     shake256
+sm3
+
+$ openssl dgst -sha3-256 texto.plano</pre>
+  <p>Ejemplo de salida:</p>
+  <pre>SHA3-256(archivo)= ad015c3dff3cb222649c24e3c68acc7e46d67a81df70368ccc1305dff8b8ae8a</pre>
+
+  <h3>¿Cómo se rompe un Hash?</h3>
+  <ul>
+    <li><span class="label">Fuerza bruta</span> (Herramientas: John the Ripper, HashCat, Hash Suite — <code>https://hashsuite.openwall.net/</code>).</li>
+    <li><span class="label">Fuerza bruta con diccionarios.</span></li>
+    <li><span class="label">Rainbow Tables</span> (<code>https://crackstation.net/</code> o similares).</li>
+    <li><span class="label">Atacando el algoritmo específico.</span></li>
+  </ul>
+
+  <h3>Otras funciones Hash</h3>
+  <ul>
+    <li>WHIRLPOOL</li>
+    <li>Streebog</li>
+    <li>CRC</li>
+    <li>Tiger</li>
+    <li>Snefru</li>
+    <li>RipeMD</li>
+    <li>MD2, MD4</li>
+    <li>Haval</li>
+    <li>Adler</li>
+    <li>Gost</li>
+  </ul>
+  <p>Herramienta online: <code>https://hash.online-convert.com/</code></p>
+
+  <h3>Funciones Hash Lentas (especiales para contraseñas)</h3>
+  <ul>
+    <li><span class="label">Argon2</span></li>
+    <li><span class="label">scrypt</span></li>
+    <li><span class="label">bcrypt</span></li>
+    <li><span class="label">PBKDF2</span></li>
+  </ul>
+  <hr>
+  <div class="actividad">
+    <h3>Práctica - Truecrypt</h3>
+    <p>Busca información sobre la historia de TrueCrypt:</p>
+    <ul>
+      <li>¿Quién fue su creador?</li>
+      <li>¿Por qué desapareció?</li>
+      <li>¿Quién ha heredado sus funcionalidades?</li>
+    </ul>
+  </div>
+
+  <div class="actividad">
+    <h3>Práctica — Calcular HASHes en Windows</h3>
+    <p>Instala y utiliza el programa para calcular hashes: <code>https://www.quickhash-gui.org/downloads/</code></p>
+    <p>Visita la página oficial y contesta:</p>
+    <ul>
+      <li>¿Para qué Sistemas Operativos está disponible?</li>
+      <li>¿Qué algoritmos de hash puede calcular?</li>
+      <li>¿Qué otras herramientas ofrece la web?</li>
+    </ul>
+  </div>
+
+  <div class="actividad">
+    <h3>Práctica — Calcular HASHes en Windows con PowerShell</h3>
+    <p>Busca información sobre cómo visualizar un hash en PowerShell.</p>
+    <p>Calcula el hash de un archivo con los tipos de hash: <code>md5, sha1, sha256, sha512, sha384</code></p>
+    <p>Calcula el hash de una cadena <code>"Hola Mundo"</code></p>
+    <p>¡Visualiza TODOS los hashes completos!</p>
+    <p><strong>Contesta: Si no se especifica un tipo de hash, ¿qué hash calcula por defecto?</strong></p>
+  </div>
+
+
+   </section>
+
+
+   <section id="stegano">
+
+
+  <h1 class="main-title">Esteganografía </h1>
+
+  <p>
+    La esteganografía (del griego <em>steganos</em>, "cubierto" u "oculto", y <em>graphos</em>, "escritura") estudia
+    y aplica técnicas que permiten ocultar mensajes u objetos dentro de otros, llamados
+    <strong>portadores</strong>, para ser enviados de manera que el hecho no sea percibido. Es decir,
+    procura ocultar mensajes dentro de otros objetos y así establecer un canal encubierto de
+    comunicación, de modo que el propio acto de la comunicación pase inadvertido para los
+    observadores que tienen acceso a dicho canal.
+  </p>
+
+  <!-- Diagrama portador -->
+  <div class="diagram">
+    <div class="box">Portador</div>
+    <div class="operator">+</div>
+    <div class="box message">Mensaje<br>a ocultar</div>
+    <div class="operator">=</div>
+    <div class="box result-outer">
+      <span style="color:#fff; font-weight:bold; padding: 4px 8px;">Portador</span>
+      <div class="box result-inner">Mensaje<br>a ocultar</div>
+    </div>
+  </div>
+
+  <p>
+    Tanto con esteganografía como con criptografía se intenta ocultar un mensaje para ser
+    enviado, pero son fundamentalmente diferentes: la criptografía solo cifra los mensajes,
+    manteniéndolos visibles pero irreconocibles (aparecen como una secuencia de caracteres
+    ilegibles), y para ver su contenido original es necesario conocer una clave.
+    En la esteganografía, el archivo u objeto que contiene el mensaje oculto se verá idéntico al
+    original, y para conocer su mensaje será necesario conocer la clave y el algoritmo
+    (software) con el que se ocultó.
+  </p>
+
+  <p>
+    Aunque habitualmente solemos considerar la esteganografía como una técnica para ocultar
+    información dentro de imágenes, la verdad es que existen muchos otros tipos:
+  </p>
+
+  <h2>Esteganografía pura</h2>
+  <p>
+    No existe estegano-clave, y por tanto se presupone que el observador es incapaz de
+    reconocer información oculta mediante esteganografía en un mensaje normal. Se aplica
+    entonces seguridad basada en la oscuridad. El mejor ejemplo es un mini reto de hacking
+    donde la imagen tiene oculta otra imagen que cualquiera puede obtener abriendo el
+    camuflaje (la primera imagen) con un editor hexadecimal. Hay una imagen "concatenada" a
+    otra imagen. Descubre cómo extraerla. Esa imagen muestra una clave. (fichero adjunto)
+  </p>
+
+  <p><strong>Podemos situar los datos ocultos (disfrazados) en:</strong></p>
+  <ul>
+    <li>Como fichero "adjunto" o "pegado", concatenando información.</li>
+    <li>En los <strong>METADATOS</strong> de la imagen (visor de PDF, exiftool, ...).</li>
+    <li>En la propia imagen (a simple vista, con LSB, con canal Alpha).</li>
+    <li>Oculto en el <strong>Thumbnail</strong> de un fichero, imagen, vídeo...</li>
+  </ul>
+
+  <h2>Esteganografía de clave secreta</h2>
+  <p>
+    En este caso, la estegano-función depende de una clave que deben conocer tanto el emisor
+    como el receptor. Un ejemplo sencillo sería un texto oculto bajo otro texto generado
+    aleatoriamente a partir de un capítulo de un libro que ambos (emisor y receptor) conozcan,
+    y una contraseña que dictará cómo descifrar el mensaje camuflado.
+  </p>
+
+
+  <hr>
+
+  <!-- Triángulo de equilibrio -->
+  <div class="triangle-section">
+    <div class="triangle-svg">
+      <svg width="180" height="170" viewBox="0 0 180 160" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="90,10 10,150 170,150" fill="#c5cae9" stroke="#1a237e" stroke-width="2"/>
+        <line x1="90" y1="10" x2="90" y2="120" stroke="#1a237e" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="10" y1="150" x2="90" y2="120" stroke="#1a237e" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="170" y1="150" x2="90" y2="120" stroke="#1a237e" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="90" y="6" text-anchor="middle" font-size="12" fill="#1a237e" font-weight="bold">robustez</text>
+        <text x="36" y="162" text-anchor="middle" font-size="12" fill="#1a237e">invisibilidad</text>
+        <text x="176" y="162" text-anchor="end" font-size="12" fill="#1a237e">cantidad</text>
+      </svg>
+    </div>
+    <div class="triangle-text">
+      <p>
+        La esteganografía tiene por tanto una terna en cuyo equilibrio radica la función para la
+        que se ha desarrollado. Habitualmente, las técnicas de esteganografía que permiten
+        ocultar mayor información (<strong>cantidad</strong>) son menos robustas y pasan menos
+        desapercibidas (<strong>invisibilidad</strong>). Por el contrario, a mayor robustez, normalmente menor
+        cantidad de información oculta. <br><br>
+      </p>
+    </div>
+  </div>
+
+  <h2>Técnicas más utilizadas en esteganografía</h2>
+  <ul>
+    <li>En documentos.</li>
+    <li>En imágenes.</li>
+    <li>En audio.</li>
+    <li>En vídeo.</li>
+    <li>En archivos de cualquier tipo.</li>
+    <li>
+      <strong>Otras.</strong> Una nueva técnica esteganográfica implica inyectar retardos
+      (<em>delays</em>) imperceptibles en los paquetes enviados por la red desde el teclado. Los
+      retardos en la pulsación de comandos en ciertos usos (telnet o software de escritorio
+      remoto) pueden significar un retardo en los paquetes, y dichos retardos se pueden
+      utilizar para codificar datos.
+    </li>
+  </ul>
+
+  <!-- Actividades -->
+  <div class="actividad">
+    <h3>Actividad: ESTEGANO-1</h3>
+    <p>Busca en este documento información oculta.</p>
+    <p><em>Pista: no está en esta página.</em></p>
+  </div>
+
+  <div class="actividad">
+    <h3>Actividad: ESTEGANO-2</h3>
+    <p>
+      En una MV Kali Linux, instala la utilidad <strong>Steghide</strong> y busca información sobre cómo
+      se utiliza. Describe sus opciones y pruébalas. Utiliza la imagen del enlace facilitado y
+      crea un fichero de texto llamado <code>secret.txt</code>. Dentro del fichero escribe tu nombre y
+      fecha de nacimiento. Oculta este fichero dentro de la imagen del enlace.
+    </p>
+  </div>
+
+  <div class="actividad">
+    <h3>Actividad: ESTEGANO-3</h3>
+    <p>
+      En una MV Windows 10, descarga la utilidad <strong>FileFriend</strong> de
+      <code>http://www.filefriend.net/</code> y utiliza la opción de ocultar un fichero dentro de otro.
+    </p>
+  </div>
+
+  <div class="actividad">
+    <h3>Actividad: ESTEGANO-4</h3>
+    <p>
+      Instala la utilidad <strong>exiftool</strong> y explora el fichero del enlace facilitado. Busca la
+      <strong>«password»</strong>.
+    </p>
+  </div>
+
+
+   </section>
+
+
+      <section id="practica">
+        <h2>Ejercicios y pràcticas</h2>
+        <h3>P1</h3>
+        <p>Prepara </p>
+
+      
+        <hr> <h2>Ampliación</h2>
+        <li>Instala, p</li>
+        <li>Actividad de Esteganografia con canal alpha en python</li>
+        <li>Actividad de Esteganografia con LSB en python</li>
+      
+
+      </section>
+
+
+      <section id="altres-recursos">
+      <hr><h2>Comprueba tu progreso...</h2>
+    <div id="progress-container">
+    <div id="progress-bar"></div>  </div>
+    <!-- <div id="percentatge-text">0%</div>  -->
+
+    <div class="quiz-container">
+        <h4 id="pregunta-text"></h4>
+        <div id="options-container" class="options">
+        </div>
+
+        <p id="feedback"></p>
+        <button onclick="mostrarPista()">🕵️‍♂️ Quieres una pista??</button>
+        <button id="btn-seguent" onclick="seguentPregunta()">      ➕ Següent pregunta </button>
+        <button onclick="carregarPreguntes('RA1__1')">🔁 Reiniciar</button>
+        <p id="pista"></p>
+         
+   </section>
+
+
+    
+
+    </main>
+
+    <footer>
+      <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
+        Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD1 - Tratamiento seguro de la información 
+      </p>
+    </footer>
+  </div>
+
+  
+<script src="scriptsunitats.js"></script>
+<script>
+      // Executar en carregar la pàgina
+      window.onload = carregarPreguntes('RA1__1');
+</script>
+  
+</body>
+</html>
