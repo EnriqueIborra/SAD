@@ -21,7 +21,7 @@
     }
 
     body.dark-mode h1.main-title {
-      color: #5e6180;
+      color: #b7b8c6;
       border-bottom: 4px solid #d592b7;
     }
     h2 {
@@ -33,7 +33,7 @@
     }
 
     body.dark-mode     h2 {
-      color: #414572;
+      color: #cccdd6;
       border-bottom: 2px solid #323e75;
       
     }
@@ -135,11 +135,11 @@
     table {
       border-collapse: collapse;
       margin: 14px 0;
-      font-size: 0.95rem;
+      font-size: 0.75rem;
     }
     table td, table th {
       border: 1px solid #ccc;
-      padding: 6px 12px;
+      padding: 6px 9px;
       text-align: center;
     }
     table th {
@@ -267,7 +267,7 @@
   <div style="width: 100%;">
     <header>
       <a href="index.html"><img src="imgs/sad5.png" alt="SAD"></a>
-      <h1>Unidad Didáctica 1: Tratamiento Seguro de la Información: CRIPTOGRAFIA</h1>
+      <h1>Unidad Didáctica 1: Parte de CRIPTOLOGIA</h1>
       <h1>.</h1>
     </header>
     
@@ -291,7 +291,7 @@
       <li>Arte o ciencia de cifrar i descifrar información</li>
       <li>Del griego "kiptos"(ocultar) y "graphos"(escribir), literalmente "escritura oculta"</li>
       <li>Se utiliza para el intercanbio de mensajes de manera segura, de forma que solo puedan ser leidos 
-        por las personas a las que van dirigidos y que tengan los medios para descifrarlos <strong>CONFIDENCIALIDAD</strong>
+        por las personas a las que van dirigidos y que tengan los medios para descifrarlos ==> <strong style="color:rgb(40, 112, 207)">CONFIDENCIALIDAD</strong>
       </li>
     </ul>
 
@@ -301,6 +301,7 @@
       <li>Técnicas complementarias: <strong>criptoanálisis, hashing y esteganografia</strong></li>
     </ul>
      <hr><p>Alguna aclaración respecto de "cifrar"</p>
+     <img src="imgs/no-es-xifrar.png" alt="noxifrar" width="35%" class="imatge-dreta">
     <h3>Cifrar NO es comprimir</h3>
     <h3>Cifrar NO es codificar</h3>
     <h3>Cifrar NO es resumir</h3>
@@ -329,7 +330,7 @@
   
 
     <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
-
+    <img src="imgs/scitala.png" alt="scitala" width="25%" class="imatge-dreta">
     <h3>La Escítala de Esparta (siglo V a.C.)</h3>
     <p>Método de <span class="key">transposición</span> que consistía en el uso de una vara de madera (scytale) en la que se enrollaba una tira de cuero o papiro sobre la que se escribía el mensaje. Cuando se desenrollaba el mensaje, parecía una lista sin sentido. Para descifrar el mensaje, el destinatario simplemente necesitaba una vara del mismo diámetro.</p>
 
@@ -368,17 +369,28 @@ TSCEOSURSOEOIOULATEESPIINRUERTETPIINRSLSETSURSURSOEO</div>
  
 
 
-    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA - Cifrado César</h2>
 
+    <img src="imgs/cesar_amb_clau.png" alt="cesar" width="50%" class="imatge-dreta">
     <h3>Cifrado César</h3>
     <p>Sistema de <span class="key">sustitución</span> que consiste en reemplazar cada letra del texto por otra que se encuentra un número de posiciones más adelante en el alfabeto. Julio César solía utilizar un desplazamiento de 3 posiciones en casi todos sus mensajes.</p>
     <div class="codeblock">Texto original:   ABCDEFGHIJKLMNÑOPQRSTUVWXYZ
 Texto codificado: DEFGHIJKLMNÑOPQRSTUVWXYZABC</div>
 
+    <div class="codeblock">Ejemplo:
+Original: ATACAR AL ANOCHECER
+Cifrado:  DWDFDU DÑ DPRFKHFHU</div>
+
     <h3>ROT13 (rotar 13 posiciones)</h3>
     <p>Variante del cifrado César que desplaza cada letra 13 posiciones en el alfabeto. Al ser el alfabeto de 26 letras, aplicar ROT13 dos veces devuelve el texto original.</p>
     <div class="codeblock">Original: ABCDEFGHIJKLMNOPQRSTUVWXYZ
 Cifrado:  MNOPQRSTUVWXYZABCDEFGHIJKL</div>
+
+    <div class="note">
+          <strong>Inciso:</strong><br>
+          <code>En este alfabeto de 26 letras no está la letra ñ  !!</code>
+    </div>
+
 
     <h3>Cifrado César – Práctica</h3>
     <p>Utiliza la página <a href="https://es.planetcalc.com/1434/" target="_blank">https://es.planetcalc.com/1434/</a> para descifrar el siguiente mensaje:</p>
@@ -392,11 +404,24 @@ Cifrado:  MNOPQRSTUVWXYZABCDEFGHIJKL</div>
       <code> </code>
     </div>
 
+    <img src="imgs/roda-cesar.png" alt="roda" width="35%" class="imatge-dreta">
+     <img src="imgs/ctf-flag.png" alt="ctf" width="15%" class="imatge-dreta">
 
+    <p>Este mecanismo se usa hoy en dia en CTFs (Capture The Flag), como retos introductorios, y en Scape Rooms, como acertijos o ejercicios didácticos.</p>
+    <p>La dificultad no suele estar en aplicar el cifrado, sino en descubrir la clave o el desplazamiento.</p>
+    <p>Además de ser un reto lúdico, el cifrado César permite introducir conceptos básicos de la criptografía:</p>
 
-    <h2>SCRIPT DE CIFRADO</h2>
+      <ul>
+        <li>Clave.</li>
+        <li>Cifrado y descifrado.</li>
+        <li>Fuerza bruta.</li>
+        <li>Seguridad de los sistemas criptográficos.</li>
+      </ul>
 
-    <h3>Ejemplo de algoritmo de sustitución: comando <code>tr</code></h3>
+   
+    <h3>SCRIPT DE CIFRADO</h3>
+
+    <h4>Ejemplo de algoritmo de sustitución: comando <code>tr</code></h4>
     <p>Para cifrar mediante codificación César un archivo de texto plano en Linux:</p>
     <div class="codeblock">cat archivo | tr [a-z] [d-zabc] | tr [A-Z] [D-ZABC] > doc.cesar</div>
     <p>El comando <code>tr</code> permite realizar una sustitución carácter a carácter. Mediante tuberías (pipes) se han incorporado mayúsculas y los casos límite de los caracteres 'x', 'y', 'z'.</p>
@@ -413,9 +438,10 @@ Cifrado:  MNOPQRSTUVWXYZABCDEFGHIJKL</div>
  
 
 
-    <h2>ALGORITMO DE CIFRADO Y DESCIFRADO</h2>
+    <h3>ALGORITMO DE CIFRADO Y DESCIFRADO</h2>
 
-    <h3>Ejemplo de algoritmo de sustitución: algoritmo en Python</h3>
+    <img src="imgs/logo-python.png" alt="logopy" width="10%" class="imatge-dreta">
+    <h4>Ejemplo de algoritmo de sustitución: algoritmo en Python</h4>
     <p>Para cifrar mediante codificación César un mensaje usando Python, debes proponer tu propio algoritmo.</p>
 
     <div class="actividad">
@@ -429,7 +455,7 @@ Cifrado:  MNOPQRSTUVWXYZABCDEFGHIJKL</div>
 
 
 
-    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA - Vigenère </h2>
 
     <img src="imgs/taula-vigenere.png" alt="vigenere" width="40%" class="imatge-dreta">
     <h3>Cifrado Vigenère</h3>
@@ -455,7 +481,7 @@ Cifrado: lbmqncixoazktssppz</div>
   
 
 
-    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA - Ottendorf</h2>
 
     <h3>Cifrado Ottendorf (Cifrado por Libro)</h3>
     <p>También denominado <span class="key">Cifrado por Libro</span>, consiste en una serie de grupos de tres números que hacen referencia a letras específicas en un libro. Este libro debe ser conocido por el descodificador, y ser además de la misma edición que el libro de la persona que escribe el mensaje codificado.</p>
@@ -476,16 +502,20 @@ Cifrado: lbmqncixoazktssppz</div>
 183-4-5
 9-8-3
 144-5-9</div>
+<p>En un “cifrado Ottendorf” (más correctamente, cifra de Ottendorf / Ottendorf cipher), la tercera cifra no 
+  tiene un significado fijo universal como “letra” o “palabra”. Depende completamente de cómo se haya definido 
+  la clave del sistema. La clave queda en secreto entre el emisor y el receptor, pudiendo fijar combinaciones,
+página – línea – palabra,  texto – palabra – carácter,  etc...</p>
   
 
-    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA - A1Z26</h2>
 
     <h3>Cifrado A1Z26</h3>
     <p>Es un cifrado por sustitución directa muy simple, donde cada letra del alfabeto se reemplaza por su número en el alfabeto.</p>
     <p>Todas las letras se ponen en minúsculas, se usa el alfabeto inglés y no se transforman los símbolos que no pertenecen al alfabeto. En la decodificación, todos los números (del 1 al 26) deben estar separados por cualquier símbolo que no sea un dígito (guion, espacio, etc.)</p>
     <p>Variantes: <code>A1Z27</code> (puede incluir la ñ) o <code>A0Z26</code>.</p>
 
-    <table>
+    <table style="width: auto; overflow-x: auto;">
       <tr>
         <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th>
         <th>N</th><th>O</th><th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th><th>U</th><th>V</th><th>W</th><th>X</th><th>Y</th><th>Z</th>
@@ -497,11 +527,11 @@ Cifrado: lbmqncixoazktssppz</div>
     </table>
  
 
-    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA - Espejo</h2>
 
     <h3>Cifrado Atbash</h3>
     <p>Es un método de codificación del alfabeto hebreo que consiste en utilizar la letra simétrica a la dada. También se le conoce como <span class="key">método espejo</span>.</p>
-    <table>
+    <table style="width: auto; overflow-x: auto;">
       <tr>
         <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th>
         <th>N</th><th>O</th><th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th><th>U</th><th>V</th><th>W</th><th>X</th><th>Y</th><th>Z</th>
@@ -515,29 +545,42 @@ Cifrado: lbmqncixoazktssppz</div>
  
 
   
-    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA - Polibio</h2>
 
     <h3>Cifrado de Polibio</h3>
     <p>Es un método de codificación del alfabeto griego. Puede codificar 25 símbolos mediante una matriz de 5×5. Puede ampliarse a 36 símbolos con una matriz de 6×6.</p>
     <p>Referencias: <a href="https://es.wikipedia.org/wiki/Cuadrado_de_Polibio" target="_blank">Wikipedia – Cuadrado de Polibio</a></p>
+     <p>Tabla original de polibio o Polybius Square</p>
 
-    <table>
+     <table style="width: auto;">
+  <tr>     <td>Α</td>     <td>Β</td>     <td>Γ</td>     <td>Δ</td>     <td>Ε</td>   </tr>
+  <tr>     <td>Ζ</td>     <td>Η</td>     <td>Θ</td>     <td>Ι</td>     <td>Κ</td>   </tr>
+  <tr>     <td>Λ</td>     <td>Μ</td>     <td>Ν</td>     <td>Ξ</td>     <td>Ο</td>   </tr>
+  <tr>     <td>Π</td>     <td>Ρ</td>     <td>Σ</td>     <td>Τ</td>     <td>Υ</td>   </tr>
+  <tr>     <td>Φ</td>     <td>Χ</td>     <td>Ψ</td>     <td>Ω</td>     <td></td>   </tr>
+</table>
+ Y el cuadrado de Polibio adaptado a nuestro alfabeto quedaria ...
+
+    <table style="width: auto;">
       <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
       <tr><th>1</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>
-      <tr><th>2</th><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td></tr>
-      <tr><th>3</th><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td></tr>
-      <tr><th>4</th><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td></tr>
-      <tr><th>5</th><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td></tr>
+      <tr><th>2</th><td>F</td><td>G</td><td>H</td><td>I,J</td><td>K</td></tr>
+      <tr><th>3</th><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td></tr>
+      <tr><th>4</th><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td></tr>
+      <tr><th>5</th><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
     </table>
 
     <p>Ejemplo:</p>
     <div class="codeblock">Mensaje original: MUIXERANGA
-Criptograma:      3 3 5 1 2 4 5 4 1 5 4 3 1 1 3 4 2 2 1 1</div>
+Criptograma:      32 45 24 53 15 42 11 33 22 11
+o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
+<p>==>  En este caso el criptograma es el doble de largo que el mensaje</p>
   
 
-    <h2>ALGORITMO DE CIFRADO Y DESCIFRADO</h2>
+    <h3>ALGORITMO DE CIFRADO Y DESCIFRADO</h3>
 
-    <h3>Ejemplo de algoritmo de sustitución: algoritmo en Python</h3>
+    <img src="imgs/logo-python.png" alt="logopy" width="10%" class="imatge-dreta">
+    <h4>Ejemplo de algoritmo de sustitución: algoritmo en Python</h4>
     <p>Para cifrar mediante codificación de Polibio un mensaje usando Python, debes proponer tu propio algoritmo.</p>
 
     <div class="actividad">
@@ -551,31 +594,55 @@ Criptograma:      3 3 5 1 2 4 5 4 1 5 4 3 1 1 3 4 2 2 1 1</div>
   
 
 
-    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA - Vernam</h2>
 
     <h3>Cifrado Vernam</h3>
     <p>Es un <span class="key">cifrado de flujo</span> en el que el texto en claro se combina, mediante la operación <span class="key">XOR</span>, con un flujo de datos aleatorio o pseudoaleatorio de la misma longitud (clave), para generar un texto cifrado.</p>
     <p>El uso de datos pseudoaleatorios generados por un generador de números pseudoaleatorios criptográficamente seguro es una manera común y efectiva de construir un cifrado de flujo.</p>
-    <p>El <span class="key">RC4</span> es un ejemplo de cifrado de Vernam que se utiliza con frecuencia en Internet.</p>
 
-    <table>
-      <tr><th>T</th><th>E</th><th>X</th><th>T</th><th>O</th><th>→ decimal</th><th>→ binario</th></tr>
-      <tr><td>84</td><td>69</td><td>88</td><td>84</td><td>79</td><td></td><td>1010100 | 1000101 | 1011000 | 1010100 | 1001111</td></tr>
-      <tr><th>C</th><th>L</th><th>A</th><th>V</th><th>E</th><th>→ decimal</th><th>→ binario</th></tr>
-      <tr><td>67</td><td>76</td><td>65</td><td>86</td><td>69</td><td></td><td>1000011 | 1001100 | 1000001 | 1010110 | 1000101</td></tr>
-      <tr><th colspan="5">XOR</th><td>23 | 9 | 25 | 2 | 10</td><td>10111</td></tr>
-      <tr><th colspan="5">hex</th><td>17 | 9 | 19 | 2 | A</td><td></td></tr>
-    </table>
 
+
+<ul> El cifrado es perfecto solo si se cumplen todas estas condiciones
+  <li>clave totalmente aleatoria</li>
+  <li>misma longitud que el mensaje</li>
+  <li>usada una sola vez</li>
+  <li>compartida previamente de forma segura</li>
+</ul>  👉 El gran problema práctico es precisamente la distribución de la clave.
+
+    <table> <tr>
+              <th>TEXTO</th>
+              <td>84</td><td>69</td><td>88</td><td>84</td><td>79</td>
+              <td>1010100</td><td>1000101</td><td>1011000</td><td>1010100</td><td>1001111</td>
+            </tr>
+            <tr>
+              <th>CLAVE</th>
+              <td>67</td><td>76</td><td>65</td><td>86</td><td>69</td>
+              <td>1000011</td><td>1001100</td><td>1000001</td><td>1010110</td><td>1000101</td>
+            </tr>
+            <tr>
+              <th>XOR</th>
+              <td>23</td><td>9</td><td>25</td><td>2</td><td>10</td>
+              <td>0010111</td><td>0001001</td><td>0011001</td><td>0000010</td><td>0001010</td>
+            </tr>
+            <tr>
+              <th>HEX</th>
+              <td>17</td><td>9</td><td>19</td><td>2</td><td>A</td>
+              <td>17</td><td>9</td><td>19</td><td>2</td><td>A</td>
+    </table> </tr>
+
+    <p>El <span class="key">RC4</span> es un ejemplo de cifrado de Vernam que se utiliza con frecuencia en Internet.</p>    
 
     <h3>Cifrado Vernam – Práctica con CyberChef</h3>
     <p>Utiliza <a href="https://gchq.github.io/CyberChef/" target="_blank">https://gchq.github.io/CyberChef/</a> para descifrar:</p>
+    <p>==> Si la clave es mas corta que el mensaje, esta (la clave) se concatena a si misma hasta alcanzar la longitud del mensaje 
+      original, igual que se hace con el cifrado/descifrado vigenère</p>
     <div class="note">
       <strong>Mensaje:</strong><br>
       <code>23 0d 0d 44 05 0b 02 4a 41 27 10 10 04 42 1b 0d 07 10 02 10 41 07 10 44 0c 07 10 44 02 0d 0e 14 0d 0b 00 05 15 4c</code><br><br>
       <strong>Clave:</strong> <code>abcd</code>
     </div>
 
+    <img src="imgs/ciberchef-vernam.png" alt="vernam" width="30%" class="imatge-dreta">
     <h3>Cifrado Vernam – Pasos en CyberChef</h3>
     <p>Dado que XOR actúa a nivel de bit, primero hay que convertir los datos a bits. La clave <code>abcd</code> en hexadecimal es <code>61 62 63 64</code>.</p>
     <p>Pasos en CyberChef:</p>
@@ -586,9 +653,12 @@ Criptograma:      3 3 5 1 2 4 5 4 1 5 4 3 1 1 3 4 2 2 1 1</div>
  
 
  
-    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA</h2>
+    <h2>EJEMPLOS HISTÓRICOS DE CRIPTOGRAFÍA - Máquina Enigma</h2>
 
     <h3>Cifrado Enigma</h3>
+    <img src="imgs/enigma-machine-bg.png" alt="enigma-logo" width="25%" class="imatge-dreta">
+    <img src="imgs/enigma-logo.png" alt="enigma-logo" width="15%" class="imatge-dreta">
+    
     <p>Era el nombre de una máquina de rotores que permitía usarla tanto para cifrar como para descifrar mensajes. Su facilidad de manejo y supuesta inviolabilidad fueron las principales razones para su amplio uso.</p>
     <p>La máquina Enigma fue un dispositivo electromecánico que usaba una combinación de partes mecánicas y eléctricas. El mecanismo estaba constituido fundamentalmente por un teclado similar al de las máquinas de escribir (cuyas teclas eran interruptores eléctricos), un engranaje mecánico y un panel de luces con las letras del alfabeto.</p>
     <p>Referencia: <a href="https://summersidemakerspace.ca/projects/enigma-machine/" target="_blank">https://summersidemakerspace.ca/projects/enigma-machine/</a></p>
@@ -626,6 +696,8 @@ Criptograma:      3 3 5 1 2 4 5 4 1 5 4 3 1 1 3 4 2 2 1 1</div>
 
 
     <h2>HERRAMIENTAS DE CIFRADO ONLINE</h2>
+    <img src="imgs/logo-cyber.png" alt="cyberchef" width="15%" class="imatge-dreta">
+    <img src="imgs/dcode-3.png" alt="dcode" width="15%" class="imatge-dreta">
     <ul>
       <li><a href="https://es.planetcalc.com/1434/" target="_blank">https://es.planetcalc.com/1434/</a> – Cifrado César</li>
       <li><a href="https://www.convertstring.com/ca/EncodeDecode/Base64Encode" target="_blank">https://www.convertstring.com/</a> – Base64</li>
@@ -907,10 +979,46 @@ $ sudo sdmem -f -v</pre>
 
   <h2>INFORMACIÓN SENSIBLE</h2>
   <div class="warning">¡Lo que borras, NO se borra!</div>
-  <p>Antes de desechar un disco duro, bórralo o destrúyelo.</p>
-  <p>Para un entorno con información sensible, utiliza herramientas especializadas.</p>
+  <p>La frase "¡Lo que borras, NO se borra!" es un eslogan de concienciación sobre seguridad de datos.
+     No significa que sea literalmente imposible borrar información, sino que cuando borras archivos
+      de forma normal, los datos suelen seguir estando en el disco durante un tiempo.</p>
 
-  <h2>Herramientas de recuperación (Windows)</h2>
+  <h3>¿Qué ocurre al borrar un archivo?</h3>
+    <p>En la mayoría de sistemas de archivos, al eliminar un archivo:
+Se elimina la referencia al archivo en el índice del sistema.
+El espacio se marca como disponible para reutilizarse.
+Pero los datos físicos permanecen en el disco hasta que son sobrescritos por otros datos.     </p>
+<p>Por eso, con herramientas de recuperación, a menudo es posible recuperar archivos borrados.</p>
+
+  <p>Antes de desechar un disco duro, bórralo (pero bien...) o destrúyelo.</p>
+<p>Un disco que parece vacío puede contener:  Documentos personales.
+Fotografías.
+Contraseñas guardadas.
+Información financiera.
+Datos de clientes o de trabajo</p>
+
+  <p>Para un entorno con información sensible, utiliza herramientas especializadas.</p>
+  <p>Dependiendo del tipo de disco (HDD o SSD) y del sistema operativo,
+     algunas herramientas y métodos recomendados son:</p>
+     <ul>Para discos duros mecánicos (HDD)
+      <li>eraser (windows). Arhivos individuales sensibles o espacio libre del disco duro</li>
+      <li>SDelete (utilidad oficial y gratuita de la línea de comandos de Microsoft Sysinternals)</li>
+      <li>DBAN (Free Open Source Data Wiping Software)</li>
+      <li>nwipe (linux, bootable pendrive)</li>
+      <li>shred (linux, shredOS)</li>
+      <li>dd (linux)</li>
+      <li>wipe (linux)</li>
+     </ul>
+
+     <ul> Para unidades SSD
+      <li>Samsung Magician</li>
+      <li>Crucial Storage Executive</li>
+      <li>Kingston SSD Manager</li>
+      <li>hdparam (linux)</li>
+      <li>nvme-cli (linux)</li>
+     </ul>
+
+  <h3>Herramientas de recuperación (Windows)</h3>
   <ul>
     <li><span class="label">EaseUS Data Recovery Wizard</span></li>
     <li><span class="label">Recoverit</span></li>
@@ -919,8 +1027,15 @@ $ sudo sdmem -f -v</pre>
 
   <h3>Herramientas de recuperación (Linux)</h3>
   <ul>
-    <li><span class="label">Scalpel:</span> herramienta para recuperar archivos borrados en Linux.</li>
-    <li>Herramienta genérica para recuperar archivos borrados en Linux.</li>
+    <li>Disk Drill (GUI similar a recuva)</li>
+    <li>R-Linux (GUI de la suite R-Studio)</li>
+    <li>TestDisk</li>
+    <li>PhotoRec</li>
+    <li>GNU ddrescue</li>
+    <li>extundelete</li>
+    <li>ext4magic</li>
+    <li><strong> Scalpel:</strong> Herramienta para recuperar archivos borrados en Linux.</li>
+    <li><strong>foremost</strong>: Herramienta de consola que escanea el disco buscando tipos de archivos conocidos (JPEG, PDF, etc.).</li>
   </ul>
 
 
@@ -1119,7 +1234,9 @@ $ openssl dgst -sha3-256 texto.plano</pre>
     camuflaje (la primera imagen) con un editor hexadecimal. Hay una imagen "concatenada" a
     otra imagen. Descubre cómo extraerla. Esa imagen muestra una clave. (fichero adjunto)
   </p>
+  <p><a href="https://drive.google.com/file/d/1Bd_lXafM4LVGe7JGpg6dQnZKoY6x-G92/view"><h3> ==> Acceso a la imagen del mini-reto</h3></a></p>
 
+  <hr>
   <p><strong>Podemos situar los datos ocultos (disfrazados) en:</strong></p>
   <ul>
     <li>Como fichero "adjunto" o "pegado", concatenando información.</li>
@@ -1180,9 +1297,10 @@ $ openssl dgst -sha3-256 texto.plano</pre>
   </ul>
 
   <!-- Actividades -->
+   <hr><p>La primera actividad necesita el documento .PDF original. Hay que descargarlo primero...</p>
   <div class="actividad">
     <h3>Actividad: ESTEGANO-1</h3>
-    <p>Busca en este documento información oculta.</p>
+    <p>Busca en EL documento PDF información oculta.</p>
     <p><em>Pista: no está en esta página.</em></p>
   </div>
 
@@ -1190,7 +1308,8 @@ $ openssl dgst -sha3-256 texto.plano</pre>
     <h3>Actividad: ESTEGANO-2</h3>
     <p>
       En una MV Kali Linux, instala la utilidad <strong>Steghide</strong> y busca información sobre cómo
-      se utiliza. Describe sus opciones y pruébalas. Utiliza la imagen del enlace facilitado y
+      se utiliza. Describe sus opciones y pruébalas. Utiliza la imagen del enlace facilitado, descarga desde ==>
+      <a href="https://drive.google.com/file/d/1R8E-sp06kCy_-i2Wrelp2GKf8w5Gi7tj/view">ENLACE</a> <== ,  y
       crea un fichero de texto llamado <code>secret.txt</code>. Dentro del fichero escribe tu nombre y
       fecha de nacimiento. Oculta este fichero dentro de la imagen del enlace.
     </p>
@@ -1200,14 +1319,15 @@ $ openssl dgst -sha3-256 texto.plano</pre>
     <h3>Actividad: ESTEGANO-3</h3>
     <p>
       En una MV Windows 10, descarga la utilidad <strong>FileFriend</strong> de
-      <code>http://www.filefriend.net/</code> y utiliza la opción de ocultar un fichero dentro de otro.
+      <code><a href="http://www.filefriend.net/">http://www.filefriend.net/</a> </code> y utiliza la opción de ocultar un fichero dentro de otro.
     </p>
   </div>
 
   <div class="actividad">
     <h3>Actividad: ESTEGANO-4</h3>
     <p>
-      Instala la utilidad <strong>exiftool</strong> y explora el fichero del enlace facilitado. Busca la
+      Instala la utilidad <strong>exiftool</strong> y explora el fichero del enlace facilitado 
+      (<a href="https://drive.google.com/file/d/1qWzCWAqQeeAIu0BCpHQtzWx1jaiNtkix/view">==> ENLACE <==</a> ). Busca la
       <strong>«password»</strong>.
     </p>
   </div>
@@ -1257,7 +1377,7 @@ $ openssl dgst -sha3-256 texto.plano</pre>
 
     <footer>
       <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
-        Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD1 - Tratamiento seguro de la información 
+        Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD1 - Parte de CRIPTOLOGIA
       </p>
     </footer>
   </div>

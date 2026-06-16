@@ -34,6 +34,8 @@
     <a href="#opciones">Opciones</a>
     <a href="#pruebas">Pruebas</a>
     <a href="#documentacion">Documentación</a>
+    <a href="#practica">Practica</a>
+    <a href="#altres-recursos">Comprueba tu progreso</a>
   </div>
 
   <div style="width: 100%;">
@@ -83,12 +85,12 @@
               <td>Firewalls de red empresariales.</td>
             </tr>
             <tr>
-              <td><strong>De capa de aplicación</strong></td>
+              <td><strong>De capa de aplicación (<a href="https://www.3cx.es/voip-sip/alg/">ALG</a>)</strong></td>
               <td>Analiza el contenido y protocolo (como HTTP, FTP, etc.).</td>
               <td>Proxy con inspección profunda.</td>
             </tr>
             <tr>
-              <td><strong>Next-Generation Firewall (NGFW)</strong></td>
+              <td><strong>Next-Generation Firewall (<a href="https://www.cloudflare.com/es-es/learning/security/what-is-next-generation-firewall-ngfw/">NGFW</a>)</strong></td>
               <td>Combina inspección profunda, IPS, control de aplicaciones y usuarios.</td>
               <td>Seguridad moderna en redes empresariales.</td>
             </tr>
@@ -98,7 +100,8 @@
            básico) está en si el firewall recuerda o no el estado de las conexiones.</p>
         <p>Un firewall stateless analiza cada paquete de forma independiente, sin tener en cuenta lo que ocurrió antes.</p>
         <p>Un firewall stateful mantiene una tabla de estados de conexión (state table).</p>
-        <h4>Todo en uno: Dispositivos UTM  (<a href="https://www.incibe.es/empresas/blog/utm-firewall-ha-ido-al-gimnasio">En INCIBE</a>  )</h4>
+
+        <h3>Evolución de los firewall => Todo en uno: Dispositivos UTM  (<a href="https://www.incibe.es/empresas/blog/utm-firewall-ha-ido-al-gimnasio">Ver Post En INCIBE</a>  )</h3>
         <p>Un UTM <strong>(Unified Threat Management)</strong> es una plataforma de seguridad “todo en uno”
            pensada para simplificar la gestión en redes pequeñas o medianas.</p>
 
@@ -441,6 +444,7 @@ sudo ufw enable</code></pre>
           <li>Regla aplicada.	Qué regla del firewall se activó.</li>
           <li>Estado de la conexión.	Nueva, establecida, finalizada.</li>
           <li>Usuario (si aplica).	En cortafuegos con autenticación.</li>
+          <li>Mensaje o codigo de error. Descripción de la acción o error</li>
         </ul>
 
         <p>La revisión de logs de un firewall es una tarea esencial para detectar actividades
@@ -593,6 +597,50 @@ sudo ufw enable</code></pre>
           <li>Reiniciar sesiones si es necesario.</li>
         </ul>
 
+       <hr> <h2>Problemas habituales de conectividad causados por firewalls</h2>
+
+         <h3>1. Puertos bloqueados</h3>
+            <p>El firewall bloquea puertos esenciales como:</p>
+            <ul>
+                <li>80/443 (web HTTP/HTTPS)</li>
+                <li>25/587/993 (correo electrónico)</li>
+                <li>21 (FTP), 3389 (RDP), etc.</li>
+            </ul>
+            <p><strong>Síntomas:</strong> No puedes acceder a páginas web, correo electrónico o servicios específicos.</p>
+            <p><strong>Solución:</strong> Abrir los puertos necesarios o revisar las reglas de entrada y salida.</p>
+
+            <h3>2. IP o rango de IP bloqueados</h3>
+            <p>El firewall puede tener una regla que deniegue una IP interna, externa o un rango completo.</p>
+            <p><strong>Síntomas:</strong> Solo algunos dispositivos no tienen acceso, mientras que otros sí.</p>
+            <p><strong>Solución:</strong> Revisar las reglas de filtrado por IP de origen y destino.</p>
+
+            <h3>3. Aplicaciones que no funcionan</h3>
+            <p>Algunas aplicaciones (juegos, videollamadas, VPN y redes P2P) utilizan puertos dinámicos o protocolos no convencionales.</p>
+            <p><strong>Síntomas:</strong> La aplicación no se conecta o queda en estado de espera.</p>
+            <p><strong>Solución:</strong> Permitir la aplicación en el firewall, abrir los puertos dinámicos o configurar NAT/PAT si es necesario.</p>
+
+          <h3>4. Tiempos de espera o conexiones interrumpidas (timeouts)</h3>
+          <p>El firewall corta conexiones que duran demasiado tiempo o que no generan tráfico de forma continua.</p>
+          <p><strong>Síntomas:</strong> Conexiones que se cierran automáticamente después de un tiempo.</p>
+          <p><strong>Solución:</strong> Ajustar los valores de timeout y la inspección de estado de las conexiones (stateful inspection).</p>
+
+          <h3>5. Firewall mal configurado como gateway</h3>
+          <p>Si el firewall no está correctamente configurado para enrutar el tráfico entre segmentos de red.</p>
+         <p><strong>Síntomas:</strong> Fallos de conexión entre subredes (por ejemplo, VLANs que no pueden comunicarse entre sí).</p>
+          <p><strong>Solución:</strong> Revisar las rutas, la configuración NAT y las reglas de las interfaces.</p>
+
+          <h3>6. Problemas con protocolos específicos (ej.: ICMP, SIP, VPN)</h3>
+          <p>Algunos firewalls bloquean por defecto:</p>
+          <ul>
+              <li>ICMP (impide realizar ping)</li>
+              <li>SIP o RTP (problemas con VoIP)</li>
+              <li>IPSec o OpenVPN</li>
+          </ul>
+          <p><strong>Síntomas:</strong> Imposibilidad de realizar ping, llamadas que no se conectan o VPN que no establece el túnel.</p>
+          <p><strong>Solución:</strong> Permitir explícitamente estos protocolos o configurar correctamente el reenvío de puertos (port forwarding).</p>
+
+
+
     </section>
 
 
@@ -680,6 +728,18 @@ sudo ufw enable</code></pre>
       
 
     </section>
+
+
+    <section id="practica">
+   <h1>Practica</h1>
+    <h2>Practica</h2>
+    <p>Falta colocar aqui enunciados de prácticas</p>
+</section>
+
+<section id="altres-recursos">
+  <h1>Altres Recursos</h1>
+    <p>Falta colocar aqui el test de este RA</p>
+</section>
         
 
 
