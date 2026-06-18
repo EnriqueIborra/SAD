@@ -278,6 +278,7 @@
     border-collapse: collapse;
     width: 100%;
     margin-top: 1em;
+    font-size: 0.75rem;
   }
   th, td {
     border: 1px solid #ccc;

@@ -45,7 +45,100 @@
     <main>
       <section id="firma-digital">
         <div class="ras">&lt;RA 2> Implanta mecanismos de seguridad activa, seleccionando y ejecutando contramedidas ante amenazas o ataques al sistema </div>
-          <h2>Firma electrónica vs Firma digital</h2>     
+          
+        <h2>BASE64</h2>
+        <p>Es muy habitual encontrar claves públicas, certificados y otros objetos criptograficos codificadas en Base64,  
+          por lo que es conveniente entender que es BASE64, como funciona, donde se puede encontrar, etc...</p>
+          <p>Conviene distinguir entre la clave y la codificación,</p>
+
+         <p>La clave pública es un conjunto de datos binarios. Como esos datos no son fácilmente legibles ni transportables como texto, suelen representarse en Base64.</p> 
+
+<pre>-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...
+...más caracteres Base64...
+...hasta el final...
+-----END PUBLIC KEY-----  </pre>
+    <p>Todo lo que está entre las líneas BEGIN PUBLIC KEY y END PUBLIC KEY es normalmente una representación Base64 de los datos binarios de la clave.</p>
+
+        <p>Base64 no es un código secreto ni un sistema de cifrado. Es un método de codificación de datos binarios en texto.</p>
+
+        <p>Convierte cualquier dato (una clave binaria, una imagen, un archivo PDF, audio, etc.) en una cadena de caracteres formada por: 
+        Letras mayúsculas: A-Z, Letras minúsculas: a-z, Números: 0-9, Símbolos: + y /, A veces = al final como relleno (padding) <br>
+        Por ejemplo, el texto: <code>Hola</code> codificado en Base64 se convierte en <code>SG9sYQ==</code>, y puede volver a decodificarse para recuperar el texto original.</p>
+        <p>Se utiliza cuando es necesario transmitir o almacenar datos binarios a través de sistemas diseñados para manejar texto. <br>
+        Por ejemplo: Claves privadas o Claves públicas, que son numeros binarios de miles de bits.</p>
+        <p>Advertencia: Base64 no cifra ni protege la información. Cualquiera puede decodificarla fácilmente.</p>
+        <p>Al convertir datos binarios a texto, Base64 añade aproximadamente un 33 % más de tamaño. <br>
+          Por ejemplo: Archivo original: 300 KB  ⤷ Codificado en Base64: ~400 KB</p>
+          <h4>Base64 es una forma estándar de representar datos binarios usando únicamente caracteres de texto para poder almacenarlos o transmitirlos fácilmente.</h4>
+
+        <p>También es frecuente ver Base64 en: Certificados X.509, Claves públicas SSH, Firmas digitales y Certificados TLS/SSL.</p>
+       <hr><h3>Como se codifica en BASE64</h3>
+          <p>Un ordenador almacena la información en bytes (8 bits). Base64 toma esos bytes y los transforma en grupos de 6 bits</p>
+          <p>Cada grupo puede tomar un valor entre 0 y 63. Cada valor se asocia a un caracter.</p>
+
+ <table style="width: auto;">
+    <tr>  <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th></tr>
+    <tr>  <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+    <tr>  <th>26</th><th>27</th><th>28</th><th>29</th><th>30</th><th>31</th><th>32</th><th>33</th><th>34</th><th>35</th><th>36</th><th>37</th><th>38</th><th>39</th><th>40</th><th>41</th><th>42</th><th>43</th><th>44</th><th>45</th><th>46</th><th>47</th><th>48</th><th>49</th><th>50</th><th>51</th></tr>
+    <tr>  <td>a</td><td>b</td><td>c</td><td>d</td><td>e</td><td>f</td><td>g</td><td>h</td><td>i</td><td>j</td><td>k</td><td>l</td><td>m</td><td>n</td><td>o</td><td>p</td><td>q</td><td>r</td><td>s</td><td>t</td><td>u</td><td>v</td><td>w</td><td>x</td><td>y</td><td>z</td></tr>
+    <tr>  <th>52</th><th>53</th><th>54</th><th>55</th><th>56</th><th>57</th><th>58</th><th>59</th><th>60</th><th>61</th><th>62</th><th>63</th></tr>
+    <tr>  <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>+</td><td>/</td></tr>
+</table>         
+
+
+<p><strong>Ejemplo completo</strong>: codificar "man"</p>
+<p>Paso 1: Convertir cada carácter a ASCII</p>
+<pre>m a n   →  109 97 110   →   01101101 01100001 01101110  </pre>
+<pre>Agrupar bits(hay 24)  011011010110000101101110   </pre>
+<img src="imgs/base64_2.png" alt="base64" width="45%" class="imatge-dreta">
+<p>Paso 2: Dividir en grupos de 6 bits</p>
+<pre>011011 010110 000101 101110</pre>
+<p>Paso 3: Convertir cada grupo a decimal</p>
+<pre>011011   010110   000101   101110 
+  ⬇️      ⬇️       ⬇️       ⬇️
+  27       22        5        46
+</pre>
+<p>Paso 4: Buscar en la tabla Base64</p>
+<pre>27=b  22=W  5=F  46=u   → bWFu    </pre>
+<p>Por tanto:   man   → bWFu </p>
+
+<h4>¿Qué pasa cuando no hay 3 bytes completos?</h4>
+<p>Aquí aparece el famoso "="</p>
+<p><strong>Ejemplo: "ma"</strong></p>
+<p>Tenemos dos caracteres:  m = 01101101   a = 01100001</p>
+<p>Juntos: 01101101 01100001 → Son 16 bits, pero BASE64 necesita trabajar con grupos de 24 bits, así que se añaden 8 ceros  </p>
+<pre>01101101 01100001 00000000    Añadir un grupo de 8 ceros
+011011010110000100000000      Agrupar
+011011 010110 000100 000000   Dividir en grupos de 6
+b      W      E      A</pre>
+<p> ➡️ Pero como el último grupo procede de bits añadidos artificialmente, se sustituye por padding =</p>
+<pre>bWE=
+ma → bWE= </pre>
+<p><strong>Ejemplo: "m"</strong>  →  Un único byte: m = 01101101 → Se completan los bits faltantes  01101101 00000000 00000000  <br>
+Se generan 4 caracteres Base64, pero dos provienen de relleno →  Resultado:  bQ==</p>
+
+
+
+      <hr> <h2>Criptografia Híbrida</h2>
+      <p>La criptografía híbrida es un modelo que combina criptografía asimétrica y criptografía simétrica para aprovechar lo mejor de cada una:</p> 
+      <ul>
+        <li>la asimétrica es segura para intercambiar claves</li>
+        <li>la simétrica es rápida para cifrar datos grandes</li>
+      </ul>
+      <p>  ➡️ Se usa en prácticamente todo Internet moderno (HTTPS, TLS, VPNs, etc.).</p>
+      <p>criptografía híbrida = Se combinan ambas: Usas criptografía asimétrica solo para intercambiar una clave simétrica,
+        y luego usas esa clave simétrica para todo lo demás</p>
+        <h4>Cómo funciona paso a paso</h4>
+        <p>Imaginemos una conexión entre cliente (A) y servidor (B)</p>
+        <p>Paso 1: El cliente indica al servidor que quiere conectar con el. El servidor envía su clave pública al cliente</p>
+        <p>Paso 2: El cliente genera una clave simétrica ( aleatoria y compleja)</p>
+        <p>Paso 3: El cliente cifra la clave simétrica. Usa la clave pública del servidor. La envia cifrada al servidor</p>
+        <p>Paso 4: El servidor la descifra la clave simétrica. Solo el servidor puede hacerlo porque tiene la clave privada:</p>
+        <p>Paso 5: Comunicación simétrica. A partir de aquí ambos comparten clave_sesión y todo el tráfico se cifra con un algoritmo simétrico (AES, ChaCha20, etc.)</p>
+
+
+       <hr> <h2>Firma electrónica vs Firma digital</h2>     
           <p>Aunque suenan similares, firma digital y firma electrónica no son exactamente lo mismo. 
             La diferencia principal está en el nivel de seguridad y en la tecnología que usan</p>
           <h3>🖊️ Firma electrónica</h3>
@@ -836,8 +929,17 @@ ISBN; códigos EAN.</p>
 
 
     <section id="practica">
+      <h2>Practica</h2>
+      <p>Utiliza comando de bash <code>base64</code> con sus opciones, modificadores</p>
       <h1>Practica</h1>
+      <p>Instalar extensión para Chrome: FlowCrypt. Clave pública</p>
        <h2>Practica</h2>
+       <p>PGP / GPG  / GNUpg</p>
+       <h1>Practica</h1>
+       <p>OpenSSL</p>
+       <h2>Antivirus "LIVE"</h2>
+       <p>Fabrica un pendrive arrancable con un antivirus "LIVE"</p>
+
 
     </section>
 

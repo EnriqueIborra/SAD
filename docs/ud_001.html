@@ -1228,10 +1228,14 @@ En ciencia (y también en ciberseguridad), un “paper” es un artículo cient�
       
         <p>La <strong>criptografía</strong> es una técnica utilizada para proteger la información mediante el uso de códigos o claves que hacen que los datos solo puedan ser entendidos por quienes tengan permiso.</p>
       
-        <h3>🔑 Clave Simétrica</h3>
+        <hr> <h3>🔑 Clave Simétrica</h3>
+        <img src="imgs/clave-sim.png" alt="simetrica" width="35%" class="imatge-dreta">
         <p>También conocida como <strong>criptografía de clave secreta</strong>. Se utiliza la misma clave 🔑
            para <strong>cifrar 🔒</strong> y <strong>descifrar 🔓</strong> los datos.</p>
-        <p>Funciona como una cerradura de puerta. Una misma llave abre i cierra(cerrar con llave 👀)</p>
+        <p>Funciona como una cerradura de puerta. Una misma llave abre i cierra(cerrar con llave 👀) 
+          <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #bf0c0c;"></i>    
+        <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #bf0c0c;"></i>
+          El emisor y el receptor tienen una copia de la llave cada uno.     </p>
         <ul>
           <li> Rápida y eficiente.</li>
           <li> Requiere compartir la clave de forma segura.</li>
@@ -1242,14 +1246,16 @@ En ciencia (y también en ciberseguridad), un “paper” es un artículo cient�
         <ul>
           <li> El intercambio de claves ( no seguro !! ).</li>
           <li> El numero de claves que se necesitan ( para n personas numclaves = n(n-1)/2).</li>
-          <li> Fortaleza de la clave. Principio de Kerckhoffs. La responsabilidad de la fortaleza de la clave recae sobre el usuario.</li>
+          <li> Fortaleza de la clave. <strong>Principio de Kerckhoffs</strong>. La responsabilidad de la fortaleza de la clave recae sobre el usuario.</li>
         </ul>
       
-        <h3> Clave Asimétrica (Clave Pública y Privada) <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #12bc53;"></i>  <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #bf0c0c;"></i></h3>
+         <hr>
+        <h3> Clave Asimétrica (Clave Pública y Privada) <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #2987c1;"></i>  <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #bf0c0c;"></i></h3>
+        <img src="imgs/clave-sim-asim.png" alt="sim-asim" width="40%" class="imatge-dreta">
         <p>En este sistema se utilizan <strong>dos claves distintas pero relacionadas</strong>:</p>
         
         <ul>
-          <li> <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #12bc53;"></i>
+          <li> <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #2987c1;"></i>
             <strong>Clave pública:</strong> Se comparte con cualquiera.</li>
           <li> <i class="hgi hgi-stroke hgi-key-01" style=" font-size: 20px;   color: #bf0c0c;"></i>
             <strong>Clave privada:</strong> Solo la tiene el destinatario legítimo.</li>
@@ -1269,7 +1275,15 @@ En ciencia (y también en ciberseguridad), un “paper” es un artículo cient�
         </ul>
         <ul> Desventajas
           <li> Mas lento e ineficiente.</li>
+          <li>Las claves son de mayor longitud (1024bits como mínimo)</li>
           <li> El mensaje cifrado ocupa más espacio que el mensaje original.</li>
+        </ul>
+
+        <ul> <strong>Algoritmos Fundamentales de criptografia de clave pública (Asimtrica) </strong>
+          <li>Diffie-Hellman: Permite a dos partes establecer una clave secreta compartida a través de un canal inseguro </li>
+          <li>RSA (Rivest, Shamir y Adleman): El algoritmo mas utilizado en el mundo !!</li>
+          <li>ElGamal: Algoritmo de criptografía asimétrica (clave pública) basado en el problema del logaritmo discreto</li>
+          <li>ECC: Critpografia de Curva Elíptica. Destaca por brindar la misma seguridad que otros métodos, pero con un tamaño de clave mucho menor</li>
         </ul>
       
         <h4> Ejemplo de uso 1: (privacidad)</h4>
@@ -1293,17 +1307,19 @@ En ciencia (y también en ciberseguridad), un “paper” es un artículo cient�
       
         <p>Ambos sistemas pueden combinarse en sistemas de seguridad modernos para aprovechar sus ventajas.</p>
 
-        <a href="https://github.com/EnriqueIborra/SAD/blob/b384b8ec5400887c87398f949c20d1ceaa780ae4/UD1/RA1-5%20Tractament%20segur%20V.pdf">
-          <h3>👆👆 Documento Criptografia Simétrica + HASH</h3></a>
-        <a href="https://github.com/EnriqueIborra/SAD/blob/b384b8ec5400887c87398f949c20d1ceaa780ae4/UD1/RA1-6%20Esteganografia.pdf">
+        <p>Video: <a href="https://www.youtube.com/watch?v=AQDCe585Lnc">Asymmetric Encryption - Simply explained</a></p>
+        <hr>
+        <p>Video: <a href="https://www.youtube.com/watch?v=TWhax2wQOrU">Diffie-Hellman (minuto 3:38)</a></p>
+
+       <hr>
+        <a href="ud_001_cripto.html"><h2> 👆👆 CRIPTOGRAFIA + HASH + ESTEGANOGRAFIA</h2></a>
+          <a href="https://github.com/EnriqueIborra/SAD/blob/b384b8ec5400887c87398f949c20d1ceaa780ae4/UD1/RA1-6%20Esteganografia.pdf">
           <strong>👆👆 Esteganografia </strong> 
         </a> <strong> (Para trabajar bien con el fichero de estego, bajarlo y abrirlo en local)</strong>
-        <hr>
-        <p>Acceso a formato web de los documentos de CRIPTOGRAFIA y de ESTAGANOGRAFIA</p>
-        <a href="ud_001_cripto.html"><h2> 👆👆 Acceso a documento de CRIPTOGRAFIA + HASH + ESTEGANOGRAFIA</h2></a>
+       
 
-    
       </section>
+
 
 
       <section id="practica">

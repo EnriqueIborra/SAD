@@ -608,6 +608,14 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
   <li>usada una sola vez</li>
   <li>compartida previamente de forma segura</li>
 </ul>  👉 El gran problema práctico es precisamente la distribución de la clave.
+<hr>
+<p>En este tabla se puede observar el cálculo del ciptograma a partir de un texto "TEXTO", y una
+  clave "CLAVE". Primero se pasa cada letra a su codigo <strong>ASCII</strong> (en decimal), 
+  (Consulta la tabla ASCII  <a href="https://concepto.de/ascii/">aquí</a>) . Luego, cada código decimal se pasa a BINARIO
+  y a continuación se realiza la operación XOR bit a bit, obteniendo otro numero. Por último se pasa a Hexadecimal.
+  (No tiene sentido pasar a texto porque podemos obtener codigos "no imprimibles" !!). En este caso, el 
+  criptograma se deja en numeros ( decimales o hexadecimales o binarios). </p>
+  
 
     <table> <tr>
               <th>TEXTO</th>
@@ -619,18 +627,19 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
               <td>67</td><td>76</td><td>65</td><td>86</td><td>69</td>
               <td>1000011</td><td>1001100</td><td>1000001</td><td>1010110</td><td>1000101</td>
             </tr>
-            <tr>
+            <tr style="font-weight: bolder;">
               <th>XOR</th>
               <td>23</td><td>9</td><td>25</td><td>2</td><td>10</td>
               <td>0010111</td><td>0001001</td><td>0011001</td><td>0000010</td><td>0001010</td>
             </tr>
-            <tr>
+            <tr  style="font-weight: bolder;">
               <th>HEX</th>
               <td>17</td><td>9</td><td>19</td><td>2</td><td>A</td>
-              <td>17</td><td>9</td><td>19</td><td>2</td><td>A</td>
+              <td></td><td></td><td></td><td></td><td></td>
     </table> </tr>
 
-    <p>El <span class="key">RC4</span> es un ejemplo de cifrado de Vernam que se utiliza con frecuencia en Internet.</p>    
+    <!--<p>El <span class="key">RC4</span> es un ejemplo de cifrado de Vernam que se utiliza con frecuencia en Internet.</p>      -->
+    
 
     <h3>Cifrado Vernam – Práctica con CyberChef</h3>
     <p>Utiliza <a href="https://gchq.github.io/CyberChef/" target="_blank">https://gchq.github.io/CyberChef/</a> para descifrar:</p>
@@ -661,7 +670,7 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
     
     <p>Era el nombre de una máquina de rotores que permitía usarla tanto para cifrar como para descifrar mensajes. Su facilidad de manejo y supuesta inviolabilidad fueron las principales razones para su amplio uso.</p>
     <p>La máquina Enigma fue un dispositivo electromecánico que usaba una combinación de partes mecánicas y eléctricas. El mecanismo estaba constituido fundamentalmente por un teclado similar al de las máquinas de escribir (cuyas teclas eran interruptores eléctricos), un engranaje mecánico y un panel de luces con las letras del alfabeto.</p>
-    <p>Referencia: <a href="https://summersidemakerspace.ca/projects/enigma-machine/" target="_blank">https://summersidemakerspace.ca/projects/enigma-machine/</a></p>
+    <p>Video:  <a href="https://www.youtube.com/watch?v=EubP24ltfEo" target="_blank">Como funciona la maquina enigma</a></p>
     <p>Las claves que se suministran: <span class="key">Modelo, Reflector, Rotores, Anillos, Clavijero</span>.</p>
   
     <h3>Cifrado Enigma – Funcionamiento</h3>
@@ -742,7 +751,7 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
 
 
 <h2>CRIPTOGRAFÍA SIMÉTRICA </h2>
-
+<img src="imgs/clave-sim.png" alt="simetrica" width="35%" class="imatge-dreta">
 <ul>
   <li>Se usa una <span class="label">misma clave para cifrar y descifrar</span> mensajes.</li>
   <li>Las dos partes que se comunican deben acordar previamente la clave a usar.</li>
@@ -785,6 +794,7 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
   <li><span class="label">MARS</span> (IBM): bloques de 128 bits, claves de longitud variable de 128 a 448 bits.</li>
   <li><span class="label">Kuznyechik</span>: cifrado por bloques simétrico con bloque de 128 bits y clave de 256 bits. Definido en el Estándar Nacional de la Federación Rusa.</li>
   <li><span class="label">Camellia</span> (Japón): bloque de 128 bits, claves de 128, 192 y 256 bits.</li>
+  <li><span class="label">ChaCha20</span>: Stream Cipher (sin bloques), Moderno, Rapido, no depende de hardware especial. Clave de 256 bits.</li>
 </ul>
 
 <h2>CRIPTOGRAFÍA SIMÉTRICA — AES en la práctica </h2>
@@ -1063,6 +1073,7 @@ Datos de clientes o de trabajo</p>
   </ul>
 
   <h2>Ejemplo de uso de funciones resumen</h2>
+  <img src="imgs/comprueba-hash.png" alt="compruebahash" width="50%" class="imatge-dreta">
   <p>Analizar la integridad de un archivo descargado mediante la comprobación de su valor resumen calculado.</p>
   <p>En muchas ocasiones, las webs de los fabricantes originales muestran junto a su archivo de instalación el valor resumen calculado, con el que podremos verificar, tras descargar el archivo de instalación, su integridad o que no ha sido modificado o es una falsificación.</p>
 
