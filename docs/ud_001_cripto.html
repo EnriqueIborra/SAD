@@ -549,8 +549,8 @@ página – línea – palabra,  texto – palabra – carácter,  etc...</p>
 
     <h3>Cifrado de Polibio</h3>
     <p>Es un método de codificación del alfabeto griego. Puede codificar 25 símbolos mediante una matriz de 5×5. Puede ampliarse a 36 símbolos con una matriz de 6×6.</p>
-    <p>Referencias: <a href="https://es.wikipedia.org/wiki/Cuadrado_de_Polibio" target="_blank">Wikipedia – Cuadrado de Polibio</a></p>
-     <p>Tabla original de polibio o Polybius Square</p>
+    <p> Consulta la tabla original de polibio en: <a href="https://es.wikipedia.org/wiki/Cuadrado_de_Polibio" target="_blank">Wikipedia – Cuadrado de Polibio</a></p>
+  <!--   <p>Tabla original de polibio o Polybius Square</p>
 
      <table style="width: auto;">
   <tr>     <td>Α</td>     <td>Β</td>     <td>Γ</td>     <td>Δ</td>     <td>Ε</td>   </tr>
@@ -558,8 +558,8 @@ página – línea – palabra,  texto – palabra – carácter,  etc...</p>
   <tr>     <td>Λ</td>     <td>Μ</td>     <td>Ν</td>     <td>Ξ</td>     <td>Ο</td>   </tr>
   <tr>     <td>Π</td>     <td>Ρ</td>     <td>Σ</td>     <td>Τ</td>     <td>Υ</td>   </tr>
   <tr>     <td>Φ</td>     <td>Χ</td>     <td>Ψ</td>     <td>Ω</td>     <td></td>   </tr>
-</table>
- Y el cuadrado de Polibio adaptado a nuestro alfabeto quedaria ...
+</table>  -->
+ El cuadrado de Polibio adaptado a nuestro alfabeto quedaria ...
 
     <table style="width: auto;">
       <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
@@ -717,8 +717,7 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
     </ul>
   
 
-
-    <h2>TIPOS DE ALGORITMOS DE CIFRADO</h2>
+    <hr>   <h2>Principio de Kerckhoffs</h2>
 
     <h3>Principio de Kerckhoffs (1883 – <em>La Cryptographie Militaire</em>)</h3>
     <p>En seguridad y criptografía, principio según el cual <span class="key">la seguridad de un sistema cifrado debe depender exclusivamente de la clave y no de la seguridad de cualquier otra parte del sistema</span>.</p>
@@ -773,12 +772,19 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
 <p>En 1997, el Instituto Nacional de Normas y Tecnología (NIST) convocó un concurso para elegir un nuevo algoritmo de cifrado capaz de proteger información sensible durante el siglo XXI. Este concurso se denominó <span class="label">Advanced Encryption Standard (AES)</span>. Los resultados fueron:</p>
 
 <ul>
-  <li>RIJNDAEL: 86 votos</li>
+  <li>RIJNDAEL: 86 votos </li> 
   <li>SERPENT: 59 votos</li>
   <li>TWOFISH: 31 votos</li>
   <li>RC6: 23 votos</li>
   <li>MARS: 13 votos</li>
 </ul>
+<p>En octubre de 2000, el NIST anunció oficialmente que Rijndael (con bloque fijo de 128 bits) había sido seleccionado como el nuevo estándar AES.</p>
+<p>En 2001, el NIST publicó el estándar FIPS 197, que definió oficialmente AES como el algoritmo de cifrado simétrico estándar
+   del gobierno federal estadounidense. Desde entonces sustituyó gradualmente a Data Encryption Standard y a Triple DES en muchas aplicaciones.</p>
+<p>AES pasó a utilizarse en:  Agencias federales de EE. UU, Sistemas militares (según el nivel de clasificación y las normas aplicables),
+Banca electrónica, Redes Wi-Fi (WPA2 y WPA3), TLS/HTTPS, VPN, y Sistemas de almacenamiento cifrado.</p>
+<p>Y, casi tres décadas después, AES (Rijndael-128) sigue siendo uno de los algoritmos de cifrado simétrico más utilizados del
+   mundo y no se conoce ningún ataque práctico que rompa AES-128, AES-192 o AES-256 cuando se implementan correctamente.</p>
 
 
 <h2>CRIPTOGRAFÍA SIMÉTRICA — Algoritmos detallados </h2>
@@ -787,16 +793,16 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
   <li><span class="label">DES</span> (1976): bloques de 64 bits, clave de 64 bits (56 efectivos). Usa la función F de Feistel.</li>
   <li><span class="label">IDEA</span> (International Data Encryption Algorithm, 1991): bloques de 64 bits, clave de 128 bits.</li>
   <li><span class="label">Blowfish</span> (1993): bloques de 64 bits, claves de 32 a 448 bits (16 rondas de Feistel).</li>
-  <li><span class="label">3DES</span> (IBM 1998): triple-DES, bloques de 64 bits, clave de 168 bits (112 efectivos). Usa Feistel.</li>
-  <li><span class="label">AES / Rijndael</span> (2001): estándar de cifrado del gobierno de EE.UU. Bloque fijo de 128 bits, clave de 128, 192 o 256 bits.</li>
+  <li><span class="label">3DES</span> (IBM 1998): triple-DES, bloques de 64 bits, clave de 168 bits (112 efectivos). Usa Feistel.</li> <hr>
+  <li><span class="label">AES / Rijndael</span> (2001): estándar de cifrado del gobierno de EE.UU. <strong>Bloque fijo de 128 bits</strong>, clave de 128, 192 o 256 bits.</li>
   <li><span class="label">RC6</span> (Rivest Cipher 6): bloque de 128 bits, claves de 128, 192 y 256 bits.</li>
   <li><span class="label">Serpent</span>: bloque de 128 bits, claves de 128, 192 y 256 bits.</li>
   <li><span class="label">MARS</span> (IBM): bloques de 128 bits, claves de longitud variable de 128 a 448 bits.</li>
   <li><span class="label">Kuznyechik</span>: cifrado por bloques simétrico con bloque de 128 bits y clave de 256 bits. Definido en el Estándar Nacional de la Federación Rusa.</li>
-  <li><span class="label">Camellia</span> (Japón): bloque de 128 bits, claves de 128, 192 y 256 bits.</li>
+  <li><span class="label">Camellia</span> (Japón): bloque de 128 bits, claves de 128, 192 y 256 bits.</li> <hr>
   <li><span class="label">ChaCha20</span>: Stream Cipher (sin bloques), Moderno, Rapido, no depende de hardware especial. Clave de 256 bits.</li>
 </ul>
-
+<br>
 <h2>CRIPTOGRAFÍA SIMÉTRICA — AES en la práctica </h2>
 
 <p><span class="label">AES (Advanced Encryption Standard) o Rijndael</span>: estándar de cifrado del gobierno de EE.UU. Usa un tamaño de bloque fijo de 128 bits y clave de 128, 192 o 256 bits.</p>
@@ -816,7 +822,7 @@ o, para despistar 3 2 4 5 2 4 5 3 1 5 4 2 1 1 3 3 2 2 1 1</div>
 
 <h2>CRIPTOGRAFÍA SIMÉTRICA — Problemas principales </h2>
 
-<p>Los principales problemas de los sistemas de cifrado simétrico son:</p>
+<h3 style="font-size: larger;">Los principales problemas de los sistemas de cifrado simétrico son:</h3>
 
 <h3>El intercambio de claves</h3>
 <ul>
@@ -1349,15 +1355,15 @@ $ openssl dgst -sha3-256 texto.plano</pre>
 
       <section id="practica">
         <h2>Ejercicios y pràcticas</h2>
-        <h3>P1</h3>
-        <p>Prepara </p>
-
+      
+        <!--   <h3>P1</h3>
+        <p>Prepara ... </p>  -->
       
         <hr> <h2>Ampliación</h2>
-        <li>Instala, p</li>
+       
+        <!--   <li>Instala, p</li>
         <li>Actividad de Esteganografia con canal alpha en python</li>
-        <li>Actividad de Esteganografia con LSB en python</li>
-      
+        <li>Actividad de Esteganografia con LSB en python</li>   -->
 
       </section>
 
@@ -1376,7 +1382,7 @@ $ openssl dgst -sha3-256 texto.plano</pre>
         <p id="feedback"></p>
         <button onclick="mostrarPista()">🕵️‍♂️ Quieres una pista??</button>
         <button id="btn-seguent" onclick="seguentPregunta()">      ➕ Següent pregunta </button>
-        <button onclick="carregarPreguntes('RA1__1')">🔁 Reiniciar</button>
+        <button onclick="carregarPreguntes('RA12_')">🔁 Reiniciar</button>
         <p id="pista"></p>
          
    </section>
@@ -1397,7 +1403,7 @@ $ openssl dgst -sha3-256 texto.plano</pre>
 <script src="scriptsunitats.js"></script>
 <script>
       // Executar en carregar la pàgina
-      window.onload = carregarPreguntes('RA1__1');
+      window.onload = carregarPreguntes('RA12_');
 </script>
   
 </body>

@@ -60,12 +60,12 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...
 -----END PUBLIC KEY-----  </pre>
     <p>Todo lo que está entre las líneas BEGIN PUBLIC KEY y END PUBLIC KEY es normalmente una representación Base64 de los datos binarios de la clave.</p>
 
-        <p>Base64 no es un código secreto ni un sistema de cifrado. Es un método de codificación de datos binarios en texto.</p>
+        <p><strong>Base64</strong> <u>no es un código secreto ni un sistema de cifrado</u>. Es un método de codificación de datos binarios en texto.</p>
 
         <p>Convierte cualquier dato (una clave binaria, una imagen, un archivo PDF, audio, etc.) en una cadena de caracteres formada por: 
         Letras mayúsculas: A-Z, Letras minúsculas: a-z, Números: 0-9, Símbolos: + y /, A veces = al final como relleno (padding) <br>
         Por ejemplo, el texto: <code>Hola</code> codificado en Base64 se convierte en <code>SG9sYQ==</code>, y puede volver a decodificarse para recuperar el texto original.</p>
-        <p>Se utiliza cuando es necesario transmitir o almacenar datos binarios a través de sistemas diseñados para manejar texto. <br>
+        <p><strong>Cuando se utiliza: </strong>Se utiliza cuando es necesario transmitir o almacenar datos binarios a través de sistemas diseñados para manejar texto. <br>
         Por ejemplo: Claves privadas o Claves públicas, que son numeros binarios de miles de bits.</p>
         <p>Advertencia: Base64 no cifra ni protege la información. Cualquiera puede decodificarla fácilmente.</p>
         <p>Al convertir datos binarios a texto, Base64 añade aproximadamente un 33 % más de tamaño. <br>
@@ -87,9 +87,10 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...
 </table>         
 
 
-<p><strong>Ejemplo completo</strong>: codificar "man"</p>
-<p>Paso 1: Convertir cada carácter a ASCII</p>
-<pre>m a n   →  109 97 110   →   01101101 01100001 01101110  </pre>
+<p><strong>Ejemplo completo </strong>: codificar "man"  <br>
+ -- En este caso el número de bytes es múltiplo de 3 --</p>
+<p>Paso 1: Convertir cada carácter a ASCII y después a binario</p>
+<pre>m a n    →   109 97 110    →    01101101 01100001 01101110  </pre>
 <pre>Agrupar bits(hay 24)  011011010110000101101110   </pre>
 <img src="imgs/base64_2.png" alt="base64" width="45%" class="imatge-dreta">
 <p>Paso 2: Dividir en grupos de 6 bits</p>
@@ -104,7 +105,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...
 <p>Por tanto:   man   → bWFu </p>
 
 <h4>¿Qué pasa cuando no hay 3 bytes completos?</h4>
-<p>Aquí aparece el famoso "="</p>
+<p>Aquí aparece el famoso "=" (el padding)</p>
 <p><strong>Ejemplo: "ma"</strong></p>
 <p>Tenemos dos caracteres:  m = 01101101   a = 01100001</p>
 <p>Juntos: 01101101 01100001 → Son 16 bits, pero BASE64 necesita trabajar con grupos de 24 bits, así que se añaden 8 ceros  </p>
@@ -132,7 +133,7 @@ Se generan 4 caracteres Base64, pero dos provienen de relleno →  Resultado:  b
         <h4>Cómo funciona paso a paso</h4>
         <p>Imaginemos una conexión entre cliente (A) y servidor (B)</p>
         <p>Paso 1: El cliente indica al servidor que quiere conectar con el. El servidor envía su clave pública al cliente</p>
-        <p>Paso 2: El cliente genera una clave simétrica ( aleatoria y compleja)</p>
+        <p>Paso 2: El cliente genera una clave simétrica ( aleatoria y compleja )</p>
         <p>Paso 3: El cliente cifra la clave simétrica. Usa la clave pública del servidor. La envia cifrada al servidor</p>
         <p>Paso 4: El servidor la descifra la clave simétrica. Solo el servidor puede hacerlo porque tiene la clave privada:</p>
         <p>Paso 5: Comunicación simétrica. A partir de aquí ambos comparten clave_sesión y todo el tráfico se cifra con un algoritmo simétrico (AES, ChaCha20, etc.)</p>
