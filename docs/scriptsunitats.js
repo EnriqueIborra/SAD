@@ -152,12 +152,19 @@ function mostrarPregunta() {
 
     const pregunta = preguntesBarrejades[indexPreguntaActual];
 
+    //    document.getElementById('pregunta-text').innerHTML = pregunta.titol;   // si es vol posar codi amb <pre>
+    //    anar en compte, perque si algu extern pot posar codi html es pot fer un atac de seguretat
+    //   també s'ha de canviar el codi HTML de les preguntes de <h4> a <div>    <h4 id="pregunta-text"></h4>
     document.getElementById('pregunta-text').innerText = pregunta.titol;
 
     const container = document.getElementById('options-container');
     container.innerHTML = "";
 
-    pregunta.opcions.forEach(opcio => {
+    //pregunta.opcions.forEach(opcio => {    //  respeta l'ordre de les respostes
+    const opcionsBarrejades = [...pregunta.opcions];    // barreja les respostes
+    barrejar(opcionsBarrejades);
+
+    opcionsBarrejades.forEach(opcio => {  
         const btn = document.createElement('button');
         btn.innerText = opcio.text;
         btn.onclick = () => comprovaResposta(opcio.correcte, btn, opcio.feedback);
@@ -172,7 +179,7 @@ function mostrarPregunta() {
 }
 
 function mostrarPista(){
-      document.getElementById('pista').textContent = preguntesBarrejades[indexPreguntaActual].pista;
+      document.getElementById('pista').textContent =  '🕵️‍♂️Pista: '+ preguntesBarrejades[indexPreguntaActual].pista;
     }
 
 
