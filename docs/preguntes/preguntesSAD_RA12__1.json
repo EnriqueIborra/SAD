@@ -1,0 +1,165 @@
+[
+  {
+    "CE": "12-1",
+    "titol": "¿Cómo funcionaba la Escítala de Esparta?",
+    "pista": "Es uno de los ejemplos históricos de cifrado por transposición.",
+    "opcions": [
+      {
+        "text": "Sustituía cada letra por otra situada tres posiciones más adelante en el alfabeto.",
+        "correcte": false,
+        "feedback": "Ese mecanismo corresponde a técnicas de sustitución, no a la Escítala."
+      },
+      {
+        "text": "Utilizaba una tira enrollada sobre una vara para reorganizar el mensaje.",
+        "correcte": true,
+        "feedback": "Correcto. El mensaje se escribía sobre una tira enrollada en una vara y solo podía leerse correctamente usando otra del mismo diámetro."
+      },
+      {
+        "text": "Consistía en escribir el mensaje completamente al revés.",
+        "correcte": false,
+        "feedback": "La escritura inversa es otra técnica de transposición distinta."
+      },
+      {
+        "text": "Dividía el mensaje en bloques de bits para cifrarlos por separado.",
+        "correcte": false,
+        "feedback": "Los cifrados por bloques son técnicas modernas, no el método de la Escítala."
+      }
+    ]
+  },
+  {
+    "CE": "12-2",
+    "coment": "Desde cesar a polibio",
+    "titol": "¿Cómo funciona el cifrado César utilizado por Julio César?",
+    "pista": "Se basa en desplazar las letras del alfabeto un número fijo de posiciones.",
+    "opcions": [
+      {
+        "text": "Reordena las letras del mensaje sin modificar cada carácter.",
+        "correcte": false,
+        "feedback": "Eso corresponde a una técnica de transposición, no al cifrado César."
+      },
+      {
+        "text": "Sustituye cada letra por otra situada un número determinado de posiciones más adelante en el alfabeto.",
+        "correcte": true,
+        "feedback": "Correcto. El cifrado César es un cifrado de sustitución basado en un desplazamiento fijo."
+      },
+      {
+        "text": "Convierte cada letra en su posición numérica dentro del alfabeto.",
+        "correcte": false,
+        "feedback": "Eso corresponde al cifrado A1Z26."
+      },
+      {
+        "text": "Utiliza una clave formada por palabras para seleccionar distintos alfabetos.",
+        "correcte": false,
+        "feedback": "Esa característica corresponde al cifrado Vigenère."
+      }
+    ]
+  },
+  {
+    "CE": "12-3",
+    "titol": "¿Qué ocurre cuando la clave del cifrado Vernam es más corta que el mensaje?",
+    "pista": "Se relaciona con la forma de adaptar la clave al texto.",
+    "opcions": [
+      {
+        "text": "El mensaje se trunca hasta la longitud de la clave.",
+        "correcte": false,
+        "feedback": "No se recorta el mensaje en el cifrado Vernam."
+      },
+      {
+        "text": "La clave se concatena consigo misma hasta igualar la longitud del mensaje.",
+        "correcte": true,
+        "feedback": "Correcto. La clave se repite para alcanzar la longitud del mensaje, similar a Vigenère."
+      },
+      {
+        "text": "Se eliminan los caracteres sobrantes del mensaje.",
+        "correcte": false,
+        "feedback": "No se eliminan caracteres del mensaje."
+      },
+      {
+        "text": "Se sustituye la clave por valores aleatorios nuevos en cada carácter.",
+        "correcte": false,
+        "feedback": "Eso alteraría el sistema original del cifrado Vernam."
+      }
+    ]
+  },
+  {
+    "CE": "12-4",
+    "titol": "¿Cuál es uno de los principales problemas de la criptografía simétrica?",
+    "pista": "Se relaciona con la gestión de las claves entre usuarios.",
+    "opcions": [
+      {
+        "text": "La lentitud en el cifrado de datos.",
+        "correcte": false,
+        "feedback": "La criptografía simétrica suele ser rápida."
+      },
+      {
+        "text": "El intercambio seguro de claves entre las partes.",
+        "correcte": true,
+        "feedback": "Correcto. El principal problema es cómo compartir la clave de forma segura."
+      },
+      {
+        "text": "La imposibilidad de cifrar archivos grandes.",
+        "correcte": false,
+        "feedback": "La criptografía simétrica puede manejar grandes volúmenes de datos."
+      },
+      {
+        "text": "La falta de algoritmos disponibles.",
+        "correcte": false,
+        "feedback": "Existen muchos algoritmos simétricos (AES, DES, etc.)."
+      }
+    ]
+  },
+  {
+    "CE": "12-5",
+    "titol": "¿Qué ocurre cuando se modifica ligeramente un archivo al que se le aplica una función hash?",
+    "pista": "Se relaciona con la sensibilidad del hash a cambios pequeños.",
+    "opcions": [
+      {
+        "text": "El hash cambia completamente.",
+        "correcte": true,
+        "feedback": "Correcto. Un pequeño cambio en los datos produce un hash totalmente diferente."
+      },
+      {
+        "text": "El hash cambia solo en el último carácter.",
+        "correcte": false,
+        "feedback": "Incorrecto. El cambio afecta al resultado completo del hash."
+      },
+      {
+        "text": "El hash permanece igual si el archivo es similar.",
+        "correcte": false,
+        "feedback": "Incorrecto. Incluso cambios mínimos producen un hash distinto."
+      },
+      {
+        "text": "El hash se acorta automáticamente.",
+        "correcte": false,
+        "feedback": "Incorrecto. La longitud del hash no depende del contenido."
+      }
+    ]
+  },
+  {
+    "CE": "12-6",
+    "titol": "¿Dónde puede ocultarse información en esteganografía?",
+    "pista": "Piensa en distintos tipos de archivos y estructuras digitales.",
+    "opcions": [
+      {
+        "text": "Solo en imágenes digitales.",
+        "correcte": false,
+        "feedback": "Incorrecto. La esteganografía puede aplicarse en muchos tipos de archivos."
+      },
+      {
+        "text": "En imágenes, audio, vídeo, documentos y metadatos.",
+        "correcte": true,
+        "feedback": "Correcto. La información puede ocultarse en múltiples tipos de archivos y estructuras."
+      },
+      {
+        "text": "Únicamente en archivos de texto plano.",
+        "correcte": false,
+        "feedback": "Incorrecto. No se limita a textos."
+      },
+      {
+        "text": "Solo en archivos ejecutables.",
+        "correcte": false,
+        "feedback": "Incorrecto. Puede aplicarse a muchos formatos distintos."
+      }
+    ]
+  }
+]
