@@ -128,7 +128,7 @@ function carregarPreguntes(RA) {
         .catch(err => {
             console.error(err);
             document.getElementById('pregunta-text').innerText =
-                "Error carregant les preguntes 😢";
+                "El test no está disponible ";
         });
         //document.getElementById('percentatge-text').innerText = "0%";
 
@@ -192,11 +192,11 @@ function comprovaResposta(esCorrecte, element,feedback1) {
         .forEach(btn => btn.disabled = true);
 
     if (esCorrecte) {
-        feedback.textContent = "✅ Correcte! Molt bé." + feedback1;
+        feedback.textContent = "✅ " + feedback1;
         element.style.background = "#d4edda";
         puntuacio++;
     } else {
-        feedback.textContent = "❌ Incorrecte." + feedback1;
+        feedback.textContent = "❌ " + feedback1;
         element.style.background = "#f8d7da";
     }
     //actualitzarPercentatge();

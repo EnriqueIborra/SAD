@@ -622,12 +622,28 @@
    <h1>Practica1</h1>
     <h1>Practica2</h1>
     <h1>Practica3</h1>
-</section>
-
-<section id="altres-recursos">
-<hr><h2>Comprueba tu progreso...</h2>
-    <p>Falta colocar aqui el test de este RA</p>
 </section>  -->
+
+     <section id="altres-recursos">
+      <hr><h2>Comprueba tu progreso...</h2>
+    <div id="progress-container">
+    <div id="progress-bar"></div>  </div>
+    <!-- <div id="percentatge-text">0%</div>  -->
+
+    <div class="quiz-container">
+        <h4 id="pregunta-text"></h4>
+        <div id="options-container" class="options">
+        </div>
+
+        <p id="feedback"></p>
+        <button onclick="mostrarPista()">🕵️‍♂️ Quieres una pista??</button>
+        <button id="btn-seguent" onclick="seguentPregunta()">      ➕ Siguiente pregunta </button>
+        <button onclick="carregarPreguntes('RA3__1')">🔁 Reiniciar</button>
+        <p id="pista"></p>
+         
+   </section>
+
+
 
     </main>
 
@@ -638,8 +654,11 @@
     </footer>
   </div>
 
- 
-
-  <script src="scriptsunitats.js"></script>
+<script src="scriptsunitats.js"></script>
+<script>
+      // Executar en carregar la pàgina
+      window.onload = carregarPreguntes('RA3__1');
+</script> 
+  
 </body>
 </html>
