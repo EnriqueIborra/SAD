@@ -86,10 +86,26 @@ document.querySelectorAll('.sidebar a').forEach(link => {
 
     }
 
+//
+// test de preguntes
+//
+
 let bancDePreguntes = [];
 let preguntesBarrejades = [];
 let indexPreguntaActual = 0;
 let puntuacio = 0;
+
+// Estes variables faciliten canviar l'idioma dels texts. També s'ha de modificar els .html
+let titoltest=">> Comprueba tu progreso..."
+let missatgeError = "El test no está disponible";
+let missatgeAcabar = "Se han terminado las preguntas" 
+let missatgeEncert1 = "Has acertado ";
+let missatgeEncert2 = "preguntas ";
+let missatgeResultat3_1 = "🎉 Enhorabuena! Lo tienes dominado !";
+let missatgeResultat3_2 = "💪 Continua practicando!";
+let textbotopista =" 🕵️‍♂️ Quieres una pista??";
+let textbotoseg =" ➕ Siguiente pregunta";
+let textbotoreini =" 🔁 Reiniciar";
 
 function barrejar(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -115,6 +131,11 @@ function actualitzarPercentatge() {
 
 
 function carregarPreguntes(RA) {
+    document.getElementById('quizz_title').innerText = titoltest;
+    document.getElementById('btn-pista').innerText = textbotopista;
+    document.getElementById('btn-seguent').innerText = textbotoseg;
+    document.getElementById('btn-reiniciar').innerText = textbotoreini;
+    
     fetch('preguntes/preguntesSAD_' + RA + '.json')
         .then(res => res.json())
         .then(data => {
@@ -127,8 +148,7 @@ function carregarPreguntes(RA) {
         })
         .catch(err => {
             console.error(err);
-            document.getElementById('pregunta-text').innerText =
-                "El test no está disponible ";
+            document.getElementById('pregunta-text').innerText = missatgeError;
         });
         //document.getElementById('percentatge-text').innerText = "0%";
 
@@ -138,12 +158,20 @@ function mostrarPregunta() {
 
     // Si ja no queden preguntes
     if (indexPreguntaActual >= preguntesBarrejades.length) {
-        document.getElementById('pregunta-text').innerText =
-            "🎉 Has acabat totes les preguntes!";
+        let percentatge3 = (puntuacio / preguntesBarrejades.length) * 100;
+        let missatgeResultat3;
+        if (percentatge3 > 90) {
+            missatgeResultat3 = missatgeResultat3_1;
+        } else {
+            missatgeResultat3 = missatgeResultat3_2;
+        }      
+        document.getElementById('pregunta-text').innerText = missatgeAcabar;
+            
         document.getElementById('options-container').innerHTML = "";
         document.getElementById('feedback').innerHTML =
-        `Has encertat <strong>${puntuacio}</strong> de 
-        <strong>${preguntesBarrejades.length}</strong> preguntes.`;
+        `${missatgeEncert1} <strong>${puntuacio}</strong> de 
+        <strong>${preguntesBarrejades.length}</strong> ${missatgeEncert2}.
+          <br><br>  <strong>${missatgeResultat3}</strong>`;
         document.getElementById('btn-seguent').disabled = true;
         document.getElementById('progress-bar').style.width = "100%";
         actualitzarProgres();
