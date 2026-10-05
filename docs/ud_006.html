@@ -106,7 +106,8 @@
           <li><strong>Consideración de la Escalabilidad y el Crecimiento:</strong> Considera la escalabilidad futura. A medida que el negocio crezca, puede que los requisitos de disponibilidad se incrementen.</li>
         </ol>
       
-        <h3> Soluciones de Alta Disponibilidad Comunes</h3>
+        <hr> <h3> Soluciones de Alta Disponibilidad Comunes</h3>
+  
         <ul>
           <li><strong>Fuentes de alimentación redundantes:</strong> Son sistemas eléctricos duplicados (o más) que suministran energía a los equipos. Si una fuente falla, otra continúa alimentando el sistema automáticamente.</li>
           <li><strong>SAI / UPS redundantes con líneas eléctricas redundantes:</strong> Un SAI (Sistema de Alimentación Ininterrumpida o UPS) proporciona energía temporal cuando falla la red eléctrica mediante baterías.
@@ -118,15 +119,21 @@ Las líneas eléctricas redundantes significan que el sistema recibe electricida
           <li><strong>Sistemas en Cluster: Redundancia de Servidores:</strong> Tener servidores duplicados que asuman el servicio en caso de fallo.</li>
           <li><strong>Balanceadores de Carga:</strong> Distribuir el tráfico entre varios servidores para evitar sobrecargar a un único servidor.</li>
           <li><strong>Replicación de Bases de Datos:</strong> Tener bases de datos replicadas en tiempo real en ubicaciones distintas.</li>
-          <li><strong>Conexiones de Red Electrica Redundantes:</strong> Asegurar que siempre haya una ruta activa en caso de fallo de la red.</li>
+          <li><strong>Conexiones a la Red Electrica Redundantes:</strong> Asegurar que siempre haya una ruta activa en caso de fallo de la red.</li>
           <li><strong>Almacenamiento Redundante:</strong> Usar soluciones como RAID o almacenamiento en la nube para asegurar que los datos estén siempre disponibles.</li>
         </ul>
       
         <p>Implantar alta disponibilidad es esencial cuando el impacto de la interrupción de un servicio puede ser significativo
-           en términos de ingresos, productividad, reputación o cumplimiento de SLA. 
-           Para llegar a la conclusión de que es necesaria, se debe realizar un análisis de riesgo, 
-           evaluar el impacto de la caída del servicio y comparar el coste de implementar alta disponibilidad 
-           frente al coste de inactividad. Esto ayudará a tomar una decisión fundamentada.</p>
+           en términos de ingresos, productividad, reputación o cumplimiento de SLA. </p>
+
+        <p>la <strong>redundancia</strong> es uno de los principales mecanismos para conseguir alta disponibilidad.</p>
+        <p>Ejemplo:  Un servidor web único:Si falla, el servicio deja de funcionar. No hay redundancia. Baja disponibilidad. <br>
+          Dos servidores web funcionando en paralelo detrás de un balanceador: Si uno falla, el otro sigue atendiendo peticiones.
+          Hay redundancia de servidores. Se incrementa la disponibilidad.</p>
+
+       <p>Es importante señalar que la redundancia por sí sola no garantiza la alta disponibilidad. 
+        También son necesarios mecanismos de detección de fallos, conmutación automática ( <em>failover</em> ),
+         monitorización y una arquitectura adecuada.</p>
 
 
     </section>
@@ -187,13 +194,8 @@ Las líneas eléctricas redundantes significan que el sistema recibe electricida
           <li><strong>Copias de Seguridad en Tiempo Real:</strong> Sistemas de copias de seguridad que realizan copias en tiempo real de los datos y los almacenan en ubicaciones seguras para garantizar una recuperación rápida en caso de fallo.</li>
         </ul>
       
-        <p>Las soluciones hardware de alta disponibilidad son esenciales para asegurar que los servicios
-           y sistemas críticos estén siempre disponibles, incluso si ocurre un fallo en algún componente.
-            Estas soluciones incluyen redundancia de servidores, almacenamiento redundante, 
-            fuentes de alimentación redundantes, balanceo de carga, replicación de datos y recuperación ante desastres.
-             Implementar estas soluciones depende de los requisitos específicos de cada organización y de los riesgos que se deseen mitigar.</p>
-
     </section>
+
 
 
 
@@ -202,28 +204,67 @@ Las líneas eléctricas redundantes significan que el sistema recibe electricida
         <p>La virtualización es una tecnología que permite crear una versión virtual de algo, como un servidor, un sistema operativo, un dispositivo de almacenamiento o recursos de red. En el contexto de alta disponibilidad, la virtualización se utiliza para mejorar la resiliencia y minimizar el tiempo de inactividad mediante la creación de entornos virtuales que puedan migrar entre diferentes sistemas físicos sin interrupción. 
           A continuación, se detallan algunos aspectos clave de cómo la virtualización puede ser utilizada como solución de alta disponibilidad:</p>
       
+     
         <h3> Virtualización de Servidores</h3>
         <p>La virtualización de servidores implica dividir un único servidor físico en múltiples servidores virtuales, llamados máquinas virtuales (VMs), cada una de las cuales puede funcionar independientemente. Esto permite que los servicios y aplicaciones estén separados en entornos virtuales que pueden ser migrados entre diferentes servidores físicos sin interrupciones. Algunas de las ventajas incluyen:</p>
         <ul>
           <li><strong>Alta disponibilidad de máquinas virtuales:</strong> Si un servidor físico falla, las máquinas virtuales pueden ser migradas a otro servidor sin interrupción del servicio.</li>
           <li><strong>Reducción de tiempo de inactividad:</strong> Los procesos de migración en vivo permiten trasladar máquinas virtuales en ejecución de un servidor a otro sin detenerlos.</li>
         </ul>
+
+          
+         <hr> <h2>Tipos de virtualización</h2>
+         <p>Cuando se habla de virtualización de servidores, los hipervisores suelen clasificarse en dos grandes tipos:</p> 
+
+          <img src="imgs/hipervisor-tipo1.png" alt="tipus-hiperv" width="50%" class="imatge-dreta">
+          <h3>Tipo 1 (Bare Metal o nativo)</h3>
+          <p>El hipervisor se ejecuta directamente sobre el hardware físico, sin necesidad de un sistema operativo anfitrión intermedio.</p>
+
+        <ul> Ventajas
+          <li>Mayor rendimiento.</li>
+          <li>Menor sobrecarga.</li>
+          <li>Más seguridad y aislamiento.</li>
+          <li>Adecuado para entornos empresariales y centros de datos.</li>
+          <li>Facilita características de alta disponibilidad y migración en caliente.</li>
+        </ul>
+        <p>Ejemplos: Proxmox VE, VMware ESXi, Microsoft Hyper-V, Xen ..</p>
+
+         <img src="imgs/hipervisor-tipos.png" alt="tipus-hiperv" width="50%" class="imatge-dreta">
+        <h3>Tipo 2 (Hosted o alojado)</h3>
+        <p>El hipervisor se instala encima de un sistema operativo anfitrión (Windows, Linux, macOS, etc.).</p>
       
-        <h3> Migración en Vivo</h3>
+        <ul> Ventajas
+          <li>Instalación sencilla.</li>
+          <li>Ideal para pruebas, formación y desarrollo.</li>
+          <li>No requiere dedicar una máquina exclusivamente a la virtualización.</li>
+        </ul>
+
+        <ul> Inconvenientes
+          <li>Menor rendimiento.</li>
+          <li>Más sobrecarga, ya que depende del sistema operativo anfitrión.</li>
+          <li>Menor aislamiento.</li>
+        </ul>
+
+        <p>Ejemplos: Oracle VM VirtualBox, VMware Workstation, Parallels Desktop ... </p>
+
+
+        <hr>  <h3> Migración en Vivo</h3>
         <p>La migración en vivo es una característica clave de la virtualización que permite mover máquinas virtuales de un host físico a otro sin que los usuarios finales noten ninguna interrupción. Esto es especialmente útil para equilibrar cargas de trabajo, realizar mantenimientos sin detener servicios o responder a fallos de hardware de manera eficiente. Ejemplos de migración en vivo incluyen:</p>
         <ul>
           <li><strong>VMware vMotion:</strong> Permite migrar máquinas virtuales en vivo entre servidores físicos sin tiempo de inactividad.</li>
           <li><strong>Microsoft Hyper-V Live Migration:</strong> Similar a vMotion, permite la migración sin interrupción de máquinas virtuales entre servidores Hyper-V.</li>
         </ul>
+        ==> <a href="https://www.youtube.com/watch?v=vcPzrnrnYCU">Animación sobre XenMotion / migración en vivo</a>
+        <br>==> <a href="https://www.youtube.com/watch?v=8t1epoj5kMo">Video sobre Vmotion de VMware</a>
       
-        <h3> Virtualización de Almacenamiento</h3>
+        <hr>   <h3> Virtualización de Almacenamiento</h3>
         <p>La virtualización de almacenamiento es el proceso de abstraer el hardware de almacenamiento físico y crear un entorno de almacenamiento virtualizado que puede ser gestionado de manera más flexible. Con esta tecnología, el almacenamiento puede ser replicado y distribuido entre diferentes ubicaciones geográficas, garantizando la alta disponibilidad de los datos. Los beneficios de la virtualización de almacenamiento incluyen:</p>
         <ul>
           <li><strong>Almacenamiento resiliente:</strong> Los datos pueden ser replicados automáticamente entre varios discos o centros de datos para garantizar que siempre estén disponibles.</li>
           <li><strong>Acceso continuo:</strong> Si un sistema de almacenamiento falla, otros recursos de almacenamiento pueden asumir la carga de trabajo sin interrumpir el acceso a los datos.</li>
         </ul>
       
-        <h3> Virtualización de Red</h3>
+        <hr>  <h3> Virtualización de Red</h3>
         <p>La virtualización de red permite abstraer los recursos de red físicos y gestionarlos como una red virtual. Esta tecnología proporciona la capacidad de crear redes lógicas que pueden ser configuradas y administradas independientemente de la infraestructura física subyacente. Las soluciones de virtualización de red incluyen:</p>
         <ul>
           <li><strong>Redes Definidas por Software (SDN):</strong> Permiten controlar y dirigir el tráfico de red de manera centralizada, mejorando la flexibilidad y la resiliencia de la red.</li>
@@ -246,9 +287,7 @@ Las líneas eléctricas redundantes significan que el sistema recibe electricida
         </ul>
       
       <hr>
-        <p>La virtualización es una herramienta poderosa para lograr alta disponibilidad, 
-          ya que permite la creación de entornos flexibles, fáciles de gestionar y altamente resilientes.  </p>
-
+    
     </section>
 
 
