@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5, user-scalable=yes">
+
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <title>UD2 - Mecanismos de seguridad - Criptografia</title>
+  <link rel="stylesheet" href="estilsunitats.css">
+  <style>
+
+   h1.main-title {
+      font-size: 2.2rem;
+      color: #1a237e;
+      border-bottom: 4px solid #e91e8c;
+      padding-bottom: 12px;
+      margin-bottom: 10px;
+    }
+
+    body.dark-mode h1.main-title {
+      color: #b7b8c6;
+      border-bottom: 4px solid #d592b7;
+    }
+    h2 {
+      font-size: 1.35rem;
+      color: #1a237e;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 6px;
+    }
+
+    body.dark-mode     h2 {
+      color: #cccdd6;
+      border-bottom: 2px solid #323e75;
+      
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: #c2185b;
+      margin: 18px 0 8px 0;
+    }
+
+    body.dark-mode h3 {
+      color: #9e8dc4;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    ul, ol {
+      padding-left: 1.5em;
+      margin-bottom: 12px;
+    }
+    li {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .key {
+      font-weight: bold;
+      color: #1a237e;
+    }
+
+    body.dark-mode .key {
+       color: #96aac0;
+    }
+
+    .note {
+      background: #e8eaf6;
+      border-left: 4px solid #3949ab;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 14px 0;
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+
+    body.dark-mode     .note {
+      background: #2b3779;
+      border-left: 4px solid #3949ab;
+      
+    }
+
+    .warning {
+      background: #fff3e0;
+      border-left: 4px solid #e91e8c;
+      padding: 12px 18px;
+      margin: 18px 0;
+      border-radius: 4px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    body.dark-mode     .warning {
+      background: #2d2f08;
+      border-left: 4px solid #e91e8c;
+    }
+   
+    code {
+      background: #1e1e2e;
+      color: #a8ff78;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.93rem;
+    }
+    .codeblock {
+      background: #1e1e2e;
+      color: #a8ff78;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 12px 0;
+      white-space: pre;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 14px 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin: 14px 0;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.75rem;
+    }
+    table td, table th {
+      border: 1px solid #ccc;
+      padding: 6px 9px;
+      text-align: center;
+    }
+    table th {
+      background: #1a237e;
+      color: #fff;
+    }
+    hr {
+      border: none;
+      border-top: 2px dashed #c5cae9;
+      margin: 48px 0 32px;
+    }
+
+     /* Diagrama portador */
+    .diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .box {
+      background: #5c9bd6;
+      color: #fff;
+      font-weight: bold;
+      padding: 18px 28px;
+      border-radius: 6px;
+      font-size: 1rem;
+      text-align: center;
+      min-width: 100px;
+    }
+    .box.message {
+      background: #f4a261;
+    }
+    .box.result-outer {
+      background: #5c9bd6;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .box.result-inner {
+      background: #f4a261;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px 18px;
+      border-radius: 4px;
+      margin-top: 6px;
+      text-align: center;
+    }
+    .operator {
+      font-size: 2rem;
+      color: #1a237e;
+      font-weight: bold;
+    }
+
+    /* Triángulo equilibrio */
+    .triangle-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .triangle-svg {
+      flex-shrink: 0;
+    }
+    .triangle-text {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    /* Actividades */
+    .actividad {
+      background: #cba4a4;
+      border-left: 5px solid #1a237e;
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+
+    body.dark-mode     .actividad {
+      background: #1b4ea7;
+      border-left: 5px solid #1a237e;
+    }
+
+    .actividad h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.05rem;
+      color: #1a237e;
+    }
+    .actividad p, .actividad li {
+      font-size: 0.99rem;
+      margin-bottom: 6px;
+    }
+
+
+  </style>
+
+
+</head>
+<body>
+  <!--<button class="theme-toggle" onclick="toggleTheme()"></button> -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="hgi hgi-stroke hgi-sun-01" id="theme-icon"></i>
+  </button>
+
+  <!-- boto menu hamburguesa  +  javascript -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
+    <span id="menu-icon">☰</span>
+  </button>
+  
+  <div class="sidebar">
+    <a href="#firma-digital">Hash y Firma Digital</a>
+    <a href="#cert-digital">Certificado Digital y PKI</a>
+
+  </div>
+
+  <div style="width: 100%;">
+    <header>
+      <a href="index.html"><img src="imgs/sad5.png" alt="SAD"></a>
+      <h1>Unidad Didáctica 2: Parte de CRIPTOGRAFIA</h1>
+      <h1>.</h1>
+    </header>
+    
+    <main>
+           
+ 
+      <section id="firma-digital">
+        <div class="ras">&lt;RA 2> Implanta mecanismos de seguridad activa, seleccionando y ejecutando contramedidas ante amenazas o ataques al sistema </div>
+          
+        <h2>BASE64</h2>
+        <p>Es muy habitual encontrar claves públicas, certificados y otros objetos criptograficos codificadas en Base64,  
+          por lo que es conveniente entender que es BASE64, como funciona, donde se puede encontrar, etc...</p>
+          <p>Conviene distinguir entre la clave y la codificación,</p>
+
+         <p>La clave pública es un conjunto de datos binarios. Como esos datos no son fácilmente legibles ni transportables como texto, suelen representarse en Base64.</p> 
+
+<pre>-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...
+...más caracteres Base64...
+...hasta el final...
+-----END PUBLIC KEY-----  </pre>
+    <p>Todo lo que está entre las líneas BEGIN PUBLIC KEY y END PUBLIC KEY es normalmente una representación Base64 de los datos binarios de la clave.</p>
+
+        <p><strong>Base64</strong> <u>no es un código secreto ni un sistema de cifrado</u>. Es un método de codificación de datos binarios en texto.</p>
+
+        <p>Convierte cualquier dato (una clave binaria, una imagen, un archivo PDF, audio, etc.) en una cadena de caracteres formada por: 
+        Letras mayúsculas: A-Z, Letras minúsculas: a-z, Números: 0-9, Símbolos: + y /, A veces = al final como relleno (padding) <br>
+        Por ejemplo, el texto: <code>Hola</code> codificado en Base64 se convierte en <code>SG9sYQ==</code>, y puede volver a decodificarse para recuperar el texto original.</p>
+        <p><strong>Cuando se utiliza: </strong>Se utiliza cuando es necesario transmitir o almacenar datos binarios a través de sistemas diseñados para manejar texto. <br>
+        Por ejemplo: Claves privadas o Claves públicas, que son numeros binarios de miles de bits.</p>
+        <p>Advertencia: Base64 no cifra ni protege la información. Cualquiera puede decodificarla fácilmente.</p>
+        <p>Al convertir datos binarios a texto, Base64 añade aproximadamente un 33 % más de tamaño. <br>
+          Por ejemplo: Archivo original: 300 KB  ⤷ Codificado en Base64: ~400 KB</p>
+          <h4>Base64 es una forma estándar de representar datos binarios usando únicamente caracteres de texto para poder almacenarlos o transmitirlos fácilmente.</h4>
+
+        <p>También es frecuente ver Base64 en: Certificados X.509, Claves públicas SSH, Firmas digitales y Certificados TLS/SSL.</p>
+       <hr><h3>Como se codifica en BASE64</h3>
+          <p>Un ordenador almacena la información en bytes (8 bits). Base64 toma esos bytes y los transforma en grupos de 6 bits</p>
+          <p>Cada grupo puede tomar un valor entre 0 y 63. Cada valor se asocia a un caracter.</p>
+
+ <table style="width: auto;">
+    <tr>  <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th></tr>
+    <tr>  <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+    <tr>  <th>26</th><th>27</th><th>28</th><th>29</th><th>30</th><th>31</th><th>32</th><th>33</th><th>34</th><th>35</th><th>36</th><th>37</th><th>38</th><th>39</th><th>40</th><th>41</th><th>42</th><th>43</th><th>44</th><th>45</th><th>46</th><th>47</th><th>48</th><th>49</th><th>50</th><th>51</th></tr>
+    <tr>  <td>a</td><td>b</td><td>c</td><td>d</td><td>e</td><td>f</td><td>g</td><td>h</td><td>i</td><td>j</td><td>k</td><td>l</td><td>m</td><td>n</td><td>o</td><td>p</td><td>q</td><td>r</td><td>s</td><td>t</td><td>u</td><td>v</td><td>w</td><td>x</td><td>y</td><td>z</td></tr>
+    <tr>  <th>52</th><th>53</th><th>54</th><th>55</th><th>56</th><th>57</th><th>58</th><th>59</th><th>60</th><th>61</th><th>62</th><th>63</th></tr>
+    <tr>  <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>+</td><td>/</td></tr>
+</table>         
+
+
+<p><strong>Ejemplo completo </strong>: codificar "man"  <br>
+ -- En este caso el número de bytes es múltiplo de 3 --</p>
+<p>Paso 1: Convertir cada carácter a ASCII y después a binario</p>
+<pre>m a n    →   109 97 110    →    01101101 01100001 01101110  </pre>
+<pre>Agrupar bits(hay 24)  011011010110000101101110   </pre>
+<img src="imgs/base64_2.png" alt="base64" width="45%" class="imatge-dreta">
+<p>Paso 2: Dividir en grupos de 6 bits</p>
+<pre>011011 010110 000101 101110</pre>
+<p>Paso 3: Convertir cada grupo a decimal</p>
+<pre>011011   010110   000101   101110 
+  ⬇️      ⬇️       ⬇️       ⬇️
+  27       22        5        46
+</pre>
+<p>Paso 4: Buscar en la tabla Base64</p>
+<pre>27=b  22=W  5=F  46=u   → bWFu    </pre>
+<p>Por tanto:   man   → bWFu </p>
+
+<h4>¿Qué pasa cuando no hay 3 bytes completos?</h4>
+<p>Aquí aparece el famoso "=" (el padding)</p>
+<p><strong>Ejemplo: "ma"</strong></p>
+<p>Tenemos dos caracteres:  m = 01101101   a = 01100001</p>
+<p>Juntos: 01101101 01100001 → Son 16 bits, pero BASE64 necesita trabajar con grupos de 24 bits, así que se añaden 8 ceros  </p>
+<pre>01101101 01100001 00000000    Añadir un grupo de 8 ceros
+011011010110000100000000      Agrupar
+011011 010110 000100 000000   Dividir en grupos de 6
+b      W      E      A</pre>
+<p> ➡️ Pero como el último grupo procede de bits añadidos artificialmente, se sustituye por padding =</p>
+<pre>bWE=
+ma → bWE= </pre>
+<p><strong>Ejemplo: "m"</strong>  →  Un único byte: m = 01101101 → Se completan los bits faltantes  01101101 00000000 00000000  <br>
+Se generan 4 caracteres Base64, pero dos provienen de relleno →  Resultado:  bQ==</p>
+
+
+
+      <hr> <h2>Criptografia Híbrida</h2>
+      <p>La criptografía híbrida es un modelo que combina criptografía asimétrica y criptografía simétrica para aprovechar lo mejor de cada una:</p> 
+      <ul>
+        <li>la asimétrica es segura para intercambiar claves</li>
+        <li>la simétrica es rápida para cifrar datos grandes</li>
+      </ul>
+      <p>  ➡️ Se usa en prácticamente todo Internet moderno (HTTPS, TLS, VPNs, etc.).</p>
+      <p>criptografía híbrida = Se combinan ambas: Usas criptografía asimétrica solo para intercambiar una clave simétrica,
+        y luego usas esa clave simétrica para todo lo demás</p>
+        <h4>Cómo funciona paso a paso</h4>
+        <p>Imaginemos una conexión entre cliente (A) y servidor (B)</p>
+        <p>Paso 1: El cliente indica al servidor que quiere conectar con el. El servidor envía su clave pública al cliente</p>
+        <p>Paso 2: El cliente genera una clave simétrica ( aleatoria y compleja )</p>
+        <p>Paso 3: El cliente cifra la clave simétrica. Usa la clave pública del servidor. La envia cifrada al servidor</p>
+        <p>Paso 4: El servidor la descifra la clave simétrica. Solo el servidor puede hacerlo porque tiene la clave privada:</p>
+        <p>Paso 5: Comunicación simétrica. A partir de aquí ambos comparten clave_sesión y todo el tráfico se cifra con un algoritmo simétrico (AES, ChaCha20, etc.)</p>
+
+
+       <hr> <h2>Firma electrónica vs Firma digital</h2>     
+          <p>Aunque suenan similares, firma digital y firma electrónica no son exactamente lo mismo. 
+            La diferencia principal está en el nivel de seguridad y en la tecnología que usan</p>
+          <h3>🖊️ Firma electrónica</h3>
+        <p>Es un concepto amplio dentro del derecho digital.
+           Incluye cualquier método electrónico que sirva para aceptar o firmar un documento.</p>
+           <img src="imgs/firma-electronica.jpg" alt="firmaelectronica" width="20%" class="imatge-dreta">
+        <ul>Puede ser algo tan simple como
+          <li>Escribir tu nombre en un formulario online</li>
+          <li>Marcar una casilla de “acepto”</li>
+          <li>Dibujar tu firma con el mouse o en una pantalla táctil</li>
+        </ul>
+        <p>Es válida legalmente en muchos países, pero tiene menor nivel de seguridad, porque no siempre garantiza quién firmó realmente. </p>
+        <p><code> -- la legislación europea establece que <strong>no se pueden negar efectos jurídicos a una firma únicamente por ser electrónica</strong> -- . </code>
+        Sin embargo, si surge un conflicto (por ejemplo, alguien niega haber aceptado un contrato), una firma electrónica simple puede resultar más difícil de probar. 
+        Cuantas menos evidencias existan sobre quién firmó y cómo lo hizo, más complicada será su defensa.  </p>
+
+        <ul> Se distinguen tres niveles
+          <li>Firma electrónica simple → válida, pero con menor fuerza probatoria. <br>
+          ==> Haces clic en «Acepto el contrato».</li>
+          <li>Firma electrónica avanzada → permite identificar mejor al firmante y detectar modificaciones. <br>
+          ==> Recibes un SMS con un código único y firmas a través de una plataforma que registra tu identidad, fecha, hora e IP.</li>
+          <li>Firma electrónica cualificada → tiene el nivel más alto y, jurídicamente, es equivalente a la firma manuscrita en toda la UE. <br>
+          ==> Utilizas tu certificado digital cualificado o el DNIe para firmar electrónicamente el contrato.</li>
+        </ul>
+
+
+
+       <hr> <h3>🔐 Firma digital</h3>
+        <p>Es un tipo específico de firma electrónica, pero mucho más segura. Se basa en tecnologías de criptografía.</p>
+        <p>La firma digital real es invisible. No tiene forma visual, No es un trazo ni una imagen. <br>
+           Son solo datos matemáticos (hash cifrado + certificado), por eso no hay “dibujos reales” que la representen fielmente.</p>
+
+     <hr>   <pre>Ejemplo parcial de codigo anexado al documento que se firma
+-----BEGIN PKCS7-----
+MIIG... (muchos caracteres)
+...Qm9uZCBkaWdpdGFs...
+-----END PKCS7-----          </pre>  <hr>
+
+  <img src="imgs/ejemplofirmadig.png" alt="firmdig" width="20%" class="imatge-dreta">
+           <p>Sin embargo, muchos programas permiten añadir una apariencia visual para indicar que el documento está firmado con firma digital.</p>
+           <p>Esta imagen no es la firma digital. Es solo una representación visual para indicar que existe.</p>
+      <ul> De hecho
+        <li>Un documento puede estar firmado digitalmente sin mostrar ningún sello o imagen visible.</li>
+        <li>También puede mostrar una imagen de una firma manuscrita y no estar firmado digitalmente en absoluto.</li>
+      </ul>
+<hr>
+<ul>El uso de certificados digitales emitidos por entidades certificadoras garantiza:
+  <li>Identidad del firmante</li>
+  <li>Integridad del documento (no ha sido alterado)</li>
+  <li>No repudio (el firmante no puede negar que firmó)</li>
+</ul>
+<p>Es la que se usa en trámites oficiales, contratos importantes y documentos legales de alto valor.</p>
+
+<ul>En resumen
+  <li>Toda firma digital es electrónica,</li>
+  <li>pero no toda firma electrónica es digital.</li>
+</ul>
+
+         <hr> <h2> HASH y Firma Digital</h2>
+          <p>La relación entre hash y firma digital es fundamental: 
+            la firma digital no se aplica directamente sobre el documento completo, sino sobre su huella criptográfica (hash).</p>
+        
+          <h3> ¿Qué es un HASH?</h3>
+          <p>Un <strong>hash</strong> es una función matemática que transforma cualquier dato (texto, archivo, etc.)
+             en una cadena única de caracteres. También se le suele llamar funcion RESUMEN o DIGEST</p>
+          <ul>
+            <li> Siempre genera una salida del mismo tamaño, sin importar el tamaño del archivo de entrada.</li>
+            <li> Un pequeño cambio en los datos produce un hash completamente distinto.</li>
+            <li> La función hash NO es reversible.(computacionalmente Intratable)</li>
+            <li> Ejemplo de hash  </li>
+          </ul>
+          <pre>
+       md5("SAD-ASIX2") -> <code>786cf5f44e74ef51bd7ec7cdf8950e22</code>
+Pero.. md5("SAD-ASIX1") -> <code>834743d3c372fa45434f72665c309c0e</code>              
+          </pre>
+          <p> Se utiliza para <strong>verificar la integridad</strong> de los datos. Si el hash cambia, los datos han sido modificados.</p>
+
+         <h4>Ejemplo comparativo: La letra del DNI</h4> 
+        <p>La letra del DNI puede presentarse como una forma sencilla de control de integridad. 
+            (“resumen” calculado a partir de unos datos)</p>
+         
+  <p>La idea fundamental coincide con la de un hash: A partir de unos datos se calcula un valor de comprobación que permite detectar modificaciones.</p>
+
+    <pre>
+    En el DNI:
+    datos originales → número;
+    valor de control → letra.
+    Si alguien cambia el número y no recalcula la letra, la inconsistencia se detecta.  </pre>
+
+<p>Otros mecanismos de ejemplo son: checksums; CRC; dígitos de control bancarios;
+ISBN; códigos EAN.</p>
+            
+        <h3> Usos comunes de las funciones HASH</h3>
+        
+        <ul>
+            <li> <strong>Verificación de integridad:</strong> Comprobar si un archivo ha sido modificado comparando su hash original con uno nuevo.</li>
+            <li> <strong>Almacenamiento seguro de contraseñas:</strong> Las contraseñas no se guardan como texto plano, sino como hashes. Así, aunque se acceda a la base de datos, no se conoce la contraseña real.</li>
+            <li> <strong>Identificación de archivos:</strong> Sistemas de gestión de archivos o descargas (como torrents) usan hashes para identificar archivos únicos y evitar duplicados.</li>
+            <li> <strong>Firmas digitales:</strong> El hash es la base sobre la que se aplica la clave privada para generar una firma digital.</li>
+            <li> <strong>Estructuras de datos:</strong> En programación, estructuras como las tablas hash permiten acceder rápidamente a datos usando claves.</li>
+            <li> <strong>Blockchain y criptomonedas:</strong> Cada bloque contiene el hash del anterior. Así se garantiza la integridad de toda la cadena de bloques.</li>
+            <li> <strong>Generación de identificadores únicos:</strong> Para identificar usuarios, sesiones, transacciones, etc., de forma segura y eficiente.</li>
+        </ul>
+        
+        <h3>🔢 Tipos de Funciones Hash</h3>
+
+        <p>Existen varias funciones hash, cada una con diferentes niveles de seguridad y velocidad.</p>
+
+        <ul>
+            <li> <strong>MD5 (Message Digest 5):</strong><br>
+            ➤ Genera hashes de 128 bits (32 caracteres hexadecimales).<br>
+            ⚠️ Ya no es considerado seguro para criptografía, pero aún se usa para integridad de archivos.</li>
+
+            <li> <strong>SHA-1 (Secure Hash Algorithm 1):</strong><br>
+            ➤ Produce hashes de 160 bits.<br>
+            ⚠️ También ha sido vulnerado, por lo que se desaconseja su uso en seguridad crítica.</li>
+
+            <li> <strong>SHA-256:</strong><br>
+            ➤ Parte de la familia SHA-2.<br>
+            ➤ Genera hashes de 256 bits (64 caracteres hexadecimales).<br>
+             Muy utilizado en blockchain y seguridad moderna.</li>
+
+            <li> <strong>SHA-512:</strong><br>
+            ➤ Similar a SHA-256 pero con una longitud de 512 bits.<br>
+            ➤ Más seguro pero también más pesado computacionalmente.</li>
+
+            <li> <strong>BLAKE2:</strong><br>
+            ➤ Más rápido que SHA-2 y con buena seguridad.<br>
+            ➤ Alternativa moderna recomendada en muchos entornos.</li>
+
+            <li> <strong>RIPEMD-160:</strong><br>
+            ➤ Usado en aplicaciones como Bitcoin junto con SHA-256.</li>
+        </ul>
+
+        <p>No todas las funciones hash son adecuadas para seguridad. Para almacenar contraseñas deben usarse 
+    funciones de hash lentas y resistentes a ataques por fuerza bruta  y hardware especializado, como  </p>
+
+        <ul>
+            <li> <strong>bcrypt</strong></li>
+            <li> <strong>scrypt</strong></li>
+            <li> <strong>Argon2</strong> (ganador del Password Hashing Competition)</li>
+            <li> <strong>yescrypt</strong></li>
+        </ul>
+
+        <hr>  <h3>✍️ ¿Qué es una Firma Digital?</h3>
+          <p>Una <strong>firma digital</strong> es un mecanismo criptográfico que garantiza que un documento:</p>
+          <ul>
+            <li> No ha sido modificado (integridad).</li>
+            <li> Proviene del remitente esperado (autenticidad).</li>
+            <li> No puede ser repudiado (no repudio).</li>
+          </ul>
+
+          <h3>¿Como se usa?</h3>
+          <p> Para crearla se usan:</p>
+          <ol>
+            <li> El hash del documento.</li>
+            <li> Una clave privada del emisor del documento, que cifra ese hash.</li>
+            <li> Este hash cifrado es la firma</li>
+          </ol>
+          <p> El receptor puede verificar la firma usando la clave pública del emisor.</p>
+
+        <ul>El receptor
+          <li>Calcula el hash del documento recibido</li>
+          <li>Descifra la firma con la clave pública</li>
+          <li>Compara ambos hashes</li>
+        </ul>  
+        <p>Si coinciden → el documento es auténtico y no ha sido modificado.</p>
+        
+          <h4> En resumen:</h4>
+          <ul>
+            <li> <strong>Hash:</strong> Detecta si un archivo ha sido alterado.</li>
+            <li> <strong>Firma digital:</strong> Garantiza que el archivo es original y viene de quien dice enviarlo.</li>
+          </ul>
+          <br>
+          <p>⚠️⚠️⚠️ Pero...., quien dice enviarlo, ¿ es realmente quien dice que es ?</p>
+          <p>Este problema se resuelve con los <code>Certificados Digitales</code></p>
+
+      </section>
+
+      <section id="cert-digital">
+                
+          <img src="imgs/certifcado-digital.png" alt="cert-dig" width="35%" class="imatge-dreta">
+          <h2> Certificados Digitales</h2>
+        
+          <p>Un <strong>certificado digital</strong> es como una "credencial digital" que identifica de forma segura a una persona, empresa o servidor en Internet.</p>
+        
+          <h3> ¿Qué contiene un certificado digital?</h3>
+          <ul>
+            <li>👤 Nombre del titular</li>
+            <li>🔑 Clave pública del titular</li>
+            <li>🧾 Información de la entidad que lo emite (Autoridad de Certificación)</li>
+            <li>✍️ Firma digital de la Autoridad de Certificación (CA)</li>
+            <li>📅 Fecha de emisión y caducidad</li>
+            <li>Otros datos de interes...</li>
+          </ul>
+
+          <h3>Un certificado digital puede encontrarse almacenado en distintos formatos y soportes</h3>
+
+          <ul>
+            <li>Archivos de certificado: .p12, .pfx, .cer, .crt, .pem.</li>
+            <li>Tarjetas criptográficas o tarjetas inteligentes (smart cards).</li>
+            <li>Tokens USB criptográficos (dispositivos similares a una memoria USB, pero diseñados para proteger las claves privadas).</li>
+            <li>Módulos de seguridad hardware (HSM) utilizados en entornos empresariales.</li>
+            <li>Almacenes de certificados del sistema operativo o del navegador.</li>
+          </ul>
+        
+          <h3>🏢 ¿Qué es una Autoridad de Certificación (CA)?</h3>
+          <p>Es una entidad confiable que se encarga de emitir y validar los certificados digitales. Ejemplos conocidos:</p>
+          <ul>
+            <li>🏛️ FNMT – Fábrica Nacional de Moneda y Timbre</li>
+            <li> ACCV – Autoritat de Certificació de la Comunitat Valenciana</li>
+            <li> Entrust Root Certification Authority (dni-e)</li>
+            <li> Izenpe - Autoridad vasca de certificación.</li>
+            <li> CATCert (fusionada en AOC)</li>
+            <li> Camerfirma (Cámaras de comercio)</li>
+            <li> ANCERT - Autoridad de Certificación del Consejo General del Notariado</li>
+            <li> Let's Encrypt</li>
+            <li> DigiCert</li>
+            <li> GlobalSign</li>
+            <li>Y mas....</li>
+          </ul>
+          <p>⚠️ Normalmente, todas estas CA se suministran ya instaladas en los Sistemas Operativos, pero se pueden añadir mas...</p>
+        
+          <h3> ¿Para qué se usan los certificados digitales?</h3>
+          <ul>
+            <li> <strong>Cifrado de comunicaciones:</strong> Protegen la información entre tu navegador y un sitio web (HTTPS).</li>
+            <li> <strong>Autenticación:</strong> Verifican que estás hablando con el servidor legítimo, no con un impostor.</li>
+            <li> <strong>Firmas digitales:</strong> Aseguran que un documento electrónico no ha sido alterado.</li>
+            <li> <strong>Gestión de identidad:</strong> En empresas o gobiernos, se usan para acceder a servicios seguros.</li>
+          </ul>
+        
+          <h3> ¿Cómo funciona?</h3>
+          <ol>
+            <li>1️⃣ El servidor envía su certificado digital al navegador.</li>
+            <li>2️⃣ El navegador comprueba si la CA es de confianza.</li>
+            <li>3️⃣ Si todo es válido, se establece una conexión cifrada.</li>
+          </ol>
+        
+          <h3> En resumen:</h3>
+          <p>Un certificado digital permite <strong>cifrar, autenticar y verificar</strong> en el mundo digital de forma segura.</p>
+          <strong>Y para que un certificado digital funcione necesitamos una PKI (Infraestructura de Clave Pública)</strong>
+        
+
+        <h2>🏛️ ¿Qué es una PKI (Public Key Infrastructure) ? </h3>
+
+        <p>La <strong>Infraestructura de Clave Pública</strong> o <strong>PKI</strong> es un sistema que permite <strong>crear, gestionar, distribuir y revocar certificados digitales</strong> y claves públicas.</p>
+
+        <p>En pocas palabras, es el conjunto de tecnologías, políticas y procedimientos que hacen posible la <strong>seguridad en Internet</strong>.</p>
+
+        <h3> Componentes principales de una PKI:</h3>
+        <ul>
+            <li> <strong>Autoridad de Certificación (CA):</strong> Emite y firma certificados digitales.</li>
+            <li> <strong>Autoridad de Registro (RA):</strong> Verifica la identidad antes de emitir certificados (actúa como filtro para la CA).</li>
+            <li> <strong>Repositorio de certificados:</strong> Lugar donde se almacenan y consultan los certificados emitidos.</li>
+            <li> <strong>Listas de revocación (CRL):</strong> Informan si un certificado ya no es válido.</li>
+            <li> <strong>Pareja de claves:</strong> Cada usuario tiene una clave pública y una clave privada.</li>
+        </ul>
+
+        <h3> ¿Cómo funciona una PKI?</h3>
+        <ul>
+            <li>1️⃣ Un usuario solicita un certificado a la CA (por medio de la RA).</li>
+            <li>2️⃣ La RA verifica la identidad del solicitante.</li>
+            <li>3️⃣ Si todo es correcto, la CA genera y firma un certificado digital con la clave pública del usuario.</li>
+            <li>4️⃣ El usuario puede usar su certificado para cifrar, firmar o autenticar.</li>
+            <li>5️⃣ Otros usuarios pueden verificar el certificado consultando la CA.</li>
+        </ul>
+
+        <h3> ¿Para qué sirve una PKI?</h3>
+        <ul>
+            <li> Autenticación de usuarios, servidores o dispositivos.</li>
+            <li> Cifrado de datos y comunicaciones (por ejemplo HTTPS).</li>
+            <li> Firmas digitales de documentos o correos electrónicos.</li>
+            <li> Intercambio seguro de claves.</li>
+        </ul>
+
+        <h3> En resumen:</h3>
+        <p>Una PKI hace posible que <strong>confiemos en la identidad digital</strong> de personas y sitios web, utilizando certificados digitales respaldados por entidades confiables.</p>
+
+      </section>      
+
+
+    </main>
+
+    <footer>
+      <p style="font-family: 'CCSymbols', sans-serif; font-size:larger;" >
+        Llicència: &#x1F16D; &#x1F16F; &#x1F10E; &#x1F10F; - UD1 - Parte de CRIPTOLOGIA
+      </p>
+    </footer>
+  </div>
+
+  
+<script src="scriptsunitats.js"></script>
+<script>
+      // Executar en carregar la pàgina
+      // window.onload = carregarPreguntes('RA12__1');
+</script>
+  
+</body>
+</html>
