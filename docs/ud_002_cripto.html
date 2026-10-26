@@ -371,7 +371,7 @@ Se generan 4 caracteres Base64, pero dos provienen de relleno →  Resultado:  b
           <p>Aunque suenan similares, firma digital y firma electrónica no son exactamente lo mismo. 
             La diferencia principal está en el nivel de seguridad y en la tecnología que usan</p>
           <h3>🖊️ Firma electrónica</h3>
-        <p>Es un concepto amplio dentro del derecho digital.
+        <p>Es un concepto amplio dentro del derecho digital. Es una categoria jurídica.
            Incluye cualquier método electrónico que sirva para aceptar o firmar un documento.</p>
            <img src="imgs/firma-electronica.jpg" alt="firmaelectronica" width="20%" class="imatge-dreta">
         <ul>Puede ser algo tan simple como
@@ -385,21 +385,26 @@ Se generan 4 caracteres Base64, pero dos provienen de relleno →  Resultado:  b
         Cuantas menos evidencias existan sobre quién firmó y cómo lo hizo, más complicada será su defensa.  </p>
 
         <ul> Se distinguen tres niveles
-          <li>Firma electrónica simple → válida, pero con menor fuerza probatoria. <br>
+          <li>Firma electrónica <strong>simple</strong> → válida, pero con menor fuerza probatoria. <br>
           ==> Haces clic en «Acepto el contrato».</li>
-          <li>Firma electrónica avanzada → permite identificar mejor al firmante y detectar modificaciones. <br>
+          <li>Firma electrónica <strong>avanzada</strong> → permite identificar mejor al firmante y detectar modificaciones. <br>
           ==> Recibes un SMS con un código único y firmas a través de una plataforma que registra tu identidad, fecha, hora e IP.</li>
-          <li>Firma electrónica cualificada → tiene el nivel más alto y, jurídicamente, es equivalente a la firma manuscrita en toda la UE. <br>
+          <li>Firma electrónica <strong>cualificada</strong> → tiene el nivel más alto y, jurídicamente, es equivalente a la firma manuscrita en toda la UE. <br>
           ==> Utilizas tu certificado digital cualificado o el DNIe para firmar electrónicamente el contrato.</li>
         </ul>
 
-
-
        <hr> <h3>🔐 Firma digital</h3>
-        <p>Es un tipo específico de firma electrónica, pero mucho más segura. Se basa en tecnologías de criptografía.</p>
+        <p>La firma digital y la firma electrónica cualificada estan relacionadas, pero no son sinónimos.
+           La diferencia principal es que se trata de conceptos de naturaleza diferente</p>
+        <ul>
+          <li><strong>Firma electrónica cualificada</strong>: Es una categoria jurídica definida por el  Regalmento eIDAS de la Unión Europea. Tiene que cumplir requisitos específicos en cuanto al certificado, al dispositivo de creación de la firma y al resto de  condiciones legales.</li>
+          <li><strong>Firma digital</strong>: Es un concepto técnico basado en la criptografia de clave pública. Permite comprobar la autenticidad de la firma y detectar modificaciones en los datos firmados, siempre que se verifiquen correctamente las claves y los certificados corresponendientes.</li>
+        </ul>
+
+        <p>Es un tipo específico de firma electrónica. Se basa en tecnologías de criptografía.</p>
         <p>La firma digital real es invisible. No tiene forma visual, No es un trazo ni una imagen. <br>
            Son solo datos matemáticos (hash cifrado + certificado), por eso no hay “dibujos reales” que la representen fielmente.</p>
-
+      
      <hr>   <pre>Ejemplo parcial de codigo anexado al documento que se firma
 -----BEGIN PKCS7-----
 MIIG... (muchos caracteres)
@@ -413,32 +418,24 @@ MIIG... (muchos caracteres)
         <li>Un documento puede estar firmado digitalmente sin mostrar ningún sello o imagen visible.</li>
         <li>También puede mostrar una imagen de una firma manuscrita y no estar firmado digitalmente en absoluto.</li>
       </ul>
-<hr>
-<ul>El uso de certificados digitales emitidos por entidades certificadoras garantiza:
-  <li>Identidad del firmante</li>
-  <li>Integridad del documento (no ha sido alterado)</li>
-  <li>No repudio (el firmante no puede negar que firmó)</li>
-</ul>
-<p>Es la que se usa en trámites oficiales, contratos importantes y documentos legales de alto valor.</p>
+    <hr>
+    <ul>El uso de certificados digitales emitidos por entidades certificadoras garantiza:
+      <li>Identidad del firmante</li>
+      <li>Integridad del documento (no ha sido alterado)</li>
+      <li>No repudio (el firmante no puede negar que firmó)</li>
+    </ul>
+    <p>Es la que se usa en trámites oficiales, contratos importantes y documentos legales de alto valor.</p>
 
-<ul>En resumen
-  <li>Toda firma digital es electrónica,</li>
-  <li>pero no toda firma electrónica es digital.</li>
-</ul>
+    <ul>En resumen
+      <li>Toda firma digital es electrónica,</li>
+      <li>pero no toda firma electrónica es digital.</li>
+    </ul>
 
-         <hr> <h2> HASH y Firma Digital</h2>
-          <p>La relación entre hash y firma digital es fundamental: 
-            la firma digital no se aplica directamente sobre el documento completo, sino sobre su huella criptográfica (hash).</p>
+      <h3> HASH y Firma Digital</h3>
+      <p>La relación entre hash y firma digital es fundamental: 
+        la firma digital no se aplica directamente sobre el documento completo, sino sobre su huella criptográfica (hash).</p>
         
-          <h3> ¿Qué es un HASH?</h3>
-          <p>Un <strong>hash</strong> es una función matemática que transforma cualquier dato (texto, archivo, etc.)
-             en una cadena única de caracteres. También se le suele llamar funcion RESUMEN o DIGEST</p>
-          <ul>
-            <li> Siempre genera una salida del mismo tamaño, sin importar el tamaño del archivo de entrada.</li>
-            <li> Un pequeño cambio en los datos produce un hash completamente distinto.</li>
-            <li> La función hash NO es reversible.(computacionalmente Intratable)</li>
-            <li> Ejemplo de hash  </li>
-          </ul>
+ <!--
           <pre>
        md5("SAD-ASIX2") -> <code>786cf5f44e74ef51bd7ec7cdf8950e22</code>
 Pero.. md5("SAD-ASIX1") -> <code>834743d3c372fa45434f72665c309c0e</code>              
@@ -459,97 +456,46 @@ Pero.. md5("SAD-ASIX1") -> <code>834743d3c372fa45434f72665c309c0e</code>
 
 <p>Otros mecanismos de ejemplo son: checksums; CRC; dígitos de control bancarios;
 ISBN; códigos EAN.</p>
-            
-        <h3> Usos comunes de las funciones HASH</h3>
-        
-        <ul>
-            <li> <strong>Verificación de integridad:</strong> Comprobar si un archivo ha sido modificado comparando su hash original con uno nuevo.</li>
-            <li> <strong>Almacenamiento seguro de contraseñas:</strong> Las contraseñas no se guardan como texto plano, sino como hashes. Así, aunque se acceda a la base de datos, no se conoce la contraseña real.</li>
-            <li> <strong>Identificación de archivos:</strong> Sistemas de gestión de archivos o descargas (como torrents) usan hashes para identificar archivos únicos y evitar duplicados.</li>
-            <li> <strong>Firmas digitales:</strong> El hash es la base sobre la que se aplica la clave privada para generar una firma digital.</li>
-            <li> <strong>Estructuras de datos:</strong> En programación, estructuras como las tablas hash permiten acceder rápidamente a datos usando claves.</li>
-            <li> <strong>Blockchain y criptomonedas:</strong> Cada bloque contiene el hash del anterior. Así se garantiza la integridad de toda la cadena de bloques.</li>
-            <li> <strong>Generación de identificadores únicos:</strong> Para identificar usuarios, sesiones, transacciones, etc., de forma segura y eficiente.</li>
-        </ul>
-        
-        <h3>🔢 Tipos de Funciones Hash</h3>
+            --> 
 
-        <p>Existen varias funciones hash, cada una con diferentes niveles de seguridad y velocidad.</p>
+    <h3>✍️ ¿Qué es una Firma Digital?</h3>
+    <p>Una <strong>firma digital</strong> es un mecanismo criptográfico que garantiza que un documento:</p>
+    <ul>
+      <li> No ha sido modificado (integridad).</li>
+      <li> Proviene del remitente esperado (autenticidad).</li>
+      <li> No puede ser repudiado (no repudio).</li>
+    </ul>
 
-        <ul>
-            <li> <strong>MD5 (Message Digest 5):</strong><br>
-            ➤ Genera hashes de 128 bits (32 caracteres hexadecimales).<br>
-            ⚠️ Ya no es considerado seguro para criptografía, pero aún se usa para integridad de archivos.</li>
+    <h3>¿Como se usa?</h3>
+    <p> Para crearla se usan:</p>
+    <ol>
+      <li> El hash del documento.</li>
+      <li> Una clave privada del emisor del documento, que cifra ese hash.</li>
+      <li> Este hash cifrado es la firma</li>
+    </ol>
+    <p> El receptor puede verificar la firma usando la clave pública del emisor.</p>
 
-            <li> <strong>SHA-1 (Secure Hash Algorithm 1):</strong><br>
-            ➤ Produce hashes de 160 bits.<br>
-            ⚠️ También ha sido vulnerado, por lo que se desaconseja su uso en seguridad crítica.</li>
+  <ul>El receptor
+    <li>Calcula el hash del documento recibido</li>
+    <li>Descifra la firma con la clave pública</li>
+    <li>Compara ambos hashes</li>
+  </ul>  
+  <p>Si coinciden → el documento es auténtico y no ha sido modificado.</p>
+  
+    <h4> En resumen:</h4>
+    <ul>
+      <li> <strong>Hash:</strong> Detecta si un archivo ha sido alterado.</li>
+      <li> <strong>Firma digital:</strong> Garantiza que el archivo es original y viene de quien dice enviarlo.</li>
+    </ul>
+    <br>
+    <p>⚠️⚠️⚠️ Pero...., quien dice enviarlo, ¿ es realmente quien dice que es ?</p>
+    <p>Este problema se resuelve con los <code>Certificados Digitales</code></p>
 
-            <li> <strong>SHA-256:</strong><br>
-            ➤ Parte de la familia SHA-2.<br>
-            ➤ Genera hashes de 256 bits (64 caracteres hexadecimales).<br>
-             Muy utilizado en blockchain y seguridad moderna.</li>
-
-            <li> <strong>SHA-512:</strong><br>
-            ➤ Similar a SHA-256 pero con una longitud de 512 bits.<br>
-            ➤ Más seguro pero también más pesado computacionalmente.</li>
-
-            <li> <strong>BLAKE2:</strong><br>
-            ➤ Más rápido que SHA-2 y con buena seguridad.<br>
-            ➤ Alternativa moderna recomendada en muchos entornos.</li>
-
-            <li> <strong>RIPEMD-160:</strong><br>
-            ➤ Usado en aplicaciones como Bitcoin junto con SHA-256.</li>
-        </ul>
-
-        <p>No todas las funciones hash son adecuadas para seguridad. Para almacenar contraseñas deben usarse 
-    funciones de hash lentas y resistentes a ataques por fuerza bruta  y hardware especializado, como  </p>
-
-        <ul>
-            <li> <strong>bcrypt</strong></li>
-            <li> <strong>scrypt</strong></li>
-            <li> <strong>Argon2</strong> (ganador del Password Hashing Competition)</li>
-            <li> <strong>yescrypt</strong></li>
-        </ul>
-
-        <hr>  <h3>✍️ ¿Qué es una Firma Digital?</h3>
-          <p>Una <strong>firma digital</strong> es un mecanismo criptográfico que garantiza que un documento:</p>
-          <ul>
-            <li> No ha sido modificado (integridad).</li>
-            <li> Proviene del remitente esperado (autenticidad).</li>
-            <li> No puede ser repudiado (no repudio).</li>
-          </ul>
-
-          <h3>¿Como se usa?</h3>
-          <p> Para crearla se usan:</p>
-          <ol>
-            <li> El hash del documento.</li>
-            <li> Una clave privada del emisor del documento, que cifra ese hash.</li>
-            <li> Este hash cifrado es la firma</li>
-          </ol>
-          <p> El receptor puede verificar la firma usando la clave pública del emisor.</p>
-
-        <ul>El receptor
-          <li>Calcula el hash del documento recibido</li>
-          <li>Descifra la firma con la clave pública</li>
-          <li>Compara ambos hashes</li>
-        </ul>  
-        <p>Si coinciden → el documento es auténtico y no ha sido modificado.</p>
-        
-          <h4> En resumen:</h4>
-          <ul>
-            <li> <strong>Hash:</strong> Detecta si un archivo ha sido alterado.</li>
-            <li> <strong>Firma digital:</strong> Garantiza que el archivo es original y viene de quien dice enviarlo.</li>
-          </ul>
-          <br>
-          <p>⚠️⚠️⚠️ Pero...., quien dice enviarlo, ¿ es realmente quien dice que es ?</p>
-          <p>Este problema se resuelve con los <code>Certificados Digitales</code></p>
-
-      </section>
+  </section>
 
 
 
-      <section id="cert-digital">
+  <section id="cert-digital">
            <h1 class="main-title">Certificados Digitales</h1>
           <img src="imgs/certifcado-digital.png" alt="cert-dig" width="35%" class="imatge-dreta">
           <p>Un <strong>certificado digital</strong> es como una "credencial digital" que identifica de forma segura a una persona, empresa o servidor en Internet.</p>
