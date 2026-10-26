@@ -260,7 +260,7 @@
     <a href="#criptomod">Criptografia moderna</a>
     <a href="#criptohash">Técnicas Hash</a>
     <a href="#stegano">Esteganografia</a>
-    <a href="#practica">Practica</a>
+    
     <a href="#altres-recursos">Comprueba tu progreso</a>
   </div>
 
@@ -1062,10 +1062,12 @@ Datos de clientes o de trabajo</p>
  <h1 class="main-title">FUNCIONES HASH</h1>
   <h2>Funciones resumen o funciones hash (también funciones digest)</h2>
   <ul>
-    <li>Los sistemas asimétricos se apoyan en <span class="highlight">funciones resumen</span> o <span class="highlight">funciones hash</span> de un solo sentido. Su cálculo directo es viable, pero la función inversa resulta casi imposible (<span class="label">computacionalmente intratable</span>).</li>
-    <li>El resumen siempre tiene una <span class="label">longitud fija</span> y pequeña (típicamente 128 o 256 bits).</li>
+    <li>Las funciones <code>hash</code>  son de un solo sentido. Su cálculo directo es viable, pero la función inversa resulta casi imposible (<strong>computacionalmente intratable</strong> ).</li>
+    <li>El resumen siempre tiene una longitud fija  y pequeña (típicamente 128 o 256 bits). Independientemente del tamaño de los datos de entrada</li>
+    <li>Se pueden aplicar a datos de cualquier tamaño, desde una palabra o una frase corta hasta documentos, imágenes, vídeos o ficheros de varios gigabytes.</li>
     <li>Pequeños cambios en el documento producen grandes cambios en el hash.</li>
-    <li>Algoritmos empleados como funciones resumen o funciones hash: ejemplos: <span class="label">MD5 y SHA</span>.</li>
+    <li>Algoritmos empleados como funciones resumen o funciones hash: ejemplos: MD5 y SHA.</li>
+    <li>Cada algoritmo puede tener variantes:  SHA-256 , SHA-512, SHA-224, ..</li>
   </ul>
 
   <h2>Usos</h2>
@@ -1146,26 +1148,27 @@ $ openssl dgst -sha3-256 texto.plano</pre>
 
   <h3>Otras funciones Hash</h3>
   <ul>
-    <li>WHIRLPOOL</li>
-    <li>Streebog</li>
-    <li>CRC</li>
-    <li>Tiger</li>
-    <li>Snefru</li>
-    <li>RipeMD</li>
-    <li>MD2, MD4</li>
-    <li>Haval</li>
-    <li>Adler</li>
-    <li>Gost</li>
+    <li>WHIRLPOOL - Fue diseñada para ofrecer resistencia a colisiones y a otros ataques criptográficos</li>
+    <li>Streebog/Gost - es un estándar ruso de hash criptográfico </li>
+    <li>CRC  (función antigua de detección de errores)</li>
+    <li>Adler (función antigua de detección de errores)</li>
+    <li>Tiger - Diseñada para ordenadores de 64 bits</li>
+    <li>RipeMD - Desarrollada en el marco de proyectos europeos de investigación criptográfica.</li>
+    <li>MD2, MD4 - Son algoritmos hash antiguos que generan resúmenes de 128 bits. MD2 se diseñó para sistemas de 8 bits</li>
   </ul>
   <p>Herramienta online: <code>https://hash.online-convert.com/</code></p>
 
   <h3>Funciones Hash Lentas (especiales para contraseñas)</h3>
   <ul>
-    <li><span class="label">Argon2</span></li>
-    <li><span class="label">scrypt</span></li>
-    <li><span class="label">bcrypt</span></li>
-    <li><span class="label">PBKDF2</span></li>
+    <li>Argon2</li>
+    <li>scrypt</li>
+    <li>bcrypt</li>
+    <li>PBKDF2</li>
   </ul>
+  <p>Las funciones hash lentas (Argon2, scrypt, bcrypt y PBKDF2) son lentas intencionadamente, para dificultar que un atacante 
+    pueda probar millones o miles de millones de contraseñas por segundo si consigue obtener una base de datos de contraseñas.</p>
+  <p>De entre las funciones HASH ràpidas, la familia SHA (Secure Hash Algorithm) es más utilizada porque combina seguridad criptográfica,
+     estandarización, disponibilidad en prácticamente todos los sistemas y una buena eficiencia.</p>
   <hr>
   <div class="actividad">
     <h3>Práctica - Truecrypt</h3>
@@ -1178,7 +1181,7 @@ $ openssl dgst -sha3-256 texto.plano</pre>
   </div>
 
   <div class="actividad">
-    <h3>Práctica — Calcular HASHes en Windows</h3>
+    <h3>Práctica — Calcular HASHes en Windows (con un programa)</h3>
     <p>Instala y utiliza el programa para calcular hashes: <code>https://www.quickhash-gui.org/downloads/</code></p>
     <p>Visita la página oficial y contesta:</p>
     <ul>
@@ -1317,7 +1320,7 @@ $ openssl dgst -sha3-256 texto.plano</pre>
    <hr><p>La primera actividad necesita el documento .PDF original. Hay que descargarlo primero...</p>
   <div class="actividad">
     <h3>Actividad: ESTEGANO-1</h3>
-    <p>Busca en EL documento PDF información oculta.</p>
+    <p>Busca en el documento PDF información oculta.</p>
     <p><em>Pista: no está en esta página.</em></p>
   </div>
 
@@ -1353,19 +1356,19 @@ $ openssl dgst -sha3-256 texto.plano</pre>
    </section>
 
 
-      <section id="practica">
+  <!--    <section id="practica">
         <h2>Ejercicios y pràcticas</h2>
       
-        <!--   <h3>P1</h3>
-        <p>Prepara ... </p>  -->
+           <h3>P1</h3>
+        <p>Prepara ... </p>  
       
         <hr> <h2>Ampliación</h2>
        
-        <!--   <li>Instala, p</li>
+           <li>Instala, p</li>
         <li>Actividad de Esteganografia con canal alpha en python</li>
-        <li>Actividad de Esteganografia con LSB en python</li>   -->
+        <li>Actividad de Esteganografia con LSB en python</li> 
 
-      </section>
+      </section>  -->
 
 
  
