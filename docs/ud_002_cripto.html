@@ -303,7 +303,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...
         <p>Es frecuente ver Base64 en: Certificados X.509, Claves públicas SSH, Firmas digitales y Certificados TLS/SSL.</p>
        <hr><h3>Como se codifica en BASE64</h3>
           <p>Un ordenador almacena la información en bytes (8 bits). Base64 toma esos bytes y los transforma en grupos de 6 bits</p>
-          <p>Cada grupo puede tomar un valor entre 0 y 63. Cada valor se asocia a un caracter.</p>
+          <p>Cada grupo puede tomar un valor entre 0 y 63. Cada valor se asocia a un caracter. (tabla Base64)</p>
 <div style="max-width: 100%; overflow-x: auto;">
     <table style="width: max-content; border-collapse: collapse;">
       <tr>  <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th></tr>
@@ -326,7 +326,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...
 
 <p><strong>Ejemplo completo </strong>: codificar "man"  <br>
  -- En este caso el número de bytes es múltiplo de 3 --</p>
-<p>Paso 1: Convertir cada carácter a ASCII y después a binario</p>
+<p>Paso 1: Convertir cada carácter a ASCII y después a binario (8 bits cada carácter)</p>
 <pre>m a n    →   109 97 110    →    01101101 01100001 01101110  </pre>
 <pre>Agrupar bits(hay 24)  011011010110000101101110   </pre>
 <img src="imgs/base64_2.png" alt="base64" width="45%" class="imatge-dreta">
@@ -349,13 +349,16 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...
 <pre>01101101 01100001 00000000    Añadir un grupo de 8 ceros
 011011010110000100000000      Agrupar
 011011 010110 000100 000000   Dividir en grupos de 6
-b      W      E      A</pre>
+b      W      E      A        Interpretar cada grupo con su letra de la tabla</pre>
 <p> ➡️ Pero como el último grupo procede de bits añadidos artificialmente, se sustituye por padding =</p>
 <pre>bWE=
 ma → bWE= </pre>
 <p><strong>Ejemplo: "m"</strong>  →  Un único byte: m = 01101101 → Se completan los bits faltantes  01101101 00000000 00000000  <br>
 Se generan 4 caracteres Base64, pero dos provienen de relleno →  Resultado:  bQ==</p>
-
+<div class="tips">
+Hack: El mensaje original tiene que tener una longitud que sea multiplo de 3. Ejemplos 3,6,9,12,.... Si no, se tiene que rellenar con uno o dos
+grupos de ceros, para que sea multiplo de 3. Para indicarlo, en el mensaje final se pondran uno o dos simbolos de "=".
+</div>
 
 
       <hr> <h2>Criptografia Híbrida</h2>
