@@ -52,68 +52,124 @@
   
 
       <section id="amenazas">
-        <h2>Tipos de amenazas en Ciberseguridad</h2>
+        <h1>Tipos de amenazas en Ciberseguridad</h1>
         <p>Existen varios tipos de amenazas que pueden comprometer la seguridad de sistemas y datos. Se pueden dividir en dos grandes grupos</p>
         <ul>
-            <li>Internas</li>
-            <li>Extenas</li>
+            <h3><li>Internas</li></h3> proceden de personas que tienen acceso legítimo a los sistemas, instalaciones o información de una organización.
+            <h3><li>Extenas</li></h3> proceden de personas, grupos u organizaciones ajenas que intentan comprometer los sistemas, servicios o información.
         </ul>
+        <hr>
+ 
+<h2>💣 Amenazas internas (Insider Threats)</h2>
 
-        <div class="ataque">
-        <h3>💣 Amenazas Internas</h3>
-        <p>Riesgos que provienen de empleados o personas con acceso legítimo a los sistemas, que pueden actuar maliciosamente o por descuido.</p>
-        <p>Tambien denominados <strong>Insiders</strong></p>  
-        <ul> <strong> Clasificación de Amenazas Internas </strong>
-            <li>Amenazas internas intencionadas
-                <ul>
-                    <li>Empleados maliciosos: Utilizan sus privilegios y conocimientos de la organización para causar daños intencionados, como filtrar información confidencial</li>
-                    <li>Externos con acceso interno: Cibercriminales que han logrado acceder a la red o edificio de una organización y la utilizan para causar daños</li>
-                </ul>
-            </li>
-            <li>Amenazas internas accidentales
-                <ul>
-                    <li>Empleados negligentes: Causan daños no intencionados debido a errores humanos o decisiones equivocadas, como compartir datos confidenciales por error</li>
-                    <li>Malas prácticas: Por ejemplo, insertar un USB infectado en un ordenador corporativo sin mala intención</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+<p>Son los riesgos que proceden de personas que tienen o han tenido acceso legítimo a los sistemas, instalaciones o información 
+  de una organización.</p>
+<p>Estas personas pueden aprovechar sus privilegios de forma maliciosa o provocar incidentes involuntariamente debido
+   a errores, desconocimiento o negligencia.</p>
+<p>     También se conocen como <strong>Insiders</strong>. </p>
 
-        <h3> Cómo Evitar Amenazas Internas</h1>
-        <ul>
-        <li><strong>Modelo de amenazas</strong>: Utiliza el modelado de amenazas para comprender la postura de seguridad de tu organización.</li>
-        <li><strong>Principio de privilegios mínimos</strong>: Implementa y practica el principio de privilegios mínimos, asegurando que los empleados solo tengan acceso a la información y sistemas necesarios para su trabajo.</li>
-        <li><strong>Autenticación segura</strong>: Garantiza una autenticación segura para todas las cuentas y sistemas, utilizando métodos como la autenticación multifactor.</li>
-        <li><strong>Gestión de cuentas</strong>: Elimina o actualiza las cuentas cuando los empleados se vayan de la organización.</li>
-         <li><strong>Monitoreo de actividades</strong>: Investiga las actividades inusuales y mantén un monitoreo constante de los sistemas para detectar comportamientos sospechosos.</li>
-         <li><strong>Educación y concienciación</strong>: Capacita a los empleados sobre las mejores prácticas de seguridad y la importancia de seguir los protocolos establecidos.</li>
-         </ul>
-        
-         <div class="ataque">    
-        <h3>🚨 Amenazas externas</h3>
-        <ul>
-         <li><strong>Malware</strong>: Software malicioso diseñado para dañar o infiltrarse en sistemas. Incluye virus, gusanos, troyanos y spyware.</li>
-         <li><strong>Ransomware</strong>: Un tipo de malware que encripta los datos de la víctima y exige un rescate para liberarlos.</li>
-         <li><strong>BotNets</strong>: Grupo de ordenadores infectados y controlados por un atacante de forma remota </li>
-         <li><strong>Phishing</strong>: Ataques que buscan engañar a las personas para que revelen información confidencial, como contraseñas o datos bancarios, generalmente a través de correos electrónicos falsos.</li>
-         <li><strong>Ataques de denegación de servicio (DoS/DDoS)</strong>: Intentos de hacer que un servicio en línea no esté disponible sobrecargándolo con tráfico falso.</li>
-         <li><strong>Ataques Man-in-the-Middle (MitM)</strong>: Interceptación de comunicaciones entre dos partes para robar o alterar la información transmitida.</li>
-         <li><strong>Inyección SQL</strong>: Ataques que explotan vulnerabilidades en aplicaciones web para ejecutar comandos SQL maliciosos en la base de datos.</li>
-        </ul>
-         </div>
+<h2>Clasificación de las amenazas internas</h2>
+<h3>1. Amenazas internas intencionadas</h3>
+<p> Se producen cuando una persona con acceso legítimo utiliza sus conocimientos, privilegios o recursos para perjudicar a la organización de forma deliberada.</p>
+<ul>
+    <li>        <strong>Empleados maliciosos:</strong> utilizan sus privilegios para robar, modificar o destruir información, sabotear sistemas o filtrar datos confidenciales.    </li>
+    <li>        <strong>Colaboradores o proveedores maliciosos:</strong> personas externas a la plantilla, pero que disponen de acceso autorizado a los sistemas de la organización, y que utilizan ese acceso para causar daños.    </li>
+</ul>
 
+<h3>2. Amenazas internas accidentales</h3>
+<p>    Se producen cuando una persona con acceso legítimo provoca un incidente de seguridad sin intención de hacerlo.</p>
+<ul>
+    <li>
+        <strong>Empleados negligentes:</strong> cometen errores o incumplen los procedimientos de seguridad, como compartir información confidencial por error o utilizar contraseñas poco seguras.
+    </li>
+    <li>
+        <strong>Malas prácticas:</strong> realizan acciones que ponen en peligro la seguridad, como conectar una memoria USB de origen desconocido o instalar software no autorizado.
+    </li>
+</ul>
+<h3>3. Usuarios internos comprometidos</h3>
+<p>    Se producen cuando un atacante externo consigue controlar una cuenta legítima o el equipo de un empleado.</p>
+<p>Por ejemplo:</p>
+<ul>
+    <li>Un ciberdelincuente roba las credenciales de un empleado mediante phishing.</li>
+    <li>Posteriormente, utiliza esa cuenta para acceder a información interna.</li>
+    <li>Las acciones del atacante pueden parecer realizadas por un usuario legítimo.</li>
+</ul>
+<p class="alert">    <strong>Importante:</strong> un usuario interno comprometido no es necesariamente un insider malicioso. Aunque el ataque utiliza una cuenta legítima, quien lo realiza es un atacante externo.</p>
+<h2>Cómo prevenir las amenazas internas</h2>
+<ul>
+    <li> <strong>Principio de privilegios mínimos:</strong> cada usuario debe disponer únicamente de los permisos necesarios para realizar sus funciones.    </li>
+    <li> <strong>Control de acceso:</strong> establecer mecanismos para limitar el acceso a información y recursos sensibles.    </li>
+    <li> <strong>Autenticación segura:</strong> utilizar contraseñas robustas y autenticación multifactor (MFA).    </li>
+    <li>  <strong>Gestión de cuentas:</strong> crear, modificar y eliminar las cuentas según las necesidades de cada usuario. Revocar los accesos cuando una persona abandone la organización o cambie de puesto.    </li>
+    <li>  <strong>Monitorización de actividades:</strong> registrar y analizar las acciones realizadas por los usuarios para detectar comportamientos anómalos.    </li>
+    <li>  <strong>Separación de funciones:</strong> evitar que una única persona tenga el control completo de operaciones críticas cuando sea posible.    </li>
+    <li> <strong>Educación y concienciación:</strong> formar a los empleados en buenas prácticas de seguridad y protección de la información.    </li>
+    <li> <strong>Políticas de seguridad:</strong> establecer procedimientos claros para el tratamiento de información confidencial y el uso de los recursos corporativos.    </li>
+</ul>
+<hr>
 
-         <h3> Cómo Evitar Amenazas Internas</h3>
-         <ul>
-         <li><strong>Modelo de amenazas</strong>: Utiliza el modelado de amenazas para identificar y comprender las posibles vulnerabilidades y riesgos dentro de tu organización. Esto te ayudará a anticipar y mitigar posibles ataques internos.</li>
-         <li><strong>Principio de privilegios mínimos</strong>: Asegúrate de que los empleados solo tengan acceso a la información y sistemas necesarios para realizar su trabajo. Limitar los privilegios reduce el riesgo de que datos sensibles sean comprometidos.</li>
-         <li><strong>Autenticación segura</strong>: Implementa métodos de autenticación robustos, como la autenticación multifactor (MFA), para proteger las cuentas y sistemas. Esto añade una capa adicional de seguridad, dificultando el acceso no autorizado.</li>
-         <li><strong>Gestión de cuentas</strong>: Mantén un control riguroso sobre las cuentas de usuario. Asegúrate de eliminar o actualizar las cuentas cuando los empleados dejen la organización o cambien de rol.</li>
-         <li><strong>Monitoreo de actividades</strong>: Realiza un monitoreo constante de las actividades en los sistemas para detectar comportamientos inusuales o sospechosos. Investiga cualquier actividad que parezca fuera de lo común.</li>
-         <li><strong>Educación y concienciación</strong>: Capacita a los empleados sobre las mejores prácticas de seguridad y la importancia de seguir los protocolos establecidos. La formación continua ayuda a crear una cultura de seguridad dentro de la organización.</li>
-         </ul>
+<h2>🚨 Amenazas externas</h2>
+<p> Son aquellas que proceden de personas, grupos u organizaciones ajenas que intentan comprometer la confidencialidad, integridad o disponibilidad de los sistemas y la información.</p>
+<p>  Pueden tener diferentes objetivos: robar información, obtener beneficios económicos, interrumpir servicios, realizar espionaje o causar daños.</p>
+<h2>Principales amenazas externas</h2>
 
-      </section>
+<h3>1. Malware (software malicioso)</h3>
+<p>    Software diseñado para infiltrarse en un sistema, realizar acciones no autorizadas o causar daños.</p>
+<p>Entre sus principales tipos encontramos:</p>
+<ul>
+    <li>        <strong>Virus:</strong> programa malicioso que se incorpora a otros archivos o programas y necesita que estos se ejecuten para propagarse.
+    </li>
+    <li>        <strong>Gusanos (Worms):</strong> malware capaz de propagarse automáticamente entre sistemas, normalmente a través de redes.
+    </li>
+    <li>        <strong>Troyanos:</strong> programas que aparentan ser legítimos, pero ocultan funcionalidades maliciosas.
+    </li>
+    <li>        <strong>Spyware:</strong> software que recopila información de un dispositivo o de sus usuarios sin autorización.
+    </li>
+    <li>        <strong>Ransomware:</strong> tipo de malware que cifra los archivos o bloquea el acceso a los sistemas y exige un rescate para intentar recuperarlos.
+    </li>
+</ul>
+
+<h3>2. Botnets</h3>
+<p>    Redes de dispositivos comprometidos (ordenadores, servidores, routers, cámaras IP, etc.) que un atacante controla de forma remota.</p>
+<p>    Los dispositivos infectados se denominan <strong>bots</strong> o <strong>zombis</strong>.</p>
+<p>Se pueden utilizar para:</p>
+<ul>
+    <li>Realizar ataques DDoS.</li>
+    <li>Enviar campañas masivas de spam.</li>
+    <li>Distribuir malware.</li>
+    <li>Realizar otras actividades maliciosas de forma coordinada.</li>
+</ul>
+
+<h3>3. Phishing (suplantación de identidad)</h3>
+<p>    Técnica de ingeniería social que consiste en engañar a una persona para conseguir información confidencial o inducirla a realizar una acción perjudicial.</p>
+<p>    Habitualmente se realiza mediante correos electrónicos fraudulentos, aunque también puede utilizar SMS, llamadas telefónicas o páginas web falsas.</p>
+<p>    Por ejemplo, un atacante envía un correo que simula proceder de un banco y dirige a la víctima a una página falsa para robar sus credenciales.</p>
+
+<h3>4. Ataques de denegación de servicio (DoS/DDoS)</h3>
+<p>    Ataques cuyo objetivo es impedir que los usuarios legítimos puedan acceder a un servicio o recurso.</p>
+<ul>
+    <li>
+        <strong>DoS (Denial of Service):</strong> el ataque procede de un único origen o sistema atacante.
+    </li>
+    <li>
+        <strong>DDoS (Distributed Denial of Service):</strong> el ataque se realiza desde múltiples dispositivos o sistemas distribuidos, frecuentemente mediante una botnet.
+    </li>
+</ul>
+<p>    Normalmente intentan saturar los recursos de un servidor o de una infraestructura de red mediante un volumen elevado de peticiones o tráfico</p>
+<h2>Cómo prevenir las amenazas externas</h2>
+<ul>
+    <li>        <strong>Actualizaciones y parches de seguridad:</strong> mantener actualizados los sistemas operativos, aplicaciones y servicios para corregir vulnerabilidades conocidas.    </li>
+    <li>        <strong>Cortafuegos (Firewalls):</strong> controlar el tráfico de red entrante y saliente mediante reglas de seguridad.    </li>
+    <li>        <strong>Sistemas de detección y prevención de intrusiones (IDS/IPS):</strong> detectar actividades sospechosas y, cuando corresponda, bloquearlas.    </li>
+    <li>        <strong>Antivirus y soluciones EDR:</strong> detectar, analizar y responder ante software malicioso y comportamientos sospechosos.    </li>
+    <li>        <strong>Cifrado de comunicaciones:</strong> utilizar protocolos seguros como HTTPS y TLS para proteger la información transmitida.    </li>
+    <li>        <strong>Copias de seguridad:</strong> realizar copias periódicas, mantenerlas protegidas y comprobar que pueden restaurarse. Son especialmente importantes frente al ransomware.    </li>
+    <li>        <strong>Protección de aplicaciones web:</strong> aplicar medidas como consultas parametrizadas para evitar inyecciones SQL, validar las entradas y configurar correctamente los permisos.    </li>
+    <li>        <strong>Protección frente a DDoS:</strong> utilizar mecanismos de filtrado, limitación de peticiones y servicios especializados de mitigación.    </li>
+    <li>        <strong>Formación y concienciación:</strong> enseñar a los usuarios a reconocer correos fraudulentos, enlaces sospechosos y otras técnicas de ingeniería social.    </li>
+</ul>
+
+ </section>
       
      
 
@@ -186,7 +242,7 @@
       </section>
 
       <section id="origenapps">
-        <h2> Origen y autenticidad de aplicaciones</h2>
+        <h1> Origen y autenticidad de aplicaciones</h1>
         <p>Cuando hablamos del origen y autenticidad de aplicaciones, nos referimos a verificar de dónde
              proviene una app y si es confiable o legítima antes de instalarla. Esto es fundamental para proteger
              la seguridad de tus datos y dispositivos</p>
@@ -266,12 +322,9 @@
     <section id="swamenazas">
     <h1> Software de Detección de Amenazas</h1>
 
-
       <h2> ¿Qué es?</h2>
       <p>Es un conjunto de herramientas diseñadas para detectar, bloquear y eliminar amenazas digitales 
         como virus, malware, spyware, ransomware, rootkits, etc.</p>
-
-  
 
       <h2> Tipos de Software de deteccion de amenazas</h2>
       <ul>
@@ -302,7 +355,6 @@
         <li>Notificaciones de seguridad</li>
       </ul>
 
-  
     <div class=" alert">
       <h2> Ejemplos Populares</h2>
       <ul>
@@ -347,8 +399,9 @@
         <li>✔ Procesos del sistema que acaparan demasiados recursos (administrador de tareas)</li>
       </ul>
 
-
     </section>
+
+
 
 
     <section id="wifi">
@@ -395,14 +448,11 @@
 
     <section id="inventariar">
         <h1>Inventariar Servicios de Red</h1>
-
-    
           <h2> ¿Qué es?</h2>
           <p>Es el proceso de identificar, registrar y monitorear todos los servicios 
             activos en la red, como servidores, protocolos y aplicaciones. 
             Esto incluye servidores web, DNS, FTP, DHCP, correo electrónico, impresoras en red, etc.</p>
-       
- 
+      
           <h2> Por qué es importante?</h2>
           <ul>
             <li>Detecta servicios no autorizados o inseguros.</li>
@@ -412,7 +462,6 @@
             
           </ul>
       
-   
           <h2> ¿Qué se debe inventariar?</h2>
           <ul>
             <li>Tipo de servicio (DNS, HTTP, FTP...)</li>
@@ -423,8 +472,7 @@
             <li>Responsable / área</li>
             <li>Estado actual (activo/inactivo)</li>
           </ul>
-     
-    
+       
           <h2>🛠️ Herramientas útiles</h2>
           <ul>
             <li><strong>Nmap</strong> – para escaneo de puertos/servicios</li>
@@ -434,8 +482,7 @@
             <li><strong>GLPI</strong>, <strong>Lansweeper</strong> (inventario completo)</li>
             <li><strong>Scripts personalizados</strong> (PowerShell, Bash)</li>
           </ul>
-     
-      
+           
         <div class=" tips">
           <h2> Buenas prácticas</h2>
           <ul>
@@ -447,6 +494,8 @@
           </ul>
         </div>
     </section>
+
+
 
 
      <section id="ids">

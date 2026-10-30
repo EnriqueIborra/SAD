@@ -252,6 +252,7 @@
   }
 
   .alert {
+     padding: 7px;
     background: #f9dcce;
     border-left: 6px solid #f39c12;
   }
@@ -259,6 +260,7 @@
     background: #c29473;
   }
   .tips {
+     padding: 7px;
     background: #d2f8e1;
     border-left: 6px solid #27ae60;
   }
